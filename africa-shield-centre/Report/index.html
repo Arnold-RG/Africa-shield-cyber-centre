@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Threat Reporting - Africa Shield Cyber Centre</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    
+    <style>
+        :root {
+            --primary-glow: #00ff88;
+            --secondary-glow: #ff0080;
+            --danger-glow: #ff3366;
+            --warning-glow: #ffaa00;
+            --info-glow: #00aaff;
+            --dark-bg: #0a0a0a;
+            --card-bg: rgba(20, 20, 30, 0.95);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --neon-shadow: 0 0 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .cyber-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 170, 255, 0.1) 0%, transparent 50%);
+            animation: bgShift 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgShift {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-20px) translateY(-20px); }
+        }
+
+        /* Grid Animation */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Navigation Enhancements */
+        .navbar {
+            background: rgba(10, 10, 10, 0.95) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--primary-glow);
+            box-shadow: var(--neon-shadow) rgba(0, 255, 136, 0.3);
+        }
+
+        .navbar-brand {
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            color: var(--primary-glow) !important;
+            text-shadow: var(--neon-shadow) var(--primary-glow);
+        }
+
+        .nav-link {
+            color: #ffffff !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-glow) !important;
+            text-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-glow);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+            box-shadow: var(--neon-shadow) var(--primary-glow);
+        }
+
+        /* Main Content Styling */
+        .main-container {
+            padding: 2rem 0;
+            position: relative;
+        }
+
+        .threat-report-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .threat-report-header h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: var(--neon-shadow) rgba(0, 255, 136, 0.5);
+            margin-bottom: 1rem;
+        }
+
+        .threat-report-header p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Card Styling */
+        .cyber-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            box-shadow: 
+                var(--neon-shadow) rgba(0, 255, 136, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .cyber-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                var(--neon-shadow) rgba(0, 255, 136, 0.4),
+                0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-glow);
+        }
+
+        .cyber-card-header {
+            background: linear-gradient(135deg, var(--danger-glow), var(--secondary-glow));
+            border-radius: 20px 20px 0 0;
+            padding: 1.5rem;
+            border: none;
+        }
+
+        .cyber-card-header h2 {
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: var(--neon-shadow) rgba(255, 255, 255, 0.5);
+        }
+
+        /* Form Styling */
+        .form-control, .form-select {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 10px;
+            color: #ffffff;
+            padding: 0.75rem 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-control:focus, .form-select:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary-glow);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+            color: #ffffff;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-label {
+            color: var(--primary-glow);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Button Styling */
+        .cyber-btn {
+            background: linear-gradient(45deg, var(--primary-glow), var(--info-glow));
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-family: 'Orbitron', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--neon-shadow) rgba(0, 255, 136, 0.4);
+        }
+
+        .cyber-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                var(--neon-shadow) rgba(0, 255, 136, 0.6),
+                0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .cyber-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cyber-btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-danger-cyber {
+            background: linear-gradient(45deg, var(--danger-glow), var(--secondary-glow));
+            box-shadow: var(--neon-shadow) rgba(255, 51, 102, 0.4);
+        }
+
+        .btn-danger-cyber:hover {
+            box-shadow: 
+                var(--neon-shadow) rgba(255, 51, 102, 0.6),
+                0 10px 30px rgba(255, 51, 102, 0.3);
+        }
+
+        /* Alert Styling */
+        .cyber-alert {
+            background: rgba(0, 170, 255, 0.1);
+            border: 1px solid var(--info-glow);
+            border-radius: 15px;
+            color: #ffffff;
+            backdrop-filter: blur(10px);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 170, 255, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 170, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 170, 255, 0); }
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .progress-bar-cyber {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow));
+            width: 0%;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        /* Threat Level Indicators */
+        .threat-level {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .threat-low { 
+            background: rgba(0, 255, 136, 0.2); 
+            color: var(--primary-glow);
+            border: 1px solid var(--primary-glow);
+        }
+        .threat-medium { 
+            background: rgba(255, 170, 0, 0.2); 
+            color: var(--warning-glow);
+            border: 1px solid var(--warning-glow);
+        }
+        .threat-high { 
+            background: rgba(255, 51, 102, 0.2); 
+            color: var(--danger-glow);
+            border: 1px solid var(--danger-glow);
+        }
+        .threat-critical { 
+            background: rgba(255, 0, 128, 0.2); 
+            color: var(--secondary-glow);
+            border: 1px solid var(--secondary-glow);
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 5px currentColor; }
+            to { box-shadow: 0 0 20px currentColor; }
+        }
+
+        /* Emergency Contacts */
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .emergency-card {
+            background: var(--glass-bg);
+            border: 1px solid rgba(255, 51, 102, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .emergency-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--danger-glow);
+            box-shadow: var(--neon-shadow) rgba(255, 51, 102, 0.3);
+        }
+
+                .emergency-btn {
+            background: linear-gradient(45deg, var(--danger-glow), var(--secondary-glow));
+            border: none;
+            border-radius: 25px;
+            padding: 0.75rem 1.5rem;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: var(--neon-shadow) rgba(255, 51, 102, 0.4);
+        }
+
+        .emergency-btn:hover {
+            transform: scale(1.05);
+            box-shadow: var(--neon-shadow) rgba(255, 51, 102, 0.6);
+            color: white;
+        }
+
+        /* File Upload Styling */
+        .file-upload-area {
+            border: 2px dashed rgba(0, 255, 136, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            background: rgba(0, 255, 136, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .file-upload-area:hover {
+            border-color: var(--primary-glow);
+            background: rgba(0, 255, 136, 0.1);
+            box-shadow: var(--neon-shadow) rgba(0, 255, 136, 0.2);
+        }
+
+        .file-upload-area.dragover {
+            border-color: var(--secondary-glow);
+            background: rgba(255, 0, 128, 0.1);
+            transform: scale(1.02);
+        }
+
+        /* AI Assistant Enhanced */
+        .ai-assistant-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-glow), var(--info-glow));
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: var(--neon-shadow) rgba(0, 255, 136, 0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .ai-assistant-btn:hover {
+            transform: scale(1.1);
+            box-shadow: var(--neon-shadow) rgba(0, 255, 136, 0.6);
+        }
+
+        .ai-assistant-chat {
+            position: fixed;
+            bottom: 120px;
+            right: 30px;
+            width: 400px;
+            height: 500px;
+            background: var(--card-bg);
+            border: 1px solid var(--primary-glow);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            box-shadow: var(--neon-shadow) rgba(0, 255, 136, 0.3);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .ai-chat-header {
+            background: linear-gradient(45deg, var(--primary-glow), var(--info-glow));
+            padding: 1rem;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .ai-chat-body {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-glow) transparent;
+        }
+
+        .ai-message {
+            display: flex;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        .ai-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-glow), var(--info-glow));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .ai-bubble {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1rem;
+            border-radius: 15px;
+            max-width: 80%;
+            backdrop-filter: blur(10px);
+        }
+
+        .ai-message-user {
+            flex-direction: row-reverse;
+        }
+
+        .ai-message-user .ai-avatar {
+            background: linear-gradient(45deg, var(--secondary-glow), var(--danger-glow));
+            margin-right: 0;
+            margin-left: 0.5rem;
+        }
+
+        .ai-message-user .ai-bubble {
+            background: rgba(255, 0, 128, 0.2);
+        }
+
+        .ai-chat-input {
+            padding: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            border-top: 1px solid rgba(0, 255, 136, 0.3);
+        }
+
+        .ai-chat-input input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 25px;
+            padding: 0.75rem 1rem;
+            color: white;
+        }
+
+        .ai-chat-input button {
+            background: linear-gradient(45deg, var(--primary-glow), var(--info-glow));
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .threat-report-header h1 {
+                font-size: 2rem;
+            }
+            
+            .ai-assistant-chat {
+                width: 90vw;
+                right: 5vw;
+                height: 400px;
+            }
+            
+            .emergency-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            backdrop-filter: blur(10px);
+        }
+
+        .cyber-loader {
+            width: 80px;
+            height: 80px;
+            border: 4px solid rgba(0, 255, 136, 0.3);
+            border-top: 4px solid var(--primary-glow);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            box-shadow: var(--neon-shadow) var(--primary-glow);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Success Animation */
+        .success-checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 2;
+            stroke: var(--primary-glow);
+            stroke-miterlimit: 10;
+            box-shadow: inset 0px 0px 0px var(--primary-glow);
+            animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+        }
+
+        .success-checkmark__circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            stroke: var(--primary-glow);
+            fill: none;
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+
+        .success-checkmark__check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        }
+
+        @keyframes stroke {
+            100% { stroke-dashoffset: 0; }
+        }
+
+        @keyframes scale {
+            0%, 100% { transform: none; }
+            50% { transform: scale3d(1.1, 1.1, 1); }
+        }
+
+        @keyframes fill {
+            100% { box-shadow: inset 0px 0px 0px 30px var(--primary-glow); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="cyber-bg"></div>
+    <div class="grid-overlay"></div>
+    
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar-cyber" id="progressBar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../Home/index.html">
+                <img src="../assets/images/logo.png" width="50" height="50" alt="Africa Shield Cyber Centre Logo" class="me-2">
+                <div class="brand-text-container">
+                    <span class="brand-text fw-bold">Africa Shield</span>
+                    <small class="brand-subtitle d-block text-muted">Cyber Centre</small>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Home/index.html">
+                            <i class="fas fa-home me-1"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Learn/index.html">
+                            <i class="fas fa-graduation-cap me-1"></i> Learn
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../Report/index.html">
+                            <i class="fas fa-exclamation-triangle me-1"></i> Report Threat
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../SOC/index.html">
+                            <i class="fas fa-desktop me-1"></i> SOC Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Events/index.html">
+                            <i class="fas fa-calendar-alt me-1"></i> Events
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Career/index.html">
+                            <i class="fas fa-briefcase me-1"></i> Career
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../About/about.html">
+                            <i class="fas fa-building me-1"></i> About Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Contact/index.html">
+                            <i class="fas fa-envelope me-1"></i> Contact
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-ellipsis-h me-1"></i> More
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="../ThreatMap/index.html">
+                                <i class="fas fa-globe-africa me-2"></i>Live Threat Map
+                            </a></li>
+                            <li><a class="dropdown-item" href="../News/index.html">
+                                <i class="fas fa-newspaper me-2"></i>News
+                            </a></li>
+                            <li><a class="dropdown-item" href="../App/index.html">
+                                <i class="fas fa-mobile-alt me-2"></i>Mobile App
+                            </a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i> Account
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="../Auth/login.html">
+                                <i class="fas fa-sign-in-alt me-2"></i>Login
+                            </a></li>
+                            <li><a class="dropdown-item" href="../Auth/register.html">
+                                <i class="fas fa-user-plus me-2"></i>Register
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../Profile/index.html">
+                                <i class="fas fa-user me-2"></i>My Profile
+                            </a></li>
+                            <li><a class="dropdown-item" href="../Settings/index.html">
+                                <i class="fas fa-cog me-2"></i>Settings
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container main-container">
+        <!-- Header Section -->
+        <div class="threat-report-header">
+            <h1 class="animate__animated animate__fadeInDown">
+                <i class="fas fa-shield-alt me-3"></i>
+                Advanced Threat Reporting System
+            </h1>
+                        <p class="animate__animated animate__fadeInUp animate__delay-1s">
+                Secure, real-time cybersecurity incident reporting for East Africa's digital protection
+            </p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- Main Report Form -->
+                <div class="cyber-card mb-4">
+                    <div class="cyber-card-header">
+                        <h2 class="mb-0">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            Cybersecurity Threat Report
+                        </h2>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="cyber-alert alert mb-4">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Your report is encrypted and helps protect millions across East Africa. All submissions are processed by our advanced AI threat detection system.
+                        </div>
+                        
+                        <form id="threatReportForm" enctype="multipart/form-data">
+                            <!-- Personal Information Section -->
+                            <div class="mb-4">
+                                <h4 class="text-primary-glow mb-3">
+                                    <i class="fas fa-user me-2"></i>Reporter Information
+                                </h4>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="reporterName" class="form-label">
+                                            <i class="fas fa-id-card me-1"></i>Full Name
+                                        </label>
+                                        <input type="text" class="form-control" id="reporterName" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="reporterEmail" class="form-label">
+                                            <i class="fas fa-envelope me-1"></i>Email Address
+                                        </label>
+                                        <input type="email" class="form-control" id="reporterEmail" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="reporterCountry" class="form-label">
+                                            <i class="fas fa-globe-africa me-1"></i>Country
+                                        </label>
+                                        <select class="form-select" id="reporterCountry" onchange="updatePhoneCode()" required>
+                                            <option value="">Select Country</option>
+                                            <option value="burundi" data-code="+257">🇧🇮 Burundi</option>
+                                            <option value="comoros" data-code="+269">🇰🇲 Comoros</option>
+                                            <option value="djibouti" data-code="+253">🇩🇯 Djibouti</option>
+                                            <option value="eritrea" data-code="+291">🇪🇷 Eritrea</option>
+                                            <option value="ethiopia" data-code="+251">🇪🇹 Ethiopia</option>
+                                            <option value="kenya" data-code="+254">🇰🇪 Kenya</option>
+                                            <option value="madagascar" data-code="+261">🇲🇬 Madagascar</option>
+                                            <option value="malawi" data-code="+265">🇲🇼 Malawi</option>
+                                            <option value="mauritius" data-code="+230">🇲🇺 Mauritius</option>
+                                            <option value="rwanda" data-code="+250">🇷🇼 Rwanda</option>
+                                            <option value="seychelles" data-code="+248">🇸🇨 Seychelles</option>
+                                            <option value="somalia" data-code="+252">🇸🇴 Somalia</option>
+                                            <option value="south_sudan" data-code="+211">🇸🇸 South Sudan</option>
+                                            <option value="tanzania" data-code="+255">🇹🇿 Tanzania</option>
+                                            <option value="uganda" data-code="+256">🇺🇬 Uganda</option>
+                                            <option value="zambia" data-code="+260">🇿🇲 Zambia</option>
+                                            <option value="zimbabwe" data-code="+263">🇿🇼 Zimbabwe</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="reporterPhone" class="form-label">
+                                            <i class="fas fa-phone me-1"></i>Phone Number
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="phoneCode">+000</span>
+                                            <input type="tel" class="form-control" id="reporterPhone" placeholder="Enter phone number">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="organization" class="form-label">
+                                            <i class="fas fa-building me-1"></i>Organization (Optional)
+                                        </label>
+                                        <input type="text" class="form-control" id="organization" placeholder="Company, Institution, etc.">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="jobTitle" class="form-label">
+                                            <i class="fas fa-briefcase me-1"></i>Job Title (Optional)
+                                        </label>
+                                        <input type="text" class="form-control" id="jobTitle" placeholder="Your role/position">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Threat Information Section -->
+                            <div class="mb-4">
+                                <h4 class="text-danger-glow mb-3">
+                                    <i class="fas fa-bug me-2"></i>Threat Details
+                                </h4>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="threatType" class="form-label">
+                                            <i class="fas fa-virus me-1"></i>Threat Category
+                                        </label>
+                                        <select class="form-select" id="threatType" onchange="updateThreatSubcategory()" required>
+                                            <option value="">Select Threat Type</option>
+                                            <option value="phishing">🎣 Phishing Attack</option>
+                                            <option value="malware">🦠 Malware/Virus</option>
+                                            <option value="ransomware">🔒 Ransomware</option>
+                                            <option value="financial_fraud">💰 Financial Fraud</option>
+                                            <option value="mobile_money_fraud">📱 Mobile Money Fraud</option>
+                                            <option value="data_breach">🗃️ Data Breach</option>
+                                            <option value="identity_theft">🆔 Identity Theft</option>
+                                            <option value="social_engineering">🎭 Social Engineering</option>
+                                            <option value="ddos">⚡ DDoS Attack</option>
+                                            <option value="crypto_fraud">₿ Cryptocurrency Fraud</option>
+                                            <option value="iot_attack">🏠 IoT Device Attack</option>
+                                            <option value="supply_chain">🔗 Supply Chain Attack</option>
+                                            <option value="other">❓ Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="threatSubcategory" class="form-label">
+                                            <i class="fas fa-list me-1"></i>Subcategory
+                                        </label>
+                                        <select class="form-select" id="threatSubcategory">
+                                            <option value="">Select subcategory...</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="urgencyLevel" class="form-label">
+                                            <i class="fas fa-exclamation me-1"></i>Urgency Level
+                                        </label>
+                                        <select class="form-select" id="urgencyLevel" onchange="updateUrgencyDisplay()" required>
+                                            <option value="">Select Urgency Level</option>
+                                            <option value="low">🟢 Low - General concern</option>
+                                            <option value="medium">🟡 Medium - Needs attention</option>
+                                            <option value="high">🟠 High - Urgent response needed</option>
+                                            <option value="critical">🔴 Critical - Immediate action required</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="incidentDate" class="form-label">
+                                            <i class="fas fa-calendar me-1"></i>Incident Date & Time
+                                        </label>
+                                        <input type="datetime-local" class="form-control" id="incidentDate" required>
+                                    </div>
+                                </div>
+
+                                <div id="urgencyIndicator" class="mb-3 text-center" style="display: none;">
+                                    <span id="urgencyBadge" class="threat-level"></span>
+                                </div>
+                            </div>
+
+                            <!-- Incident Description -->
+                            <div class="mb-4">
+                                <h4 class="text-warning-glow mb-3">
+                                    <i class="fas fa-file-alt me-2"></i>Incident Description
+                                </h4>
+                                
+                                <div class="mb-3">
+                                    <label for="incidentDescription" class="form-label">
+                                        <i class="fas fa-edit me-1"></i>Detailed Description
+                                    </label>
+                                    <textarea class="form-control" id="incidentDescription" rows="6" 
+                                            placeholder="Please provide comprehensive details about the cybersecurity incident including:
+• What happened and when?
+• How did you discover the incident?
+• What systems or data were affected?
+• What actions have you taken so far?
+• Any suspicious emails, links, or files involved?" required></textarea>
+                                    <div class="form-text">
+                                        <span id="charCount">0</span>/2000 characters
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="affectedSystems" class="form-label">
+                                            <i class="fas fa-server me-1"></i>Affected Systems
+                                        </label>
+                                        <select class="form-select" id="affectedSystems" multiple>
+                                            <option value="windows">Windows Computers</option>
+                                            <option value="mac">Mac Computers</option>
+                                            <option value="linux">Linux Systems</option>
+                                            <option value="mobile">Mobile Devices</option>
+                                            <option value="network">Network Infrastructure</option>
+                                            <option value="cloud">Cloud Services</option>
+                                            <option value="database">Databases</option>
+                                            <option value="website">Websites</option>
+                                            <option value="email">Email Systems</option>
+                                            <option value="iot">IoT Devices</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="impactLevel" class="form-label">
+                                            <i class="fas fa-chart-line me-1"></i>Business Impact
+                                        </label>
+                                        <select class="form-select" id="impactLevel">
+                                            <option value="">Select impact level</option>
+                                            <option value="none">No business impact</option>
+                                            <option value="minimal">Minimal impact</option>
+                                            <option value="moderate">Moderate impact</option>
+                                            <option value="significant">Significant impact</option>
+                                            <option value="severe">Severe impact</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Evidence Upload -->
+                            <div class="mb-4">
+                                <h4 class="text-info-glow mb-3">
+                                    <i class="fas fa-paperclip me-2"></i>Evidence & Attachments
+                                </h4>
+                                
+                                <div class="file-upload-area" id="fileUploadArea">
+                                    <i class="fas fa-cloud-upload-alt fa-3x mb-3 text-primary-glow"></i>
+                                    <h5>Drag & Drop Files Here</h5>
+                                    <p>or click to browse files</p>
+                                    <input type="file" class="d-none" id="evidenceFiles" multiple 
+                                           accept=".jpg,.jpeg,.png,.pdf,.txt,.doc,.docx,.zip,.eml,.msg">
+                                </div>
+                                
+                                <div id="fileList" class="mt-3"></div>
+                                
+                                <div class="form-text mt-2">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Supported formats: Images (JPG, PNG), Documents (PDF, DOC, TXT), Archives (ZIP), Email files (EML, MSG). Max 10MB per file.
+                                </div>
+                            </div>
+
+                            <!-- Additional Information -->
+                            <div class="mb-4">
+                                <h4 class="text-secondary-glow mb-3">
+                                    <i class="fas fa-plus-circle me-2"></i>Additional Information
+                                </h4>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="previousIncidents" class="form-label">
+                                            <i class="fas fa-history me-1"></i>Previous Similar Incidents?
+                                        </label>
+                                        <select class="form-select" id="previousIncidents">
+                                            <option value="">Select option</option>
+                                            <option value="yes">Yes, we've had similar incidents</option>
+                                            <option value="no">No, this is the first time</option>
+                                            <option value="unsure">Not sure</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="reportedElsewhere" class="form-label">
+                                            <i class="fas fa-share me-1"></i>Reported to Other Authorities?
+                                        </label>
+                                        <select class="form-select" id="reportedElsewhere">
+                                            <option value="">Select option</option>
+                                                                                        <option value="police">Local Police</option>
+                                            <option value="cert">National CERT</option>
+                                            <option value="bank">Bank/Financial Institution</option>
+                                            <option value="telecom">Telecom Provider</option>
+                                            <option value="multiple">Multiple Authorities</option>
+                                            <option value="none">Not reported elsewhere</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="additionalNotes" class="form-label">
+                                        <i class="fas fa-sticky-note me-1"></i>Additional Notes
+                                    </label>
+                                    <textarea class="form-control" id="additionalNotes" rows="3" 
+                                            placeholder="Any additional information that might be helpful..."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Consent and Privacy -->
+                            <div class="mb-4">
+                                <h4 class="text-primary-glow mb-3">
+                                    <i class="fas fa-shield-alt me-2"></i>Privacy & Consent
+                                </h4>
+                                
+                                <div class="form-check mb-3">
+                                    <input type="checkbox" class="form-check-input" id="consentCheck" required>
+                                    <label class="form-check-label" for="consentCheck">
+                                        I consent to Africa Shield Cyber Centre processing this report and contacting me for follow-up investigations.
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check mb-3">
+                                    <input type="checkbox" class="form-check-input" id="shareDataCheck">
+                                    <label class="form-check-label" for="shareDataCheck">
+                                        I agree to share anonymized threat intelligence with regional cybersecurity partners to enhance collective defense.
+                                    </label>
+                                </div>
+                                
+                                <div class="form-check mb-3">
+                                    <input type="checkbox" class="form-check-input" id="updatesCheck">
+                                    <label class="form-check-label" for="updatesCheck">
+                                        I would like to receive updates about this incident and general cybersecurity alerts.
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="text-center">
+                                <button type="submit" class="cyber-btn btn-danger-cyber btn-lg px-5">
+                                    <i class="fas fa-paper-plane me-2"></i>
+                                    Submit Threat Report
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Quick Report Options -->
+                <div class="row mb-4">
+                    <div class="col-md-4 mb-3">
+                        <div class="cyber-card h-100 text-center">
+                            <div class="card-body">
+                                <i class="fas fa-bolt fa-3x text-danger-glow mb-3"></i>
+                                <h5>Emergency Report</h5>
+                                <p>Critical incidents requiring immediate response</p>
+                                <button class="cyber-btn btn-danger-cyber" onclick="quickReport('emergency')">
+                                    Quick Report
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="cyber-card h-100 text-center">
+                            <div class="card-body">
+                                <i class="fas fa-mobile-alt fa-3x text-warning-glow mb-3"></i>
+                                <h5>Mobile Money Fraud</h5>
+                                <p>Report mobile payment scams and fraud</p>
+                                <button class="cyber-btn" onclick="quickReport('mobile_money')">
+                                    Quick Report
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="cyber-card h-100 text-center">
+                            <div class="card-body">
+                                <i class="fas fa-fish fa-3x text-info-glow mb-3"></i>
+                                <h5>Phishing Alert</h5>
+                                <p>Report suspicious emails and websites</p>
+                                <button class="cyber-btn" onclick="quickReport('phishing')">
+                                    Quick Report
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Emergency Contact Information -->
+                <div class="cyber-card">
+                    <div class="cyber-card-header">
+                        <h3 class="mb-0">
+                            <i class="fas fa-phone-alt me-2"></i>
+                            24/7 Emergency Cyber Response
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center mb-4">
+                            <p class="lead">For immediate assistance with critical cybersecurity incidents</p>
+                        </div>
+                        
+                        <div class="emergency-grid">
+                            <div class="emergency-card">
+                                <div class="mb-3">
+                                    <i class="fas fa-flag fa-2x text-danger-glow"></i>
+                                </div>
+                                <h6>Kenya SOC</h6>
+                                <a href="tel:+254700744353" class="emergency-btn">
+                                    <i class="fas fa-phone me-1"></i>
+                                    +254 700 744 353
+                                </a>
+                            </div>
+                            
+                            <div class="emergency-card">
+                                <div class="mb-3">
+                                    <i class="fas fa-flag fa-2x text-danger-glow"></i>
+                                </div>
+                                <h6>Tanzania SOC</h6>
+                                <a href="tel:+255700744353" class="emergency-btn">
+                                    <i class="fas fa-phone me-1"></i>
+                                    +255 700 744 353
+                                </a>
+                            </div>
+                            
+                            <div class="emergency-card">
+                                <div class="mb-3">
+                                    <i class="fas fa-flag fa-2x text-danger-glow"></i>
+                                </div>
+                                <h6>Uganda SOC</h6>
+                                <a href="tel:+256700744353" class="emergency-btn">
+                                    <i class="fas fa-phone me-1"></i>
+                                    +256 700 744 353
+                                </a>
+                            </div>
+                            
+                            <div class="emergency-card">
+                                <div class="mb-3">
+                                    <i class="fas fa-flag fa-2x text-danger-glow"></i>
+                                </div>
+                                <h6>Rwanda SOC</h6>
+                                <a href="tel:+250700744353" class="emergency-btn">
+                                    <i class="fas fa-phone me-1"></i>
+                                    +250 700 744 353
+                                </a>
+                            </div>
+                            
+                            <div class="emergency-card">
+                                <div class="mb-3">
+                                    <i class="fas fa-flag fa-2x text-danger-glow"></i>
+                                </div>
+                                <h6>Ethiopia SOC</h6>
+                                <a href="tel:+251700744353" class="emergency-btn">
+                                    <i class="fas fa-phone me-1"></i>
+                                    +251 700 744 353
+                                </a>
+                            </div>
+                            
+                            <div class="emergency-card">
+                                <div class="mb-3">
+                                    <i class="fas fa-flag fa-2x text-danger-glow"></i>
+                                </div>
+                                <h6>Somalia SOC</h6>
+                                <a href="tel:+252700744353" class="emergency-btn">
+                                    <i class="fas fa-phone me-1"></i>
+                                    +252 700 744 353
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <a href="mailto:emergency@africashield.org" class="emergency-btn me-3">
+                                <i class="fas fa-envelope me-1"></i>
+                                emergency@africashield.org
+                            </a>
+                            <a href="https://wa.me/254700744353" class="emergency-btn">
+                                <i class="fab fa-whatsapp me-1"></i>
+                                WhatsApp Emergency
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- AI Assistant -->
+    <button id="aiAssistantBtn" class="ai-assistant-btn">
+        <i class="fas fa-robot"></i>
+    </button>
+    
+    <div id="aiAssistantChat" class="ai-assistant-chat" style="display: none;">
+        <div class="ai-chat-header">
+            <span class="fw-bold">
+                <i class="fas fa-robot me-2"></i>Cyber Assistant
+            </span>
+            <button type="button" class="btn-close btn-close-white" id="closeAiAssistant"></button>
+        </div>
+        <div class="ai-chat-body" id="aiChatBody">
+            <div class="ai-message ai-message-assistant">
+                <div class="ai-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="ai-bubble">
+                    Hello! I'm your cybersecurity assistant. I can help you:
+                    <br>• Report different types of cyber threats
+                    <br>• Understand incident severity levels
+                    <br>• Guide you through the reporting process
+                    <br><br>What type of incident would you like to report?
+                </div>
+            </div>
+        </div>
+        <form class="ai-chat-input" id="aiChatForm">
+            <input type="text" id="aiUserInput" class="form-control" placeholder="Describe your cybersecurity concern..." required />
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="text-center">
+            <div class="cyber-loader mb-3"></div>
+            <h4 class="text-primary-glow">Processing Your Report...</h4>
+            <p>Analyzing threat data and generating incident ID</p>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark border-success">
+                <div class="modal-body text-center p-5">
+                    <svg class="success-checkmark mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                        <circle class="success-checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                        <path class="success-checkmark__check" fill="none" d="m14.1 27.2l7.1 7.2 16.7-16.8"/>
+                    </svg>
+                    <h3 class="text-success mb-3">Report Submitted Successfully!</h3>
+                    <p class="mb-3">Your incident report has been received and assigned ID: <strong id="incidentId"></strong></p>
+                    <p class="text-muted mb-4">Our cybersecurity team will review your report and contact you within 24 hours.</p>
+                    <button type="button" class="cyber-btn" data-bs-dismiss="modal">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white mt-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-primary-glow">Africa Shield Cyber Centre</h5>
+                    <p>Advanced cybersecurity protection for East Africa's digital ecosystem through AI-powered threat detection and response.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-primary-glow"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-primary-glow"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-primary-glow"><i class="fab fa-github fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="text-warning-glow">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="../ThreatMap/index.html" class="text-light">Live Threat Map</a></li>
+                        <li><a href="../Learn/index.html" class="text-light">Security Training</a></li>
+                        <li><a href="../SOC/index.html" class="text-light">SOC Dashboard</a></li>
+                        <li><a href="../News/index.html" class="text-light">Security News</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="text-danger-glow">Emergency Contacts</h6>
+                    <p><i class="fas fa-phone me-2"></i>24/7 Hotline: +254 700 744 353</p>
+                    <p><i class="fas fa-envelope me-2"></i>emergency@africashield.org</p>
+                    <p><i class="fab fa-whatsapp me-2"></i>WhatsApp: +254 700 744 353</p>
+                </div>
+            </div>
+            <hr class="border-primary">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 Africa Shield Cyber Centre. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-light me-3">Privacy Policy</a>
+                    <a href="#" class="text-light me-3">Terms of Service</a>
+                    <a href="#" class="text-light">Security</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/chatbot.js"></script>
+    <script src="../assets/js/home.js"></script>
+    
+    
+    <script>
+        // Global variables
+        let uploadedFiles = [];
+        const maxFileSize = 10 * 1024 * 1024;
+        // Global variables
+        let uploadedFiles = [];
+        const maxFileSize = 10 * 1024 * 1024; // 10MB
+        const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf', 'text/plain', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/zip', 'message/rfc822'];
+
+        // Threat subcategories mapping
+        const threatSubcategories = {
+            phishing: ['Email Phishing', 'SMS Phishing', 'Voice Phishing (Vishing)', 'Social Media Phishing', 'Website Spoofing'],
+            malware: ['Trojan Horse', 'Computer Virus', 'Worm', 'Spyware', 'Adware', 'Rootkit'],
+            ransomware: ['File Encryption', 'Screen Locker', 'Master Boot Record', 'Mobile Ransomware'],
+            financial_fraud: ['Credit Card Fraud', 'Bank Account Takeover', 'Investment Scam', 'Loan Fraud'],
+            mobile_money_fraud: ['M-Pesa Fraud', 'Airtel Money Fraud', 'MTN Mobile Money Fraud', 'SIM Swap Attack'],
+            data_breach: ['Personal Data Leak', 'Financial Data Breach', 'Healthcare Data Breach', 'Government Data Breach'],
+            identity_theft: ['Account Takeover', 'Document Fraud', 'Synthetic Identity', 'Child Identity Theft'],
+            social_engineering: ['Pretexting', 'Baiting', 'Quid Pro Quo', 'Tailgating', 'Business Email Compromise'],
+            ddos: ['Volumetric Attack', 'Protocol Attack', 'Application Layer Attack', 'Botnet Attack'],
+            crypto_fraud: ['Fake Exchange', 'Ponzi Scheme', 'ICO Scam', 'Wallet Theft'],
+            iot_attack: ['Smart Home Breach', 'Industrial IoT Attack', 'Vehicle Hacking', 'Medical Device Hack'],
+            supply_chain: ['Software Supply Chain', 'Hardware Tampering', 'Third-party Breach', 'Vendor Compromise']
+        };
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeForm();
+            setupFileUpload();
+            setupProgressTracking();
+            setupAIAssistant();
+            setCurrentDateTime();
+        });
+
+        // Initialize form functionality
+        function initializeForm() {
+            // Character counter for description
+            const descriptionField = document.getElementById('incidentDescription');
+            const charCount = document.getElementById('charCount');
+            
+            descriptionField.addEventListener('input', function() {
+                const count = this.value.length;
+                charCount.textContent = count;
+                
+                if (count > 1800) {
+                    charCount.style.color = 'var(--danger-glow)';
+                } else if (count > 1500) {
+                    charCount.style.color = 'var(--warning-glow)';
+                } else {
+                    charCount.style.color = 'var(--primary-glow)';
+                }
+            });
+
+            // Form submission
+            document.getElementById('threatReportForm').addEventListener('submit', handleFormSubmission);
+        }
+
+        // Update phone code based on country selection
+        function updatePhoneCode() {
+            const countrySelect = document.getElementById('reporterCountry');
+            const phoneCodeSpan = document.getElementById('phoneCode');
+            const selectedOption = countrySelect.options[countrySelect.selectedIndex];
+            
+            if (selectedOption.dataset.code) {
+                phoneCodeSpan.textContent = selectedOption.dataset.code;
+                phoneCodeSpan.style.color = 'var(--primary-glow)';
+            } else {
+                phoneCodeSpan.textContent = '+000';
+                phoneCodeSpan.style.color = '#666';
+            }
+        }
+
+        // Update threat subcategory options
+        function updateThreatSubcategory() {
+            const threatType = document.getElementById('threatType').value;
+            const subcategorySelect = document.getElementById('threatSubcategory');
+            
+            // Clear existing options
+            subcategorySelect.innerHTML = '<option value="">Select subcategory...</option>';
+            
+            if (threatType && threatSubcategories[threatType]) {
+                threatSubcategories[threatType].forEach(subcategory => {
+                    const option = document.createElement('option');
+                    option.value = subcategory.toLowerCase().replace(/\s+/g, '_');
+                    option.textContent = subcategory;
+                    subcategorySelect.appendChild(option);
+                });
+                subcategorySelect.disabled = false;
+            } else {
+                subcategorySelect.disabled = true;
+            }
+        }
+
+        // Update urgency display
+        function updateUrgencyDisplay() {
+            const urgencyLevel = document.getElementById('urgencyLevel').value;
+            const urgencyIndicator = document.getElementById('urgencyIndicator');
+            const urgencyBadge = document.getElementById('urgencyBadge');
+            
+            if (urgencyLevel) {
+                urgencyIndicator.style.display = 'block';
+                urgencyBadge.className = `threat-level threat-${urgencyLevel}`;
+                
+                const urgencyTexts = {
+                    low: 'LOW PRIORITY',
+                    medium: 'MEDIUM PRIORITY',
+                    high: 'HIGH PRIORITY',
+                    critical: 'CRITICAL PRIORITY'
+                };
+                
+                urgencyBadge.textContent = urgencyTexts[urgencyLevel];
+                urgencyBadge.style.animation = urgencyLevel === 'critical' ? 'glow 0.5s ease-in-out infinite alternate' : '';
+            } else {
+                urgencyIndicator.style.display = 'none';
+            }
+        }
+
+        // Set current date and time
+        function setCurrentDateTime() {
+            const now = new Date();
+            const localDateTime = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
+            document.getElementById('incidentDate').value = localDateTime;
+        }
+
+        // File upload functionality
+        function setupFileUpload() {
+            const fileUploadArea = document.getElementById('fileUploadArea');
+            const fileInput = document.getElementById('evidenceFiles');
+            const fileList = document.getElementById('fileList');
+
+            // Click to upload
+            fileUploadArea.addEventListener('click', () => fileInput.click());
+
+            // Drag and drop
+            fileUploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                fileUploadArea.classList.add('dragover');
+            });
+
+            fileUploadArea.addEventListener('dragleave', () => {
+                fileUploadArea.classList.remove('dragover');
+            });
+
+            fileUploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                fileUploadArea.classList.remove('dragover');
+                handleFiles(e.dataTransfer.files);
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                handleFiles(e.target.files);
+            });
+        }
+
+        // Handle file uploads
+        function handleFiles(files) {
+            Array.from(files).forEach(file => {
+                if (validateFile(file)) {
+                    uploadedFiles.push(file);
+                    displayFile(file);
+                }
+            });
+        }
+
+        // Validate file
+        function validateFile(file) {
+            if (file.size > maxFileSize) {
+                showNotification('File too large. Maximum size is 10MB.', 'error');
+                return false;
+            }
+
+            if (!allowedTypes.includes(file.type)) {
+                showNotification('File type not supported.', 'error');
+                return false;
+            }
+
+            return true;
+        }
+
+        // Display uploaded file
+        function displayFile(file) {
+            const fileList = document.getElementById('fileList');
+            const fileItem = document.createElement('div');
+            fileItem.className = 'uploaded-file-item d-flex justify-content-between align-items-center p-3 mb-2 border rounded';
+            fileItem.style.background = 'rgba(0, 255, 136, 0.1)';
+            fileItem.style.border = '1px solid rgba(0, 255, 136, 0.3)';
+
+            fileItem.innerHTML = `
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-file me-2 text-primary-glow"></i>
+                    <div>
+                        <div class="fw-bold">${file.name}</div>
+                        <small class="text-muted">${formatFileSize(file.size)}</small>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeFile('${file.name}')">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+
+            fileList.appendChild(fileItem);
+        }
+
+        // Remove file
+        function removeFile(fileName) {
+            uploadedFiles = uploadedFiles.filter(file => file.name !== fileName);
+            const fileItems = document.querySelectorAll('.uploaded-file-item');
+            fileItems.forEach(item => {
+                if (item.textContent.includes(fileName)) {
+                    item.remove();
+                }
+            });
+        }
+
+        // Format file size
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Progress tracking
+        function setupProgressTracking() {
+            const form = document.getElementById('threatReportForm');
+            const progressBar = document.getElementById('progressBar');
+            const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+
+            inputs.forEach(input => {
+                input.addEventListener('input', updateProgress);
+                input.addEventListener('change', updateProgress);
+            });
+
+            function updateProgress() {
+                const filledInputs = Array.from(inputs).filter(input => {
+                    if (input.type === 'checkbox') return input.checked;
+                    return input.value.trim() !== '';
+                });
+
+                const progress = (filledInputs.length / inputs.length) * 100;
+                progressBar.style.width = progress + '%';
+            }
+        }
+
+        // Quick report functionality
+        function quickReport(type) {
+            const threatTypeSelect = document.getElementById('threatType');
+            const urgencySelect = document.getElementById('urgencyLevel');
+
+            switch(type) {
+                case 'emergency':
+                    urgencySelect.value = 'critical';
+                    updateUrgencyDisplay();
+                    break;
+                case 'mobile_money':
+                    threatTypeSelect.value = 'mobile_money_fraud';
+                    updateThreatSubcategory();
+                    break;
+                case 'phishing':
+                    threatTypeSelect.value = 'phishing';
+                    updateThreatSubcategory();
+                    break;
+            }
+
+            // Scroll to form
+            document.getElementById('threatReportForm').scrollIntoView({ behavior: 'smooth' });
+            
+            // Highlight the form
+            const card = document.querySelector('.cyber-card');
+            card.style.animation = 'pulse 1s ease-in-out 3';
+        }
+
+        // Handle form submission
+        async function handleFormSubmission(e) {
+            e.preventDefault();
+            
+            // Show loading overlay
+            document.getElementById('loadingOverlay').style.display = 'flex';
+
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 3000));
+
+                // Generate incident ID
+                const incidentId = 'ASC-' + Date.now().toString(36).toUpperCase();
+                document.getElementById('incidentId').textContent = incidentId;
+
+                // Hide loading overlay
+                document.getElementById('loadingOverlay').style.display = 'none';
+
+                // Show success modal
+                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+
+                // Reset form
+                document.getElementById('threatReportForm').reset();
+                uploadedFiles = [];
+                document.getElementById('fileList').innerHTML = '';
+                document.getElementById('progressBar').style.width = '0%';
+
+                // Send confirmation email (simulated)
+                showNotification('Confirmation email sent to your address', 'success');
+
+            } catch (error) {
+                document.getElementById('loadingOverlay').style.display = 'none';
+                showNotification('Error submitting report. Please try again.', 'error');
+            }
+        }
+
+        // AI Assistant functionality
+        function setupAIAssistant() {
+            const aiBtn = document.getElementById('aiAssistantBtn');
+            const aiChat = document.getElementById('aiAssistantChat');
+            const closeBtn = document.getElementById('closeAiAssistant');
+            const chatForm = document.getElementById('aiChatForm');
+            const userInput = document.getElementById('aiUserInput');
+            const chatBody = document.getElementById('aiChatBody');
+
+            aiBtn.addEventListener('click', () => {
+                aiChat.style.display = aiChat.style.display === 'none' ? 'flex' : 'none';
+            });
+
+            closeBtn.addEventListener('click', () => {
+                aiChat.style.display = 'none';
+            });
+
+            chatForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const message = userInput.value.trim();
+                if (!message) return;
+
+                // Add user message
+                addChatMessage(message, 'user');
+                userInput.value = '';
+
+                // Simulate AI response
+                setTimeout(() => {
+                    const response = generateAIResponse(message);
+                    addChatMessage(response, 'assistant');
+                }, 1000);
+            });
+        }
+
+        // Add chat message
+        function addChatMessage(message, sender) {
+            const chatBody = document.getElementById('aiChatBody');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `ai-message ai-message-${sender}`;
+
+            const avatar = sender === 'user' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+            
+            messageDiv.innerHTML = `
+                <div class="ai-avatar">${avatar}</div>
+                <div class="ai-bubble">${message}</div>
+            `;
+
+            chatBody.appendChild(messageDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        // Generate AI response
+        function generateAIResponse(userMessage) {
+            const responses = {
+                phishing: "For phishing attacks, please select 'Phishing Attack' as the threat type and provide details about the suspicious email or website. Include any URLs or email addresses involved.",
+                malware: "For malware incidents, select 'Malware/Virus' and describe the symptoms you're experiencing. Upload any suspicious files if safe to do so.",
+                ransomware: "Ransomware is critical! Select 'Critical' urgency level and 'Ransomware' as threat type. Do NOT pay the ransom. Disconnect affected systems immediately.",
+                emergency: "For emergency incidents, use the 'Emergency Report' quick option and call our 24/7 hotline immediately at +254 700 744 353.",
+                mobile: "For mobile money fraud, use the 'Mobile Money Fraud' quick report option and provide transaction details, phone numbers involved, and timeline of events."
+            };
+
+            const lowerMessage = userMessage.toLowerCase();
+            
+                        for (const [key, response] of Object.entries(responses)) {
+                if (lowerMessage.includes(key)) {
+                    return response;
+                }
+            }
+
+            // Default responses based on keywords
+            if (lowerMessage.includes('help') || lowerMessage.includes('how')) {
+                return "I can help you report cybersecurity incidents. Please describe what happened, and I'll guide you through the appropriate reporting process.";
+            }
+            
+            if (lowerMessage.includes('urgent') || lowerMessage.includes('critical')) {
+                return "For urgent incidents, please call our emergency hotline at +254 700 744 353 immediately. You can also use the 'Emergency Report' option for fastest processing.";
+            }
+            
+            if (lowerMessage.includes('email') || lowerMessage.includes('suspicious')) {
+                return "For suspicious emails, select 'Phishing Attack' as the threat type. Please forward the suspicious email as an attachment and include full headers if possible.";
+            }
+
+            return "I understand you're reporting a cybersecurity incident. Please provide more details about what happened, and I'll help you complete the appropriate report form.";
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            notification.style.cssText = `
+                top: 20px;
+                right: 20px;
+                z-index: 9999;
+                min-width: 300px;
+                box-shadow: var(--neon-shadow) rgba(0, 255, 136, 0.3);
+                border: 1px solid var(--primary-glow);
+                background: var(--card-bg);
+                backdrop-filter: blur(20px);
+            `;
+            
+            notification.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl+Enter to submit form
+            if (e.ctrlKey && e.key === 'Enter') {
+                const submitBtn = document.querySelector('button[type="submit"]');
+                if (submitBtn) submitBtn.click();
+            }
+            
+            // Escape to close AI assistant
+            if (e.key === 'Escape') {
+                const aiChat = document.getElementById('aiAssistantChat');
+                if (aiChat.style.display !== 'none') {
+                    aiChat.style.display = 'none';
+                }
+            }
+        });
+
+        // Auto-save functionality
+        let autoSaveTimer;
+        function setupAutoSave() {
+            const form = document.getElementById('threatReportForm');
+            const inputs = form.querySelectorAll('input, select, textarea');
+            
+            inputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    clearTimeout(autoSaveTimer);
+                    autoSaveTimer = setTimeout(saveFormData, 2000);
+                });
+            });
+        }
+
+        function saveFormData() {
+            const formData = new FormData(document.getElementById('threatReportForm'));
+            const data = Object.fromEntries(formData.entries());
+            localStorage.setItem('threatReportDraft', JSON.stringify(data));
+            showNotification('Draft saved automatically', 'info');
+        }
+
+        function loadFormData() {
+            const savedData = localStorage.getItem('threatReportDraft');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                Object.entries(data).forEach(([key, value]) => {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        element.value = value;
+                    }
+                });
+                showNotification('Draft restored', 'success');
+            }
+        }
+
+        // Initialize auto-save
+        setupAutoSave();
+
+        // Load saved data on page load
+        window.addEventListener('load', loadFormData);
+
+        // Clear draft after successful submission
+        document.getElementById('successModal').addEventListener('shown.bs.modal', () => {
+            localStorage.removeItem('threatReportDraft');
+        });
+
+        // Real-time threat intelligence integration
+        async function fetchThreatIntelligence() {
+            try {
+                // Simulated threat intelligence data
+                const threatData = {
+                    activeThreats: 1247,
+                    recentIncidents: 89,
+                    criticalAlerts: 12,
+                    lastUpdate: new Date().toISOString()
+                };
+                
+                updateThreatStats(threatData);
+            } catch (error) {
+                console.error('Failed to fetch threat intelligence:', error);
+            }
+        }
+
+        function updateThreatStats(data) {
+            // Update any threat statistics displays
+            const statsElements = document.querySelectorAll('[data-threat-stat]');
+            statsElements.forEach(element => {
+                const statType = element.dataset.threatStat;
+                if (data[statType]) {
+                    element.textContent = data[statType];
+                }
+            });
+        }
+
+        // Geolocation for enhanced reporting
+        function getLocationData() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        // Store location data for enhanced incident reporting
+                        sessionStorage.setItem('reporterLocation', JSON.stringify({lat, lon}));
+                    },
+                    (error) => {
+                        console.log('Location access denied or unavailable');
+                    }
+                );
+            }
+        }
+
+        // Initialize location tracking (with user permission)
+        getLocationData();
+
+        // Fetch threat intelligence on page load
+        fetchThreatIntelligence();
+
+        // Update threat intelligence every 5 minutes
+        setInterval(fetchThreatIntelligence, 300000);
+
+        // Form validation enhancements
+        function enhanceFormValidation() {
+            const form = document.getElementById('threatReportForm');
+            
+            form.addEventListener('submit', function(e) {
+                let isValid = true;
+                const requiredFields = form.querySelectorAll('[required]');
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        field.classList.add('is-invalid');
+                        isValid = false;
+                    } else {
+                        field.classList.remove('is-invalid');
+                        field.classList.add('is-valid');
+                    }
+                });
+                
+                // Email validation
+                const email = document.getElementById('reporterEmail');
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (email.value && !emailRegex.test(email.value)) {
+                    email.classList.add('is-invalid');
+                    isValid = false;
+                }
+                
+                // Phone validation
+                const phone = document.getElementById('reporterPhone');
+                const phoneRegex = /^[0-9]{7,15}$/;
+                if (phone.value && !phoneRegex.test(phone.value.replace(/\s/g, ''))) {
+                    phone.classList.add('is-invalid');
+                    isValid = false;
+                }
+                
+                if (!isValid) {
+                    e.preventDefault();
+                    showNotification('Please fill in all required fields correctly', 'error');
+                }
+            });
+        }
+
+        // Initialize enhanced validation
+        enhanceFormValidation();
+
+        // Accessibility enhancements
+        function enhanceAccessibility() {
+            // Add ARIA labels and descriptions
+            const form = document.getElementById('threatReportForm');
+            form.setAttribute('aria-label', 'Cybersecurity Threat Report Form');
+            
+            // Add keyboard navigation for custom elements
+            const customButtons = document.querySelectorAll('.cyber-btn');
+            customButtons.forEach(btn => {
+                btn.setAttribute('tabindex', '0');
+                btn.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+            
+            // Announce form progress to screen readers
+            const progressBar = document.getElementById('progressBar');
+            const progressAnnouncer = document.createElement('div');
+            progressAnnouncer.setAttribute('aria-live', 'polite');
+            progressAnnouncer.setAttribute('aria-atomic', 'true');
+            progressAnnouncer.className = 'sr-only';
+            document.body.appendChild(progressAnnouncer);
+            
+            // Update progress announcements
+            const observer = new MutationObserver(() => {
+                const progress = Math.round(parseFloat(progressBar.style.width));
+                if (progress > 0) {
+                    progressAnnouncer.textContent = `Form completion: ${progress}%`;
+                }
+            });
+            
+            observer.observe(progressBar, { attributes: true, attributeFilter: ['style'] });
+        }
+
+        // Initialize accessibility enhancements
+        enhanceAccessibility();
+
+        // Performance monitoring
+        function monitorPerformance() {
+            // Monitor form submission time
+            let formStartTime = Date.now();
+            
+            document.getElementById('threatReportForm').addEventListener('submit', () => {
+                const submissionTime = Date.now() - formStartTime;
+                console.log(`Form completion time: ${submissionTime}ms`);
+                
+                // Send analytics (in real implementation)
+                // analytics.track('form_submission_time', { duration: submissionTime });
+            });
+            
+            // Monitor file upload performance
+            document.getElementById('evidenceFiles').addEventListener('change', (e) => {
+                const uploadStartTime = Date.now();
+                // Monitor upload progress and completion time
+            });
+        }
+
+        // Initialize performance monitoring
+        monitorPerformance();
+
+        // Security enhancements
+        function enhanceSecurity() {
+            // Prevent form data from being cached
+            window.addEventListener('beforeunload', () => {
+                // Clear sensitive form data
+                const sensitiveFields = ['reporterEmail', 'reporterPhone', 'incidentDescription'];
+                sensitiveFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (field) field.value = '';
+                });
+            });
+            
+            // Add CSRF protection (in real implementation)
+            const csrfToken = document.createElement('input');
+            csrfToken.type = 'hidden';
+            csrfToken.name = 'csrf_token';
+            csrfToken.value = 'generated_csrf_token'; // Would be generated server-side
+            document.getElementById('threatReportForm').appendChild(csrfToken);
+        }
+
+        // Initialize security enhancements
+        enhanceSecurity();
+
+        // Error boundary for JavaScript errors
+        window.addEventListener('error', function(e) {
+            console.error('JavaScript error:', e.error);
+            showNotification('An unexpected error occurred. Please refresh the page and try again.', 'error');
+        });
+
+        // Service worker registration for offline functionality
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('../sw.js')
+                .then(registration => {
+                    console.log('Service Worker registered successfully');
+                })
+                .catch(error => {
+                    console.log('Service Worker registration failed');
+                });
+        }
+    </script>
+
+    <!-- Additional CSS for animations -->
+    <style>
+        @keyframes pulse {
+            0% { box-shadow: var(--neon-shadow) rgba(0, 255, 136, 0.3); }
+            50% { box-shadow: var(--neon-shadow) rgba(0, 255, 136, 0.8); }
+            100% { box-shadow: var(--neon-shadow) rgba(0, 255, 136, 0.3); }
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px currentColor; }
+            100% { text-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+        }
+
+        .is-invalid {
+            border-color: var(--danger-glow) !important;
+            box-shadow: 0 0 0 0.2rem rgba(255, 51, 102, 0.25) !important;
+        }
+
+        .is-valid {
+            border-color: var(--primary-glow) !important;
+            box-shadow: 0 0 0 0.2rem rgba(0, 255, 136, 0.25) !important;
+        }
+
+        .uploaded-file-item {
+            animation: slideInRight 0.3s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .sr-only {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #0a0a0a;
+                --text-primary: #ffffff;
+                --card-bg: rgba(20, 20, 20, 0.9);
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .cyber-card {
+                border: 2px solid var(--primary-glow);
+            }
+            
+            .cyber-btn {
+                border: 2px solid currentColor;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .ai-assistant-btn,
+            .ai-assistant-chat,
+            .cyber-bg,
+            .grid-overlay {
+                display: none !important;
+            }
+            
+            .cyber-card {
+                border: 1px solid #000;
+                box-shadow: none;
+            }
+        }
+    </style>
+</body>
+</html>
+
+
+

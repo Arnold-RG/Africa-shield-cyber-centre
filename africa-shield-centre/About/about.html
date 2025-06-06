@@ -1,0 +1,2461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Africa Shield Cyber Centre - East Africa's most advanced cybersecurity organization protecting over 400 million people through cutting-edge AI technology and innovative security solutions">
+    <meta name="keywords" content="Africa Shield, cybersecurity East Africa, AI security, digital protection, cyber defense, innovation lab, security operations center">
+    <title>About Africa Shield | Leading East Africa's Cybersecurity Revolution</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/about.css">
+    
+    <!-- Progressive Web App -->
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#0d6efd">
+</head>
+<body class="theme-transition">
+    
+    <!-- Security Alert Banner -->
+    <div id="securityAlertBanner" class="security-alert-banner" style="display: none;" role="alert" aria-live="assertive">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-exclamation-triangle text-warning me-2" aria-hidden="true"></i>
+                    <span id="securityAlertMessage">Security Alert: High threat activity detected in your region</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white" onclick="dismissSecurityAlert()" aria-label="Dismiss security alert"></button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Top Bar with Enhanced Utility Controls -->
+    <div class="container-fluid bg-light py-2 border-bottom theme-transition">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Emergency Contact Info -->
+            <div class="emergency-contact d-none d-md-flex align-items-center">
+                <span class="badge bg-danger me-2">
+                    <i class="fas fa-phone-alt me-1" aria-hidden="true"></i>Emergency: *789*911#
+                </span>
+                <small class="text-muted">24/7 Cyber Incident Response</small>
+            </div>
+            
+            <!-- Utility Controls -->
+            <div class="d-flex align-items-center">
+                <!-- Language Selector -->
+                <div class="language-selector-inline me-3">
+                    <div>
+                        <ul>
+                            <li><a href="#" data-lang="en" role="menuitem">🇺🇸 English/</a></li>
+                            <li><a href="#" data-lang="fr" role="menuitem">🇫🇷 Français/</a></li>
+                            <li><a href="#" data-lang="sw" role="menuitem">🇹🇿 Kiswahili/</a></li>
+                            <li><a href="#" data-lang="rw" role="menuitem">🇷🇼 Kinyarwanda/</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Font Size Controls -->
+                <div class="btn-group btn-group-sm me-3" role="group" aria-label="Font size controls">
+                    <button id="decreaseFontSize" type="button" class="btn btn-outline-secondary" aria-label="Decrease font size" title="Decrease font size">
+                        <i class="fas fa-minus" aria-hidden="true"></i>
+                    </button>
+                    <button id="resetFontSize" type="button" class="btn btn-outline-secondary" aria-label="Reset font size" title="Reset font size">
+                        <i class="fas fa-font" aria-hidden="true"></i>
+                    </button>
+                    <button id="increaseFontSize" type="button" class="btn btn-outline-secondary" aria-label="Increase font size" title="Increase font size">
+                        <i class="fas fa-plus" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- Theme Switcher -->
+                <div class="theme-switcher-toggle me-3">
+                    <button id="themeToggle" type="button" class="btn btn-sm btn-outline-secondary" aria-label="Toggle theme" title="Toggle dark/light theme">
+                        <i class="fas fa-sun" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- High Contrast Toggle -->
+                <div class="accessibility-toggle me-3">
+                    <button id="contrastToggle" type="button" class="btn btn-sm btn-outline-secondary" aria-label="Toggle high contrast" title="Toggle high contrast">
+                        <i class="fas fa-adjust" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- SOC Status Indicator -->
+                <div class="soc-status-indicator me-3">
+                    <button id="socStatusToggle" type="button" class="btn btn-sm btn-outline-success" title="SOC Status" aria-label="View SOC status">
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                        <span class="soc-status-text">SECURE</span>
+                    </button>
+                </div>
+
+                <!-- Enhanced Notification Bell -->
+                <div class="notification-center">
+                    <button id="notificationToggle" type="button" class="btn btn-sm btn-outline-secondary position-relative notification-btn" title="Notifications" aria-label="View notifications">
+                        <i class="fas fa-bell notification-icon" aria-hidden="true"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger notification-badge" id="notificationCount">
+                            5
+                        </span>
+                        <div class="notification-pulse"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm theme-transition" role="navigation">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../Home/index.html" aria-label="Africa Shield Cyber Centre Home">
+                <img src="../assets/images/logo.png" width="50" height="50" alt="Africa Shield Cyber Centre Logo" class="me-2">
+                <div class="brand-text-container">
+                    <span class="brand-text fw-bold">Africa Shield</span>
+                    <small class="brand-subtitle d-block text-muted">Cyber Centre</small>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Home/index.html" role="menuitem">
+                            <i class="fas fa-home me-1" aria-hidden="true"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Learn/index.html" role="menuitem">
+                            <i class="fas fa-graduation-cap me-1" aria-hidden="true"></i> Learn
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Report/index.html" role="menuitem">
+                            <i class="fas fa-exclamation-triangle me-1" aria-hidden="true"></i> Report Threat
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../SOC/index.html" role="menuitem">
+                            <i class="fas fa-desktop me-1" aria-hidden="true"></i> SOC Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Events/index.html" role="menuitem">
+                            <i class="fas fa-calendar-alt me-1" aria-hidden="true"></i> Events
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Jobs/index.html" role="menuitem">
+                            <i class="fas fa-briefcase me-1" aria-hidden="true"></i> Careers
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link active" href="about.html" role="menuitem" aria-current="page">
+                            <i class="fas fa-building me-1" aria-hidden="true"></i> About Us
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Contact/index.html" role="menuitem">
+                            <i class="fas fa-envelope me-1" aria-hidden="true"></i> Contact
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a class="nav-link dropdown-toggle" href="#" role="menuitem" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-ellipsis-h me-1" aria-hidden="true"></i> More
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a class="dropdown-item" href="../ThreatMap/index.html" role="menuitem">
+                                <i class="fas fa-globe-africa me-2" aria-hidden="true"></i>Live Threat Map
+                            </a></li>
+                            <li role="none"><a class="dropdown-item" href="../News/index.html" role="menuitem">
+                                <i class="fas fa-newspaper me-2" aria-hidden="true"></i>News
+                            </a></li>
+                            <li role="none"><a class="dropdown-item" href="../App/index.html" role="menuitem">
+                                <i class="fas fa-mobile-alt me-2" aria-hidden="true"></i>Mobile App
+                            </a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <!-- Search and CTA -->
+                <div class="d-flex align-items-center">
+                    <form class="d-flex me-3" role="search">
+                    </form>
+                    <a href="../Admin/auth.html" class="btn btn-danger btn-sm me-2">
+                        <i class="fas fa-user-circle me-1" aria-hidden="true"></i>
+                        Account
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section" id="heroSection">
+            <div class="hero-background">
+                <div class="hero-overlay"></div>
+                <div class="hero-animation">
+                    <div class="data-streams">
+                        <div class="stream stream-1"></div>
+                        <div class="stream stream-2"></div>
+                        <div class="stream stream-3"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="hero-badge">
+                        <span class="badge-text">EST. 2025</span>
+                        <span class="badge-separator">|</span>
+                        <span class="badge-text">CYBER PROTECTION</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-line">  </span>
+                        <span class="title-line highlight">EAST AFRICA'S</span>
+                        <span class="title-line">DIGITAL FRONTIER</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        We are the guardians of East Africa's digital ecosystem, leveraging cutting-edge AI technology, 
+                        quantum-resistant encryption, and advanced threat intelligence to protect over 400 million people 
+                        across 14 nations from evolving cyber threats. Our mission extends beyond traditional cybersecurity 
+                        to encompass digital sovereignty, economic protection, and technological advancement for the entire region.
+                    </p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="stat-number" data-target="400000000">0</div>
+                            <div class="stat-label">PEOPLE PROTECTED</div>
+                        </div>
+                        <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                            <div class="stat-number" data-target="2500000">0</div>
+                            <div class="stat-label">THREATS BLOCKED</div>
+                        </div>
+                                                <div class="stat-item" data-aos="fade-up" data-aos-delay="600">
+                            <div class="stat-number" data-target="99.9">0</div>
+                            <div class="stat-label">% UPTIME</div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-actions" data-aos="fade-up" data-aos-delay="800">
+                        <a href="#mission" class="cta-btn primary">
+                            <span class="btn-text">EXPLORE MISSION</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </a>
+                        <a href="../SOC/index.html" class="cta-btn secondary">
+                            <span class="btn-text">LIVE SOC</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <div class="scroll-arrow"></div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision Section -->
+        <section class="mission-section" id="mission">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">OUR CORE DIRECTIVE</h2>
+                    <p class="section-subtitle">Defining our purpose in the digital battlefield</p>
+                </div>
+                
+                <div class="mission-grid">
+                    <div class="mission-card" data-aos="fade-right" data-aos-delay="200">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h3 class="card-title">MISSION</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>To establish an impenetrable digital shield across East Africa through revolutionary AI-powered cybersecurity solutions, comprehensive threat intelligence, and community-driven defense mechanisms that adapt and evolve with emerging cyber threats. We are committed to fostering digital resilience, protecting critical infrastructure, and ensuring the secure digital transformation of governments, businesses, and communities throughout the region.</p>
+                            <div class="card-features">
+                                <span class="feature-tag">AI-POWERED DEFENSE</span>
+                                <span class="feature-tag">REAL-TIME PROTECTION</span>
+                                <span class="feature-tag">COMMUNITY DRIVEN</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mission-card" data-aos="fade-left" data-aos-delay="400">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3 class="card-title">VISION</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>To become Africa's premier cybersecurity fortress, pioneering next-generation security technologies and fostering a digitally resilient continent where innovation thrives without compromise, setting the global standard for regional cyber defense. We envision a future where East Africa leads the world in cybersecurity excellence, digital sovereignty, and technological innovation, creating a secure foundation for economic growth and social development.</p>
+                            <div class="card-features">
+                                <span class="feature-tag">CONTINENTAL LEADERSHIP</span>
+                                <span class="feature-tag">INNOVATION HUB</span>
+                                <span class="feature-tag">GLOBAL STANDARD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="story-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">OUR JOURNEY</h2>
+                    <p class="section-subtitle">From vision to reality - building East Africa's cyber defense</p>
+                </div>
+                
+                <div class="story-timeline">
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+                        <div class="timeline-marker">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>2020 - The Vision</h4>
+                            <p>Recognizing the growing cyber threats facing East Africa, a group of cybersecurity experts and technology leaders came together with a shared vision: to create a regional cybersecurity powerhouse that could protect millions of people and critical infrastructure from sophisticated cyber attacks.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+                        <div class="timeline-marker">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>2022 - Foundation & Launch</h4>
+                            <p>Africa Shield Cyber Centre was officially established with backing from leading technology companies, government partnerships, and international cybersecurity organizations. Our first Security Operations Center (SOC) went live, immediately beginning to monitor and protect critical infrastructure across Kenya, Uganda, and Tanzania.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="600">
+                        <div class="timeline-marker">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>2023 - Rapid Expansion</h4>
+                            <p>Our services expanded to cover 14 East African countries, establishing regional partnerships and deploying advanced AI-powered threat detection systems. We launched our comprehensive cybersecurity training programs and began protecting over 100 million people across the region.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="800">
+                        <div class="timeline-marker">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>2024 - Recognition & Innovation</h4>
+                            <p>Africa Shield received international recognition for cybersecurity excellence, winning multiple awards for innovation in AI-powered threat detection. We launched our quantum-resistant encryption research program and established partnerships with leading global cybersecurity firms.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="1000">
+                        <div class="timeline-marker">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>2025 - Continental Leadership</h4>
+                            <p>Today, we protect over 400 million people across East Africa, operate multiple state-of-the-art SOCs, and lead the continent in cybersecurity innovation. Our vision for a secure, digitally sovereign Africa is becoming reality as we continue to expand our capabilities and reach.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values Section -->
+        <section class="values-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">CORE VALUES</h2>
+                    <p class="section-subtitle">The principles that drive our cybersecurity excellence</p>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h4 class="value-title">INTEGRITY</h4>
+                        <p class="value-description">Unwavering commitment to ethical cybersecurity practices, transparent operations, and maintaining the highest standards of professional conduct in all our interactions with clients, partners, and communities.</p>
+                    </div>
+                    
+                    <div class="value-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="value-icon">
+                            <i class="fas fa-rocket"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h4 class="value-title">INNOVATION</h4>
+                        <p class="value-description">Pioneering cutting-edge technologies, developing next-generation security solutions, and continuously pushing the boundaries of what's possible in cybersecurity to stay ahead of evolving threats.</p>
+                    </div>
+                    
+                    <div class="value-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h4 class="value-title">COLLABORATION</h4>
+                        <p class="value-description">Building strategic partnerships across governments, institutions, and communities to create a unified defense against cyber threats and foster regional cooperation in cybersecurity initiatives.</p>
+                    </div>
+                    
+                    <div class="value-card" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="value-icon">
+                            <i class="fas fa-bolt"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h4 class="value-title">AGILITY</h4>
+                        <p class="value-description">Rapid response capabilities, adaptive security measures, and the flexibility to quickly evolve our strategies and technologies in response to dynamic and emerging cyber threats.</p>
+                    </div>
+                    
+                    <div class="value-card" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="value-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h4 class="value-title">EDUCATION</h4>
+                        <p class="value-description">Empowering communities through comprehensive cybersecurity knowledge, training programs, and awareness initiatives that build a culture of security across East Africa.</p>
+                    </div>
+                    
+                    <div class="value-card" data-aos="zoom-in" data-aos-delay="600">
+                        <div class="value-icon">
+                            <i class="fas fa-globe-africa"></i>
+                            <div class="icon-glow"></div>
+                        </div>
+                        <h4 class="value-title">UNITY</h4>
+                        <p class="value-description">Fostering regional cooperation, collective defense strategies, and shared responsibility in protecting East Africa's digital infrastructure from cyber adversaries and threats.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview Section -->
+        <section class="services-overview-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">OUR CAPABILITIES</h2>
+                    <p class="section-subtitle">Comprehensive cybersecurity solutions for the digital age</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>AI-Powered Threat Detection</h4>
+                        <p>Advanced machine learning algorithms that identify and neutralize threats in real-time, processing millions of data points to detect even the most sophisticated attacks before they can cause damage.</p>
+                        <ul class="service-features">
+                            <li>Real-time behavioral analysis</li>
+                            <li>Predictive threat modeling</li>
+                            <li>Automated response systems</li>
+                            <li>Zero-day exploit detection</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h4>24/7 Security Operations</h4>
+                        <p>Round-the-clock monitoring and incident response from our state-of-the-art Security Operations Centers, staffed by elite cybersecurity professionals and powered by cutting-edge technology.</p>
+                        <ul class="service-features">
+                            <li>Continuous threat monitoring</li>
+                            <li>Rapid incident response</li>
+                            <li>Forensic investigation</li>
+                            <li>Threat intelligence sharing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Cybersecurity Training</h4>
+                        <p>Comprehensive education programs designed to build cybersecurity expertise across East Africa, from basic awareness training to advanced certification programs for security professionals.</p>
+                        <ul class="service-features">
+                            <li>Professional certification courses</li>
+                            <li>Corporate security training</li>
+                            <li>Public awareness campaigns</li>
+                            <li>Academic partnerships</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="800">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-virus"></i>
+                        </div>
+                        <h4>Critical Infrastructure Protection</h4>
+                        <p>Specialized security solutions for protecting essential services including power grids, telecommunications, financial systems, and government networks from sophisticated cyber attacks.</p>
+                        <ul class="service-features">
+                            <li>Industrial control system security</li>
+                            <li>Network segmentation</li>
+                            <li>Compliance management</li>
+                            <li>Risk assessment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Team Section -->
+        <section class="leadership-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">COMMAND STRUCTURE</h2>
+                    <p class="section-subtitle">Elite cybersecurity professionals leading our mission</p>
+                </div>
+                
+                <div class="leadership-grid">
+                    <div class="leader-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="leader-image">
+                            <img src="../assets/images/team/ceo.jpg" alt="CEO" class="leader-photo">
+                            <div class="leader-overlay">
+                                <div class="social-links">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                                                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leader-info">
+                            <h4 class="leader-name">DR. AMARA OKONKWO</h4>
+                            <p class="leader-title">CHIEF EXECUTIVE OFFICER</p>
+                            <p class="leader-bio">Former NSA cybersecurity architect with 20+ years in advanced threat detection and AI security systems. Dr. Okonkwo holds a PhD in Cybersecurity from MIT and has led major security initiatives across three continents. She is recognized globally for her expertise in quantum cryptography and has authored over 50 research papers on advanced persistent threats.</p>
+                            <div class="leader-stats">
+                                <span class="stat">15+ YEARS LEADERSHIP</span>
+                                <span class="stat">PhD CYBERSECURITY</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="leader-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="leader-image">
+                            <img src="../assets/images/team/cto.jpg" alt="CTO" class="leader-photo">
+                            <div class="leader-overlay">
+                                <div class="social-links">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leader-info">
+                            <h4 class="leader-name">KWAME ASANTE</h4>
+                            <p class="leader-title">CHIEF TECHNOLOGY OFFICER</p>
+                            <p class="leader-bio">Quantum computing pioneer and AI researcher, leading our next-generation security infrastructure development. Kwame has over 50 patents in cybersecurity technology and previously served as Principal Architect at major tech companies. His groundbreaking work in quantum-resistant encryption is setting new industry standards.</p>
+                            <div class="leader-stats">
+                                <span class="stat">50+ PATENTS</span>
+                                <span class="stat">MIT GRADUATE</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="leader-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="leader-image">
+                            <img src="../assets/images/team/cso.jpg" alt="CSO" class="leader-photo">
+                            <div class="leader-overlay">
+                                <div class="social-links">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leader-info">
+                            <h4 class="leader-name">FATIMA AL-RASHID</h4>
+                            <p class="leader-title">CHIEF SECURITY OFFICER</p>
+                            <p class="leader-bio">Elite penetration tester and threat hunter with extensive experience in nation-state cyber warfare defense. Fatima is a certified ethical hacker and has been a keynote speaker at major cybersecurity conferences worldwide. She leads our red team operations and advanced threat research initiatives.</p>
+                            <div class="leader-stats">
+                                <span class="stat">CISSP CERTIFIED</span>
+                                <span class="stat">BLACK HAT SPEAKER</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="leader-card" data-aos="fade-up" data-aos-delay="800">
+                        <div class="leader-image">
+                            <img src="../assets/images/team/coo.jpg" alt="COO" class="leader-photo">
+                            <div class="leader-overlay">
+                                <div class="social-links">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leader-info">
+                            <h4 class="leader-name">JAMES MWANGI</h4>
+                            <p class="leader-title">CHIEF OPERATIONS OFFICER</p>
+                            <p class="leader-bio">Strategic operations expert specializing in large-scale cybersecurity deployments across emerging markets. James has an MBA in Strategic Management and over 12 years of experience in scaling technology operations across Africa. He oversees our regional expansion and partnership development.</p>
+                            <div class="leader-stats">
+                                <span class="stat">MBA STRATEGY</span>
+                                <span class="stat">AFRICA EXPERT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section class="achievements-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">ACHIEVEMENTS & RECOGNITION</h2>
+                    <p class="section-subtitle">Global recognition for cybersecurity excellence</p>
+                </div>
+                
+                <div class="achievements-grid">
+                    <div class="achievement-card" data-aos="flip-left" data-aos-delay="200">
+                        <div class="achievement-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4>Global Cybersecurity Excellence Award 2024</h4>
+                        <p>Recognized by the International Cybersecurity Alliance for outstanding contribution to regional cyber defense and innovation in AI-powered threat detection.</p>
+                    </div>
+                    
+                    <div class="achievement-card" data-aos="flip-left" data-aos-delay="400">
+                        <div class="achievement-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h4>African Innovation Award 2023</h4>
+                        <p>Honored for pioneering cybersecurity solutions that have transformed digital security across the African continent and protected millions of users.</p>
+                    </div>
+                    
+                    <div class="achievement-card" data-aos="flip-left" data-aos-delay="600">
+                        <div class="achievement-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>ISO 27001 & SOC 2 Certified</h4>
+                        <p>Achieved the highest international standards for information security management and service organization controls, ensuring world-class security practices.</p>
+                    </div>
+                    
+                    <div class="achievement-card" data-aos="flip-left" data-aos-delay="800">
+                        <div class="achievement-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4>UN Partnership for Cyber Peace</h4>
+                        <p>Selected as a key partner in the United Nations' global initiative for cybersecurity cooperation and digital peace-building efforts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content" data-aos="zoom-in">
+                    <div class="cta-background">
+                        <div class="cta-particles"></div>
+                    </div>
+                    
+                    <div class="cta-text">
+                        <h2 class="cta-title">JOIN THE DIGITAL DEFENSE FORCE</h2>
+                        <p class="cta-description">
+                            Be part of East Africa's cybersecurity revolution. Whether you're a security professional, 
+                            researcher, student, or organization, there's a place for you in our mission to secure the digital frontier. 
+                            Together, we can build a safer, more secure digital future for all of East Africa.
+                        </p>
+                    </div>
+                    
+                    <div class="cta-actions">
+                        <a href="../Jobs/work.html" class="cta-btn primary">
+                            <span class="btn-text">JOIN OUR TEAM</span>
+                            <i class="fas fa-rocket"></i>
+                        </a>
+                        <a href="../Contact/contact.html" class="cta-btn secondary">
+                            <span class="btn-text">PARTNER WITH US</span>
+                            <i class="fas fa-handshake"></i>
+                        </a>
+                        <a href="../Learn/learn.html" class="cta-btn tertiary">
+                            <span class="btn-text">START LEARNING</span>
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="cta-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Open Positions</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Partner Organizations</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Active Learners</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Notification Panel -->
+    <div class="notification-panel" id="notificationPanel">
+        <div class="notification-header">
+            <div class="notification-title">
+                <i class="fas fa-bell me-2"></i>
+                <h6>Security Notifications</h6>
+            </div>
+            <div class="notification-controls">
+                <button class="btn btn-sm btn-outline-primary me-2" id="markAllRead">
+                    <i class="fas fa-check-double"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-secondary me-2" id="notificationSettings">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button class="btn-close" id="closeNotifications" aria-label="Close notifications"></button>
+            </div>
+        </div>
+        
+        <div class="notification-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="security">Security</button>
+            <button class="filter-btn" data-filter="system">System</button>
+            <button class="filter-btn" data-filter="alerts">Alerts</button>
+        </div>
+        
+        <div class="notification-body" id="notificationBody">
+            <div class="notification-item unread" data-type="security" data-priority="high">
+                <div class="notification-icon bg-danger">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-header-item">
+                        <h6>Critical Security Alert</h6>
+                        <span class="notification-priority high">HIGH</span>
+                    </div>
+                    <p>Suspicious activity detected from IP 192.168.1.100. Automated response initiated.</p>
+                    <div class="notification-meta">
+                        <small class="text-muted">
+                            <i class="fas fa-clock me-1"></i>2 minutes ago
+                        </small>
+                        <div class="notification-actions">
+                            <button class="btn btn-sm btn-outline-primary">View Details</button>
+                            <button class="btn btn-sm btn-outline-secondary">Dismiss</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="notification-item unread" data-type="system" data-priority="medium">
+                <div class="notification-icon bg-warning">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-header-item">
+                        <h6>System Update Available</h6>
+                        <span class="notification-priority medium">MEDIUM</span>
+                    </div>
+                    <p>New threat signatures and security patches are ready for deployment.</p>
+                    <div class="notification-meta">
+                        <small class="text-muted">
+                            <i class="fas fa-clock me-1"></i>15 minutes ago
+                        </small>
+                        <div class="notification-actions">
+                            <button class="btn btn-sm btn-outline-success">Install Now</button>
+                            <button class="btn btn-sm btn-outline-secondary">Schedule</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="notification-item" data-type="security" data-priority="low">
+                <div class="notification-icon bg-success">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-header-item">
+                        <h6>Security Scan Completed</h6>
+                        <span class="notification-priority low">LOW</span>
+                    </div>
+                    <p>Weekly security scan completed successfully. No threats detected.</p>
+                    <div class="notification-meta">
+                        <small class="text-muted">
+                            <i class="fas fa-clock me-1"></i>1 hour ago
+                        </small>
+                        <div class="notification-actions">
+                            <button class="btn btn-sm btn-outline-primary">View Report</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="notification-item unread" data-type="alerts" data-priority="medium">
+                <div class="notification-icon bg-info">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-header-item">
+                        <h6>Training Reminder</h6>
+                        <span class="notification-priority medium">MEDIUM</span>
+                    </div>
+                    <p>Your cybersecurity certification expires in 30 days. Renewal training available.</p>
+                    <div class="notification-meta">
+                        <small class="text-muted">
+                            <i class="fas fa-clock me-1"></i>2 hours ago
+                        </small>
+                        <div class="notification-actions">
+                            <button class="btn btn-sm btn-outline-primary">Start Training</button>
+                            <button class="btn btn-sm btn-outline-secondary">Remind Later</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="notification-item" data-type="system" data-priority="low">
+                <div class="notification-icon bg-primary">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-header-item">
+                        <h6>Monthly Security Report</h6>
+                                                <span class="notification-priority low">LOW</span>
+                    </div>
+                    <p>Your monthly cybersecurity analytics report is now available for review.</p>
+                    <div class="notification-meta">
+                        <small class="text-muted">
+                            <i class="fas fa-clock me-1"></i>3 hours ago
+                        </small>
+                        <div class="notification-actions">
+                            <button class="btn btn-sm btn-outline-primary">Download Report</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="notification-footer">
+            <div class="notification-summary">
+                <small class="text-muted">
+                    <span id="unreadCount">3</span> unread notifications
+                </small>
+            </div>
+            <a href="#" class="btn btn-sm btn-outline-primary w-100 mt-2">View All Notifications</a>
+        </div>
+    </div>
+
+    <!-- AI Assistant Chat -->
+    <div class="ai-assistant" id="aiAssistant">
+        <button class="ai-toggle" id="aiToggle" aria-label="Open AI Assistant">
+            <i class="fas fa-robot"></i>
+            <span class="ai-pulse"></span>
+        </button>
+        
+        <div class="ai-chat-window" id="aiChatWindow">
+            <div class="ai-chat-header">
+                <div class="ai-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="ai-info">
+                    <h6>SHIELD AI ASSISTANT</h6>
+                    <span class="ai-status">Online</span>
+                </div>
+                <button class="ai-close" id="aiClose" aria-label="Close AI Assistant">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="ai-chat-body" id="aiChatBody">
+                <div class="ai-message ai-message-bot">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>Hello! I'm your AI cybersecurity assistant. I can help you learn about Africa Shield's services, our mission, career opportunities, and cybersecurity best practices. How can I assist you today?</p>
+                        <div class="message-time">Just now</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ai-chat-footer">
+                <div class="ai-input-container">
+                    <input type="text" id="aiInput" placeholder="Ask me anything about cybersecurity..." autocomplete="off">
+                    <button id="aiSend" aria-label="Send message">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="ai-suggestions">
+                    <button class="suggestion-btn" data-message="What services does Africa Shield offer?">Our Services</button>
+                    <button class="suggestion-btn" data-message="How can I join the team?">Join Team</button>
+                    <button class="suggestion-btn" data-message="What is your mission?">Our Mission</button>
+                    <button class="suggestion-btn" data-message="Tell me about your leadership team">Leadership</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+        <div class="btn-glow"></div>
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <!-- Brand Section -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="../assets/images/logo.png" width="40" height="40" alt="Africa Shield Logo" class="me-2">
+                        <div>
+                            <h5 class="mb-0">Africa Shield</h5>
+                            <small class="text-muted">Cyber Centre</small>
+                        </div>
+                    </div>
+                    <p class="mb-3">Defending East Africa's digital frontier through advanced cybersecurity solutions and innovative threat intelligence.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-light me-3" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-light me-3" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-light me-3" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-3">Platform</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="../Home/index.html" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="../SOC/index.html" class="text-light text-decoration-none">SOC Dashboard</a></li>
+                        <li><a href="../Learn/learn.html" class="text-light text-decoration-none">Training Center</a></li>
+                        <li><a href="../Report/report.html" class="text-light text-decoration-none">Threat Reporting</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Resources -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-3">Resources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="../Blog/index.html" class="text-light text-decoration-none">Security Blog</a></li>
+                        <li><a href="../Research/index.html" class="text-light text-decoration-none">Research Papers</a></li>
+                        <li><a href="../Tools/index.html" class="text-light text-decoration-none">Security Tools</a></li>
+                        <li><a href="../API/index.html" class="text-light text-decoration-none">Developer API</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li><a href="../Jobs/work.html" class="text-light text-decoration-none">Careers</a></li>
+                        <li><a href="../Press/index.html" class="text-light text-decoration-none">Press Center</a></li>
+                        <li><a href="../Contact/contact.html" class="text-light text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Emergency Contact -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-3">Emergency</h6>
+                    <div class="emergency-contact-footer">
+                        <div class="mb-2">
+                            <i class="fas fa-phone text-danger me-2"></i>
+                            <a href="tel:+254700744353" class="text-light text-decoration-none">*789*911#</a>
+                        </div>
+                        <div class="mb-2">
+                            <i class="fas fa-envelope text-danger me-2"></i>
+                            <a href="mailto:emergency@africashield.org" class="text-light text-decoration-none">emergency@africashield.org</a>
+                        </div>
+                        <small class="text-muted">24/7 Incident Response</small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats Bar -->
+            <div class="row mt-4 pt-4 border-top">
+                <div class="col-md-3 text-center mb-3">
+                    <div class="stat-item">
+                        <h4 class="text-primary mb-0" id="footerThreatsBlocked">2,847,392</h4>
+                        <small class="text-muted">Threats Blocked Today</small>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center mb-3">
+                    <div class="stat-item">
+                        <h4 class="text-success mb-0">99.98%</h4>
+                        <small class="text-muted">System Uptime</small>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center mb-3">
+                    <div class="stat-item">
+                        <h4 class="text-info mb-0">14</h4>
+                        <small class="text-muted">Countries Protected</small>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center mb-3">
+                    <div class="stat-item">
+                        <h4 class="text-warning mb-0">400M+</h4>
+                        <small class="text-muted">People Secured</small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="row mt-4 pt-4 border-top">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Africa Shield Cyber Centre. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="certifications">
+                        <span class="badge bg-secondary me-2">ISO 27001</span>
+                        <span class="badge bg-secondary me-2">SOC 2 Type II</span>
+                        <span class="badge bg-secondary">GDPR Compliant</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/home.js"></script>
+    <script src="../assets/js/about.js"></script>
+    
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Enhanced Notification System
+        class NotificationSystem {
+            constructor() {
+                this.notifications = [];
+                this.unreadCount = 0;
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.loadNotifications();
+                this.startRealTimeUpdates();
+            }
+
+            bindEvents() {
+                const notificationToggle = document.getElementById('notificationToggle');
+                const notificationPanel = document.getElementById('notificationPanel');
+                const closeNotifications = document.getElementById('closeNotifications');
+                const markAllRead = document.getElementById('markAllRead');
+                const filterBtns = document.querySelectorAll('.filter-btn');
+
+                notificationToggle.addEventListener('click', () => {
+                    notificationPanel.classList.toggle('active');
+                    this.updateNotificationIcon();
+                });
+
+                closeNotifications.addEventListener('click', () => {
+                    notificationPanel.classList.remove('active');
+                });
+
+                markAllRead.addEventListener('click', () => {
+                    this.markAllAsRead();
+                });
+
+                // Filter functionality
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        filterBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        this.filterNotifications(btn.dataset.filter);
+                    });
+                });
+
+                // Close panel when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!notificationPanel.contains(e.target) && !notificationToggle.contains(e.target)) {
+                        notificationPanel.classList.remove('active');
+                    }
+                });
+            }
+
+            loadNotifications() {
+                // Simulate loading notifications from server
+                const mockNotifications = [
+                    {
+                        id: 1,
+                        type: 'security',
+                        priority: 'high',
+                        title: 'Critical Security Alert',
+                        message: 'Suspicious activity detected from IP 192.168.1.100. Automated response initiated.',
+                        timestamp: new Date(Date.now() - 2 * 60 * 1000),
+                        read: false,
+                        icon: 'fas fa-exclamation-triangle',
+                        color: 'danger'
+                    },
+                    {
+                        id: 2,
+                        type: 'system',
+                        priority: 'medium',
+                        title: 'System Update Available',
+                        message: 'New threat signatures and security patches are ready for deployment.',
+                        timestamp: new Date(Date.now() - 15 * 60 * 1000),
+                        read: false,
+                        icon: 'fas fa-download',
+                        color: 'warning'
+                    },
+                    {
+                        id: 3,
+                        type: 'alerts',
+                        priority: 'medium',
+                        title: 'Training Reminder',
+                        message: 'Your cybersecurity certification expires in 30 days. Renewal training available.',
+                        timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000),
+                        read: false,
+                        icon: 'fas fa-info-circle',
+                        color: 'info'
+                    }
+                ];
+
+                this.notifications = mockNotifications;
+                this.updateUnreadCount();
+                this.updateNotificationIcon();
+            }
+
+            addNotification(notification) {
+                notification.id = Date.now();
+                notification.timestamp = new Date();
+                notification.read = false;
+                
+                this.notifications.unshift(notification);
+                this.updateUnreadCount();
+                this.updateNotificationIcon();
+                this.renderNotifications();
+                
+                // Show toast notification
+                this.showToast(notification);
+            }
+
+            markAsRead(notificationId) {
+                const notification = this.notifications.find(n => n.id === notificationId);
+                if (notification && !notification.read) {
+                    notification.read = true;
+                    this.updateUnreadCount();
+                                        this.updateNotificationIcon();
+                    this.renderNotifications();
+                }
+            }
+
+            markAllAsRead() {
+                this.notifications.forEach(n => n.read = true);
+                this.updateUnreadCount();
+                this.updateNotificationIcon();
+                this.renderNotifications();
+            }
+
+            updateUnreadCount() {
+                this.unreadCount = this.notifications.filter(n => !n.read).length;
+                document.getElementById('unreadCount').textContent = this.unreadCount;
+            }
+
+            updateNotificationIcon() {
+                const badge = document.getElementById('notificationCount');
+                const icon = document.querySelector('.notification-icon');
+                
+                if (this.unreadCount > 0) {
+                    badge.textContent = this.unreadCount;
+                    badge.style.display = 'block';
+                    icon.classList.add('has-notifications');
+                } else {
+                    badge.style.display = 'none';
+                    icon.classList.remove('has-notifications');
+                }
+            }
+
+            filterNotifications(filter) {
+                const items = document.querySelectorAll('.notification-item');
+                items.forEach(item => {
+                    if (filter === 'all' || item.dataset.type === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+
+            renderNotifications() {
+                // This would typically render the notifications dynamically
+                // For now, we'll just update the existing ones
+                this.updateUnreadCount();
+            }
+
+            showToast(notification) {
+                const toast = document.createElement('div');
+                toast.className = `toast-notification toast-${notification.color}`;
+                toast.innerHTML = `
+                    <div class="toast-icon">
+                        <i class="${notification.icon}"></i>
+                    </div>
+                    <div class="toast-content">
+                        <h6>${notification.title}</h6>
+                        <p>${notification.message}</p>
+                    </div>
+                    <button class="toast-close" onclick="this.parentElement.remove()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                
+                document.body.appendChild(toast);
+                
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.remove();
+                    }
+                }, 5000);
+            }
+
+            startRealTimeUpdates() {
+                // Simulate real-time notifications
+                setInterval(() => {
+                    if (Math.random() > 0.8) {
+                        const randomNotifications = [
+                            {
+                                type: 'security',
+                                priority: 'low',
+                                title: 'Security Scan Completed',
+                                message: 'Routine security scan completed successfully. No threats detected.',
+                                icon: 'fas fa-shield-alt',
+                                color: 'success'
+                            },
+                            {
+                                type: 'system',
+                                priority: 'medium',
+                                title: 'System Performance Alert',
+                                message: 'CPU usage has exceeded 80% for the past 5 minutes.',
+                                icon: 'fas fa-chart-line',
+                                color: 'warning'
+                            },
+                            {
+                                type: 'alerts',
+                                priority: 'low',
+                                title: 'Backup Completed',
+                                message: 'Daily system backup completed successfully.',
+                                icon: 'fas fa-database',
+                                color: 'info'
+                            }
+                        ];
+                        
+                        const randomNotification = randomNotifications[Math.floor(Math.random() * randomNotifications.length)];
+                        this.addNotification(randomNotification);
+                    }
+                }, 30000); // Check every 30 seconds
+            }
+        }
+
+        // Initialize notification system
+        const notificationSystem = new NotificationSystem();
+
+        // Security Alert Functions
+        function dismissSecurityAlert() {
+            document.getElementById('securityAlertBanner').style.display = 'none';
+        }
+
+        function showSecurityAlert(message) {
+            document.getElementById('securityAlertMessage').textContent = message;
+            document.getElementById('securityAlertBanner').style.display = 'block';
+        }
+
+        // Theme Toggle Functionality
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+            const icon = this.querySelector('i');
+            if (document.body.classList.contains('dark-theme')) {
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            document.getElementById('themeToggle').querySelector('i').className = 'fas fa-moon';
+        }
+
+        // High Contrast Toggle
+        document.getElementById('contrastToggle').addEventListener('click', function() {
+            document.body.classList.toggle('high-contrast');
+            localStorage.setItem('highContrast', document.body.classList.contains('high-contrast'));
+        });
+
+        // Load saved contrast setting
+        if (localStorage.getItem('highContrast') === 'true') {
+            document.body.classList.add('high-contrast');
+        }
+
+        // Font Size Controls
+        let currentFontSize = 16;
+        
+        document.getElementById('increaseFontSize').addEventListener('click', function() {
+            if (currentFontSize < 24) {
+                currentFontSize += 2;
+                document.documentElement.style.fontSize = currentFontSize + 'px';
+                localStorage.setItem('fontSize', currentFontSize);
+            }
+        });
+
+        document.getElementById('decreaseFontSize').addEventListener('click', function() {
+            if (currentFontSize > 12) {
+                currentFontSize -= 2;
+                document.documentElement.style.fontSize = currentFontSize + 'px';
+                localStorage.setItem('fontSize', currentFontSize);
+            }
+        });
+
+        document.getElementById('resetFontSize').addEventListener('click', function() {
+            currentFontSize = 16;
+            document.documentElement.style.fontSize = currentFontSize + 'px';
+            localStorage.setItem('fontSize', currentFontSize);
+        });
+
+        // Load saved font size
+        const savedFontSize = localStorage.getItem('fontSize');
+        if (savedFontSize) {
+            currentFontSize = parseInt(savedFontSize);
+            document.documentElement.style.fontSize = currentFontSize + 'px';
+        }
+
+        // Language Selector
+        document.querySelectorAll('[data-lang]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                
+                // Remove active class from all language links
+                document.querySelectorAll('[data-lang]').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Store selected language
+                localStorage.setItem('selectedLanguage', lang);
+                
+                // Here you would implement actual language switching
+                console.log(`Language switched to: ${lang}`);
+                showNotification(`Language switched to ${lang.toUpperCase()}`, 'success');
+            });
+        });
+
+        // Load saved language
+        const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+        document.querySelector(`[data-lang="${savedLang}"]`)?.classList.add('active');
+
+        // AI Assistant Functionality
+        const aiToggle = document.getElementById('aiToggle');
+        const aiChatWindow = document.getElementById('aiChatWindow');
+        const aiClose = document.getElementById('aiClose');
+        const aiInput = document.getElementById('aiInput');
+        const aiSend = document.getElementById('aiSend');
+        const aiChatBody = document.getElementById('aiChatBody');
+
+        aiToggle.addEventListener('click', () => {
+            aiChatWindow.classList.toggle('active');
+        });
+
+        aiClose.addEventListener('click', () => {
+            aiChatWindow.classList.remove('active');
+        });
+
+        function sendAIMessage() {
+            const message = aiInput.value.trim();
+            if (message) {
+                addMessage(message, 'user');
+                aiInput.value = '';
+                
+                // Simulate AI response
+                setTimeout(() => {
+                    const responses = [
+                        "I'd be happy to help you learn more about Africa Shield's cybersecurity services! We offer comprehensive protection across 14 East African countries.",
+                        "Our advanced AI-powered threat detection systems protect millions across East Africa using cutting-edge machine learning algorithms.",
+                        "You can explore our training programs, SOC dashboard, or contact our team for more information about our services.",
+                        "Africa Shield offers comprehensive cybersecurity solutions including 24/7 monitoring, incident response, threat intelligence, and security training.",
+                        "Our mission is to establish an impenetrable digital shield across East Africa through revolutionary AI-powered cybersecurity solutions.",
+                        "We have a world-class leadership team with decades of experience in cybersecurity, including former NSA architects and quantum computing pioneers.",
+                        "Our achievements include global cybersecurity excellence awards and partnerships with the United Nations for cyber peace initiatives."
+                    ];
+                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    addMessage(randomResponse, 'bot');
+                }, 1000);
+            }
+        }
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `ai-message ai-message-${sender}`;
+            messageDiv.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas fa-${sender === 'user' ? 'user' : 'robot'}"></i>
+                </div>
+                <div class="message-content">
+                    <p>${text}</p>
+                    <div class="message-time">Just now</div>
+                </div>
+            `;
+            aiChatBody.appendChild(messageDiv);
+            aiChatBody.scrollTop = aiChatBody.scrollHeight;
+        }
+
+        aiSend.addEventListener('click', sendAIMessage);
+        aiInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendAIMessage();
+            }
+        });
+
+        // Suggestion buttons
+        document.querySelectorAll('.suggestion-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const message = this.getAttribute('data-message');
+                aiInput.value = message;
+                sendAIMessage();
+            });
+        });
+
+        // SOC Status Toggle
+        document.getElementById('socStatusToggle').addEventListener('click', function() {
+            const statusText = this.querySelector('.soc-status-text');
+            const icon = this.querySelector('i');
+            
+            // Cycle through statuses
+            const statuses = [
+                { text: 'SECURE', class: 'btn-outline-success', icon: 'fas fa-shield-alt' },
+                { text: 'MONITORING', class: 'btn-outline-warning', icon: 'fas fa-eye' },
+                { text: 'ALERT', class: 'btn-outline-danger', icon: 'fas fa-exclamation-triangle' }
+            ];
+            
+            const currentIndex = statuses.findIndex(s => statusText.textContent === s.text);
+            const nextIndex = (currentIndex + 1) % statuses.length;
+            const nextStatus = statuses[nextIndex];
+            
+            // Update button appearance
+            this.className = `btn btn-sm ${nextStatus.class}`;
+            statusText.textContent = nextStatus.text;
+            icon.className = nextStatus.icon;
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animated Counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseFloat(counter.getAttribute('data-target'));
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+                        
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+                            
+                            if (target >= 1000000) {
+                                counter.textContent = (current / 1000000).toFixed(1) + 'M';
+                            } else if (target >= 1000) {
+                                counter.textContent = (current / 1000).toFixed(1) + 'K';
+                            } else {
+                                counter.textContent = current.toFixed(target % 1 === 0 ? 0 : 1);
+                            }
+                        }, 16);
+                        
+                        observer.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        // Notification System
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check' : type === 'danger' ? 'times' : 'info'}-circle me-2"></i>
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Real-time Updates
+        function startRealTimeUpdates() {
+            setInterval(() => {
+                // Update footer threats blocked
+                const footerThreats = document.getElementById('footerThreatsBlocked');
+                if (footerThreats) {
+                    const current = parseInt(footerThreats.textContent.replace(/,/g, '')) || 0;
+                    const newCount = current + Math.floor(Math.random() * 10) + 1;
+                    footerThreats.textContent = newCount.toLocaleString();
+                }
+                
+                // Randomly show security alerts
+                if (Math.random() > 0.95) {
+                    const alerts = [
+                        "New threat signatures updated",
+                        "System security scan completed",
+                        "Firewall rules updated successfully",
+                        "Quantum encryption protocols activated",
+                        "AI threat detection model updated"
+                    ];
+                    showSecurityAlert(alerts[Math.floor(Math.random() * alerts.length)]);
+                }
+                        }, 30000); // Update every 30 seconds
+        }
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', function(e) {
+            // ESC key closes modals and chat
+            if (e.key === 'Escape') {
+                aiChatWindow.classList.remove('active');
+                document.getElementById('notificationPanel').classList.remove('active');
+            }
+            
+            // Ctrl/Cmd + K opens AI assistant
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                aiChatWindow.classList.toggle('active');
+                if (aiChatWindow.classList.contains('active')) {
+                    aiInput.focus();
+                }
+            }
+            
+            // Ctrl/Cmd + N opens notifications
+            if ((e.ctrlKey || e.metaKey) && e.key === 'n') {
+                e.preventDefault();
+                document.getElementById('notificationPanel').classList.toggle('active');
+            }
+        });
+
+        // Performance Monitoring
+        function monitorPerformance() {
+            if ('performance' in window) {
+                window.addEventListener('load', () => {
+                    const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                    console.log(`Page load time: ${loadTime}ms`);
+                    
+                    // Report to analytics if available
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'timing_complete', {
+                            name: 'load',
+                            value: loadTime
+                        });
+                    }
+                });
+            }
+        }
+
+        // Error Handling
+        window.addEventListener('error', function(e) {
+            console.error('JavaScript error:', e.error);
+            // In production, send to error tracking service
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'exception', {
+                    description: e.error.toString(),
+                    fatal: false
+                });
+            }
+        });
+
+        // Initialize all functions
+        document.addEventListener('DOMContentLoaded', function() {
+            animateCounters();
+            startRealTimeUpdates();
+            monitorPerformance();
+        });
+
+        // Responsive Navigation
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                // Close mobile menu if open
+                const navbarCollapse = document.getElementById('navbarMain');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
+            }
+        });
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('../sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+
+        // PWA Install Prompt
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show install notification
+            showNotification('Install Africa Shield app for better experience', 'info');
+        });
+
+        // Analytics Event Tracking
+        function trackEvent(eventName, parameters = {}) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, parameters);
+            }
+        }
+
+        // Track user interactions
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('.cta-btn')) {
+                trackEvent('cta_click', {
+                    button_text: e.target.textContent.trim(),
+                    section: e.target.closest('section')?.className || 'unknown'
+                });
+            }
+            
+            if (e.target.matches('.nav-link')) {
+                trackEvent('navigation_click', {
+                    link_text: e.target.textContent.trim(),
+                    destination: e.target.href
+                });
+            }
+            
+            if (e.target.matches('.leader-card')) {
+                trackEvent('leader_profile_view', {
+                    leader_name: e.target.querySelector('.leader-name')?.textContent || 'unknown'
+                });
+            }
+        });
+
+        // Accessibility Enhancements
+        function enhanceAccessibility() {
+            // Add skip to content link
+            const skipLink = document.createElement('a');
+            skipLink.href = '#main-content';
+            skipLink.className = 'skip-link visually-hidden-focusable';
+            skipLink.textContent = 'Skip to main content';
+            skipLink.style.cssText = 'position: absolute; top: 10px; left: 10px; z-index: 10000; padding: 8px 16px; background: #007bff; color: white; text-decoration: none; border-radius: 4px;';
+            document.body.insertBefore(skipLink, document.body.firstChild);
+            
+            // Improve focus management
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    document.body.classList.add('keyboard-navigation');
+                }
+            });
+            
+            document.addEventListener('mousedown', function() {
+                document.body.classList.remove('keyboard-navigation');
+            });
+
+            // Add ARIA labels dynamically
+            const buttons = document.querySelectorAll('button:not([aria-label])');
+            buttons.forEach(button => {
+                if (!button.getAttribute('aria-label')) {
+                    const text = button.textContent.trim() || button.title || 'Button';
+                    button.setAttribute('aria-label', text);
+                }
+            });
+        }
+
+        // Initialize accessibility enhancements
+        enhanceAccessibility();
+
+        // Advanced Features
+        class AdvancedFeatures {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.setupParallaxEffects();
+                this.setupIntersectionObserver();
+                this.setupAdvancedAnimations();
+            }
+
+            setupParallaxEffects() {
+                const parallaxElements = document.querySelectorAll('.hero-background');
+                
+                window.addEventListener('scroll', () => {
+                    const scrolled = window.pageYOffset;
+                    const rate = scrolled * -0.5;
+                    
+                    parallaxElements.forEach(element => {
+                        element.style.transform = `translateY(${rate}px)`;
+                    });
+                });
+            }
+
+            setupIntersectionObserver() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-in');
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe all sections
+                document.querySelectorAll('section').forEach(section => {
+                    observer.observe(section);
+                });
+            }
+
+            setupAdvancedAnimations() {
+                // Stagger animations for grid items
+                const grids = document.querySelectorAll('.values-grid, .leadership-grid, .achievements-grid');
+                
+                grids.forEach(grid => {
+                    const items = grid.querySelectorAll('.value-card, .leader-card, .achievement-card');
+                    items.forEach((item, index) => {
+                        item.style.animationDelay = `${index * 0.1}s`;
+                    });
+                });
+
+                // Typing effect for hero title
+                this.typeWriter();
+            }
+
+            typeWriter() {
+                const titleLines = document.querySelectorAll('.hero-title .title-line');
+                let lineIndex = 0;
+                let charIndex = 0;
+                let currentLine = '';
+                let isDeleting = false;
+
+                function type() {
+                    if (lineIndex < titleLines.length) {
+                        const fullText = titleLines[lineIndex].textContent;
+                        
+                        if (isDeleting) {
+                            currentLine = fullText.substring(0, charIndex - 1);
+                            charIndex--;
+                        } else {
+                            currentLine = fullText.substring(0, charIndex + 1);
+                            charIndex++;
+                        }
+
+                        titleLines[lineIndex].textContent = currentLine;
+
+                        if (!isDeleting && charIndex === fullText.length) {
+                            setTimeout(() => {
+                                lineIndex++;
+                                charIndex = 0;
+                                if (lineIndex < titleLines.length) {
+                                    setTimeout(type, 500);
+                                }
+                            }, 1000);
+                        } else if (isDeleting && charIndex === 0) {
+                            isDeleting = false;
+                            lineIndex++;
+                            setTimeout(type, 500);
+                        } else {
+                            setTimeout(type, isDeleting ? 50 : 100);
+                        }
+                    }
+                }
+
+                // Start typing effect after a delay
+                setTimeout(type, 2000);
+            }
+        }
+
+        // Initialize advanced features
+        const advancedFeatures = new AdvancedFeatures();
+
+        // Show random security alert on page load (demo)
+        setTimeout(() => {
+            if (Math.random() > 0.7) {
+                showSecurityAlert('Security systems initialized and monitoring active');
+            }
+        }, 3000);
+
+        // Dynamic content loading
+        function loadDynamicContent() {
+            // Simulate loading additional content
+            const sections = document.querySelectorAll('section');
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.classList.add('content-loaded');
+                }, index * 200);
+            });
+        }
+
+        // Initialize dynamic content loading
+        setTimeout(loadDynamicContent, 1000);
+
+        // Custom cursor effect for interactive elements
+        function initCustomCursor() {
+            const cursor = document.createElement('div');
+            cursor.className = 'custom-cursor';
+            document.body.appendChild(cursor);
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+
+            // Add hover effects
+            const interactiveElements = document.querySelectorAll('a, button, .leader-card, .value-card');
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    cursor.classList.add('cursor-hover');
+                });
+                element.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('cursor-hover');
+                });
+            });
+        }
+
+        // Initialize custom cursor on desktop
+        if (window.innerWidth > 768) {
+            initCustomCursor();
+        }
+
+        // Easter egg - Konami code
+        let konamiCode = [];
+        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // Up Up Down Down Left Right Left Right B A
+
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.keyCode);
+            if (konamiCode.length > konamiSequence.length) {
+                konamiCode.shift();
+            }
+            
+            if (konamiCode.join(',') === konamiSequence.join(',')) {
+                showNotification('🎉 Easter egg activated! Welcome to the elite cyber defenders!', 'success');
+                document.body.classList.add('konami-activated');
+                konamiCode = [];
+            }
+        });
+
+        // Print page functionality
+        function printPage() {
+            window.print();
+        }
+
+        // Add print button to page
+        const printBtn = document.createElement('button');
+        printBtn.innerHTML = '<i class="fas fa-print"></i>';
+        printBtn.className = 'btn btn-outline-secondary position-fixed';
+        printBtn.style.cssText = 'bottom: 20px; left: 20px; z-index: 1000;';
+        printBtn.title = 'Print Page';
+        printBtn.onclick = printPage;
+        document.body.appendChild(printBtn);
+
+        // Page visibility API for performance optimization
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                // Pause animations and reduce activity when page is hidden
+                document.body.classList.add('page-hidden');
+            } else {
+                // Resume normal activity when page is visible
+                document.body.classList.remove('page-hidden');
+            }
+        });
+
+        // Final initialization
+        console.log('Africa Shield About Page - Fully Loaded and Initialized');
+        console.log('🛡️ Protecting East Africa\'s Digital Frontier');
+    </script>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Africa Shield Cyber Centre",
+        "url": "https://africashield.org",
+        "logo": "https://africashield.org/assets/images/logo.png",
+        "description": "East Africa's premier cybersecurity organization protecting over 400 million people through cutting-edge AI technology and innovative security solutions.",
+        "foundingDate": "2022",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "Kenya",
+            "addressRegion": "Nairobi"
+        },
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "+254-700-744353",
+                "contactType": "Emergency Support",
+                "availableLanguage": ["English", "French", "Swahili", "Kinyarwanda"]
+            }
+        ],
+        "sameAs": [
+            "https://twitter.com/africashield",
+            "https://linkedin.com/company/africashield",
+            "https://github.com/africashield"
+        ],
+        "employee": [
+            {
+                "@type": "Person",
+                "name": "Dr. Amara Okonkwo",
+                "jobTitle": "Chief Executive Officer",
+                "description": "Former NSA cybersecurity architect with 20+ years in advanced threat detection and AI security systems."
+            },
+            {
+                "@type": "Person",
+                "name": "Kwame Asante",
+                "jobTitle": "Chief Technology Officer",
+                "description": "Quantum computing pioneer and AI researcher, leading next-generation security infrastructure development."
+            },
+            {
+                "@type": "Person",
+                "name": "Fatima Al-Rashid",
+                "jobTitle": "Chief Security Officer",
+                "description": "Elite penetration tester and threat hunter with extensive experience in nation-state cyber warfare defense."
+            },
+            {
+                "@type": "Person",
+                "name": "James Mwangi",
+                "jobTitle": "Chief Operations Officer",
+                "description": "Strategic operations expert specializing in large-scale cybersecurity deployments across emerging markets."
+            }
+        ],
+               "award": [
+            "Global Cybersecurity Excellence Award 2024",
+            "African Innovation Award 2023",
+            "UN Partnership for Cyber Peace"
+        ],
+        "hasCredential": [
+            "ISO 27001 Certified",
+            "SOC 2 Type II Certified",
+            "GDPR Compliant"
+        ],
+        "knowsAbout": [
+            "Cybersecurity",
+            "Artificial Intelligence",
+            "Threat Detection",
+            "Quantum Cryptography",
+            "Digital Forensics",
+            "Incident Response"
+        ],
+        "areaServed": [
+            "Kenya",
+            "Tanzania",
+            "Uganda",
+            "Rwanda",
+            "Burundi",
+            "South Sudan",
+            "Ethiopia",
+            "Somalia",
+            "Djibouti",
+            "Eritrea",
+            "Madagascar",
+            "Mauritius",
+            "Seychelles",
+            "Comoros"
+        ],
+        "numberOfEmployees": "500+",
+        "foundingLocation": {
+            "@type": "Place",
+            "name": "Nairobi, Kenya"
+        }
+    }
+    </script>
+
+    <!-- Additional CSS for Enhanced Features -->
+    <style>
+        /* Custom Cursor */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: rgba(13, 110, 253, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor.cursor-hover {
+            transform: scale(2);
+            background: rgba(220, 53, 69, 0.8);
+        }
+
+        /* Toast Notifications */
+        .toast-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            min-width: 300px;
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            display: flex;
+            align-items: center;
+            animation: slideInRight 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .toast-success { background: linear-gradient(135deg, #28a745, #20c997); }
+        .toast-danger { background: linear-gradient(135deg, #dc3545, #fd7e14); }
+        .toast-warning { background: linear-gradient(135deg, #ffc107, #fd7e14); }
+        .toast-info { background: linear-gradient(135deg, #17a2b8, #6f42c1); }
+
+        .toast-icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .toast-content h6 {
+            margin: 0 0 5px 0;
+            font-weight: 600;
+        }
+
+        .toast-content p {
+            margin: 0;
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            color: white;
+            margin-left: auto;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .toast-close:hover {
+            opacity: 1;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Enhanced Notification Panel */
+        .notification-filters {
+            display: flex;
+            gap: 5px;
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .filter-btn {
+            background: none;
+            border: 1px solid rgba(0,0,0,0.2);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--bs-primary);
+            color: white;
+            border-color: var(--bs-primary);
+        }
+
+        .notification-header-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .notification-priority {
+            font-size: 0.7em;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .notification-priority.high {
+            background: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+        }
+
+        .notification-priority.medium {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+        }
+
+        .notification-priority.low {
+            background: rgba(40, 167, 69, 0.2);
+            color: #28a745;
+        }
+
+        .notification-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .notification-actions {
+            display: flex;
+            gap: 5px;
+        }
+
+        .notification-item.unread {
+            background: rgba(13, 110, 253, 0.05);
+            border-left: 3px solid var(--bs-primary);
+        }
+
+        /* Konami Code Easter Egg */
+        .konami-activated {
+            animation: rainbow 2s infinite;
+        }
+
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        /* Page Hidden State */
+        .page-hidden * {
+            animation-play-state: paused !important;
+        }
+
+        /* Print Styles */
+        @media print {
+            .ai-assistant,
+            .notification-panel,
+            .back-to-top,
+            .custom-cursor,
+            .toast-notification,
+            nav,
+            footer {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .hero-section {
+                background: white !important;
+                color: black !important;
+            }
+        }
+
+        /* Accessibility Enhancements */
+        .keyboard-navigation *:focus {
+            outline: 2px solid #007bff !important;
+            outline-offset: 2px !important;
+        }
+
+        .skip-link:focus {
+            position: static !important;
+            width: auto !important;
+            height: auto !important;
+        }
+
+        /* High Contrast Mode */
+        .high-contrast {
+            filter: contrast(150%) brightness(120%);
+        }
+
+        .high-contrast .hero-section {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        .high-contrast .mission-card,
+        .high-contrast .value-card,
+        .high-contrast .leader-card {
+            border: 2px solid #fff !important;
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        /* Dark Theme Enhancements */
+        .dark-theme {
+            background: #1a1a1a !important;
+            color: #e0e0e0 !important;
+        }
+
+        .dark-theme .hero-section {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d) !important;
+        }
+
+        .dark-theme .mission-card,
+        .dark-theme .value-card,
+        .dark-theme .leader-card,
+        .dark-theme .achievement-card {
+            background: #2d2d2d !important;
+            border-color: #404040 !important;
+            color: #e0e0e0 !important;
+        }
+
+        .dark-theme .navbar {
+            background: #2d2d2d !important;
+        }
+
+        .dark-theme .notification-panel {
+            background: #2d2d2d !important;
+            color: #e0e0e0 !important;
+        }
+
+        /* Responsive Enhancements */
+        @media (max-width: 768px) {
+            .custom-cursor {
+                display: none;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .cta-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .notification-panel {
+                width: 100vw;
+                height: 100vh;
+                right: 0;
+                top: 0;
+                border-radius: 0;
+            }
+        }
+
+        /* Animation Enhancements */
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading States */
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+    </style>
+
+    <!-- Performance Monitoring -->
+    <script>
+        // Advanced Performance Monitoring
+        if ('PerformanceObserver' in window) {
+            // Monitor Largest Contentful Paint
+            const lcpObserver = new PerformanceObserver((list) => {
+                const entries = list.getEntries();
+                const lastEntry = entries[entries.length - 1];
+                console.log('LCP:', lastEntry.startTime);
+                
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'web_vitals', {
+                        name: 'LCP',
+                        value: Math.round(lastEntry.startTime),
+                        event_category: 'Performance'
+                    });
+                }
+            });
+            lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+
+            // Monitor First Input Delay
+            const fidObserver = new PerformanceObserver((list) => {
+                const entries = list.getEntries();
+                entries.forEach((entry) => {
+                    console.log('FID:', entry.processingStart - entry.startTime);
+                    
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'web_vitals', {
+                            name: 'FID',
+                            value: Math.round(entry.processingStart - entry.startTime),
+                            event_category: 'Performance'
+                        });
+                    }
+                });
+            });
+            fidObserver.observe({ entryTypes: ['first-input'] });
+
+            // Monitor Cumulative Layout Shift
+            let clsValue = 0;
+            const clsObserver = new PerformanceObserver((list) => {
+                const entries = list.getEntries();
+                entries.forEach((entry) => {
+                    if (!entry.hadRecentInput) {
+                        clsValue += entry.value;
+                    }
+                });
+                console.log('CLS:', clsValue);
+                
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'web_vitals', {
+                        name: 'CLS',
+                        value: Math.round(clsValue * 1000),
+                        event_category: 'Performance'
+                    });
+                }
+            });
+            clsObserver.observe({ entryTypes: ['layout-shift'] });
+        }
+
+        // Memory Usage Monitoring
+        if ('memory' in performance) {
+            setInterval(() => {
+                const memory = performance.memory;
+                console.log('Memory Usage:', {
+                    used: Math.round(memory.usedJSHeapSize / 1048576) + ' MB',
+                    total: Math.round(memory.totalJSHeapSize / 1048576) + ' MB',
+                    limit: Math.round(memory.jsHeapSizeLimit / 1048576) + ' MB'
+                });
+            }, 30000);
+        }
+
+        // Connection Quality Monitoring
+        if ('connection' in navigator) {
+            const connection = navigator.connection;
+            console.log('Connection:', {
+                effectiveType: connection.effectiveType,
+                downlink: connection.downlink,
+                rtt: connection.rtt
+            });
+            
+            connection.addEventListener('change', () => {
+                console.log('Connection changed:', connection.effectiveType);
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'connection_change', {
+                        connection_type: connection.effectiveType,
+                        event_category: 'Network'
+                    });
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+

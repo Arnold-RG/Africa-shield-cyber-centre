@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Africa Shield Cyber Centre Learning Platform - Master cybersecurity skills with comprehensive courses designed for East Africa">
+    <title>Learn Cybersecurity - Africa Shield Cyber Centre</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/learn.css">
+</head>
+<body>
+    <!-- Top Bar with Enhanced Utility Controls -->
+    <div class="container-fluid bg-light py-2 border-bottom theme-transition">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Emergency Contact Info -->
+            <div class="emergency-contact d-none d-md-flex align-items-center">
+                <span class="badge bg-danger me-2">
+                    <i class="fas fa-phone-alt me-1" aria-hidden="true"></i>Emergency: *789*911#
+                </span>
+                <small class="text-muted">24/7 Cyber Incident Response</small>
+            </div>
+            
+            <!-- Utility Controls -->
+            <div class="d-flex align-items-center">
+                <!-- Language Selector -->
+                <div class="language-selector-inline me-3">
+                    <div>
+                        <ul>
+                            <li><a  href="#" data-lang="en" role="menuitem">🇺🇸 English/</a></li>
+                            <li><a href="#" data-lang="fr" role="menuitem">🇫🇷 Français/</a></li>
+                            <li><a href="#" data-lang="sw" role="menuitem">🇹🇿 Kiswahili/</a></li>
+                            <li><a href="#" data-lang="rw" role="menuitem">🇷🇼 Kinyarwanda/</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Font Size Controls -->
+                <div class="btn-group btn-group-sm me-3" role="group" aria-label="Font size controls">
+                    <button id="decreaseFontSize" type="button" class="btn btn-outline-secondary" aria-label="Decrease font size" title="Decrease font size">
+                        <i class="fas fa-minus" aria-hidden="true"></i>
+                    </button>
+                    <button id="resetFontSize" type="button" class="btn btn-outline-secondary" aria-label="Reset font size" title="Reset font size">
+                        <i class="fas fa-font" aria-hidden="true"></i>
+                    </button>
+                    <button id="increaseFontSize" type="button" class="btn btn-outline-secondary" aria-label="Increase font size" title="Increase font size">
+                        <i class="fas fa-plus" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- Theme Switcher -->
+                <div class="theme-switcher-toggle me-3">
+                    <button id="themeToggle" type="button" class="btn btn-sm btn-outline-secondary" aria-label="Toggle theme" title="Toggle dark/light theme">
+                        <i class="fas fa-sun" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- High Contrast Toggle -->
+                <div class="accessibility-toggle me-3">
+                    <button id="contrastToggle" type="button" class="btn btn-sm btn-outline-secondary" aria-label="Toggle high contrast" title="Toggle high contrast">
+                        <i class="fas fa-adjust" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- SOC Status Indicator -->
+                <div class="soc-status-indicator me-3">
+                    <button id="socStatusToggle" type="button" class="btn btn-sm btn-outline-success" title="SOC Status" aria-label="View SOC status">
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                        <span class="soc-status-text">SECURE</span>
+                    </button>
+                </div>
+
+                <!-- Notification Bell -->
+                <div class="notification-center">
+                    <button id="notificationToggle" type="button" class="btn btn-sm btn-outline-secondary position-relative" title="Notifications" aria-label="View notifications">
+                        <i class="fas fa-bell" aria-hidden="true"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="notificationCount" style="display: none;" aria-label="Unread notifications">
+                            0
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm theme-transition" role="navigation">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../Home/index.html" aria-label="Africa Shield Cyber Centre Home">
+                <img src="../assets/images/logo.png" width="50" height="50" alt="Africa Shield Cyber Centre Logo" class="me-2">
+                <div class="brand-text-container">
+                    <span class="brand-text fw-bold">Africa Shield</span>
+                    <small class="brand-subtitle d-block text-muted">Cyber Centre</small>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Home/index.html" role="menuitem">
+                            <i class="fas fa-home me-1" aria-hidden="true"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link active" href="../Learn/index.html" role="menuitem" aria-current="page">
+                            <i class="fas fa-graduation-cap me-1" aria-hidden="true"></i> Learn
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Report/index.html" role="menuitem">
+                            <i class="fas fa-exclamation-triangle me-1" aria-hidden="true"></i> Report Threat
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../SOC/index.html" role="menuitem">
+                            <i class="fas fa-desktop me-1" aria-hidden="true"></i> SOC Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Events/index.html" role="menuitem">
+                            <i class="fas fa-calendar-alt me-1" aria-hidden="true"></i> Events
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Career/index.html" role="menuitem">
+                            <i class="fas fa-briefcase me-1" aria-hidden="true"></i> Career
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../About/about.html" role="menuitem">
+                            <i class="fas fa-building me-1" aria-hidden="true"></i> About Us
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Contact/index.html" role="menuitem">
+                            <i class="fas fa-envelope me-1" aria-hidden="true"></i> Contact
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a class="nav-link dropdown-toggle" href="#" role="menuitem" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-ellipsis-h me-1" aria-hidden="true"></i> More
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a class="dropdown-item" href="../ThreatMap/index.html" role="menuitem">
+                                <i class="fas fa-globe-africa me-2" aria-hidden="true"></i>Live Threat Map
+                            </a></li>
+                            <li role="none"><a class="dropdown-item" href="../News/index.html" role="menuitem">
+                                <i class="fas fa-newspaper me-2" aria-hidden="true"></i>News
+                            </a></li>
+                            <li role="none"><a class="dropdown-item" href="../App/index.html" role="menuitem">
+                                <i class="fas fa-mobile-alt me-2" aria-hidden="true"></i>Mobile App
+                            </a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- User Account -->
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="User account menu">
+                            <i class="fas fa-user-circle me-1" aria-hidden="true"></i> Account
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" role="menu">
+                            <li role="none"><a class="dropdown-item" href="../Auth/login.html" role="menuitem">
+                                <i class="fas fa-sign-in-alt me-2" aria-hidden="true"></i>Login
+                            </a></li>
+                            <li role="none"><a class="dropdown-item" href="../Auth/register.html" role="menuitem">
+                                <i class="fas fa-user-plus me-2" aria-hidden="true"></i>Register
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li role="none"><a class="dropdown-item" href="../Profile/index.html" role="menuitem">
+                                <i class="fas fa-user me-2" aria-hidden="true"></i>My Profile
+                            </a></li>
+                            <li role="none"><a class="dropdown-item" href="../Settings/index.html" role="menuitem">
+                                <i class="fas fa-cog me-2" aria-hidden="true"></i>Settings
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Learning Platform Main Content -->
+    <div class="container-fluid learning-platform">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <div class="col-md-3 learning-sidebar">
+                <div class="sidebar-content">
+                    <h4 class="sidebar-title">
+                        <i class="fas fa-graduation-cap me-2"></i>
+                        Learning Modules
+                    </h4>
+                    
+                    <!-- Learning Categories -->
+                    <div class="learning-categories">
+                        <div class="category-section">
+                            <h6 class="category-title" data-bs-toggle="collapse" data-bs-target="#basicsCourses">
+                                <i class="fas fa-shield-alt me-2"></i>
+                                Cybersecurity Basics
+                                <i class="fas fa-chevron-down float-end"></i>
+                            </h6>
+                            <div class="collapse show" id="basicsCourses">
+                                <ul class="course-list">
+                                    <li class="course-item active" data-course="intro">
+                                        <i class="fas fa-play-circle me-2"></i>
+                                        Introduction to Cybersecurity
+                                    </li>
+                                    <li class="course-item" data-course="passwords">
+                                        <i class="fas fa-key me-2"></i>
+                                        Password Security
+                                    </li>
+                                    <li class="course-item" data-course="phishing">
+                                        <i class="fas fa-fish me-2"></i>
+                                        Recognizing Phishing
+                                    </li>
+                                    <li class="course-item" data-course="malware">
+                                        <i class="fas fa-virus me-2"></i>
+                                        Understanding Malware
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="category-section">
+                            <h6 class="category-title" data-bs-toggle="collapse" data-bs-target="#mobileCourses">
+                                <i class="fas fa-mobile-alt me-2"></i>
+                                Mobile Security
+                                <i class="fas fa-chevron-down float-end"></i>
+                            </h6>
+                            <div class="collapse" id="mobileCourses">
+                                <ul class="course-list">
+                                    <li class="course-item" data-course="mobile-basics">
+                                        <i class="fas fa-smartphone me-2"></i>
+                                        Mobile Device Security
+                                    </li>
+                                    <li class="course-item" data-course="mobile-money">
+                                        <i class="fas fa-money-bill-wave me-2"></i>
+                                        Mobile Money Safety
+                                    </li>
+                                    <li class="course-item" data-course="app-security">
+                                        <i class="fas fa-download me-2"></i>
+                                        Safe App Downloads
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="category-section">
+                            <h6 class="category-title" data-bs-toggle="collapse" data-bs-target="#kidsCourses">
+                                <i class="fas fa-child me-2"></i>
+                                                                Kids Cyber Safety
+                                <i class="fas fa-chevron-down float-end"></i>
+                            </h6>
+                            <div class="collapse" id="kidsCourses">
+                                <ul class="course-list">
+                                    <li class="course-item" data-course="kids-intro">
+                                        <i class="fas fa-gamepad me-2"></i>
+                                        Internet Safety for Kids
+                                    </li>
+                                    <li class="course-item" data-course="kids-social">
+                                        <i class="fas fa-users me-2"></i>
+                                        Social Media Safety
+                                    </li>
+                                    <li class="course-item" data-course="kids-strangers">
+                                        <i class="fas fa-user-times me-2"></i>
+                                        Stranger Danger Online
+                                    </li>
+                                    <li class="course-item" data-course="kids-gaming">
+                                        <i class="fas fa-gamepad me-2"></i>
+                                        Safe Online Gaming
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="category-section">
+                            <h6 class="category-title" data-bs-toggle="collapse" data-bs-target="#advancedCourses">
+                                <i class="fas fa-user-graduate me-2"></i>
+                                Advanced Topics
+                                <i class="fas fa-chevron-down float-end"></i>
+                            </h6>
+                            <div class="collapse" id="advancedCourses">
+                                <ul class="course-list">
+                                    <li class="course-item" data-course="network-security">
+                                        <i class="fas fa-network-wired me-2"></i>
+                                        Network Security
+                                    </li>
+                                    <li class="course-item" data-course="incident-response">
+                                        <i class="fas fa-exclamation-triangle me-2"></i>
+                                        Incident Response
+                                    </li>
+                                    <li class="course-item" data-course="compliance">
+                                        <i class="fas fa-clipboard-check me-2"></i>
+                                        Compliance & Governance
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Progress Overview -->
+                    <div class="progress-overview">
+                        <h6>Your Progress</h6>
+                        <div class="overall-progress">
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-success" style="width: 35%"></div>
+                            </div>
+                            <small class="text-muted">4 of 12 courses completed</small>
+                        </div>
+                        
+                        <div class="achievements">
+                            <h6 class="mt-3">Achievements</h6>
+                            <div class="badge-collection">
+                                <span class="badge bg-primary">First Course</span>
+                                <span class="badge bg-success">Quiz Master</span>
+                                <span class="badge bg-warning">Week Streak</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Content Area -->
+            <div class="col-md-9 learning-content">
+                <!-- Course Content -->
+                <div class="course-content-area">
+                    <!-- Introduction to Cybersecurity Course -->
+                    <div class="course-module active" id="course-intro">
+                        <div class="course-header">
+                            <h2 class="course-title">
+                                <i class="fas fa-shield-alt me-2"></i>
+                                Introduction to Cybersecurity
+                            </h2>
+                            <div class="course-meta">
+                                <span class="badge bg-primary">Beginner</span>
+                                <span class="course-duration">
+                                    <i class="fas fa-clock me-1"></i>
+                                    30 minutes
+                                </span>
+                                <span class="course-lessons">
+                                    <i class="fas fa-book me-1"></i>
+                                    5 lessons
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="lesson-content">
+                            <div class="lesson-section">
+                                <h4>What is Cybersecurity?</h4>
+                                <div class="lesson-text">
+                                    <p>Cybersecurity is the practice of protecting computers, servers, mobile devices, electronic systems, networks, and data from digital attacks. These attacks are usually aimed at accessing, changing, or destroying sensitive information, extorting money from users, or interrupting normal business processes.</p>
+                                    
+                                    <h5>Why is Cybersecurity Important?</h5>
+                                    <ul>
+                                        <li><strong>Protect Personal Information:</strong> Your personal data like photos, messages, and financial information</li>
+                                        <li><strong>Prevent Financial Loss:</strong> Cybercriminals can steal money from your bank accounts or mobile money</li>
+                                        <li><strong>Maintain Privacy:</strong> Keep your private conversations and activities secure</li>
+                                        <li><strong>Business Protection:</strong> Companies need to protect customer data and business operations</li>
+                                        <li><strong>National Security:</strong> Countries need to protect critical infrastructure and government systems</li>
+                                    </ul>
+                                    
+                                    <h5>Common Cyber Threats in East Africa</h5>
+                                    <div class="threat-examples">
+                                        <div class="threat-item">
+                                            <h6><i class="fas fa-mobile-alt me-2"></i>Mobile Money Fraud</h6>
+                                            <p>Criminals trick people into sending money through fake SMS messages or phone calls pretending to be from mobile money services like M-Pesa, Airtel Money, or MTN Mobile Money.</p>
+                                        </div>
+                                        
+                                        <div class="threat-item">
+                                            <h6><i class="fas fa-envelope me-2"></i>Phishing Emails</h6>
+                                            <p>Fake emails that look like they come from banks, government offices, or trusted companies, asking you to click links or provide personal information.</p>
+                                        </div>
+                                        
+                                        <div class="threat-item">
+                                            <h6><i class="fas fa-wifi me-2"></i>Unsecure Wi-Fi</h6>
+                                            <p>Using public Wi-Fi networks without protection can allow criminals to see your internet activity and steal your information.</p>
+                                        </div>
+                                        
+                                        <div class="threat-item">
+                                            <h6><i class="fas fa-download me-2"></i>Malicious Apps</h6>
+                                            <p>Fake apps that steal your personal information, send premium SMS messages, or access your contacts and photos without permission.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>Basic Protection Principles</h5>
+                                    <div class="protection-tips">
+                                        <div class="tip-card">
+                                            <i class="fas fa-key"></i>
+                                            <h6>Strong Passwords</h6>
+                                            <p>Use different, complex passwords for each account</p>
+                                        </div>
+                                        
+                                        <div class="tip-card">
+                                            <i class="fas fa-sync-alt"></i>
+                                            <h6>Regular Updates</h6>
+                                            <p>Keep your devices and apps updated with latest security patches</p>
+                                        </div>
+                                        
+                                        <div class="tip-card">
+                                            <i class="fas fa-eye"></i>
+                                            <h6>Stay Alert</h6>
+                                            <p>Be suspicious of unexpected messages, emails, or phone calls</p>
+                                        </div>
+                                        
+                                        <div class="tip-card">
+                                            <i class="fas fa-backup"></i>
+                                            <h6>Backup Data</h6>
+                                            <p>Regularly backup important files and information</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Quiz Section -->
+                            <div class="quiz-section">
+                                <h4>Knowledge Check</h4>
+                                <div class="quiz-container">
+                                    <div class="quiz-question active" data-question="1">
+                                        <h5>Question 1 of 3</h5>
+                                        <p>What is the main purpose of cybersecurity?</p>
+                                        <div class="quiz-options">
+                                            <label class="quiz-option">
+                                                <input type="radio" name="q1" value="a">
+                                                <span>To make computers faster</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="q1" value="b">
+                                                <span>To protect digital systems and data from attacks</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="q1" value="c">
+                                                <span>To create new software</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="q1" value="d">
+                                                <span>To design websites</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="quiz-question" data-question="2">
+                                        <h5>Question 2 of 3</h5>
+                                        <p>Which of these is a common cyber threat in East Africa?</p>
+                                        <div class="quiz-options">
+                                            <label class="quiz-option">
+                                                <input type="radio" name="q2" value="a">
+                                                <span>Mobile money fraud</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="q2" value="b">
+                                                <span>Weather forecasting</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="q2" value="c">
+                                                <span>Road construction</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="q2" value="d">
+                                                <span>Farming techniques</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="quiz-question" data-question="3">
+                                        <h5>Question 3 of 3</h5>
+                                        <p>What should you do to protect your accounts?</p>
+                                        <div class="quiz-options">
+                                            <label class="quiz-option">
+                                                <input type="radio" name="q3" value="a">
+                                                <span>Use the same password for everything</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="q3" value="b">
+                                                <span>Share passwords with friends</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="q3" value="c">
+                                                <span>Use strong, unique passwords for each account</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="q3" value="d">
+                                                <span>Never change passwords</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="quiz-navigation">
+                                        <button class="btn btn-secondary" id="prevQuestion" disabled>Previous</button>
+                                        <button class="btn btn-primary" id="nextQuestion">Next</button>
+                                        <button class="btn btn-success" id="submitQuiz" style="display: none;">Submit Quiz</button>
+                                    </div>
+                                    
+                                    <div class="quiz-results" style="display: none;">
+                                        <h5>Quiz Results</h5>
+                                        <div class="result-summary">
+                                            <p>You scored <span id="quizScore">0</span> out of 3!</p>
+                                            <div class="result-message" id="resultMessage"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Password Security Course -->
+                    <div class="course-module" id="course-passwords">
+                        <div class="course-header">
+                            <h2 class="course-title">
+                                <i class="fas fa-key me-2"></i>
+                                Password Security
+                            </h2>
+                            <div class="course-meta">
+                                <span class="badge bg-primary">Beginner</span>
+                                <span class="course-duration">
+                                    <i class="fas fa-clock me-1"></i>
+                                    25 minutes
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="lesson-content">
+                            <div class="lesson-section">
+                                <h4>Creating Strong Passwords</h4>
+                                <div class="lesson-text">
+                                    <p>Passwords are your first line of defense against cybercriminals. A strong password can prevent unauthorized access to your accounts, while a weak password makes you an easy target.</p>
+                                    
+                                    <h5>What Makes a Password Strong?</h5>
+                                    <div class="password-criteria">
+                                        <div class="criteria-item">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <strong>At least 12 characters long</strong> - Longer passwords are harder to crack
+                                        </div>
+                                        <div class="criteria-item">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <strong>Mix of uppercase and lowercase letters</strong> - Like "MyPassword123"
+                                        </div>
+                                        <div class="criteria-item">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <strong>Include numbers</strong> - Add digits throughout the password
+                                        </div>
+                                        <div class="criteria-item">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <strong>Use special characters</strong> - Like !, @, #, $, %, &, *
+                                        </div>
+                                        <div class="criteria-item">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <strong>Avoid personal information</strong> - Don't use your name, birthday, or phone number
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>Password Creation Methods</h5>
+                                    
+                                    <div class="method-card">
+                                        <h6>Method 1: Passphrase Technique</h6>
+                                        <p>Create a memorable sentence and use the first letter of each word, adding numbers and symbols.</p>
+                                        <div class="example">
+                                            <strong>Example:</strong><br>
+                                            Sentence: "I love eating ugali with sukuma wiki every Sunday at 7pm!"<br>
+                                            Password: "IleuWsweSa7p!"
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="method-card">
+                                        <h6>Method 2: Word Combination</h6>
+                                        <p>Combine 3-4 unrelated words with numbers and symbols.</p>
+                                        <div class="example">
+                                            <strong>Example:</strong><br>
+                                            Words: "Elephant", "Coffee", "Mountain", "Blue"<br>
+                                            Password: "Elephant#Coffee9Mountain$Blue"
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="method-card">
+                                        <h6>Method 3: Substitution Method</h6>
+                                        <p>Replace letters with numbers and symbols that look similar.</p>
+                                        <div class="example">
+                                            <strong>Example:</strong><br>
+                                            Original: "NairobiKenya2024"<br>
+                                            Substituted: "N@1r0b1K3ny@2024!"
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>Common Password Mistakes to Avoid</h5>
+                                    <div class="mistake-list">
+                                        <div class="mistake-item">
+                                            <i class="fas fa-times-circle text-danger me-2"></i>
+                                            <strong>Using the same password everywhere</strong> - If one account is hacked, all accounts are at risk
+                                        </div>
+                                        <div class="mistake-item">
+                                            <i class="fas fa-times-circle text-danger me-2"></i>
+                                            <strong>Using personal information</strong> - Names, birthdays, phone numbers are easy to guess
+                                        </div>
+                                        <div class="mistake-item">
+                                            <i class="fas fa-times-circle text-danger me-2"></i>
+                                            <strong>Common passwords</strong> - "password123", "123456", "qwerty" are easily cracked
+                                        </div>
+                                        <div class="mistake-item">
+                                            <i class="fas fa-times-circle text-danger me-2"></i>
+                                            <strong>Writing passwords down</strong> - Don't write passwords on paper or save in notes
+                                        </div>
+                                        <div class="mistake-item">
+                                            <i class="fas fa-times-circle text-danger me-2"></i>
+                                            <strong>Sharing passwords</strong> - Never share your passwords with anyone
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>Two-Factor Authentication (2FA)</h5>
+                                    <p>Two-factor authentication adds an extra layer of security by requiring two forms of identification:</p>
+                                    <ol>
+                                        <li><strong>Something you know</strong> - Your password</li>
+                                        <li><strong>Something you have</strong> - Your phone (for SMS codes) or an authenticator app</li>
+                                    </ol>
+                                    
+                                    <div class="tip-box">
+                                        <h6><i class="fas fa-lightbulb me-2"></i>Pro Tip</h6>
+                                        <p>Enable 2FA on all important accounts like email, banking, and social media. Even if someone steals your password, they still can't access your account without your phone.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Kids Cyber Safety Course -->
+                    <div class="course-module" id="course-kids-intro">
+                        <div class="course-header">
+                            <h2 class="course-title">
+                                <i class="fas fa-child me-2"></i>
+                                Internet Safety for Kids
+                            </h2>
+                            <div class="course-meta">
+                                <span class="badge bg-success">Kids</span>
+                                <span class="course-duration">
+                                    <i class="fas fa-clock me-1"></i>
+                                    20 minutes
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="lesson-content">
+                            <div class="lesson-section">
+                                <h4>Welcome to Internet Safety! 🌟</h4>
+                                <div class="lesson-text kids-content">
+                                    <p>Hi there! The internet is like a big playground with lots of fun things to do, but just like any playground, we need to know how to stay safe while having fun!</p>
+                                    
+                                    <h5>🔒 What is Internet Safety?</h5>
+                                    <p>Internet safety means knowing how to protect yourself when you're online. Just like you look both ways before crossing the street, you need to be careful online too!</p>
+                                    
+                                    <h5>👥 Stranger Danger Online</h5>
+                                    <div class="kids-rule-box">
+                                        <h6>🚨 Important Rule: Never talk to strangers online!</h6>
+                                        <ul>
+                                            <li>Don't accept friend requests from people you don't know</li>
+                                            <li>Never share your real name, address, or school with strangers</li>
+                                            <li>If someone asks to meet you in person, tell an adult immediately</li>
+                                            <li>Don't send photos of yourself to people you don't know</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <h5>🔐 Keeping Your Information Secret</h5>
+                                    <div class="secret-info">
+                                        <h6>Information to NEVER share online:</h6>
+                                        <div class="info-grid">
+                                            <div class="info-item">
+                                                <i class="fas fa-home"></i>
+                                                <span>Your home address</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-phone"></i>
+                                                <span>Your phone number</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-school"></i>
+                                                <span>Your school name</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-key"></i>
+                                                <span>Your passwords</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-calendar"></i>
+                                                <span>Your birthday</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-id-card"></i>
+                                                <span>Your full name</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>🎮 Safe Gaming Online</h5>
+                                    <div class="gaming-tips">
+                                        <div class="tip-item">
+                                            <i class="fas fa-microphone-slash"></i>
+                                            <strong>Voice Chat:</strong> Only use voice chat with friends you know in real life
+                                        </div>
+                                        <div class="tip-item">
+                                            <i class="fas fa-user-friends"></i>
+                                            <strong>Gaming Friends:</strong> Don't add strangers as gaming friends
+                                        </div>
+                                        <div class="tip-item">
+                                            <i class="fas fa-clock"></i>
+                                            <strong>Time Limits:</strong> Take breaks and don't play for too long
+                                        </div>
+                                        <div class="tip-item">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                            <strong>Report Bullies:</strong> Tell an adult if someone is mean to you online
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>📱 Social Media Safety</h5>
+                                    <div class="social-media-rules">
+                                        <h6>Rules for Social Media:</h6>
+                                        <ol>
+                                            <li>Only accept friend requests from people you know in real life</li>
+                                            <li>Keep your profile private (only friends can see your posts)</li>
+                                            <li>Think before you post - would you be okay if your parents or teachers saw it?</li>
+                                            <li>Don't post photos that show where you are right now</li>
+                                            <li>Be kind to others - don't say mean things online</li>
+                                        </ol>
+                                    </div>
+                                    
+                                    <h5>🆘 What to Do If Something Goes Wrong</h5>
+                                    <div class="emergency-steps">
+                                        <div class="step">
+                                            <span class="step-number">1</span>
+                                            <div class="step-content">
+                                                <strong>Don't Panic!</strong> Take a deep breath
+                                            </div>
+                                        </div>
+                                        <div class="step">
+                                            <span class="step-number">2</span>
+                                            <div class="step-content">
+                                                <strong>Tell a Trusted Adult</strong> immediately (parent, teacher, guardian)
+                                            </div>
+                                        </div>
+                                        <div class="step">
+                                            <span class="step-number">3</span>
+                                            <div class="step-content">
+                                                <strong>Don't Delete Anything</strong> - adults might need to see what happened
+                                            </div>
+                                        </div>
+                                        <div class="step">
+                                            <span class="step-number">4</span>
+                                            <div class="step-content">
+                                                <strong>Block and Report</strong> anyone who makes you uncomfortable
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="fun-fact-box">
+                                        <h6>🌟 Fun Fact!</h6>
+                                        <p>The internet connects over 4 billion people around the world! That's more than half of all people on Earth. By staying safe online, you can explore, learn, and have fun with people from everywhere!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Kids Quiz -->
+                            <div class="quiz-section kids-quiz">
+                                <h4>🧠 Safety Quiz for Kids</h4>
+                                <div class="quiz-container">
+                                    <div class="quiz-question active" data-question="1">
+                                        <h5>Question 1 of 4</h5>
+                                        <p>What should you do if a stranger online asks for your home address?</p>
+                                        <div class="quiz-options">
+                                            <label class="quiz-option">
+                                                <input type="radio" name="kq1" value="a">
+                                                <span>Give them your address</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="kq1" value="b">
+                                                <span>Never give personal information to strangers</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="kq1" value="c">
+                                                <span>Give them a fake address</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="quiz-question" data-question="2">
+                                        <h5>Question 2 of 4</h5>
+                                        <p>When gaming online, who should you use voice chat with?</p>
+                                        <div class="quiz-options">
+                                            <label class="quiz-option">
+                                                <input type="radio" name="kq2" value="a">
+                                                <span>Anyone who asks</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="kq2" value="b">
+                                                <span>Only friends you know in real life</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="kq2" value="c">
+                                                <span>All other players in the game</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="quiz-question" data-question="3">
+                                        <h5>Question 3 of 4</h5>
+                                        <p>If someone is being mean to you online, what should you do?</p>
+                                        <div class="quiz-options">
+                                            <label class="quiz-option">
+                                                <input type="radio" name="kq3" value="a">
+                                                <span>Be mean back to them</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="kq3" value="b">
+                                                <span>Tell a trusted adult and block them</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="kq3" value="c">
+                                                <span>Ignore it and keep talking to them</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="quiz-question" data-question="4">
+                                        <h5>Question 4 of 4</h5>
+                                        <p>What should you do before posting a photo on social media?</p>
+                                        <div class="quiz-options">
+                                            <label class="quiz-option">
+                                                <input type="radio" name="kq4" value="a">
+                                                <span>Post it immediately</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="kq4" value="b">
+                                                <span>Think about whether it's safe and appropriate</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="kq4" value="c">
+                                                <span>Add your location to the photo</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Money Safety Course -->
+                    <div class="course-module" id="course-mobile-money">
+                        <div class="course-header">
+                            <h2 class="course-title">
+                                <i class="fas fa-money-bill-wave me-2"></i>
+                                Mobile Money Safety
+                            </h2>
+                            <div class="course-meta">
+                                <span class="badge bg-warning">Important</span>
+                                <span class="course-duration">                                     <i class="fas fa-clock me-1"></i>
+                                    35 minutes
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="lesson-content">
+                            <div class="lesson-section">
+                                <h4>Protecting Your Mobile Money</h4>
+                                <div class="lesson-text">
+                                    <p>Mobile money services like M-Pesa, Airtel Money, MTN Mobile Money, and Tigo Pesa have revolutionized financial services in East Africa. However, with convenience comes the need for security awareness.</p>
+                                    
+                                    <h5>Common Mobile Money Scams</h5>
+                                    
+                                    <div class="scam-alert">
+                                        <h6><i class="fas fa-exclamation-triangle text-danger me-2"></i>Scam 1: Fake Reversal Requests</h6>
+                                        <div class="scam-description">
+                                            <p><strong>How it works:</strong> Scammer sends you money, then calls claiming it was sent by mistake and asks you to reverse it.</p>
+                                            <p><strong>The trick:</strong> The original transaction will be reversed by the mobile money company, but your reversal to the scammer won't be.</p>
+                                            <div class="protection-tip">
+                                                <strong>Protection:</strong> Never reverse transactions based on phone calls. Tell callers to contact their mobile money provider directly.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="scam-alert">
+                                        <h6><i class="fas fa-exclamation-triangle text-danger me-2"></i>Scam 2: Fake Customer Service</h6>
+                                        <div class="scam-description">
+                                            <p><strong>How it works:</strong> Scammer calls pretending to be from M-Pesa, Airtel Money, etc., asking for your PIN or personal details.</p>
+                                            <p><strong>The trick:</strong> Real customer service will NEVER ask for your PIN over the phone.</p>
+                                            <div class="protection-tip">
+                                                <strong>Protection:</strong> Hang up immediately. Call the official customer service number yourself if you need help.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="scam-alert">
+                                        <h6><i class="fas fa-exclamation-triangle text-danger me-2"></i>Scam 3: Fake Promotions</h6>
+                                        <div class="scam-description">
+                                            <p><strong>How it works:</strong> SMS claiming you've won money, asking you to send a small amount to "claim your prize."</p>
+                                            <p><strong>The trick:</strong> There is no prize. You lose the money you send.</p>
+                                            <div class="protection-tip">
+                                                <strong>Protection:</strong> Legitimate promotions never ask you to pay to claim prizes. Verify with the official company.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="scam-alert">
+                                        <h6><i class="fas fa-exclamation-triangle text-danger me-2"></i>Scam 4: SIM Swap Fraud</h6>
+                                        <div class="scam-description">
+                                            <p><strong>How it works:</strong> Scammer gets a new SIM card with your phone number, then accesses your mobile money account.</p>
+                                            <p><strong>The trick:</strong> They use social engineering to convince your mobile network provider to transfer your number.</p>
+                                            <div class="protection-tip">
+                                                <strong>Protection:</strong> Set up additional security with your mobile provider. Monitor your account regularly.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>Mobile Money Security Best Practices</h5>
+                                    
+                                    <div class="best-practices">
+                                        <div class="practice-category">
+                                            <h6><i class="fas fa-lock me-2"></i>PIN Security</h6>
+                                            <ul>
+                                                <li>Use a unique PIN that's different from your phone unlock code</li>
+                                                <li>Don't use obvious numbers like 1234, 0000, or your birth year</li>
+                                                <li>Change your PIN regularly (every 3-6 months)</li>
+                                                <li>Never share your PIN with anyone, including family</li>
+                                                <li>Cover your phone when entering your PIN in public</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="practice-category">
+                                            <h6><i class="fas fa-mobile-alt me-2"></i>Phone Security</h6>
+                                            <ul>
+                                                <li>Always lock your phone with a PIN, pattern, or biometric</li>
+                                                <li>Don't save your mobile money PIN in your phone</li>
+                                                <li>Log out of mobile money apps when not in use</li>
+                                                <li>Don't let others use your phone for mobile money transactions</li>
+                                                <li>Report lost or stolen phones immediately</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="practice-category">
+                                            <h6><i class="fas fa-eye me-2"></i>Transaction Monitoring</h6>
+                                            <ul>
+                                                <li>Check your balance regularly</li>
+                                                <li>Read all SMS confirmations carefully</li>
+                                                <li>Keep records of important transactions</li>
+                                                <li>Report suspicious transactions immediately</li>
+                                                <li>Set up balance alerts if available</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="practice-category">
+                                            <h6><i class="fas fa-users me-2"></i>Safe Transaction Practices</h6>
+                                            <ul>
+                                                <li>Double-check recipient phone numbers before sending money</li>
+                                                <li>Only transact with people you know and trust</li>
+                                                <li>For business transactions, verify the recipient's identity</li>
+                                                <li>Be cautious with large transactions</li>
+                                                <li>Use official mobile money agents only</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>What to Do If You're Scammed</h5>
+                                    <div class="emergency-steps">
+                                        <div class="step">
+                                            <span class="step-number">1</span>
+                                            <div class="step-content">
+                                                <strong>Act Quickly:</strong> Contact your mobile money provider immediately
+                                            </div>
+                                        </div>
+                                        <div class="step">
+                                            <span class="step-number">2</span>
+                                            <div class="step-content">
+                                                <strong>Change Your PIN:</strong> Change your mobile money PIN immediately
+                                            </div>
+                                        </div>
+                                        <div class="step">
+                                            <span class="step-number">3</span>
+                                            <div class="step-content">
+                                                <strong>Report to Police:</strong> File a report with local police
+                                            </div>
+                                        </div>
+                                        <div class="step">
+                                            <span class="step-number">4</span>
+                                            <div class="step-content">
+                                                <strong>Keep Evidence:</strong> Save all SMS messages and call logs
+                                            </div>
+                                        </div>
+                                        <div class="step">
+                                            <span class="step-number">5</span>
+                                            <div class="step-content">
+                                                <strong>Warn Others:</strong> Tell friends and family about the scam
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="contact-info">
+                                        <h6>Emergency Contact Numbers</h6>
+                                        <div class="contact-grid">
+                                            <div class="contact-item">
+                                                <strong>M-Pesa (Safaricom):</strong> 234
+                                            </div>
+                                            <div class="contact-item">
+                                                <strong>Airtel Money:</strong> 100
+                                            </div>
+                                            <div class="contact-item">
+                                                <strong>MTN Mobile Money:</strong> 165
+                                            </div>
+                                            <div class="contact-item">
+                                                <strong>Tigo Pesa:</strong> 150
+                                            </div>
+                                            <div class="contact-item">
+                                                <strong>Africa Shield Emergency:</strong> *789*911#
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Phishing Recognition Course -->
+                    <div class="course-module" id="course-phishing">
+                        <div class="course-header">
+                            <h2 class="course-title">
+                                <i class="fas fa-fish me-2"></i>
+                                Recognizing Phishing Attacks
+                            </h2>
+                            <div class="course-meta">
+                                <span class="badge bg-danger">Critical</span>
+                                <span class="course-duration">
+                                    <i class="fas fa-clock me-1"></i>
+                                    40 minutes
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="lesson-content">
+                            <div class="lesson-section">
+                                <h4>Understanding Phishing Attacks</h4>
+                                <div class="lesson-text">
+                                    <p>Phishing is like digital fishing - criminals cast a wide net hoping to catch unsuspecting victims. They use fake emails, SMS messages, websites, and phone calls to steal your personal information, passwords, or money.</p>
+                                    
+                                    <h5>Types of Phishing Attacks</h5>
+                                    
+                                    <div class="phishing-type">
+                                        <h6><i class="fas fa-envelope me-2"></i>Email Phishing</h6>
+                                        <p>Fake emails that appear to come from legitimate organizations like banks, government offices, or popular websites.</p>
+                                        <div class="example-box">
+                                            <strong>Example:</strong> Email claiming to be from your bank saying your account will be closed unless you click a link and enter your login details.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="phishing-type">
+                                        <h6><i class="fas fa-sms me-2"></i>SMS Phishing (Smishing)</h6>
+                                        <p>Fraudulent text messages designed to trick you into revealing personal information or clicking malicious links.</p>
+                                        <div class="example-box">
+                                            <strong>Example:</strong> SMS saying "Your M-Pesa account has been suspended. Click here to reactivate: [malicious link]"
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="phishing-type">
+                                        <h6><i class="fas fa-phone me-2"></i>Voice Phishing (Vishing)</h6>
+                                        <p>Phone calls where scammers impersonate legitimate organizations to extract sensitive information.</p>
+                                        <div class="example-box">
+                                            <strong>Example:</strong> Caller claiming to be from your bank asking you to verify your account by providing your PIN and personal details.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="phishing-type">
+                                        <h6><i class="fas fa-globe me-2"></i>Website Phishing</h6>
+                                        <p>Fake websites that look identical to legitimate sites, designed to steal your login credentials.</p>
+                                        <div class="example-box">
+                                            <strong>Example:</strong> A fake banking website with a URL like "kcb-bank.com" instead of the real "kcbgroup.com"
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>Red Flags to Watch For</h5>
+                                    
+                                    <div class="red-flags">
+                                        <div class="flag-category">
+                                            <h6>Email/SMS Red Flags</h6>
+                                            <ul>
+                                                <li><strong>Urgent language:</strong> "Act now!" "Your account will be closed!" "Limited time!"</li>
+                                                <li><strong>Generic greetings:</strong> "Dear Customer" instead of your actual name</li>
+                                                <li><strong>Spelling/grammar errors:</strong> Professional organizations proofread their communications</li>
+                                                <li><strong>Suspicious sender:</strong> Email from "bank@gmail.com" instead of official domain</li>
+                                                <li><strong>Unexpected attachments:</strong> Files you weren't expecting</li>
+                                                <li><strong>Requests for sensitive info:</strong> Asking for passwords, PINs, or personal details</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="flag-category">
+                                            <h6>Website Red Flags</h6>
+                                            <ul>
+                                                <li><strong>Wrong URL:</strong> Slight misspellings of legitimate websites</li>
+                                                <li><strong>No HTTPS:</strong> Missing padlock icon in browser address bar</li>
+                                                <li><strong>Poor design:</strong> Low-quality graphics or layout</li>
+                                                <li><strong>Pop-up warnings:</strong> Fake security alerts</li>
+                                                <li><strong>Too good to be true:</strong> Unrealistic offers or prizes</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="flag-category">
+                                            <h6>Phone Call Red Flags</h6>
+                                            <ul>
+                                                <li><strong>Unsolicited calls:</strong> You didn't initiate contact</li>
+                                                <li><strong>Pressure tactics:</strong> "You must act immediately!"</li>
+                                                <li><strong>Requests for sensitive info:</strong> Asking for PINs, passwords, or personal details</li>
+                                                <li><strong>Caller ID spoofing:</strong> Number appears legitimate but behavior is suspicious</li>
+                                                <li><strong>Background noise:</strong> Unprofessional call center environment</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>How to Verify Legitimacy</h5>
+                                    
+                                    <div class="verification-steps">
+                                        <div class="verification-method">
+                                            <h6><i class="fas fa-search me-2"></i>For Emails and SMS</h6>
+                                            <ol>
+                                                <li>Don't click any links in suspicious messages</li>
+                                                <li>Go directly to the organization's official website</li>
+                                                <li>Log into your account through the official site</li>
+                                                <li>Check if there are                                                any real alerts or messages</li>
+                                                <li>Contact customer service using official phone numbers</li>
+                                            </ol>
+                                        </div>
+                                        
+                                        <div class="verification-method">
+                                            <h6><i class="fas fa-phone-alt me-2"></i>For Phone Calls</h6>
+                                            <ol>
+                                                <li>Hang up immediately if they ask for sensitive information</li>
+                                                <li>Look up the organization's official phone number</li>
+                                                <li>Call them back using the official number</li>
+                                                <li>Ask to speak with the person who supposedly called you</li>
+                                                <li>Verify if there are any real issues with your account</li>
+                                            </ol>
+                                        </div>
+                                        
+                                        <div class="verification-method">
+                                            <h6><i class="fas fa-globe me-2"></i>For Websites</h6>
+                                            <ol>
+                                                <li>Check the URL carefully for misspellings</li>
+                                                <li>Look for the padlock icon (HTTPS)</li>
+                                                <li>Type the website address manually instead of clicking links</li>
+                                                <li>Check the website's contact information</li>
+                                                <li>Look for official certifications or trust seals</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>What to Do If You Fall for a Phishing Attack</h5>
+                                    
+                                    <div class="response-plan">
+                                        <div class="immediate-actions">
+                                            <h6>Immediate Actions (First 30 minutes)</h6>
+                                            <ul>
+                                                <li><strong>Change passwords:</strong> Immediately change passwords for affected accounts</li>
+                                                <li><strong>Contact your bank:</strong> If financial information was compromised</li>
+                                                <li><strong>Monitor accounts:</strong> Check all your accounts for unauthorized activity</li>
+                                                <li><strong>Run antivirus:</strong> Scan your device for malware</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="follow-up-actions">
+                                            <h6>Follow-up Actions (Next 24-48 hours)</h6>
+                                            <ul>
+                                                <li><strong>Report the incident:</strong> Contact Africa Shield at *789*911#</li>
+                                                <li><strong>File police report:</strong> If money was stolen</li>
+                                                <li><strong>Alert contacts:</strong> Warn friends and family if your email was compromised</li>
+                                                <li><strong>Monitor credit:</strong> Watch for unauthorized accounts or transactions</li>
+                                                <li><strong>Update security:</strong> Enable two-factor authentication on all accounts</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="prevention-tips">
+                                        <h6><i class="fas fa-shield-alt me-2"></i>Prevention is Better Than Cure</h6>
+                                        <ul>
+                                            <li>Always verify before you trust</li>
+                                            <li>When in doubt, don't click or respond</li>
+                                            <li>Keep software and apps updated</li>
+                                            <li>Use reputable antivirus software</li>
+                                            <li>Educate family and friends about phishing</li>
+                                            <li>Report phishing attempts to help others</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Phishing Quiz -->
+                            <div class="quiz-section">
+                                <h4>Phishing Recognition Quiz</h4>
+                                <div class="quiz-container">
+                                    <div class="quiz-question active" data-question="1">
+                                        <h5>Question 1 of 5</h5>
+                                        <p>You receive an email from "yourbank@gmail.com" asking you to verify your account. What should you do?</p>
+                                        <div class="quiz-options">
+                                            <label class="quiz-option">
+                                                <input type="radio" name="pq1" value="a">
+                                                <span>Click the link and enter your details</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="pq1" value="b">
+                                                <span>Delete the email - banks don't use Gmail addresses</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="pq1" value="c">
+                                                <span>Forward it to friends to warn them</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="quiz-question" data-question="2">
+                                        <h5>Question 2 of 5</h5>
+                                        <p>An SMS says "Congratulations! You've won 1,000,000 KSH! Send 500 KSH to claim your prize." What is this?</p>
+                                        <div class="quiz-options">
+                                            <label class="quiz-option">
+                                                <input type="radio" name="pq2" value="a">
+                                                <span>A legitimate lottery win</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="pq2" value="b">
+                                                <span>A phishing scam - legitimate prizes don't require payment</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="pq2" value="c">
+                                                <span>A promotional offer from my mobile provider</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="quiz-question" data-question="3">
+                                        <h5>Question 3 of 5</h5>
+                                        <p>Someone calls claiming to be from M-Pesa customer service asking for your PIN. What should you do?</p>
+                                        <div class="quiz-options">
+                                            <label class="quiz-option">
+                                                <input type="radio" name="pq3" value="a">
+                                                <span>Give them the PIN since they're from customer service</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="pq3" value="b">
+                                                <span>Hang up immediately - real customer service never asks for PINs</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="pq3" value="c">
+                                                <span>Ask them to call back later</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="quiz-question" data-question="4">
+                                        <h5>Question 4 of 5</h5>
+                                        <p>You click a link and land on a website that looks like your bank's site but the URL is "kcb-bank.com" instead of "kcbgroup.com". What should you do?</p>
+                                        <div class="quiz-options">
+                                            <label class="quiz-option">
+                                                <input type="radio" name="pq4" value="a">
+                                                <span>Continue - it's probably just a different page</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="pq4" value="b">
+                                                <span>Close the page immediately - this is a fake website</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="pq4" value="c">
+                                                <span>Enter your login details to check if it works</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="quiz-question" data-question="5">
+                                        <h5>Question 5 of 5</h5>
+                                        <p>What's the best way to verify if a suspicious email is legitimate?</p>
+                                        <div class="quiz-options">
+                                            <label class="quiz-option">
+                                                <input type="radio" name="pq5" value="a">
+                                                <span>Click the links in the email to check</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="pq5" value="b">
+                                                <span>Go directly to the organization's official website and check your account</span>
+                                            </label>
+                                            <label class="quiz-option">
+                                                <input type="radio" name="pq5" value="c">
+                                                <span>Reply to the email asking if it's real</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Network Security Course -->
+                    <div class="course-module" id="course-network-security">
+                        <div class="course-header">
+                            <h2 class="course-title">
+                                <i class="fas fa-network-wired me-2"></i>
+                                Network Security Basics
+                            </h2>
+                            <div class="course-meta">
+                                <span class="badge bg-info">Intermediate</span>
+                                <span class="course-duration">
+                                    <i class="fas fa-clock me-1"></i>
+                                    45 minutes
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="lesson-content">
+                            <div class="lesson-section">
+                                <h4>Understanding Network Security</h4>
+                                <div class="lesson-text">
+                                    <p>Network security involves protecting your internet connection and the data that travels through it. Whether you're at home, work, or using public Wi-Fi, understanding network security helps protect your devices and information from cyber threats.</p>
+                                    
+                                    <h5>Types of Networks</h5>
+                                    
+                                    <div class="network-types">
+                                        <div class="network-type">
+                                            <h6><i class="fas fa-home me-2"></i>Home Networks</h6>
+                                            <p>Your personal Wi-Fi network at home, usually protected by a password and managed by your internet router.</p>
+                                            <div class="security-level">Security Level: <span class="badge bg-success">High (when properly configured)</span></div>
+                                        </div>
+                                        
+                                        <div class="network-type">
+                                            <h6><i class="fas fa-building me-2"></i>Work Networks</h6>
+                                            <p>Corporate networks with professional security measures, firewalls, and monitoring systems.</p>
+                                            <div class="security-level">Security Level: <span class="badge bg-success">Very High</span></div>
+                                        </div>
+                                        
+                                        <div class="network-type">
+                                            <h6><i class="fas fa-wifi me-2"></i>Public Wi-Fi</h6>
+                                            <p>Open networks in cafes, hotels, airports, and public spaces that anyone can access.</p>
+                                            <div class="security-level">Security Level: <span class="badge bg-danger">Low Risk</span></div>
+                                        </div>
+                                        
+                                        <div class="network-type">
+                                            <h6><i class="fas fa-signal me-2"></i>Mobile Data</h6>
+                                            <p>Internet connection through your mobile phone provider (3G, 4G, 5G).</p>
+                                            <div class="security-level">Security Level: <span class="badge bg-warning">Medium-High</span></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>Common Network Threats</h5>
+                                    
+                                    <div class="network-threats">
+                                        <div class="threat-item">
+                                            <h6><i class="fas fa-user-secret me-2"></i>Man-in-the-Middle Attacks</h6>
+                                            <p>Attackers intercept communication between your device and the internet, potentially stealing passwords, messages, and other sensitive data.</p>
+                                            <div class="threat-example">
+                                                <strong>Example:</strong> Using fake Wi-Fi hotspots with names like "Free WiFi" to capture your internet traffic.
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="threat-item">
+                                            <h6><i class="fas fa-eye me-2"></i>Packet Sniffing</h6>
+                                            <p>Monitoring and capturing data packets traveling over a network to steal information.</p>
+                                            <div class="threat-example">
+                                                <strong>Example:</strong> Criminals using special software to read unencrypted data on public Wi-Fi networks.
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="threat-item">
+                                            <h6><i class="fas fa-mask me-2"></i>Evil Twin Attacks</h6>
+                                            <p>Creating fake Wi-Fi networks that mimic legitimate ones to trick users into connecting.</p>
+                                            <div class="threat-example">
+                                                <strong>Example:</strong> A fake "Starbucks_WiFi" network set up near a real Starbucks to steal customer data.
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="threat-item">
+                                            <h6><i class="fas fa-ban me-2"></i>Denial of Service (DoS)</h6>
+                                            <p>Overwhelming a network or website with traffic to make it unavailable to legitimate users.</p>
+                                            <div class="threat-example">
+                                                <strong>Example:</strong> Flooding a company's website with fake requests to crash their online services.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>Securing Your Home Network</h5>
+                                    
+                                    <div class="home-security-tips">
+                                        <div class="security-category">
+                                            <h6>Router Security</h6>
+                                            <ul>
+                                                <li><strong>Change default passwords:</strong> Replace the default admin password with a strong, unique one</li>
+                                                <li><strong>Update firmware:</strong> Keep your router's software updated</li>
+                                                <li><strong>Use WPA3 encryption:</strong> Enable the strongest available Wi-Fi security</li>
+                                                <li><strong>Hide network name:</strong> Don't broadcast your Wi-Fi network name (SSID)</li>
+                                                <li><strong>Guest network:</strong> Set up a separate network for visitors</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="security-category">
+                                            <h6>Wi-Fi Security</h6>
+                                                                                        <ul>
+                                                <li><strong>Strong Wi-Fi password:</strong> Use a complex password with at least 12 characters</li>
+                                                <li><strong>Regular password changes:</strong> Change Wi-Fi password every 6 months</li>
+                                                <li><strong>Monitor connected devices:</strong> Check which devices are connected to your network</li>
+                                                <li><strong>Disable WPS:</strong> Turn off Wi-Fi Protected Setup to prevent easy hacking</li>
+                                                <li><strong>MAC address filtering:</strong> Only allow specific devices to connect</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="security-category">
+                                            <h6>Network Monitoring</h6>
+                                            <ul>
+                                                <li><strong>Check connected devices:</strong> Regularly review what's connected to your network</li>
+                                                <li><strong>Monitor data usage:</strong> Watch for unusual internet activity</li>
+                                                <li><strong>Set up alerts:</strong> Get notifications for new device connections</li>
+                                                <li><strong>Use network scanner apps:</strong> Tools to identify all devices on your network</li>
+                                                <li><strong>Review router logs:</strong> Check for suspicious connection attempts</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>Public Wi-Fi Safety</h5>
+                                    
+                                    <div class="public-wifi-guide">
+                                        <div class="safety-rules">
+                                            <h6><i class="fas fa-exclamation-triangle me-2"></i>Golden Rules for Public Wi-Fi</h6>
+                                            <ol>
+                                                <li><strong>Verify network names:</strong> Ask staff for the correct Wi-Fi name</li>
+                                                <li><strong>Avoid sensitive activities:</strong> No banking, shopping, or accessing personal accounts</li>
+                                                <li><strong>Use HTTPS websites:</strong> Look for the padlock icon in your browser</li>
+                                                <li><strong>Turn off auto-connect:</strong> Prevent automatic connections to open networks</li>
+                                                <li><strong>Use a VPN:</strong> Virtual Private Network encrypts your internet traffic</li>
+                                                <li><strong>Keep software updated:</strong> Ensure your device has latest security patches</li>
+                                                <li><strong>Log out completely:</strong> Sign out of all accounts when finished</li>
+                                            </ol>
+                                        </div>
+                                        
+                                        <div class="vpn-explanation">
+                                            <h6><i class="fas fa-shield-alt me-2"></i>What is a VPN?</h6>
+                                            <p>A Virtual Private Network (VPN) creates a secure, encrypted tunnel between your device and the internet. Even if someone intercepts your data on public Wi-Fi, they can't read it because it's encrypted.</p>
+                                            
+                                            <div class="vpn-benefits">
+                                                <h6>VPN Benefits:</h6>
+                                                <ul>
+                                                    <li>Encrypts all your internet traffic</li>
+                                                    <li>Hides your real IP address and location</li>
+                                                    <li>Protects against man-in-the-middle attacks</li>
+                                                    <li>Allows secure access to work networks</li>
+                                                    <li>Bypasses geographic content restrictions</li>
+                                                </ul>
+                                            </div>
+                                            
+                                            <div class="vpn-recommendations">
+                                                <h6>Recommended VPN Services:</h6>
+                                                <ul>
+                                                    <li>ExpressVPN - Fast and reliable</li>
+                                                    <li>NordVPN - Strong security features</li>
+                                                    <li>Surfshark - Good value for money</li>
+                                                    <li>ProtonVPN - Free tier available</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>Mobile Network Security</h5>
+                                    
+                                    <div class="mobile-security">
+                                        <div class="mobile-tips">
+                                            <h6>Securing Your Mobile Connection</h6>
+                                            <ul>
+                                                <li><strong>Use mobile data when possible:</strong> Generally more secure than public Wi-Fi</li>
+                                                <li><strong>Enable automatic updates:</strong> Keep your phone's operating system current</li>
+                                                <li><strong>Use official app stores:</strong> Download apps only from Google Play or Apple App Store</li>
+                                                <li><strong>Review app permissions:</strong> Don't give apps unnecessary access to your data</li>
+                                                <li><strong>Enable remote wipe:</strong> Set up ability to erase your phone if stolen</li>
+                                                <li><strong>Use screen locks:</strong> PIN, pattern, fingerprint, or face recognition</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="mobile-threats">
+                                            <h6>Mobile-Specific Threats</h6>
+                                            <ul>
+                                                <li><strong>Malicious apps:</strong> Fake apps that steal data or send premium SMS</li>
+                                                <li><strong>SIM swapping:</strong> Criminals transferring your number to their SIM card</li>
+                                                <li><strong>Bluetooth attacks:</strong> Unauthorized access through Bluetooth connections</li>
+                                                <li><strong>Location tracking:</strong> Apps collecting and sharing your location data</li>
+                                                <li><strong>SMS interception:</strong> Intercepting text messages containing verification codes</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <h5>Network Security Tools</h5>
+                                    
+                                    <div class="security-tools">
+                                        <div class="tool-category">
+                                            <h6><i class="fas fa-fire me-2"></i>Firewalls</h6>
+                                            <p>Software or hardware that monitors and controls network traffic based on security rules.</p>
+                                            <div class="tool-examples">
+                                                <strong>Examples:</strong> Windows Defender Firewall, pfSense, Sophos XG Firewall
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="tool-category">
+                                            <h6><i class="fas fa-virus me-2"></i>Antivirus Software</h6>
+                                            <p>Programs that detect, prevent, and remove malicious software from your devices.</p>
+                                            <div class="tool-examples">
+                                                <strong>Examples:</strong> Bitdefender, Kaspersky, Norton, Avast
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="tool-category">
+                                            <h6><i class="fas fa-search me-2"></i>Network Scanners</h6>
+                                            <p>Tools that help you see what devices are connected to your network.</p>
+                                            <div class="tool-examples">
+                                                <strong>Examples:</strong> Fing, Advanced IP Scanner, Angry IP Scanner
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="tool-category">
+                                            <h6><i class="fas fa-chart-line me-2"></i>Network Monitoring</h6>
+                                            <p>Software that tracks network performance and security in real-time.</p>
+                                            <div class="tool-examples">
+                                                <strong>Examples:</strong> PRTG, SolarWinds, Nagios
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Navigation -->
+                <div class="course-navigation">
+                    <div class="nav-buttons">
+                        <button class="btn btn-outline-secondary" id="prevCourse" disabled>
+                            <i class="fas fa-chevron-left me-1"></i> Previous
+                        </button>
+                        <button class="btn btn-primary" id="nextCourse">
+                            Next <i class="fas fa-chevron-right ms-1"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="course-progress">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small class="text-muted">Course 1 of 4 completed</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- AI Assistant -->
+    <button id="aiAssistantBtn" class="ai-assistant-btn" aria-label="Open AI Assistant Chat" title="AI Assistant">
+        <i class="fas fa-robot" aria-hidden="true"></i>
+    </button>
+    
+    <div id="aiAssistantChat" class="ai-assistant-chat" role="dialog" aria-modal="true" aria-labelledby="aiAssistantTitle" style="display: none;">
+        <div class="ai-chat-header">
+            <span id="aiAssistantTitle" class="fw-bold">
+                <i class="fas fa-robot me-2" aria-hidden="true"></i>AI Learning Assistant
+            </span>
+            <button type="button" class="btn-close" aria-label="Close chat" id="closeAiAssistant"></button>
+        </div>
+        <div class="ai-chat-body" id="aiChatBody" aria-live="polite">
+            <div class="ai-message ai-message-assistant">
+                <span class="ai-avatar" aria-hidden="true">
+                    <i class="fas fa-robot"></i>
+                </span>
+                <div class="ai-bubble">
+                    Hello! I'm your AI learning assistant. I can help you understand cybersecurity concepts, answer questions about the courses, and provide additional explanations. What would you like to learn about?
+                </div>
+            </div>
+        </div>
+        <form class="ai-chat-input" id="aiChatForm">
+            <input type="text" id="aiUserInput" class="form-control" placeholder="Ask me about cybersecurity..." required aria-label="Type your question" />
+            <button type="submit" class="btn btn-primary" aria-label="Send message">
+                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white mt-5">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Africa Shield Cyber Centre</h5>
+                    <p>Empowering East Africa with cybersecurity knowledge and skills through comprehensive, accessible, and culturally relevant training programs.</p>
+                </div>
+                <div class="col-md-4">
+                    <h6>Learning Resources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">Course Catalog</a></li>
+                        <li><a href="#" class="text-light">Certification Programs</a></li>
+                        <li><a href="#" class="text-light">Practice Labs</a></li>
+                        <li><a href="#" class="text-light">Study Groups</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6>Support</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">Help Center</a></li>
+                        <li><a href="#" class="text-light">Technical Support</a></li>
+                        <li><a href="#" class="text-light">Community Forum</a></li>
+                        <li><a href="#" class="text-light">Contact Instructors</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Africa Shield Cyber Centre. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3" aria-label="Facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-light me-3" aria-label="Twitter">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-light me-3" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="text-light" aria-label="YouTube">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/chatbot.js"></script>
+    <script src="../assets/js/home.js"></script>
+<script src="../assets/learn.js"></script>
+    
+    <!-- Learning Platform JavaScript -->
+    <script>
+        // Learning platform functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Course navigation
+            const courseItems = document.querySelectorAll('.course-item');
+            const courseModules = document.querySelectorAll('.course-module');
+            const prevButton = document.getElementById('prevCourse');
+            const nextButton = document.getElementById('nextCourse');
+            let currentCourseIndex = 0;
+            
+            // Course selection
+            courseItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all items and modules
+                    courseItems.forEach(ci => ci.classList.remove('active'));
+                    courseModules.forEach(cm => cm.classList.remove('active'));
+                    
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    // Show corresponding course module
+                    const courseId = this.getAttribute('data-course');
+                    const targetModule = document.getElementById('course-' + courseId);
+                    if (targetModule) {
+                        targetModule.classList.add('active');
+                    }
+                    
+                    currentCourseIndex = index;
+                    updateNavigationButtons();
+                });
+            });
+            
+            // Navigation buttons
+            function updateNavigationButtons() {
+                prevButton.disabled = currentCourseIndex === 0;
+                nextButton.disabled = currentCourseIndex === courseItems.length - 1;
+            }
+            
+            prevButton.addEventListener('click', function() {
+                if (currentCourseIndex > 0) {
+                    currentCourseIndex--;
+                    courseItems[currentCourseIndex].click();
+                }
+            });
+            
+            nextButton.addEventListener('click', function() { nextButton.addEventListener('click', function() {
+                if (currentCourseIndex < courseItems.length - 1) {
+                    currentCourseIndex++;
+                    courseItems[currentCourseIndex].click();
+                }
+            });
+            
+            // Quiz functionality
+            const quizContainers = document.querySelectorAll('.quiz-container');
+            
+            quizContainers.forEach(container => {
+                const questions = container.querySelectorAll('.quiz-question');
+                let currentQuestion = 0;
+                let score = 0;
+                let answers = {};
+                
+                // Quiz navigation
+                function showQuestion(index) {
+                    questions.forEach((q, i) => {
+                        q.classList.toggle('active', i === index);
+                    });
+                }
+                
+                // Handle answer selection
+                container.addEventListener('change', function(e) {
+                    if (e.target.type === 'radio') {
+                        const questionNum = e.target.name;
+                        const answer = e.target.value;
+                        answers[questionNum] = answer;
+                        
+                        // Auto-advance to next question after a short delay
+                        setTimeout(() => {
+                            if (currentQuestion < questions.length - 1) {
+                                currentQuestion++;
+                                showQuestion(currentQuestion);
+                            } else {
+                                // Quiz completed
+                                showQuizResults(container, answers);
+                            }
+                        }, 1000);
+                    }
+                });
+            });
+            
+            // Quiz results
+            function showQuizResults(container, answers) {
+                const quizType = container.closest('.course-module').id;
+                let correctAnswers = {};
+                let totalQuestions = 0;
+                let correctCount = 0;
+                
+                // Define correct answers for each quiz
+                if (quizType.includes('passwords')) {
+                    correctAnswers = { 'q1': 'b', 'q2': 'b', 'q3': 'b', 'q4': 'b', 'q5': 'b' };
+                } else if (quizType.includes('kids')) {
+                    correctAnswers = { 'kq1': 'b', 'kq2': 'b', 'kq3': 'b', 'kq4': 'b' };
+                } else if (quizType.includes('phishing')) {
+                    correctAnswers = { 'pq1': 'b', 'pq2': 'b', 'pq3': 'b', 'pq4': 'b', 'pq5': 'b' };
+                }
+                
+                // Calculate score
+                totalQuestions = Object.keys(correctAnswers).length;
+                Object.keys(answers).forEach(key => {
+                    if (answers[key] === correctAnswers[key]) {
+                        correctCount++;
+                    }
+                });
+                
+                const percentage = Math.round((correctCount / totalQuestions) * 100);
+                
+                // Create results display
+                const resultsHTML = `
+                    <div class="quiz-results">
+                        <div class="results-header">
+                            <h4><i class="fas fa-trophy me-2"></i>Quiz Complete!</h4>
+                        </div>
+                        <div class="score-display">
+                            <div class="score-circle">
+                                <span class="score-percentage">${percentage}%</span>
+                                <span class="score-fraction">${correctCount}/${totalQuestions}</span>
+                            </div>
+                        </div>
+                        <div class="score-message">
+                            ${getScoreMessage(percentage)}
+                        </div>
+                        <div class="results-actions">
+                            <button class="btn btn-primary" onclick="retakeQuiz(this)">
+                                <i class="fas fa-redo me-1"></i>Retake Quiz
+                            </button>
+                            <button class="btn btn-success" onclick="continueToNext()">
+                                <i class="fas fa-arrow-right me-1"></i>Continue Learning
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                container.innerHTML = resultsHTML;
+                
+                // Update progress
+                updateCourseProgress();
+            }
+            
+            function getScoreMessage(percentage) {
+                if (percentage >= 90) {
+                    return '<div class="alert alert-success"><i class="fas fa-star me-2"></i>Excellent! You have a strong understanding of this topic.</div>';
+                } else if (percentage >= 70) {
+                    return '<div class="alert alert-info"><i class="fas fa-thumbs-up me-2"></i>Good job! You understand most concepts well.</div>';
+                } else if (percentage >= 50) {
+                    return '<div class="alert alert-warning"><i class="fas fa-book me-2"></i>Not bad, but consider reviewing the material again.</div>';
+                } else {
+                    return '<div class="alert alert-danger"><i class="fas fa-study me-2"></i>Please review the course material and try again.</div>';
+                }
+            }
+            
+            // Progress tracking
+            function updateCourseProgress() {
+                const completedCourses = document.querySelectorAll('.course-item.completed').length;
+                const totalCourses = courseItems.length;
+                const progressPercentage = Math.round((completedCourses / totalCourses) * 100);
+                
+                const progressBar = document.querySelector('.progress-bar');
+                const progressText = document.querySelector('.course-progress small');
+                
+                if (progressBar) {
+                    progressBar.style.width = progressPercentage + '%';
+                    progressBar.setAttribute('aria-valuenow', progressPercentage);
+                }
+                
+                if (progressText) {
+                    progressText.textContent = `${completedCourses} of ${totalCourses} courses completed (${progressPercentage}%)`;
+                }
+            }
+            
+            // Mark course as completed when quiz is passed
+            function markCourseCompleted(courseIndex) {
+                const courseItem = courseItems[courseIndex];
+                if (courseItem) {
+                    courseItem.classList.add('completed');
+                    const completedIcon = courseItem.querySelector('.course-status');
+                    if (completedIcon) {
+                        completedIcon.innerHTML = '<i class="fas fa-check-circle text-success"></i>';
+                    }
+                }
+            }
+            
+            // Initialize first course
+            if (courseItems.length > 0) {
+                courseItems[0].click();
+            }
+            
+            // Search functionality
+            const searchInput = document.getElementById('courseSearch');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    courseItems.forEach(item => {
+                        const title = item.querySelector('.course-title').textContent.toLowerCase();
+                        const description = item.querySelector('.course-description').textContent.toLowerCase();
+                        
+                        if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            }
+            
+            // Course filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active filter button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter courses
+                    courseItems.forEach(item => {
+                        const level = item.getAttribute('data-level');
+                        
+                        if (filter === 'all' || level === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Bookmark functionality
+            const bookmarkButtons = document.querySelectorAll('.bookmark-btn');
+            bookmarkButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const courseId = this.getAttribute('data-course');
+                    const isBookmarked = this.classList.contains('bookmarked');
+                    
+                    if (isBookmarked) {
+                        this.classList.remove('bookmarked');
+                        this.innerHTML = '<i class="far fa-bookmark"></i>';
+                        removeBookmark(courseId);
+                    } else {
+                        this.classList.add('bookmarked');
+                        this.innerHTML = '<i class="fas fa-bookmark"></i>';
+                        addBookmark(courseId);
+                    }
+                });
+            });
+            
+            // Local storage for bookmarks and progress
+            function addBookmark(courseId) {
+                let bookmarks = JSON.parse(localStorage.getItem('courseBookmarks') || '[]');
+                if (!bookmarks.includes(courseId)) {
+                    bookmarks.push(courseId);
+                    localStorage.setItem('courseBookmarks', JSON.stringify(bookmarks));
+                }
+            }
+            
+            function removeBookmark(courseId) {
+                let bookmarks = JSON.parse(localStorage.getItem('courseBookmarks') || '[]');
+                bookmarks = bookmarks.filter(id => id !== courseId);
+                localStorage.setItem('courseBookmarks', JSON.stringify(bookmarks));
+            }
+            
+            function loadBookmarks() {
+                const bookmarks = JSON.parse(localStorage.getItem('courseBookmarks') || '[]');
+                bookmarks.forEach(courseId => {
+                    const button = document.querySelector(`[data-course="${courseId}"]`);
+                    if (button) {
+                        button.classList.add('bookmarked');
+                        button.innerHTML = '<i class="fas fa-bookmark"></i>';
+                    }
+                });
+            }
+            
+            function saveProgress() {
+                const progress = {
+                    currentCourse: currentCourseIndex,
+                    completedCourses: Array.from(document.querySelectorAll('.course-item.completed')).map(item => item.getAttribute('data-course')),
+                    lastAccessed: new Date().toISOString()
+                };
+                localStorage.setItem('learningProgress', JSON.stringify(progress));
+            }
+            
+            function loadProgress() {
+                const progress = JSON.parse(localStorage.getItem('learningProgress') || '{}');
+                if (progress.completedCourses) {
+                    progress.completedCourses.forEach(courseId => {
+                        const courseItem = document.querySelector(`[data-course="${courseId}"]`);
+                        if (courseItem) {
+                            markCourseCompleted(Array.from(courseItems).indexOf(courseItem));
+                        }
+                    });
+                }
+                updateCourseProgress();
+            }
+            
+            // Initialize saved data
+            loadBookmarks();
+            loadProgress();
+            
+            // Save progress periodically
+            setInterval(saveProgress, 30000); // Save every 30 seconds
+            
+            // Save progress when leaving page
+            window.addEventListener('beforeunload', saveProgress);
+        });
+        
+        // Global functions for quiz interactions
+        function retakeQuiz(button) {
+            const quizContainer = button.closest('.quiz-section').querySelector('.quiz-container');
+            const courseModule = button.closest('.course-module');
+            
+            // Reset quiz
+            location.reload(); // Simple approach - reload the page
+        }
+        
+        function continueToNext() {
+            const nextButton = document.getElementById('nextCourse');
+            if (nextButton && !nextButton.disabled) {
+                nextButton.click();
+            } else {
+                // All courses completed
+                showCompletionCertificate();
+            }
+        }
+        
+        function showCompletionCertificate() {
+            const modal = new bootstrap.Modal(document.getElementById('certificateModal'));
+            modal.show();
+        }
+        
+        // Enhanced AI Assistant for Learning
+        document.addEventListener('DOMContentLoaded', function() {
+            const aiAssistantBtn = document.getElementById('aiAssistantBtn');
+            const aiAssistantChat = document.getElementById('aiAssistantChat');
+            const closeAiAssistant = document.getElementById('closeAiAssistant');
+            const aiChatForm = document.getElementById('aiChatForm');
+            const aiUserInput = document.getElementById('aiUserInput');
+            const aiChatBody = document.getElementById('aiChatBody');
+            
+            // Learning-specific AI responses
+            const learningResponses = {
+                'password': 'Great question about passwords! A strong password should be at least 12 characters long, include uppercase and lowercase letters, numbers, and symbols. Avoid using personal information like birthdays or names. Would you like me to help you create a strong password?',
+                'phishing': 'Phishing is when criminals try to trick you into giving them your personal information by pretending to be someone trustworthy. Always verify the sender before clicking links or providing information. What specific aspect of phishing would you like to learn more about?',
+                'mobile money': 'Mobile money security is crucial in East Africa! Never share your PIN, always verify recipient numbers before sending money, and be wary of calls asking you to reverse transactions. Which mobile money service do you use?',
+                'kids safety': 'Internet safety for kids involves teaching them never to share personal information online, not to talk to strangers, and to tell a trusted adult if something makes them uncomfortable. Are you a parent looking for tips, or a young person wanting to stay safe?',
+                'network security': 'Network security protects your internet connection and data. Use strong Wi-Fi passwords, avoid public Wi-Fi for sensitive activities, and consider using a VPN. What type of network are you trying to secure?',
+                'help': 'I can help you with any cybersecurity questions! I know about passwords, phishing, mobile money safety, kids\' internet safety, and network security. Just ask me anything you\'d like to learn about.',
+                'quiz': 'Having trouble with a quiz? I can explain any concepts you\'re struggling with. Which topic would you like me to clarify?',
+                'certificate': 'To earn a certificate, you need to complete all course modules and pass the quizzes with at least 70%. Your progress is automatically saved. Keep learning!'
+            };
+            
+            function getAIResponse(userMessage) {
+                const message = userMessage.toLowerCase();
+                
+                // Check for keywords and provide relevant responses
+                for (const [keyword, response] of Object.entries(learningResponses)) {
+                    if (message.includes(keyword)) {
+                        return response;
+                    }
+                }
+                
+                // Default response
+                return 'I\'m here to help you learn cybersecurity! You can ask me about passwords, phishing, mobile money safety, network security, or kids\' internet safety. What would you like to know?';
+            }
+            
+            function addMessage(message, isUser = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `ai-message ${isUser ? 'ai-message-user' : 'ai-message-assistant'}`;
+                
+                if (isUser) {
+                    messageDiv.innerHTML = `
+                        <div class="ai-bubble">${message}</div>
+                        <span class="ai-avatar"><i class="fas fa-user"></i></span>
+                    `;
+                } else {
+                    messageDiv.innerHTML = `
+                        <span class="ai-avatar"><i class="fas fa-robot"></i></span>
+                        <div class="ai-bubble">${message}</div>
+                    `;
+                }
+                
+                aiChatBody.appendChild(messageDiv);
+                aiChatBody.scrollTop = aiChatBody.scrollHeight;
+            }
+            
+            // AI Assistant event listeners
+            aiAssistantBtn.addEventListener('click', function() {
+                aiAssistantChat.style.display = 'block';
+                aiUserInput.focus();
+            });
+            
+            closeAiAssist
+        });
+    </script>
+</body>
+
+</html>

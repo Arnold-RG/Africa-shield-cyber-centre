@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Events - Africa Shield Cyber Centre</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../Home/index.html">
+                <img src="../assets/images/logo.png" width="50" height="50" alt="Africa Shield Cyber Centre Logo" class="me-2">
+                <div class="brand-text-container">
+                    <span class="brand-text fw-bold">Africa Shield</span>
+                    <small class="brand-subtitle d-block text-muted">Cyber Centre</small>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Home/index.html">
+                            <i class="fas fa-home me-1"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Learn/index.html">
+                            <i class="fas fa-graduation-cap me-1"></i> Learn
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Report/index.html">
+                            <i class="fas fa-exclamation-triangle me-1"></i> Report Threat
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../SOC/index.html">
+                            <i class="fas fa-desktop me-1"></i> SOC Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../Events/index.html">
+                            <i class="fas fa-calendar-alt me-1"></i> Events
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Career/index.html">
+                            <i class="fas fa-briefcase me-1"></i> Career
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../About/index.html">
+                            <i class="fas fa-building me-1"></i> About Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Contact/index.html">
+                            <i class="fas fa-envelope me-1"></i> Contact
+                        </a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i> Account
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="../Admin/auth.html">
+                                <i class="fas fa-sign-in-alt me-2"></i>Login
+                            </a></li>
+                            <li><a class="dropdown-item" href="../Admin/auth.html">
+                                <i class="fas fa-user-plus me-2"></i>Register
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section bg-primary text-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-3">
+                        Cybersecurity Events & Training
+                    </h1>
+                    <p class="lead mb-4">
+                        Join cybersecurity professionals across East Africa for workshops, conferences, 
+                        training sessions, and networking events designed to strengthen our digital defense capabilities.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#upcoming-events" class="btn btn-light btn-lg">
+                            <i class="fas fa-calendar-plus me-2"></i>View Events
+                        </a>
+                        <a href="#register-event" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-user-plus me-2"></i>Register Now
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fas fa-users fa-10x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Categories -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-chalkboard-teacher fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">Workshops</h5>
+                            <p class="card-text">Hands-on cybersecurity training sessions for professionals and beginners.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-microphone fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">Conferences</h5>
+                            <p class="card-text">Large-scale cybersecurity conferences with industry experts and thought leaders.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-laptop-code fa-3x text-warning mb-3"></i>
+                            <h5 class="card-title">Hackathons</h5>
+                            <p class="card-text">Competitive cybersecurity challenges and ethical hacking competitions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-certificate fa-3x text-info mb-3"></i>
+                            <h5 class="card-title">Certifications</h5>
+                            <p class="card-text">Professional certification programs and examination sessions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section id="upcoming-events" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">Upcoming Events</h2>
+                    <p class="lead">Don't miss these exciting cybersecurity events across East Africa</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Featured Event -->
+                <div class="col-lg-8">
+                    <div class="card featured-event">
+                        <div class="card-header bg-danger text-white">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-light text-danger">FEATURED EVENT</span>
+                                <span class="badge bg-light text-danger">FREE</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h3 class="card-title">East Africa Cybersecurity Summit 2025</h3>
+                                    <p class="card-text">
+                                        The largest cybersecurity conference in East Africa, bringing together 
+                                        over 2,000 professionals from across 17 countries. Features keynote 
+                                        speakers, technical workshops, and networking opportunities.
+                                    </p>
+                                    <div class="event-details">
+                                        <div class="detail-item">
+                                            <i class="fas fa-calendar text-primary me-2"></i>
+                                            <strong>Date:</strong> March 15-17, 2025
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                            <strong>Location:</strong> Kigali Convention Centre, Rwanda 🇷🇼
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-users text-success me-2"></i>
+                                            <strong>Expected Attendees:</strong> 2,000+ professionals
+                                        </div>
+                                        <div class="detail-item">
+                                            <i class="fas fa-globe text-info me-2"></i>
+                                            <strong>Languages:</strong> English, French, Kinyarwanda
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <img src="../assets/images/events/summit-2025.jpg" alt="Cybersecurity Summit" class="img-fluid rounded mb-3">
+                                    <a href="#register-event" class="btn btn-danger btn-lg">
+                                        <i class="fas fa-ticket-alt me-2"></i>Register Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event List -->
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">
+                                <i class="fas fa-clock me-2"></i>This Week's Events
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <div class="date-day">18</div>
+                                    <div class="date-month">JAN</div>
+                                </div>
+                                <div class="event-info">
+                                    <h6>Mobile Security Workshop</h6>
+                                    <p class="mb-1">🇰🇪 Nairobi, Kenya</p>
+                                    <small class="text-muted">2:00 PM - 5:00 PM</small>
+                                </div>
+                            </div>
+
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <div class="date-day">20</div>
+                                    <div class="date-month">JAN</div>
+                                </div>
+                                <div class="event-info">
+                                    <h6>Threat Intelligence Webinar</h6>
+                                    <p class="mb-1">🌐 Online Event</p>
+                                    <small class="text-muted">10:00 AM - 12:00 PM</small>
+                                </div>
+                            </div>
+
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <div class="date-day">22</div>
+                                    <div class="date-month">JAN</div>
+                                </div>
+                                <div class="event-info">
+                                    <h6>Ethical Hacking Bootcamp</h6>
+                                    <p class="mb-1">🇹🇿 Dar es Salaam, Tanzania</p>
+                                    <small class="text-muted">9:00 AM - 6:00 PM</small>
+                                </div>
+                            </div>
+
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <div class="date-day">25</div>
+                                    <div class="date-month">JAN</div>
+                                </div>
+                                <div class="event-info">
+                                    <h6>CISSP Certification Prep</h6>
+                                    <p class="mb-1">🇺🇬 Kampala, Uganda</p>
+                                    <small class="text-muted">8:00 AM - 5:00 PM</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-outline-primary btn-sm">View All Events</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Events Grid -->
+            <div class="row g-4 mt-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card event-card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <span class="badge bg-success">WORKSHOP</span>
+                                <span class="badge bg-warning">PAID</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Incident Response Training</h5>
+                            <p class="card-text">
+                                Comprehensive training on cybersecurity incident response procedures 
+                                and best practices for East African organizations.
+                            </p>
+                            <div class="event-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar me-1"></i>
+                                    February 5-7, 2025
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-map-marker-alt me-1"></i>
+                                    🇪🇹 Addis Ababa, Ethiopia
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-dollar-sign me-1"></i>
+                                    $299 USD
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card event-card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <span class="badge bg-info">HACKATHON</span>
+                                <span class="badge bg-success">FREE</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Africa Shield Cyber Challenge</h5>
+                            <p class="card-text">
+                                48-hour cybersecurity hackathon with prizes worth $50,000. 
+                                Teams compete to solve real-world security challenges.
+                            </p>
+                            <div class="event-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar me-1"></i>
+                                    February 14-16, 2025
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-map-marker-alt me-1"></i>
+                                    🇸🇴 Mogadishu, Somalia
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-trophy me-1"></i>
+                                    $50,000 in prizes
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-primary">Register Team</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card event-card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <span class="badge bg-warning">CONFERENCE</span>
+                                <span class="badge bg-info">HYBRID</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Mobile Money Security Forum</h5>
+                            <p class="card-text">
+                                Specialized conference focusing on mobile money security, 
+                                fraud prevention, and financial technology protection.
+                            </p>
+                            <div class="event-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar me-1"></i>
+                                    March 1-2, 2025
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-map-marker-alt me-1"></i>
+                                    🇧🇮 Bujumbura, Burundi
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-globe me-1"></i>
+                                    Online + In-person
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-primary">Join Event</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card event-card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <span class="badge bg-primary">CERTIFICATION</span>
+                                <span class="badge bg-warning">PAID</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">CEH Certification Bootcamp</h5>
+                            <p class="card-text">
+                                Intensive Certified Ethical Hacker preparation course 
+                                with hands-on labs and practice exams.
+                            </p>
+                            <div class="event-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar me-1"></i>
+                                    March 10-14, 2025
+                                </div>
+                                                                <div class="meta-item">
+                                    <i class="fas fa-map-marker-alt me-1"></i>
+                                    🇸🇸 Juba, South Sudan
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-dollar-sign me-1"></i>
+                                    $599 USD
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-primary">Enroll Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card event-card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <span class="badge bg-danger">WEBINAR</span>
+                                <span class="badge bg-success">FREE</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">AI in Cybersecurity</h5>
+                            <p class="card-text">
+                                Explore how artificial intelligence is revolutionizing 
+                                cybersecurity defense and threat detection capabilities.
+                            </p>
+                            <div class="event-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar me-1"></i>
+                                    March 20, 2025
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-globe me-1"></i>
+                                    Online Event
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-clock me-1"></i>
+                                    2:00 PM - 4:00 PM EAT
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-primary">Join Webinar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card event-card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between">
+                                <span class="badge bg-secondary">NETWORKING</span>
+                                <span class="badge bg-info">MEMBERS</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">CISO Roundtable</h5>
+                            <p class="card-text">
+                                Exclusive networking event for Chief Information Security Officers 
+                                across East African organizations.
+                            </p>
+                            <div class="event-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar me-1"></i>
+                                    April 5, 2025
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-map-marker-alt me-1"></i>
+                                    🇩🇯 Djibouti City, Djibouti
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-users me-1"></i>
+                                    Members Only
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-primary">Request Invite</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Registration -->
+    <section id="register-event" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">
+                                <i class="fas fa-user-plus me-2"></i>
+                                Event Registration
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="eventRegistrationForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="firstName" class="form-label">First Name *</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="lastName" class="form-label">Last Name *</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email Address *</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Phone Number *</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="organization" class="form-label">Organization</label>
+                                        <input type="text" class="form-control" id="organization">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="jobTitle" class="form-label">Job Title</label>
+                                        <input type="text" class="form-control" id="jobTitle">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="country" class="form-label">Country *</label>
+                                        <select class="form-select" id="country" required>
+                                            <option value="">Select your country...</option>
+                                            <option value="burundi">🇧🇮 Burundi</option>
+                                            <option value="comoros">🇰🇲 Comoros</option>
+                                            <option value="djibouti">🇩🇯 Djibouti</option>
+                                            <option value="eritrea">🇪🇷 Eritrea</option>
+                                            <option value="ethiopia">🇪🇹 Ethiopia</option>
+                                            <option value="kenya">🇰🇪 Kenya</option>
+                                            <option value="madagascar">🇲🇬 Madagascar</option>
+                                            <option value="malawi">🇲🇼 Malawi</option>
+                                            <option value="mauritius">🇲🇺 Mauritius</option>
+                                            <option value="rwanda">🇷🇼 Rwanda</option>
+                                            <option value="seychelles">🇸🇨 Seychelles</option>
+                                            <option value="somalia">🇸🇴 Somalia</option>
+                                            <option value="south-sudan">🇸🇸 South Sudan</option>
+                                            <option value="sudan">🇸🇩 Sudan</option>
+                                            <option value="tanzania">🇹🇿 Tanzania</option>
+                                            <option value="uganda">🇺🇬 Uganda</option>
+                                            <option value="zambia">🇿🇲 Zambia</option>
+                                            <option value="zimbabwe">🇿🇼 Zimbabwe</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="experienceLevel" class="form-label">Experience Level *</label>
+                                        <select class="form-select" id="experienceLevel" required>
+                                            <option value="">Select experience level...</option>
+                                            <option value="beginner">Beginner (0-2 years)</option>
+                                            <option value="intermediate">Intermediate (3-5 years)</option>
+                                            <option value="advanced">Advanced (6-10 years)</option>
+                                            <option value="expert">Expert (10+ years)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="eventSelection" class="form-label">Select Event(s) *</label>
+                                        <div class="row g-2">
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="summit-2025" id="summit2025">
+                                                    <label class="form-check-label" for="summit2025">
+                                                        East Africa Cybersecurity Summit 2025
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="mobile-workshop" id="mobileWorkshop">
+                                                    <label class="form-check-label" for="mobileWorkshop">
+                                                        Mobile Security Workshop
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="threat-webinar" id="threatWebinar">
+                                                    <label class="form-check-label" for="threatWebinar">
+                                                        Threat Intelligence Webinar
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="ethical-hacking" id="ethicalHacking">
+                                                    <label class="form-check-label" for="ethicalHacking">
+                                                        Ethical Hacking Bootcamp
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="cissp-prep" id="cisspPrep">
+                                                    <label class="form-check-label" for="cisspPrep">
+                                                        CISSP Certification Prep
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="cyber-challenge" id="cyberChallenge">
+                                                    <label class="form-check-label" for="cyberChallenge">
+                                                        Africa Shield Cyber Challenge
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="dietaryRequirements" class="form-label">Dietary Requirements / Special Needs</label>
+                                        <textarea class="form-control" id="dietaryRequirements" rows="3" placeholder="Please specify any dietary requirements, accessibility needs, or other special accommodations..."></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="hearAbout" class="form-label">How did you hear about this event?</label>
+                                        <select class="form-select" id="hearAbout">
+                                            <option value="">Select an option...</option>
+                                            <option value="website">Africa Shield Website</option>
+                                            <option value="social-media">Social Media</option>
+                                            <option value="email">Email Newsletter</option>
+                                            <option value="colleague">Colleague/Friend</option>
+                                            <option value="organization">My Organization</option>
+                                            <option value="search-engine">Search Engine</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="newsletter" checked>
+                                            <label class="form-check-label" for="newsletter">
+                                                Subscribe to Africa Shield newsletter for cybersecurity updates and event notifications
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="terms" required>
+                                            <label class="form-check-label" for="terms">
+                                                I agree to the <a href="../Terms/index.html" target="_blank">Terms and Conditions</a> and <a href="../Privacy/index.html" target="_blank">Privacy Policy</a> *
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-paper-plane me-2"></i>
+                                        Register for Events
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Events -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">Past Events</h2>
+                    <p class="lead">Highlights from our previous cybersecurity events</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card past-event-card">
+                        <img src="../assets/images/events/past-event-1.jpg" class="card-img-top" alt="Past Event">
+                        <div class="card-body">
+                            <h5 class="card-title">Cyber Defense Workshop 2024</h5>
+                            <p class="card-text">
+                                Successful workshop in Nairobi with 500+ participants learning 
+                                advanced threat detection techniques.
+                            </p>
+                            <div class="event-stats">
+                                <span class="badge bg-primary">500+ Attendees</span>
+                                <span class="badge bg-success">98% Satisfaction</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">December 2024 • Nairobi, Kenya</small>
+                        </div>
+                    </div>
+                </div>
+
+                                <div class="col-lg-4 col-md-6">
+                    <div class="card past-event-card">
+                        <img src="../assets/images/events/past-event-2.jpg" class="card-img-top" alt="Past Event">
+                        <div class="card-body">
+                            <h5 class="card-title">Mobile Money Security Summit 2024</h5>
+                            <p class="card-text">
+                                Regional summit focusing on mobile financial services security 
+                                with participation from major telecom operators.
+                            </p>
+                            <div class="event-stats">
+                                <span class="badge bg-primary">800+ Attendees</span>
+                                <span class="badge bg-success">15 Countries</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">November 2024 • Dar es Salaam, Tanzania</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card past-event-card">
+                        <img src="../assets/images/events/past-event-3.jpg" class="card-img-top" alt="Past Event">
+                        <div class="card-body">
+                            <h5 class="card-title">Africa Cyber Challenge 2024</h5>
+                            <p class="card-text">
+                                48-hour hackathon with teams from across East Africa competing 
+                                in cybersecurity challenges and winning $75,000 in prizes.
+                            </p>
+                            <div class="event-stats">
+                                <span class="badge bg-primary">200+ Hackers</span>
+                                <span class="badge bg-warning">$75K Prizes</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">October 2024 • Kampala, Uganda</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card past-event-card">
+                        <img src="../assets/images/events/past-event-4.jpg" class="card-img-top" alt="Past Event">
+                        <div class="card-body">
+                            <h5 class="card-title">CISO Leadership Forum 2024</h5>
+                            <p class="card-text">
+                                Exclusive forum for Chief Information Security Officers 
+                                discussing regional cybersecurity strategies and collaboration.
+                            </p>
+                            <div class="event-stats">
+                                <span class="badge bg-primary">150+ CISOs</span>
+                                <span class="badge bg-info">Executive Level</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">September 2024 • Kigali, Rwanda</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card past-event-card">
+                        <img src="../assets/images/events/past-event-5.jpg" class="card-img-top" alt="Past Event">
+                        <div class="card-body">
+                            <h5 class="card-title">Youth Cyber Awareness Day 2024</h5>
+                            <p class="card-text">
+                                Educational event targeting young people aged 16-25, 
+                                teaching basic cybersecurity awareness and safe internet practices.
+                            </p>
+                            <div class="event-stats">
+                                <span class="badge bg-primary">1,200+ Youth</span>
+                                <span class="badge bg-success">Free Event</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">August 2024 • Addis Ababa, Ethiopia</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card past-event-card">
+                        <img src="../assets/images/events/past-event-6.jpg" class="card-img-top" alt="Past Event">
+                        <div class="card-body">
+                            <h5 class="card-title">Financial Sector Cyber Drill 2024</h5>
+                            <p class="card-text">
+                                Simulated cyber attack exercise involving banks and financial 
+                                institutions to test incident response capabilities.
+                            </p>
+                            <div class="event-stats">
+                                <span class="badge bg-primary">50+ Banks</span>
+                                <span class="badge bg-danger">Live Simulation</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">July 2024 • Bujumbura, Burundi</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-history me-2"></i>
+                    View All Past Events
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Statistics -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">Event Impact</h2>
+                    <p class="lead">Our events have made a significant impact across East Africa</p>
+                </div>
+            </div>
+
+            <div class="row g-4 text-center">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users fa-3x text-primary"></i>
+                        </div>
+                        <div class="stat-number">25,000+</div>
+                        <div class="stat-label">Total Attendees</div>
+                        <div class="stat-description">Across all our events since 2020</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-alt fa-3x text-success"></i>
+                        </div>
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Events Organized</div>
+                        <div class="stat-description">Workshops, conferences, and training sessions</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-globe fa-3x text-warning"></i>
+                        </div>
+                        <div class="stat-number">18</div>
+                        <div class="stat-label">Countries Reached</div>
+                        <div class="stat-description">Across East and Central Africa</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-certificate fa-3x text-info"></i>
+                        </div>
+                        <div class="stat-number">5,000+</div>
+                        <div class="stat-label">Certifications Earned</div>
+                        <div class="stat-description">Professional cybersecurity certifications</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-5 fw-bold">What Attendees Say</h2>
+                    <p class="lead">Feedback from our cybersecurity community</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "The Cybersecurity Summit was incredibly valuable. I learned cutting-edge 
+                                threat detection techniques that I immediately implemented in my organization."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="../assets/images/testimonials/author-1.jpg" alt="Author" class="testimonial-avatar">
+                            <div class="author-info">
+                                <h6>Sarah Mwangi</h6>
+                                <small>CISO, Kenya Commercial Bank</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "The networking opportunities were fantastic. I connected with cybersecurity 
+                                professionals from across East Africa and formed lasting partnerships."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="../assets/images/testimonials/author-2.jpg" alt="Author" class="testimonial-avatar">
+                            <div class="author-info">
+                                <h6>James Kilimo</h6>
+                                <small>Security Analyst, Vodacom Tanzania</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "The hands-on workshops were excellent. The practical approach helped me 
+                                understand complex cybersecurity concepts much better than theoretical training."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="../assets/images/testimonials/author-3.jpg" alt="Author" class="testimonial-avatar">
+                            <div class="author-info">
+                                <h6>Marie Uwimana</h6>
+                                <small>IT Director, Rwanda Development Board</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Africa Shield's events are world-class. The quality of speakers and content 
+                                rivals international cybersecurity conferences, but with a focus on African challenges."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="../assets/images/testimonials/author-4.jpg" alt="Author" class="testimonial-avatar">
+                            <div class="author-info">
+                                <h6>David Okello</h6>
+                                <small>Cybersecurity Consultant, Uganda</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "The certification bootcamp was intensive but incredibly rewarding. 
+                                I passed my CISSP exam on the first attempt thanks to their excellent preparation."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="../assets/images/testimonials/author-5.jpg" alt="Author" class="testimonial-avatar">
+                            <div class="author-info">
+                                <h6>Amina Hassan</h6>
+                                <small>Security Engineer, Ethiopian Airlines</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "The hackathon was an amazing experience. Working with talented teams from 
+                                different countries taught me new perspectives on cybersecurity problem-solving."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                                                        <img src="../assets/images/testimonials/author-6.jpg" alt="Author" class="testimonial-avatar">
+                            <div class="author-info">
+                                <h6>Ahmed Mohamed</h6>
+                                <small>Ethical Hacker, Somalia Tech Hub</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h2 class="display-6 fw-bold mb-3">Ready to Join Our Cybersecurity Community?</h2>
+                    <p class="lead mb-0">
+                        Don't miss out on the latest cybersecurity events, training opportunities, 
+                        and networking sessions across East Africa. Register today and be part of 
+                        the region's largest cybersecurity community.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <div class="cta-buttons">
+                        <a href="#register-event" class="btn btn-light btn-lg me-3 mb-2">
+                            <i class="fas fa-user-plus me-2"></i>
+                            Register Now
+                        </a>
+                        <a href="../Contact/index.html" class="btn btn-outline-light btn-lg mb-2">
+                            <i class="fas fa-envelope me-2"></i>
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white">
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/images/logo-white.png" width="50" height="50" alt="Africa Shield Logo" class="mb-3">
+                        <h5 class="fw-bold">Africa Shield Cyber Centre</h5>
+                        <p class="footer-description">
+                            Organizing world-class cybersecurity events across East Africa to build 
+                            a stronger, more secure digital ecosystem for our region.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link" title="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="footer-title">Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="../Home/index.html">Home</a></li>
+                        <li><a href="../About/index.html">About Us</a></li>
+                        <li><a href="../Learn/index.html">Training</a></li>
+                        <li><a href="../SOC/index.html">SOC Dashboard</a></li>
+                        <li><a href="../Report/index.html">Report Threat</a></li>
+                        <li><a href="../Contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="footer-title">Event Types</h6>
+                    <ul class="footer-links">
+                        <li><a href="#workshops">Workshops</a></li>
+                        <li><a href="#conferences">Conferences</a></li>
+                        <li><a href="#hackathons">Hackathons</a></li>
+                        <li><a href="#certifications">Certifications</a></li>
+                        <li><a href="#webinars">Webinars</a></li>
+                        <li><a href="#networking">Networking</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h6 class="footer-title">Event Information</h6>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope me-2"></i>
+                            <a href="mailto:events@africashield.org">events@africashield.org</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone me-2"></i>
+                            <a href="tel:+254700744353">+254 700 744 353</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            Regional Offices across East Africa
+                        </div>
+                    </div>
+                    
+                    <div class="newsletter-signup mt-3">
+                        <h6>Event Notifications</h6>
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Your email address" required>
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            <small class="form-text text-muted mt-1">
+                                Get notified about upcoming cybersecurity events
+                            </small>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0 small">
+                            &copy; 2025 Africa Shield Cyber Centre. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="footer-links-inline">
+                            <a href="../Privacy/index.html" class="small">Privacy Policy</a>
+                            <a href="../Terms/index.html" class="small">Terms of Service</a>
+                            <a href="../Accessibility/index.html" class="small">Accessibility</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" title="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- AI Assistant -->
+    <button id="aiAssistantBtn" class="ai-assistant-btn" title="AI Assistant">
+        <i class="fas fa-robot"></i>
+    </button>
+    <div id="aiAssistantChat" class="ai-assistant-chat" style="display: none;">
+        <div class="ai-chat-header">
+            <span class="fw-bold"><i class="fas fa-robot me-2"></i>Events Assistant</span>
+            <button type="button" class="btn-close" id="closeAiAssistant"></button>
+        </div>
+        <div class="ai-chat-body" id="aiChatBody">
+            <div class="ai-message ai-message-assistant">
+                <span class="ai-avatar"><i class="fas fa-robot"></i></span>
+                <div class="ai-bubble">Hello! I can help you find cybersecurity events, register for training, or answer questions about our programs. What would you like to know?</div>
+            </div>
+        </div>
+        <form class="ai-chat-input" id="aiChatForm">
+            <input type="text" id="aiUserInput" class="form-control" placeholder="Ask about events, registration, or training..." required />
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/chatbot.js"></script>
+</body>
+</html>
+
+

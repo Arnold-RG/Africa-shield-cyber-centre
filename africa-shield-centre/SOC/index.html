@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced SOC Dashboard - Africa Shield Cyber Centre</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/soc-dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body class="soc-body">
+   
+
+    <!-- Authentication Modal -->
+    <div class="modal fade" id="authModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">SOC Authentication Required</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="authForm">
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">2FA Token</label>
+                            <input type="text" class="form-control" id="twoFactorToken" placeholder="Enter 6-digit code" required>
+                        </div>
+                        <div class="mb-3">
+                            <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Authenticate</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm soc-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="../Home/index.html">
+                <img src="../assets/images/logo.png" width="40" height="40" alt="Africa Shield Cyber Centre Logo" class="me-2">
+                <div class="brand-text-container">
+                    <span class="brand-text fw-bold">Africa Shield SOC</span>
+                    <small class="brand-subtitle d-block text-muted">Advanced Threat Intelligence</small>
+                </div>
+            </a>
+            
+            <div class="d-flex align-items-center ms-auto">
+                <div class="soc-status-indicator me-3">
+                    <span class="status-dot" id="systemStatus"></span>
+                    <span class="status-text" id="systemStatusText">INITIALIZING</span>
+                </div>
+                <div class="threat-level-indicator me-3">
+                    <span class="threat-level" id="currentThreatLevel">LOADING</span>
+                </div>
+                <div class="user-info me-3">
+                    <span class="user-name" id="currentUser">Loading...</span>
+                    <button class="btn btn-sm btn-outline-light ms-2" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+                <button class="btn btn-outline-light btn-sm" id="fullscreenBtn">
+                    <i class="fas fa-expand"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SOC Command Center -->
+    <div class="soc-command-center">
+        <!-- Top Status Bar -->
+        <div class="soc-status-bar">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <div class="status-item">
+                            <i class="fas fa-shield-alt" id="systemStatusIcon"></i>
+                            <span>Systems: <strong id="systemStatusDisplay">LOADING---</strong></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="status-item">
+                            <i class="fas fa-globe-africa text-info"></i>
+                            <span><strong id="countryCoverage"> countries </strong></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="status-item">
+                            <i class="fas fa-clock text-warning"></i>
+                            <span>Last Update <strong id="lastUpdateTime"></strong></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="status-item">
+                            <i class="fas fa-users text-primary"></i>
+                            <span>Analysts Online <strong id="analystsOnline">0</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Dashboard Grid -->
+        <div class="container-fluid soc-main-grid">
+            <!-- Row 1: Key Metrics and Threat Map -->
+            <div class="row g-3 mb-3">
+                <div class="col-xl-8">
+                    <div class="soc-panel">
+                        <div class="panel-header">
+                            <h5><i class="fas fa-chart-line me-2"></i>Real-Time Threat Analytics</h5>
+                            <div class="panel-controls">
+                                <select class="form-select form-select-sm me-2" id="timeRangeSelect">
+                                    <option value="1h">Last Hour</option>
+                                    <option value="6h">Last 6 Hours</option>
+                                    <option value="24h" selected>Last 24 Hours</option>
+                                    <option value="7d">Last 7 Days</option>
+                                </select>
+                                <button class="btn btn-sm btn-outline-light" id="refreshAnalytics">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="metric-card threats">
+                                        <div class="metric-icon">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                        </div>
+                                        <div class="metric-data">
+                                            <div class="metric-value" id="threatsDetected">0</div>
+                                            <div class="metric-label">Threats Detected</div>
+                                            <div class="metric-change" id="threatsChange">100%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="metric-card blocked">
+                                        <div class="metric-icon">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </div>
+                                        <div class="metric-data">
+                                            <div class="metric-value" id="threatsBlocked">0</div>
+                                            <div class="metric-label">Threats Blocked</div>
+                                            <div class="metric-change" id="blockedChange">100%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="metric-card incidents">
+                                        <div class="metric-icon">
+                                            <i class="fas fa-bell"></i>
+                                        </div>
+                                        <div class="metric-data">
+                                            <div class="metric-value" id="activeIncidents">0</div>
+                                            <div class="metric-label">Active Incidents</div>
+                                            <div class="metric-change" id="incidentsChange">100%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="metric-card response">
+                                        <div class="metric-icon">
+                                            <i class="fas fa-stopwatch"></i>
+                                        </div>
+                                        <div class="metric-data">
+                                            <div class="metric-value" id="avgResponse">--</div>
+                                            <div class="metric-label">Avg Response</div>
+                                            <div class="metric-change" id="responseChange">100%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Threat Timeline Chart -->
+                            <div class="chart-container mt-4">
+                                <canvas id="threatTimelineChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-4">
+                    <div class="soc-panel">
+                        <div class="panel-header">
+                            <h5><i class="fas fa-map-marked-alt me-2"></i>Geographic Threat Map</h5>
+                            <div class="panel-controls">
+                                <button class="btn btn-sm btn-outline-light" id="mapFullscreen">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div id="threatMap" class="threat-map"></div>
+                            <div class="map-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color critical"></span>
+                                    <span>Critical</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color high"></span>
+                                    <span>High</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color medium"></span>
+                                    <span>Medium </span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color low"></span>
+                                    <span>Low </span>
+                                </div>
+                            </div>
+                            <div class="map-stats mt-3">
+                                <div class="stat-row">
+                                    <span>Total Threats:</span>
+                                    <strong id="mapTotalThreats">1</strong>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Countries Affected:</span>
+                                    <strong id="affectedCountries">1</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: Live Feeds and Alerts -->
+            <div class="row g-3 mb-3">
+                <div class="col-xl-6">
+                    <div class="soc-panel">
+                        <div class="panel-header">
+                            <h5><i class="fas fa-stream me-2"></i>Live Threat Feed</h5>
+                            <div class="panel-controls">
+                                <div class="feed-controls">
+                                    <button class="btn btn-sm btn-outline-light" id="pauseFeed" title="Pause Feed">
+                                        <i class="fas fa-pause"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-light" id="clearFeed" title="Clear Feed">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                    <select class="form-select form-select-sm ms-2" id="feedFilter">
+                                        <option value="all">All Threats</option>
+                                        <option value="critical">Critical Only</option>
+                                        <option value="high">High Priority</option>
+                                        <option value="malware">Malware</option>
+                                        <option value="phishing">Phishing</option>
+                                        <option value="ddos">DDoS</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="threat-feed" id="liveThreatFeed">
+                                <div class="feed-placeholder">
+                                    <i class="fas fa-satellite-dish"></i>
+                                    <p>Initializing threat feed...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-6">
+                    <div class="soc-panel">
+                        <div class="panel-header">
+                            <h5><i class="fas fa-exclamation-circle me-2"></i>Priority Alerts</h5>
+                            <div class="alert-counter">
+                                <span class="badge bg-danger" id="criticalAlerts">1</span>
+                                <span class="badge bg-warning" id="highAlerts">1</span>
+                                <span class="badge bg-info" id="mediumAlerts">1</span>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="alerts-container" id="priorityAlerts">
+                                <div class="alert-placeholder">
+                                    <i class="fas fa-bell"></i>
+                                    <p>No active alerts</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3: Advanced Analytics -->
+            <div class="row g-3 mb-3">
+                <div class="col-xl-4">
+                    <div class="soc-panel">
+                        <div class="panel-header">
+                            <h5><i class="fas fa-virus me-2"></i>Malware Analysis</h5>
+                        </div>
+                        <div class="panel-body">
+                            <div class="chart-container">
+                                <canvas id="malwareChart"></canvas>
+                            </div>
+                            <div class="malware-stats mt-3">
+                                <div class="malware-type">
+                                    <span class="type-name">Trojans</span>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-danger" id="trojansBar"></div>
+                                    </div>
+                                    <span class="type-count" id="trojansPercent">0%</span>
+                                </div>
+                                <div class="malware-type">
+                                    <span class="type-name">Ransomware</span>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" id="ransomwareBar"></div>
+                                    </div>
+                                    <span class="type-count" id="ransomwarePercent">0%</span>
+                                </div>
+                                <div class="malware-type">
+                                    <span class="type-name">Spyware</span>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info" id="spywareBar"></div>
+                                    </div>
+                                    <span class="type-count" id="spywarePercent">0%</span>
+                                </div>
+                                <div class="malware-type">
+                                    <span class="type-name">Adware</span>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" id="adwareBar"></div>
+                                    </div>
+                                    <span class="type-count" id="adwarePercent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-4">
+                    <div class="soc-panel">
+                        <div class="panel-header">
+                            <h5><i class="fas fa-network-wired me-2"></i>Network Traffic</h5>
+                        </div>
+                        <div class="panel-body">
+                            <div class="network-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Inbound Traffic</span>
+                                    <span class="stat-value" id="inboundTraffic">-- GB/s</span>
+                                    <span class="stat-trend" id="inboundTrend">--%</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Outbound Traffic</span>
+                                    <span class="stat-value" id="outboundTraffic">-- GB/s</span>
+                                    <span class="stat-trend" id="outboundTrend">--%</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Blocked Connections</span>
+                                    <span class="stat-value" id="blockedConnections">--</span>
+                                    <span class="stat-trend" id="blockedTrend">--%</span>
+                                </div>
+                            </div>
+                            <div class="chart-container mt-3">
+                                <canvas id="networkChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-4">
+                    <div class="soc-panel">
+                        <div class="panel-header">
+                            <h5><i class="fas fa-brain me-2"></i>AI Threat Intelligence</h5>
+                        </div>
+                        <div class="panel-body">
+                            <div class="ai-insights" id="aiInsights">
+                                <div class="insight-placeholder">
+                                    <i class="fas fa-robot"></i>
+                                    <p>AI analysis in progress...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 4: Incident Management -->
+            <div class="row g-3 mb-3">
+                <div class="col-xl-12">
+                    <div class="soc-panel">
+                        <div class="panel-header">
+                            <h5><i class="fas fa-list-alt me-2"></i>Active Incident Management</h5>
+                            <div class="panel-controls">
+                                <div class="incident-controls">
+                                    <select class="form-select form-select-sm me-2" id="incidentFilter">
+                                        <option value="all">All Incidents</option>
+                                        <option value="critical">Critical</option>
+                                        <option value="high">High Priority</option>
+                                        <option value="investigating">Investigating</option>
+                                        <option value="contained">Contained</option>
+                                    </select>
+                                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#newIncidentModal">
+                                        <i class="fas fa-plus me-1"></i>New Incident
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-light" id="exportIncidents">
+                                        <i class="fas fa-download me-1"></i>Export
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-dark table-hover soc-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Type</th>
+                                            <th>Location</th>
+                                            <th>Severity</th>
+                                            <th>Status</th>
+                                            <th>Assigned</th>
+                                            <th>Created</th>
+                                            <th>Last Update</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="incidentTable">
+                                        <tr>
+                                            <td colspan="9" class="text-center">
+                                                <div class="loading-spinner-sm"></div>
+                                                Loading incidents...
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="table-pagination mt-3">
+                                <nav>
+                                    <ul class="pagination pagination-sm justify-content-center" id="incidentPagination">
+                                        <!-- Pagination will be generated here -->
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 5: System Health and Team Status -->
+            <div class="row g-3">
+                <div class="col-xl-8">
+                    <div class="soc-panel">
+                        <div class="panel-header">
+                            <h5><i class="fas fa-tools me-2"></i>Advanced Security Tools</h5>
+                            <div class="panel-controls">
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-sm btn-outline-light active" data-tool="scanner">
+                                        <i class="fas fa-search me-1"></i>Scanner
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-light" data-tool="forensics">
+                                        <i class="fas fa-microscope me-1"></i>Forensics
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-light" data-tool="honeypot">
+                                        <i class="fas fa-spider me-1"></i>Honeypot
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-light" data-tool="sandbox">
+                                        <i class="fas fa-cube me-1"></i>Sandbox
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="tools-container" id="toolsContainer">
+                                <!-- Tools content will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-4">
+                    <div class="soc-panel">
+                        <div class="panel-header">
+                            <h5><i class="fas fa-heartbeat me-2"></i>System Health</h5>
+                        </div>
+                        <div class="panel-body">
+                            <div class="health-metrics" id="healthMetrics">
+                                <!-- Health metrics will be populated here -->
+                            </div>
+                            
+                            <div class="team-status mt-4">
+                                <h6 class="mb-3">Response Team Status</h6>
+                                <div class="team-members" id="teamMembers">
+                                    <!-- Team members will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- New Incident Modal -->
+    <div class="modal fade" id="newIncidentModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create New Incident</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="newIncidentForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Incident Type</label>
+                                    <select class="form-select" required>
+                                        <option value="">Select Type</option>
+                                        <option value="phishing">Phishing Attack</option>
+                                        <option value="malware">Malware Detection</option>
+                                        <option value="ddos">DDoS Attack</option>
+                                        <option value="ransomware">Ransomware</option>
+                                        <option value="data-breach">Data Breach</option>
+                                        <option value="insider-threat">Insider Threat</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Severity Level</label>
+                                    <select class="form-select" required>
+                                        <option value="">Select Severity</option>
+                                        <option value="low">Low</option>
+                                        <option value="medium">Medium</option>
+                                        <option value="high">High</option>
+                                        <option value="critical">Critical</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Affected Country</label>
+                                    <select class="form-select" id="countrySelect" required>
+                                        <option value="">Select Country</option>
+                                        <!-- All 54 African countries will be populated by JavaScript -->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Assigned Analyst</label>
+                                    <select class="form-select" id="analystSelect" required>
+                                        <option value="">Select Analyst</option>
+                                        <!-- Analysts will be populated by JavaScript -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" rows="4" placeholder="Detailed description of the incident..." required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Indicators of Compromise (IOCs)</label>
+                            <textarea class="form-control" rows="3" placeholder="IP addresses, domains, file hashes, etc."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" form="newIncidentForm" class="btn btn-primary">Create Incident</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Incident Details Modal -->
+    <div class="modal fade" id="incidentDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="incidentDetailsTitle">Incident Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="incidentDetailsBody">
+                    <!-- Incident details will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Assistant -->
+    <div class="ai-assistant-container">
+        <button id="aiAssistantBtn" class="ai-assistant-btn">
+            <i class="fas fa-robot"></i>
+            <span class="ai-pulse"></span>
+        </button>
+        <div id="aiAssistantChat" class="ai-assistant-chat" style="display: none;">
+            <div class="ai-chat-header">
+                <div class="ai-header-info">
+                    <span class="ai-name">ARIA - AI Security Assistant</span>
+                    <span class="ai-status" id="aiStatus">Online</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white" id="closeAiAssistant"></button>
+            </div>
+            <div class="ai-chat-body" id="aiChatBody">
+                <div class="ai-message ai-message-assistant">
+                    <div class="ai-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="ai-bubble">
+                        <div class="ai-message-content">
+                            Hello! I'm ARIA, your AI Security Assistant. I can help you with:
+                            <ul>
+                                <li>Threat analysis and correlation</li>
+                                <li>Incident response recommendations</li>
+                                <li>Security metrics interpretation</li>
+                                <li>IOC enrichment and analysis</li>
+                                <li>Risk assessment and mitigation strategies</li>
+                            </ul>
+                            What would you like to investigate?
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form class="ai-chat-input" id="aiChatForm">
+                <input type="text" id="aiUserInput" class="form-control" placeholder="Ask ARIA about threats, incidents, or security analysis..." required />
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Emergency Alert System -->
+    <div id="emergencyAlert" class="emergency-alert" style="display: none;">
+        <div class="alert-content">
+            <div class="alert-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="alert-message">
+                <div class="alert-title" id="emergencyAlertTitle">CRITICAL SECURITY ALERT</div>
+                <div class="alert-description" id="emergencyAlertText"></div>
+            </div>
+            <div class="alert-actions">
+                <button class="btn btn-danger btn-sm" id="acknowledgeAlert">Acknowledge</button>
+                <button class="btn btn-outline-light btn-sm" id="dismissAlert">Dismiss</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container position-fixed top-0 end-0 p-3" id="toastContainer">
+        <!-- Toast notifications will be added here -->
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/soc-dashboard.js"></script>
+    <script src="../assets/js/threat-map.js"></script>
+    <script src="../assets/js/charts.js"></script>
+    <script src="../assets/js/incidents.js"></script>
+    <script src="../assets/js/ai-assistant.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/africa-countries.js"></script>
+</body>
+</html>
+

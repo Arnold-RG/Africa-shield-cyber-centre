@@ -1,0 +1,3400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Careers - Africa Shield Cyber Centre</title>
+    <meta name="description" content="Explore cybersecurity career opportunities across Africa. Find jobs, internships, and professional development programs with Africa Shield Cyber Centre.">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/careers.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../Home/index.html">
+                <img src="../assets/images/logo.png" width="50" height="50" alt="Africa Shield Cyber Centre Logo" class="me-2">
+                <div class="brand-text-container">
+                    <span class="brand-text fw-bold">Africa Shield</span>
+                    <small class="brand-subtitle d-block text-muted">Cyber Centre</small>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Home/index.html">
+                            <i class="fas fa-home me-1"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Learn/index.html">
+                            <i class="fas fa-graduation-cap me-1"></i> Learn
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Report/index.html">
+                            <i class="fas fa-exclamation-triangle me-1"></i> Report Threat
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../SOC/index.html">
+                            <i class="fas fa-desktop me-1"></i> SOC Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Events/index.html">
+                            <i class="fas fa-calendar-alt me-1"></i> Events
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../Career/index.html">
+                            <i class="fas fa-briefcase me-1"></i> Careers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../About/index.html">
+                            <i class="fas fa-building me-1"></i> About Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Contact/index.html">
+                            <i class="fas fa-envelope me-1"></i> Contact
+                        </a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i> Account
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="../Admin/Auth.html">
+                                <i class="fas fa-sign-in-alt me-2"></i>Login
+                            </a></li>
+                            <li><a class="dropdown-item" href="../Admin/Auth.html">
+                                <i class="fas fa-user-plus me-2"></i>Register
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <div class="hero-particles"></div>
+        </div>
+        <div class="container">
+            <div class="row align-items-center min-vh-75">
+                <div class="col-lg-7">
+                    <div class="hero-content animate__animated animate__fadeInLeft">
+                        <h1 class="hero-title">
+                            Shape Africa's <span class="text-gradient">Cyber Future</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Join the continent's largest cybersecurity ecosystem. Discover career opportunities 
+                            that protect millions across 54 African nations and drive digital transformation.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">3,500+</div>
+                                <div class="stat-label">Active Jobs</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1,200+</div>
+                                <div class="stat-label">Companies</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">54</div>
+                                <div class="stat-label">Countries</div>
+                            </div>
+                        </div>
+                        <div class="hero-actions">
+                            <a href="#job-listings" class="btn btn-primary btn-lg me-3">
+                                <i class="fas fa-search me-2"></i>Explore Jobs
+                            </a>
+                            <a href="#submit-resume" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-upload me-2"></i>Upload Resume
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="hero-visual animate__animated animate__fadeInRight">
+                        <div class="floating-cards">
+                            <div class="job-card-mini card-1">
+                                <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                                <div class="card-title">Security Analyst</div>
+                                <div class="card-salary">$45K - $65K</div>
+                            </div>
+                            <div class="job-card-mini card-2">
+                                <div class="card-icon"><i class="fas fa-bug"></i></div>
+                                <div class="card-title">Penetration Tester</div>
+                                <div class="card-salary">$50K - $75K</div>
+                            </div>
+                            <div class="job-card-mini card-3">
+                                <div class="card-icon"><i class="fas fa-crown"></i></div>
+                                <div class="card-title">CISO</div>
+                                <div class="card-salary">$100K - $180K</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Search Section -->
+    <section class="job-search-section">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-header text-center mb-4">
+                    <h2>Find Your Dream Cybersecurity Role</h2>
+                    <p>Search through thousands of opportunities across Africa</p>
+                </div>
+                <div class="search-form-wrapper">
+                    <form id="jobSearchForm" class="advanced-search-form">
+                        <div class="search-row">
+                            <div class="search-field">
+                                <label><i class="fas fa-search"></i> Keywords</label>
+                                <input type="text" id="jobKeywords" placeholder="Job title, skills, or company">
+                            </div>
+                            <div class="search-field">
+                                <label><i class="fas fa-map-marker-alt"></i> Location</label>
+                                <select id="jobLocation">
+                                    <option value="">All Locations</option>
+                                    <optgroup label="East Africa">
+                                        <option value="kenya">🇰🇪 Kenya</option>
+                                        <option value="tanzania">🇹🇿 Tanzania</option>
+                                        <option value="uganda">🇺🇬 Uganda</option>
+                                        <option value="rwanda">🇷🇼 Rwanda</option>
+                                        <option value="ethiopia">🇪🇹 Ethiopia</option>
+                                        <option value="burundi">🇧🇮 Burundi</option>
+                                    </optgroup>
+                                    <optgroup label="West Africa">
+                                        <option value="nigeria">🇳🇬 Nigeria</option>
+                                        <option value="ghana">🇬🇭 Ghana</option>
+                                        <option value="senegal">🇸🇳 Senegal</option>
+                                        <option value="ivory-coast">🇨🇮 Ivory Coast</option>
+                                        <option value="mali">🇲🇱 Mali</option>
+                                        <option value="burkina-faso">🇧🇫 Burkina Faso</option>
+                                    </optgroup>
+                                    <optgroup label="North Africa">
+                                        <option value="egypt">🇪🇬 Egypt</option>
+                                        <option value="morocco">🇲🇦 Morocco</option>
+                                        <option value="tunisia">🇹🇳 Tunisia</option>
+                                        <option value="algeria">🇩🇿 Algeria</option>
+                                        <option value="libya">🇱🇾 Libya</option>
+                                        <option value="sudan">🇸🇩 Sudan</option>
+                                    </optgroup>
+                                    <optgroup label="Southern Africa">
+                                        <option value="south-africa">🇿🇦 South Africa</option>
+                                        <option value="botswana">🇧🇼 Botswana</option>
+                                        <option value="namibia">🇳🇦 Namibia</option>
+                                        <option value="zambia">🇿🇲 Zambia</option>
+                                        <option value="zimbabwe">🇿🇼 Zimbabwe</option>
+                                        <option value="mozambique">🇲🇿 Mozambique</option>
+                                    </optgroup>
+                                    <option value="remote">🌐 Remote</option>
+                                </select>
+                            </div>
+                            <div class="search-field">
+                                <label><i class="fas fa-briefcase"></i> Experience</label>
+                                <select id="experienceLevel">
+                                    <option value="">All Levels</option>
+                                    <option value="entry">Entry (0-2 years)</option>
+                                    <option value="mid">Mid (3-5 years)</option>
+                                    <option value="senior">Senior (6-10 years)</option>
+                                    <option value="executive">Executive (10+ years)</option>
+                                </select>
+                            </div>
+                            <div class="search-field">
+                                <label><i class="fas fa-dollar-sign"></i> Salary Range</label>
+                                <select id="salaryRange">
+                                    <option value="">Any Salary</option>
+                                    <option value="20-30">$20K - $30K</option>
+                                    <option value="30-50">$30K - $50K</option>
+                                    <option value="50-75">$50K - $75K</option>
+                                    <option value="75-100">$75K - $100K</option>
+                                    <option value="100+">$100K+</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                                Search Jobs
+                            </button>
+                        </div>
+                        <div class="search-filters">
+                            <div class="filter-group">
+                                <label>Job Type:</label>
+                                <div class="filter-options">
+                                    <label class="filter-option">
+                                        <input type="checkbox" value="full-time"> Full-time
+                                    </label>
+                                    <label class="filter-option">
+                                        <input type="checkbox" value="part-time"> Part-time
+                                    </label>
+                                    <label class="filter-option">
+                                        <input type="checkbox" value="contract"> Contract
+                                    </label>
+                                    <label class="filter-option">
+                                        <input type="checkbox" value="internship"> Internship
+                                    </label>
+                                    <label class="filter-option">
+                                        <input type="checkbox" value="remote"> Remote
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Jobs Section -->
+    <section id="job-listings" class="jobs-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h2 class="section-title">Featured Opportunities</h2>
+                        <p class="section-subtitle">Hand-picked cybersecurity roles from top African organizations</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <div class="job-controls">
+                            <select class="form-select job-sort" id="jobSort">
+                                <option value="newest">Newest First</option>
+                                <option value="salary-high">Highest Salary</option>
+                                <option value="company">Company A-Z</option>
+                                <option value="location">Location</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="jobs-grid" id="jobsContainer">
+                <!-- Job Card 1 - Featured -->
+                <div class="job-card featured-job" data-job-id="1">
+                                        <div class="job-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <img src="../assets/images/companies/safaricom.png" alt="Safaricom" class="img-fluid">
+                            </div>
+                            <div class="company-details">
+                                <h4 class="job-title">Senior Cybersecurity Analyst</h4>
+                                <div class="company-name">Safaricom PLC</div>
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Nairobi, Kenya
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-badges">
+                            <span class="badge badge-featured">FEATURED</span>
+                            <span class="badge badge-urgent">URGENT</span>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Full-time</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$45,000 - $65,000</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted 2 days ago</span>
+                            </div>
+                        </div>
+                        <p class="job-description">
+                            Lead cybersecurity initiatives for East Africa's largest telecommunications company. 
+                            Responsible for threat detection, incident response, and security architecture for 
+                            M-Pesa and core network infrastructure.
+                        </p>
+                        <div class="job-skills">
+                            <span class="skill-tag">SIEM</span>
+                            <span class="skill-tag">Incident Response</span>
+                            <span class="skill-tag">Network Security</span>
+                            <span class="skill-tag">CISSP</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-actions">
+                            <button class="btn-save" onclick="saveJob(1)" title="Save Job">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="btn-apply" onclick="applyJob(1)">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 2 -->
+                <div class="job-card" data-job-id="2">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <img src="../assets/images/companies/equity-bank.png" alt="Equity Bank" class="img-fluid">
+                            </div>
+                            <div class="company-details">
+                                <h4 class="job-title">Information Security Manager</h4>
+                                <div class="company-name">Equity Bank Group</div>
+                                <div class="job-location">
+                                    <i class="fas fa-globe"></i>
+                                    Remote (Africa)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-badges">
+                            <span class="badge badge-remote">REMOTE</span>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-laptop"></i>
+                                <span>Remote</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$55,000 - $75,000</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted 1 week ago</span>
+                            </div>
+                        </div>
+                        <p class="job-description">
+                            Manage information security programs across Equity Bank's operations in 6 African countries. 
+                            Lead security governance, risk management, and compliance initiatives for digital banking platforms.
+                        </p>
+                        <div class="job-skills">
+                            <span class="skill-tag">Risk Management</span>
+                            <span class="skill-tag">ISO 27001</span>
+                            <span class="skill-tag">Banking Security</span>
+                            <span class="skill-tag">CISM</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-actions">
+                            <button class="btn-save" onclick="saveJob(2)" title="Save Job">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="btn-apply" onclick="applyJob(2)">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 3 -->
+                <div class="job-card" data-job-id="3">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <img src="../assets/images/companies/mtn.png" alt="MTN Group" class="img-fluid">
+                            </div>
+                            <div class="company-details">
+                                <h4 class="job-title">SOC Analyst Level 2</h4>
+                                <div class="company-name">MTN Group</div>
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Johannesburg, South Africa
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-badges">
+                            <span class="badge badge-new">NEW</span>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Full-time</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$38,000 - $52,000</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted today</span>
+                            </div>
+                        </div>
+                        <p class="job-description">
+                            Monitor and analyze security events across MTN's 21-country network. Investigate incidents, 
+                            coordinate responses, and maintain security tools for Africa's largest mobile network operator.
+                        </p>
+                        <div class="job-skills">
+                            <span class="skill-tag">SIEM</span>
+                            <span class="skill-tag">Splunk</span>
+                            <span class="skill-tag">Incident Response</span>
+                            <span class="skill-tag">Network Security</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-actions">
+                            <button class="btn-save" onclick="saveJob(3)" title="Save Job">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="btn-apply" onclick="applyJob(3)">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 4 -->
+                <div class="job-card" data-job-id="4">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <img src="../assets/images/companies/standard-bank.png" alt="Standard Bank" class="img-fluid">
+                            </div>
+                            <div class="company-details">
+                                <h4 class="job-title">Penetration Tester</h4>
+                                <div class="company-name">Standard Bank Group</div>
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Cape Town, South Africa
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-badges">
+                            <span class="badge badge-high-salary">HIGH SALARY</span>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Full-time</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$60,000 - $85,000</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted 3 days ago</span>
+                            </div>
+                        </div>
+                        <p class="job-description">
+                            Conduct comprehensive penetration testing and vulnerability assessments across Standard Bank's 
+                            African operations. Work with cutting-edge tools and methodologies to secure financial infrastructure.
+                        </p>
+                        <div class="job-skills">
+                            <span class="skill-tag">Penetration Testing</span>
+                            <span class="skill-tag">Kali Linux</span>
+                            <span class="skill-tag">OSCP</span>
+                            <span class="skill-tag">Web Application Security</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-actions">
+                            <button class="btn-save" onclick="saveJob(4)" title="Save Job">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="btn-apply" onclick="applyJob(4)">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 5 -->
+                <div class="job-card" data-job-id="5">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <img src="../assets/images/companies/nigeria-gov.png" alt="Nigeria Government" class="img-fluid">
+                            </div>
+                            <div class="company-details">
+                                <h4 class="job-title">National Cyber Security Coordinator</h4>
+                                <div class="company-name">Federal Government of Nigeria</div>
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Abuja, Nigeria
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-badges">
+                            <span class="badge badge-government">GOVERNMENT</span>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-building"></i>
+                                <span>Government</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$55,000 - $80,000</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted 5 days ago</span>
+                            </div>
+                        </div>
+                        <p class="job-description">
+                            Lead Nigeria's national cybersecurity strategy and coordinate with international partners. 
+                            Develop policies for critical infrastructure protection and national cyber incident response.
+                        </p>
+                        <div class="job-skills">
+                            <span class="skill-tag">Policy Development</span>
+                            <span class="skill-tag">Critical Infrastructure</span>
+                            <span class="skill-tag">International Relations</span>
+                            <span class="skill-tag">Strategic Planning</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-actions">
+                            <button class="btn-save" onclick="saveJob(5)" title="Save Job">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="btn-apply" onclick="applyJob(5)">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 6 -->
+                <div class="job-card" data-job-id="6">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <img src="../assets/images/companies/morocco-telecom.png" alt="Morocco Telecom" class="img-fluid">
+                            </div>
+                            <div class="company-details">
+                                <h4 class="job-title">Cloud Security Engineer</h4>
+                                <div class="company-name">Morocco Telecom</div>
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Casablanca, Morocco
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-badges">
+                            <span class="badge badge-trending">TRENDING</span>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Full-time</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$42,000 - $58,000</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted 4 days ago</span>
+                            </div>
+                        </div>
+                        <p class="job-description">
+                            Design and implement cloud security solutions for Morocco's leading telecom provider. 
+                            Focus on AWS/Azure security, container security, and DevSecOps practices.
+                        </p>
+                        <div class="job-skills">
+                            <span class="skill-tag">AWS Security</span>
+                            <span class="skill-tag">Azure Security</span>
+                            <span class="skill-tag">DevSecOps</span>
+                            <span class="skill-tag">Kubernetes</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-actions">
+                            <button class="btn-save" onclick="saveJob(6)" title="Save Job">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="btn-apply" onclick="applyJob(6)">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 7 -->
+                <div class="job-card" data-job-id="7">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <img src="../assets/images/companies/egypt-bank.png" alt="National Bank of Egypt" class="img-fluid">
+                            </div>
+                            <div class="company-details">
+                                <h4 class="job-title">Cybersecurity Consultant</h4>
+                                <div class="company-name">National Bank of Egypt</div>
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Cairo, Egypt
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-badges">
+                            <span class="badge badge-contract">CONTRACT</span>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-handshake"></i>
+                                <span>Contract</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$70,000 - $90,000</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted 1 week ago</span>
+                            </div>
+                        </div>
+                        <p class="job-description">
+                            Provide expert cybersecurity consulting for digital transformation initiatives. 
+                            Assess security posture, design security architectures, and implement best practices.
+                        </p>
+                        <div class="job-skills">
+                            <span class="skill-tag">Security Architecture</span>
+                            <span class="skill-tag">Risk Assessment</span>
+                            <span class="skill-tag">Compliance</span>
+                            <span class="skill-tag">CISSP</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-actions">
+                            <button class="btn-save" onclick="saveJob(7)" title="Save Job">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="btn-apply" onclick="applyJob(7)">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 8 -->
+                <div class="job-card" data-job-id="8">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <img src="../assets/images/companies/ghana-telecom.png" alt="Ghana Telecom" class="img-fluid">
+                            </div>
+                            <div class="company-details">
+                                <h4 class="job-title">Junior Security Analyst</h4>
+                                <div class="company-name">Ghana Telecom</div>
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Accra, Ghana
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-badges">
+                            <span class="badge badge-entry">ENTRY LEVEL</span>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Entry Level</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$25,000 - $35,000</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted 2 days ago</span>
+                            </div>
+                        </div>
+                        <p class="job-description">
+                            Perfect opportunity for recent graduates to start their cybersecurity career. 
+                            Monitor security events, assist with investigations, and learn from experienced professionals.
+                        </p>
+                        <div class="job-skills">
+                            <span class="skill-tag">Security Monitoring</span>
+                            <span class="skill-tag">Log Analysis</span>
+                            <span class="skill-tag">Network Basics</span>
+                            <span class="skill-tag">Security+</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-actions">
+                            <button class="btn-save" onclick="saveJob(8)" title="Save Job">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="btn-apply" onclick="applyJob(8)">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 9 -->
+                <div class="job-card" data-job-id="9">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <img src="../assets/images/companies/africa-shield.png" alt="Africa Shield" class="img-fluid">
+                            </div>
+                            <div class="company-details">
+                                <h4 class="job-title">Cybersecurity Intern Program</h4>
+                                <div class="company-name">Africa Shield Cyber Centre</div>
+                                <div class="job-location">
+                                    <i class="fas fa-globe"></i>
+                                    Multiple Locations
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-badges">
+                            <span class="badge badge-internship">INTERNSHIP</span>
+                            <span class="badge badge-featured">FEATURED</span>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-user-graduate"></i>
+                                <span>Internship</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$1,500 - $2,000/month</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted today</span>
+                            </div>
+                        </div>
+                        <p class="job-description">
+                            6-month paid internship program with Africa Shield's SOC team. Gain hands-on experience 
+                            in threat detection, incident response, and cybersecurity operations across Africa.
+                        </p>
+                        <div class="job-skills">
+                            <span class="skill-tag">SOC Operations</span>
+                            <span class="skill-tag">Threat Detection</span>
+                            <span class="skill-tag">SIEM Tools</span>
+                            <span class="skill-tag">Mentorship</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-actions">
+                            <button class="btn-save" onclick="saveJob(9)" title="Save Job">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="btn-apply" onclick="applyJob(9)">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 10 -->
+                <div class="job-card" data-job-id="10">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <img src="../assets/images/companies/botswana-bank.png" alt="Bank of Botswana" class="img-fluid">
+                            </div>
+                            <div class="company-details">
+                                <h4 class="job-title">Chief Information Security Officer</h4>
+                                <div class="company-name">Bank of Botswana</div>
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Gaborone, Botswana
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-badges">
+                            <span class="badge badge-executive">EXECUTIVE</span>
+                            <span class="badge badge-high-salary">HIGH SALARY</span>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-crown"></i>
+                                <span>Executive</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$120,000 - $180,000</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted 1 week ago</span>
+                            </div>
+                        </div>
+                        <p class="job-description">
+                            Lead cybersecurity strategy for Botswana's central bank. Oversee security for national 
+                            payment systems, banking supervision technology, and critical financial infrastructure.
+                        </p>
+                        <div class="job-skills">
+                            <span class="skill-tag">Executive Leadership</span>
+                            <span class="skill-tag">Financial Services</span>
+                            <span class="skill-tag">Regulatory Compliance</span>
+                            <span class="skill-tag">CISSP</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-actions">
+                            <button class="btn-save" onclick="saveJob(10)" title="Save Job">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="btn-apply" onclick="applyJob(10)">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 11 -->
+                <div class="job-card" data-job-id="11">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <img src="../assets/images/companies/senegal-tech.png" alt="Senegal Tech Hub" class="img-fluid">
+                            </div>
+                            <div class="company-details">
+                                <h4 class="job-title">Digital Forensics Specialist</h4>
+                                <div class="company-name">Senegal Tech Hub</div>
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Dakar, Senegal
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-badges">
+                            <span class="badge badge-specialist">SPECIALIST</span>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Full-time</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$48,000 - $68,000</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted 3 days ago</span>
+                            </div>
+                        </div>
+                        <p class="job-description">
+                            Conduct digital forensics investigations for cybercrime cases across West Africa. 
+                            Work with law enforcement and corporate clients on incident response and evidence collection.
+                        </p>
+                        <div class="job-skills">
+                            <span class="skill-tag">Digital Forensics</span>
+                            <span class="skill-tag">EnCase</span>
+                            <span class="skill-tag">Mobile Forensics</span>
+                            <span class="skill-tag">Legal Procedures</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-actions">
+                            <button class="btn-save" onclick="saveJob(11)" title="Save Job">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="btn-apply" onclick="applyJob(11)">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Card 12 -->
+                <div class="job-card" data-job-id="12">
+                    <div class="job-header">
+                        <div class="company-info">
+                            <div class="company-logo">
+                                <img src="../assets/images/companies/tunisia-bank.png" alt="Tunisia Central Bank" class="img-fluid">
+                            </div>
+                            <div class="company-details">
+                                <h4 class="job-title">Compliance & Risk Analyst</h4>
+                                <div class="company-name">Central Bank of Tunisia</div>
+                                <div class="job-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Tunis, Tunisia
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-badges">
+                            <span class="badge badge-government">GOVERNMENT</span>
+                        </div>
+                    </div>
+                    <div class="job-content">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-building"></i>
+                                <span>Government</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>$40,000 - $55,000</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Posted 6 days ago</span>
+                            </div>
+                        </div>
+                        <p class="job-description">
+                            Ensure cybersecurity compliance with international banking regulations. Conduct risk assessments, 
+                            develop compliance frameworks, and coordinate with regulatory bodies across North Africa.
+                        </p>
+                        <div class="job-skills">
+                            <span class="skill-tag">Risk Management</span>
+                            <span class="skill-tag">Compliance</span>
+                            <span class="skill-tag">ISO 27001</span>
+                            <span class="skill-tag">Basel III</span>
+                        </div>
+                    </div>
+                    <div class="job-footer">
+                        <div class="job-actions">
+                            <button class="btn-save" onclick="saveJob(12)" title="Save Job">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="btn-apply" onclick="applyJob(12)">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="load-more-section">
+                <button class="btn-load-more" onclick="loadMoreJobs()">
+                    <i class="fas fa-plus me-2"></i>
+                    Load More Jobs
+                    <span class="job-count">(2,847 more available)</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Statistics -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="3500">0</div>
+                        <div class="stat-label">Active Job Openings</div>
+                        <div class="stat-description">Across 54 African Countries</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="1200">0</div>
+                        <div class="stat-label">Partner Organizations</div>
+                        <div class="stat-description">Hiring cybersecurity professionals</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="25000">0</div>
+                        <div class="stat-label">Professionals Placed</div>
+                        <div class="stat-description">Since 2020</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-count="72">0</div>
+                        <div class="stat-label">Average Salary (K)</div>
+                        <div class="stat-description">For cybersecurity roles</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Employers -->
+    <section class="employers-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Top Cybersecurity Employers in Africa</h2>
+                <p class="section-subtitle">Leading organizations actively hiring cybersecurity professionals</p>
+            </div>
+            <div class="employers-grid">
+                <div class="employer-card">
+                    <div class="employer-logo">
+                        <img src="../assets/images/companies/safaricom.png" alt="Safaricom">
+                    </div>
+                    <div class="employer-info">
+                        <h4>Safaricom PLC</h4>
+                        <p>East Africa's largest telecommunications company</p>
+                        <div class="employer-stats">
+                            <div class="stat">
+                                <span class="number">67</span>
+                                <span class="label">Open Positions</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">4.8</span>
+                                <span class="label">Rating</span>
+                            </div>
+                        </div>
+                        <div class="employer-tags">
+                            <span class="tag">Telecommunications</span>
+                            <span class="tag">FinTech</span>
+                        </div>
+                    </div>
+                    <div class="employer-actions">
+                        <button class="btn-follow">Follow</button>
+                        <button class="btn-view-jobs">View Jobs</button>
+                    </div>
+                </div>
+
+                <div class="employer-card">
+                    <div class="employer-logo">
+                        <img src="../assets/images/companies/standard-bank.png" alt="Standard Bank">
+                    </div>
+                    <div class="employer-info">
+                        <h4>Standard Bank Group</h4>
+                        <p>Africa's largest bank by assets</p>
+                        <div class="employer-stats">
+                            <div class="stat">
+                                <span class="number">45</span>
+                                <span class="label">Open Positions</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">4.6</span>
+                                <span class="label">Rating</span>
+                            </div>
+                        </div>
+                        <div class="employer-tags">
+                            <span class="tag">Banking</span>
+                            <span class="tag">Financial Services</span>
+                        </div>
+                    </div>
+                    <div class="employer-actions">
+                        <button class="btn-follow">Follow</button>
+                        <button class="btn-view-jobs">View Jobs</button>
+                    </div>
+                </div>
+
+                <div class="employer-card">
+                    <div class="employer-logo">
+                        <img src="../assets/images/companies/mtn.png" alt="MTN Group">
+                    </div>
+                    <div class="employer-info">
+                        <h4>MTN Group</h4>
+                        <p>Pan-African telecommunications giant</p>
+                        <div class="employer-stats">
+                            <div class="stat">
+                                <span class="number">38</span>
+                                <span class="label">Open Positions</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">4.5</span>
+                                <span class="label">Rating</span>
+                            </div>
+                        </div>
+                        <div class="employer-tags">
+                            <span class="tag">Telecommunications</span>
+                            <span class="tag">Technology</span>
+                        </div>
+                    </div>
+                    <div class="employer-actions">
+                        <button class="btn-follow">Follow</button>
+                        <button class="btn-view-jobs">View Jobs</button>
+                    </div>
+                </div>
+
+                <div class="employer-card">
+                    <div class="employer-logo">
+                        <img src="../assets/images/companies/africa-shield.png" alt="Africa Shield">
+                    </div>
+                    <div class="employer-info">
+                        <h4>Africa Shield Cyber Centre</h4>
+                        <p>Continental cybersecurity platform</p>
+                        <div class="employer-stats">
+                            <div class="stat">
+                                <span class="number">52</span>
+                                <span class="label">Open Positions</span>
+                            </div>
+                            <div class="stat">
+                                <span class="number">4.9</span>
+                                <span class="label">Rating</span>
+                            </div>
+                        </div>
+                        <div class="employer-tags">
+                            <span class="tag">Cybersecurity</span>
+                            <span class="tag">SOC</span>
+                        </div>
+                    </div>
+                    <div class="employer-actions">
+                        <button class="btn-follow">Follow</button>
+                        <button class="btn-view-jobs">View Jobs</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Salary Guide -->
+    <section class="salary-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="salary-content">
+                        <h2 class="section-title">Africa Cybersecurity Salary Guide 2025</h2>
+                        <p class="section-subtitle">Current market rates across the continent</p>
+                        <div class="salary-chart">
+                            <div class="salary-bar">
+                                <div class="role-info">
+                                    <span class="role-name">CISO</span>
+                                    <span class="role-range">$100K - $200K</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar-fill" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="salary-bar">
+                                <div class="role-info">
+                                    <span class="role-name">Security Manager</span>
+                                    <span class="role-range">$60K - $90K</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar-fill" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="salary-bar">
+                                <div class="role-info">
+                                    <span class="role-name">Penetration Tester</span>
+                                    <span class="role-range">$50K - $80K</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar-fill" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="salary-bar">
+                                <div class="role-info">
+                                    <span class="role-name">Security Analyst</span>
+                                    <span class="role-range">$35K - $65K</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar-fill" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div class="salary-bar">
+                                <div class="role-info">
+                                    <span class="role-name">SOC Analyst</span>
+                                    <span class="role-range">$30K - $55K</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar-fill" style="width: 55%"></div>
+                                </div>
+                            </div>
+                            <div class="salary-bar">
+                                <div class="role-info">
+                                    <span class="role-name">Junior Analyst</span>
+                                    <span class="role-range">$20K - $35K</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar-fill" style="width: 40%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="salary-factors">
+                        <h3>Salary Influencing Factors</h3>
+                        <div class="factor-list">
+                            <div class="factor-item">
+                                <div class="factor-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="factor-content">
+                                    <h5>Location Premium</h5>
+                                    <p>South Africa, Nigeria, and Kenya offer 20-35% higher salaries</p>
+                                </div>
+                            </div>
+                            <div class="factor-item">
+                                <div class="factor-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="factor-content">
+                                    <h5>Certifications</h5>
+                                    <p>CISSP, CISM, and OSCP can increase salary by 25-50%</p>
+                                </div>
+                            </div>
+                            <div class="factor-item">
+                                <div class="factor-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="factor-content">
+                                    <h5>Industry</h5>
+                                    <p>Banking and telecommunications offer premium rates</p>
+                                </div>
+                            </div>
+                            <div class="factor-item">
+                                <div class="factor-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="factor-content">
+                                    <h5>Experience</h5>
+                                    <p>Each year adds $3K-7K to base salary</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Upload Section -->
+    <section id="submit-resume" class="resume-section">
+        <div class="container">
+            <div class="resume-content">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="resume-info">
+                            <h2 class="section-title">Join Africa's Cybersecurity Talent Pool</h2>
+                            <p class="section-subtitle">
+                                Upload your resume and get matched with opportunities that align with your skills and career goals.
+                            </p>
+                            <div class="resume-benefits">
+                                <div class="benefit-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>AI-powered job matching</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Direct recruiter access</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Salary insights & negotiation tips</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Career development resources</span>
+                                </div>
+                            </div>
+                        </div>
+                                            </div>
+                    <div class="col-lg-6">
+                        <div class="resume-form-container">
+                            <form id="resumeUploadForm" class="resume-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name *</label>
+                                        <input type="text" id="firstName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name *</label>
+                                        <input type="text" id="lastName" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email">Email Address *</label>
+                                        <input type="email" id="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number *</label>
+                                        <input type="tel" id="phone" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="country">Country *</label>
+                                        <select id="country" required>
+                                            <option value="">Select your country...</option>
+                                            <optgroup label="East Africa">
+                                                <option value="kenya">🇰🇪 Kenya</option>
+                                                <option value="tanzania">🇹🇿 Tanzania</option>
+                                                <option value="uganda">🇺🇬 Uganda</option>
+                                                <option value="rwanda">🇷🇼 Rwanda</option>
+                                                <option value="ethiopia">🇪🇹 Ethiopia</option>
+                                                <option value="burundi">🇧🇮 Burundi</option>
+                                            </optgroup>
+                                            <optgroup label="West Africa">
+                                                <option value="nigeria">🇳🇬 Nigeria</option>
+                                                <option value="ghana">🇬🇭 Ghana</option>
+                                                <option value="senegal">🇸🇳 Senegal</option>
+                                                <option value="ivory-coast">🇨🇮 Ivory Coast</option>
+                                            </optgroup>
+                                            <optgroup label="North Africa">
+                                                <option value="egypt">🇪🇬 Egypt</option>
+                                                <option value="morocco">🇲🇦 Morocco</option>
+                                                <option value="tunisia">🇹🇳 Tunisia</option>
+                                                <option value="algeria">🇩🇿 Algeria</option>
+                                            </optgroup>
+                                            <optgroup label="Southern Africa">
+                                                <option value="south-africa">🇿🇦 South Africa</option>
+                                                <option value="botswana">🇧🇼 Botswana</option>
+                                                <option value="namibia">🇳🇦 Namibia</option>
+                                                <option value="zambia">🇿🇲 Zambia</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="experienceLevel">Experience Level *</label>
+                                        <select id="experienceLevel" required>
+                                            <option value="">Select level...</option>
+                                            <option value="entry">Entry Level (0-2 years)</option>
+                                            <option value="mid">Mid Level (3-5 years)</option>
+                                            <option value="senior">Senior Level (6-10 years)</option>
+                                            <option value="executive">Executive (10+ years)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Specializations</label>
+                                    <div class="specialization-grid">
+                                        <label class="spec-option">
+                                            <input type="checkbox" value="soc">
+                                            <span>SOC Operations</span>
+                                        </label>
+                                        <label class="spec-option">
+                                            <input type="checkbox" value="pentest">
+                                            <span>Penetration Testing</span>
+                                        </label>
+                                        <label class="spec-option">
+                                            <input type="checkbox" value="risk">
+                                            <span>Risk Management</span>
+                                        </label>
+                                        <label class="spec-option">
+                                            <input type="checkbox" value="compliance">
+                                            <span>Compliance</span>
+                                        </label>
+                                        <label class="spec-option">
+                                            <input type="checkbox" value="incident">
+                                            <span>Incident Response</span>
+                                        </label>
+                                        <label class="spec-option">
+                                            <input type="checkbox" value="forensics">
+                                            <span>Digital Forensics</span>
+                                        </label>
+                                        <label class="spec-option">
+                                            <input type="checkbox" value="cloud">
+                                            <span>Cloud Security</span>
+                                        </label>
+                                        <label class="spec-option">
+                                            <input type="checkbox" value="architecture">
+                                            <span>Security Architecture</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="resumeFile">Upload Resume *</label>
+                                    <div class="file-upload-area" id="fileUploadArea">
+                                        <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" required>
+                                        <div class="upload-content">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            <h4>Drag & drop your resume here</h4>
+                                            <p>or click to browse files</p>
+                                            <small>Supported: PDF, DOC, DOCX (Max 5MB)</small>
+                                        </div>
+                                    </div>
+                                    <div id="fileInfo" class="file-info"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="coverLetter">Cover Letter (Optional)</label>
+                                    <textarea id="coverLetter" rows="4" placeholder="Tell us about your cybersecurity experience and career goals..."></textarea>
+                                </div>
+                                <div class="form-options">
+                                    <label class="checkbox-option">
+                                        <input type="checkbox" id="jobAlerts" checked>
+                                        <span class="checkmark"></span>
+                                        Send me job alerts matching my profile
+                                    </label>
+                                    <label class="checkbox-option">
+                                        <input type="checkbox" id="privacyConsent" required>
+                                        <span class="checkmark"></span>
+                                        I agree to the <a href="../Privacy/index.html">Privacy Policy</a> and <a href="../Terms/index.html">Terms of Service</a> *
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn-submit">
+                                    <i class="fas fa-upload me-2"></i>
+                                    Submit Resume
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Resources -->
+    <section class="resources-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Career Development Resources</h2>
+                <p class="section-subtitle">Tools and guidance to accelerate your cybersecurity career</p>
+            </div>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h4>AI Resume Builder</h4>
+                        <p>Create a professional cybersecurity resume with our AI-powered builder and industry templates.</p>
+                        <ul class="resource-features">
+                            <li>ATS-optimized templates</li>
+                            <li>Industry-specific keywords</li>
+                            <li>Real-time feedback</li>
+                        </ul>
+                    </div>
+                    <div class="resource-action">
+                        <button class="btn-resource" onclick="openResumeBuilder()">
+                            <i class="fas fa-magic me-2"></i>Build Resume
+                        </button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h4>Interview Preparation</h4>
+                        <p>Practice with AI-powered mock interviews and get expert feedback from industry professionals.</p>
+                        <ul class="resource-features">
+                            <li>500+ practice questions</li>
+                            <li>Video interview simulation</li>
+                            <li>Personalized feedback</li>
+                        </ul>
+                    </div>
+                    <div class="resource-action">
+                        <button class="btn-resource" onclick="startInterviewPrep()">
+                            <i class="fas fa-microphone me-2"></i>Start Practice
+                        </button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h4>Skill Development</h4>
+                        <p>Access free cybersecurity courses, certification prep, and hands-on labs.</p>
+                        <ul class="resource-features">
+                            <li>100+ free courses</li>
+                            <li>Certification roadmaps</li>
+                            <li>Virtual labs</li>
+                        </ul>
+                    </div>
+                    <div class="resource-action">
+                        <button class="btn-resource" onclick="window.location.href='../Learn/index.html'">
+                            <i class="fas fa-play me-2"></i>Start Learning
+                        </button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h4>Mentorship Program</h4>
+                        <p>Connect with experienced cybersecurity professionals for career guidance and support.</p>
+                        <ul class="resource-features">
+                            <li>1-on-1 mentoring</li>
+                            <li>Industry experts</li>
+                            <li>Career planning</li>
+                        </ul>
+                    </div>
+                    <div class="resource-action">
+                        <button class="btn-resource" onclick="findMentor()">
+                            <i class="fas fa-handshake me-2"></i>Find Mentor
+                        </button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h4>Salary Negotiation</h4>
+                        <p>Learn how to negotiate your cybersecurity salary with confidence and market data.</p>
+                        <ul class="resource-features">
+                            <li>Market salary data</li>
+                            <li>Negotiation scripts</li>
+                            <li>Success strategies</li>
+                        </ul>
+                    </div>
+                    <div class="resource-action">
+                        <button class="btn-resource" onclick="openSalaryGuide()">
+                            <i class="fas fa-dollar-sign me-2"></i>Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h4>Professional Network</h4>
+                        <p>Join Africa's largest cybersecurity community and expand your professional network.</p>
+                        <ul class="resource-features">
+                            <li>25,000+ professionals</li>
+                            <li>Regional chapters</li>
+                            <li>Networking events</li>
+                        </ul>
+                    </div>
+                    <div class="resource-action">
+                        <button class="btn-resource" onclick="window.location.href='../Events/index.html'">
+                            <i class="fas fa-calendar me-2"></i>Join Events
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="success-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Career Success Stories</h2>
+                <p class="section-subtitle">Real professionals who transformed their careers through our platform</p>
+            </div>
+            <div class="success-grid">
+                <div class="success-story">
+                    <div class="story-header">
+                        <div class="story-avatar">
+                            <img src="../assets/images/testimonials/success-1.jpg" alt="Grace Wanjiku">
+                        </div>
+                        <div class="story-info">
+                            <h4>Grace Wanjiku</h4>
+                            <p>Junior Analyst → CISO</p>
+                            <div class="story-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Nairobi, Kenya
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <blockquote>
+                            "Started as a junior analyst earning $22K. Through Africa Shield's mentorship program 
+                            and career resources, I'm now the CISO at a major bank earning $145K. The journey 
+                            took 5 years, but the support was incredible."
+                        </blockquote>
+                        <div class="story-metrics">
+                            <div class="metric">
+                                <span class="metric-value">+559%</span>
+                                <span class="metric-label">Salary Increase</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">5 years</span>
+                                <span class="metric-label">Time Frame</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-story">
+                    <div class="story-header">
+                        <div class="story-avatar">
+                            <img src="../assets/images/testimonials/success-2.jpg" alt="Ahmed Hassan">
+                        </div>
+                        <div class="story-info">
+                            <h4>Ahmed Hassan</h4>
+                            <p>Teacher → Penetration Tester</p>
+                            <div class="story-location">
+                                                                <i class="fas fa-map-marker-alt"></i>
+                                Cairo, Egypt
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <blockquote>
+                            "I was a high school teacher earning $18K. After completing Africa Shield's 
+                            cybersecurity bootcamp and getting certified, I landed a penetration testing 
+                            role at $52K. Career change was the best decision I ever made."
+                        </blockquote>
+                        <div class="story-metrics">
+                            <div class="metric">
+                                <span class="metric-value">+189%</span>
+                                <span class="metric-label">Salary Increase</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">18 months</span>
+                                <span class="metric-label">Time Frame</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-story">
+                    <div class="story-header">
+                        <div class="story-avatar">
+                            <img src="../assets/images/testimonials/success-3.jpg" alt="Fatima Mwalimu">
+                        </div>
+                        <div class="story-info">
+                            <h4>Fatima Mwalimu</h4>
+                            <p>Graduate → SOC Manager</p>
+                            <div class="story-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Lagos, Nigeria
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <blockquote>
+                            "Fresh computer science graduate with no experience. Started with Africa Shield's 
+                            internship program at $1,800/month. Now I'm managing a SOC team of 12 people 
+                            earning $68K. The growth opportunities are endless."
+                        </blockquote>
+                        <div class="story-metrics">
+                            <div class="metric">
+                                <span class="metric-value">+277%</span>
+                                <span class="metric-label">Salary Increase</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">3 years</span>
+                                <span class="metric-label">Time Frame</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-story">
+                    <div class="story-header">
+                        <div class="story-avatar">
+                            <img src="../assets/images/testimonials/success-4.jpg" alt="Robert Uwimana">
+                        </div>
+                        <div class="story-info">
+                            <h4>Robert Uwimana</h4>
+                            <p>IT Support → Security Architect</p>
+                            <div class="story-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Kigali, Rwanda
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <blockquote>
+                            "Worked in IT support for 8 years earning $28K. Decided to pivot to cybersecurity 
+                            through Africa Shield's career transition program. Now I'm a security architect 
+                            at a fintech startup earning $75K."
+                        </blockquote>
+                        <div class="story-metrics">
+                            <div class="metric">
+                                <span class="metric-value">+168%</span>
+                                <span class="metric-label">Salary Increase</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">2 years</span>
+                                <span class="metric-label">Time Frame</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscription -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="newsletter-info">
+                            <h2>Stay Ahead in Your Cybersecurity Career</h2>
+                            <p>Get weekly job alerts, salary insights, and career tips delivered to your inbox.</p>
+                            <div class="newsletter-benefits">
+                                <div class="benefit">
+                                    <i class="fas fa-bell"></i>
+                                    <span>Personalized job alerts</span>
+                                </div>
+                                <div class="benefit">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Market salary reports</span>
+                                </div>
+                                <div class="benefit">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Career advancement tips</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="newsletter-form">
+                            <form id="newsletterForm">
+                                <div class="form-group">
+                                    <input type="email" placeholder="Enter your email address" required>
+                                    <button type="submit">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Subscribe
+                                    </button>
+                                </div>
+                                <div class="form-options">
+                                    <label>
+                                        <input type="checkbox" checked>
+                                        <span>I agree to receive career-related emails</span>
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="footer-brand">
+                            <img src="../assets/images/logo-white.png" alt="Africa Shield Logo" class="footer-logo">
+                            <h4>Africa Shield Cyber Centre</h4>
+                            <p>Connecting cybersecurity talent with opportunities across Africa. Building the next generation of cyber defenders for our digital future.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="footer-links">
+                            <h5>Job Seekers</h5>
+                            <ul>
+                                <li><a href="#job-listings">Browse Jobs</a></li>
+                                <li><a href="#submit-resume">Submit Resume</a></li>
+                                <li><a href="#career-resources">Career Resources</a></li>
+                                <li><a href="#salary-guide">Salary Guide</a></li>
+                                <li><a href="../Learn/index.html">Training</a></li>
+                                <li><a href="../Events/index.html">Networking</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="footer-links">
+                            <h5>Employers</h5>
+                            <ul>
+                                <li><a href="#post-job">Post a Job</a></li>
+                                <li><a href="#talent-search">Search Talent</a></li>
+                                <li><a href="#employer-branding">Employer Branding</a></li>
+                                <li><a href="#recruitment-services">Recruitment Services</a></li>
+                                <li><a href="#pricing">Pricing</a></li>
+                                <li><a href="../Contact/index.html">Contact Sales</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="footer-links">
+                            <h5>Resources</h5>
+                            <ul>
+                                <li><a href="#resume-builder">Resume Builder</a></li>
+                                <li><a href="#interview-prep">Interview Prep</a></li>
+                                <li><a href="#mentorship">Mentorship</a></li>
+                                <li><a href="#certifications">Certifications</a></li>
+                                <li><a href="../Blog/index.html">Career Blog</a></li>
+                                <li><a href="../Help/index.html">Help Center</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="footer-links">
+                            <h5>Company</h5>
+                            <ul>
+                                <li><a href="../About/index.html">About Us</a></li>
+                                <li><a href="../Contact/index.html">Contact</a></li>
+                                <li><a href="../Privacy/index.html">Privacy Policy</a></li>
+                                <li><a href="../Terms/index.html">Terms of Service</a></li>
+                                <li><a href="../Careers/index.html">We're Hiring</a></li>
+                                <li><a href="../Press/index.html">Press</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p>&copy; 2025 Africa Shield Cyber Centre. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <div class="footer-contact">
+                            <span>careers@africashield.org</span>
+                            <span>+254-700-CAREERS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Job Application Modal -->
+    <div class="modal fade" id="jobApplicationModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-paper-plane me-2"></i>
+                        Apply for Position
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="job-summary">
+                        <h6 id="modalJobTitle">Job Title</h6>
+                        <p id="modalCompanyName">Company Name</p>
+                    </div>
+                    <form id="jobApplicationForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">First Name *</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Last Name *</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Resume *</label>
+                                <input type="file" class="form-control" accept=".pdf,.doc,.docx" required>
+                                <small class="form-text text-muted">PDF, DOC, or DOCX format (Max 5MB)</small>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Cover Letter *</label>
+                                <textarea class="form-control" rows="4" placeholder="Why are you interested in this position?" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" required>
+                                    <label class="form-check-label">
+                                        I consent to the processing of my personal data for recruitment purposes *
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="submitJobApplication()">
+                        <i class="fas fa-paper-plane me-1"></i>
+                        Submit Application
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Builder Modal -->
+    <div class="modal fade" id="resumeBuilderModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-magic me-2"></i>
+                        AI-Powered Resume Builder
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="resume-builder-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="builder-form">
+                                    <h6>Personal Information</h6>
+                                    <form id="resumeBuilderForm">
+                                        <!-- Form fields for resume builder -->
+                                        <div class="mb-3">
+                                            <label class="form-label">Full Name</label>
+                                            <input type="text" class="form-control" id="rbFullName">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="rbEmail">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Phone</label>
+                                            <input type="tel"class="form-control" id="rbPhone">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Location</label>
+                                            <input type="text" class="form-control" id="rbLocation">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Professional Summary</label>
+                                            <textarea class="form-control" id="rbSummary" rows="3"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Skills (comma separated)</label>
+                                            <textarea class="form-control" id="rbSkills" rows="2"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Work Experience</label>
+                                            <textarea class="form-control" id="rbExperience" rows="4"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Education</label>
+                                            <textarea class="form-control" id="rbEducation" rows="3"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Certifications</label>
+                                            <textarea class="form-control" id="rbCertifications" rows="2"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="resume-preview">
+                                    <h6>Resume Preview</h6>
+                                    <div id="resumePreview" class="preview-content">
+                                        <div class="resume-header">
+                                            <h4 id="previewName">Your Name</h4>
+                                            <p id="previewContact">Email | Phone | Location</p>
+                                        </div>
+                                        <div class="resume-section">
+                                            <h6>Professional Summary</h6>
+                                            <p id="previewSummary">Your professional summary will appear here...</p>
+                                        </div>
+                                        <div class="resume-section">
+                                            <h6>Skills</h6>
+                                            <div id="previewSkills">Your skills will appear here...</div>
+                                        </div>
+                                        <div class="resume-section">
+                                            <h6>Work Experience</h6>
+                                            <div id="previewExperience">Your work experience will appear here...</div>
+                                        </div>
+                                        <div class="resume-section">
+                                            <h6>Education</h6>
+                                            <div id="previewEducation">Your education will appear here...</div>
+                                        </div>
+                                        <div class="resume-section">
+                                            <h6>Certifications</h6>
+                                            <div id="previewCertifications">Your certifications will appear here...</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="downloadResume()">
+                        <i class="fas fa-download me-1"></i>
+                        Download PDF
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="saveResume()">
+                        <i class="fas fa-save me-1"></i>
+                        Save Resume
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interview Prep Modal -->
+    <div class="modal fade" id="interviewPrepModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-microphone me-2"></i>
+                        Cybersecurity Interview Preparation
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="interview-prep-tabs">
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <button class="nav-link active" id="nav-questions-tab" data-bs-toggle="tab" data-bs-target="#nav-questions">
+                                    Common Questions
+                                </button>
+                                <button class="nav-link" id="nav-tips-tab" data-bs-toggle="tab" data-bs-target="#nav-tips">
+                                    Interview Tips
+                                </button>
+                                <button class="nav-link" id="nav-mock-tab" data-bs-toggle="tab" data-bs-target="#nav-mock">
+                                    Mock Interview
+                                </button>
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-questions">
+                                <div class="questions-list">
+                                    <div class="question-item">
+                                        <h6>What is the CIA triad in cybersecurity?</h6>
+                                        <p><strong>Answer:</strong> The CIA triad stands for Confidentiality, Integrity, and Availability. These are the three fundamental principles of information security that guide the development of security policies and procedures.</p>
+                                    </div>
+                                    <div class="question-item">
+                                        <h6>How would you handle a security incident?</h6>
+                                        <p><strong>Answer:</strong> I would follow the incident response process: 1) Identification and assessment, 2) Containment to prevent spread, 3) Eradication of the threat, 4) Recovery and restoration, 5) Lessons learned and documentation.</p>
+                                    </div>
+                                    <div class="question-item">
+                                        <h6>What's the difference between vulnerability and threat?</h6>
+                                        <p><strong>Answer:</strong> A vulnerability is a weakness in a system that could be exploited, while a threat is a potential danger that could exploit that vulnerability. Risk is the likelihood that a threat will exploit a vulnerability.</p>
+                                    </div>
+                                    <div class="question-item">
+                                        <h6>Explain the concept of defense in depth.</h6>
+                                        <p><strong>Answer:</strong> Defense in depth is a layered security approach that uses multiple security controls at different levels to protect against various attack vectors. If one layer fails, others continue to provide protection.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-tips">
+                                <div class="tips-list">
+                                    <div class="tip-item">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <div>
+                                            <h6>Research the Company</h6>
+                                            <p>Understand their industry, recent security challenges, and technology stack.</p>
+                                        </div>
+                                    </div>
+                                    <div class="tip-item">
+                                        <i class="fas fa-chart-line"></i>
+                                        <div>
+                                            <h6>Stay Current</h6>
+                                            <p>Be aware of recent cybersecurity trends, threats, and industry developments.</p>
+                                        </div>
+                                    </div>
+                                    <div class="tip-item">
+                                        <i class="fas fa-comments"></i>
+                                        <div>
+                                            <h6>Practice Communication</h6>
+                                            <p>Be able to explain technical concepts in simple terms for non-technical stakeholders.</p>
+                                        </div>
+                                    </div>
+                                    <div class="tip-item">
+                                        <i class="fas fa-question-circle"></i>
+                                        <div>
+                                            <h6>Prepare Questions</h6>
+                                            <p>Ask about their security posture, challenges, and growth opportunities.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-mock">
+                                <div class="mock-interview">
+                                    <div class="text-center">
+                                        <i class="fas fa-video fa-4x text-primary mb-3"></i>
+                                        <h5>AI-Powered Mock Interview</h5>
+                                        <p>Practice with our AI interviewer and get real-time feedback on your responses.</p>
+                                        <button class="btn btn-primary btn-lg" onclick="startMockInterview()">
+                                            <i class="fas fa-play me-2"></i>
+                                            Start Mock Interview
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mentorship Modal -->
+    <div class="modal fade" id="mentorshipModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-handshake me-2"></i>
+                        Find a Cybersecurity Mentor
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mentors-grid">
+                        <div class="mentor-card">
+                            <div class="mentor-avatar">
+                                <img src="../assets/images/mentors/mentor-1.jpg" alt="Dr. Sarah Kimani">
+                            </div>
+                            <div class="mentor-info">
+                                <h6>Dr. Sarah Kimani</h6>
+                                <p class="mentor-title">CISO, Standard Bank</p>
+                                <p class="mentor-location">Johannesburg, South Africa</p>
+                                <div class="mentor-expertise">
+                                    <span class="expertise-tag">Risk Management</span>
+                                    <span class="expertise-tag">Banking Security</span>
+                                </div>
+                                <div class="mentor-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span>5.0 (24 reviews)</span>
+                                </div>
+                                <button class="btn btn-primary btn-sm">Connect</button>
+                            </div>
+                        </div>
+
+                        <div class="mentor-card">
+                            <div class="mentor-avatar">
+                                <img src="../assets/images/mentors/mentor-2.jpg" alt="James Mwangi">
+                            </div>
+                            <div class="mentor-info">
+                                <h6>James Mwangi</h6>
+                                <p class="mentor-title">Security Architect, Safaricom</p>
+                                <p class="mentor-location">Nairobi, Kenya</p>
+                                <div class="mentor-expertise">
+                                    <span class="expertise-tag">Network Security</span>
+                                    <span class="expertise-tag">Mobile Security</span>
+                                </div>
+                                <div class="mentor-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span>4.8 (18 reviews)</span>
+                                </div>
+                                <button class="btn btn-primary btn-sm">Connect</button>
+                            </div>
+                        </div>
+
+                        <div class="mentor-card">
+                            <div class="mentor-avatar">
+                                <img src="../assets/images/mentors/mentor-3.jpg" alt="Amina Hassan">
+                            </div>
+                            <div class="mentor-info">
+                                <h6>Amina Hassan</h6>
+                                <p class="mentor-title">Penetration Tester</p>
+                                <p class="mentor-location">Cairo, Egypt</p>
+                                <div class="mentor-expertise">
+                                    <span class="expertise-tag">Penetration Testing</span>
+                                    <span class="expertise-tag">Ethical Hacking</span>
+                                </div>
+                                <div class="mentor-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span>4.9 (31 reviews)</span>
+                                </div>
+                                <button class="btn btn-primary btn-sm">Connect</button>
+                            </div>
+                        </div>
+
+                        <div class="mentor-card">
+                            <div class="mentor-avatar">
+                                <img src="../assets/images/mentors/mentor-4.jpg" alt="Robert Uwimana">
+                            </div>
+                            <div class="mentor-info">
+                                <h6>Robert Uwimana</h6>
+                                <p class="mentor-title">SOC Manager, Government</p>
+                                <p class="mentor-location">Kigali, Rwanda</p>
+                                <div class="mentor-expertise">
+                                    <span class="expertise-tag">SOC Operations</span>
+                                    <span class="expertise-tag">Incident Response</span>
+                                </div>
+                                <div class="mentor-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span>4.7 (15 reviews)</span>
+                                </div>
+                                <button class="btn btn-primary btn-sm">Connect</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <p class="text-muted">Want to become a mentor? <a href="#become-mentor">Join our mentor program</a></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="viewAllMentors()">
+                        <i class="fas fa-users me-1"></i>
+                        View All Mentors
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Job Alert Settings Modal -->
+    <div class="modal fade" id="jobAlertModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-bell me-2"></i>
+                        Job Alert Settings
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="jobAlertForm">
+                        <div class="mb-3">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Keywords</label>
+                            <input type="text" class="form-control" placeholder="e.g., cybersecurity, SOC, penetration testing">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Preferred Locations</label>
+                            <select class="form-select" multiple>
+                                <option value="south-africa">South Africa</option>
+                                <option value="nigeria">Nigeria</option>
+                                <option value="kenya">Kenya</option>
+                                <option value="egypt">Egypt</option>
+                                <option value="ghana">Ghana</option>
+                                <option value="remote">Remote</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Experience Level</label>
+                            <select class="form-select">
+                                <option value="">Any</option>
+                                <option value="entry">Entry Level</option>
+                                <option value="mid">Mid Level</option>
+                                <option value="senior">Senior Level</option>
+                                <option value="executive">Executive</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Minimum Salary (USD)</label>
+                            <select class="form-select">
+                                <option value="">Any</option>
+                                <option value="20000">$20,000+</option>
+                                <option value="30000">$30,000+</option>
+                                <option value="40000">$40,000+</option>
+                                <option value="50000">$50,000+</option>
+                                <option value="60000">$60,000+</option>
+                                <option value="80000">$80,000+</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Alert Frequency</label>
+                            <select class="form-select">
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="saveJobAlert()">
+                        <i class="fas fa-save me-1"></i>
+                        Save Alert
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Employer Registration Modal -->
+    <div class="modal fade" id="employerModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-building me-2"></i>
+                        Employer Registration
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="employerRegistrationForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Company Name *</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Industry *</label>
+                                <select class="form-select" required>
+                                    <option value="">Select industry...</option>
+                                    <option value="banking">Banking & Financial Services</option>
+                                    <option value="telecommunications">Telecommunications</option>
+                                    <option value="government">Government</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="education">Education</option>
+                                    <option value="technology">Technology</option>
+                                    <option value="consulting">Consulting</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Company Size *</label>
+                                <select class="form-select" required>
+                                    <option value="">Select size...</option>
+                                    <option value="startup">Startup (1-10 employees)</option>
+                                    <option value="small">Small (11-50 employees)</option>
+                                    <option value="medium">Medium (51-200 employees)</option>
+                                    <option value="large">Large (201-1000 employees)</option>
+                                    <option value="enterprise">Enterprise (1000+ employees)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Country *</label>
+                                <select class="form-select" required>
+                                    <option value="">Select country...</option>
+                                    <option value="south-africa">🇿🇦 South Africa</option>
+                                    <option value="nigeria">🇳🇬 Nigeria</option>
+                                    <option value="kenya">🇰🇪 Kenya</option>
+                                    <option value="egypt">🇪🇬 Egypt</option>
+                                    <option value="ghana">🇬🇭 Ghana</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Company Description *</label>
+                                <textarea class="form-control" rows="3" required></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Contact Person *</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Job Title *</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Company Website</label>
+                                <input type="url" class="form-control">
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" required>
+                                    <label class="form-check-label">
+                                        I agree to the <a href="../Terms/index.html" target="_blank">Terms of Service</a> 
+                                        and <a href="../Privacy/index.html" target="_blank">Privacy Policy</a> *
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="submitEmployerRegistration()">
+                        <i class="fas fa-user-plus me-1"></i>
+                        Register Company
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post Job Modal -->
+    <div class="modal fade" id="postJobModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-plus-circle me-2"></i>
+                        Post a New Job
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="postJobForm">
+                        <div class="row g-3">
+                            <div class="col-md-8">
+                                <label class="form-label">Job Title *</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Job Type *</label>
+                                <select class="form-select" required>
+                                    <option value="">Select type...</option>
+                                    <option value="full-time">Full-time</option>
+                                    <option value="part-time">Part-time</option>
+                                    <option value="contract">Contract</option>
+                                    <option value="internship">Internship</option>
+                                    <option value="remote">Remote</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Location *</label>
+                                <input type="text" class="form-control" placeholder="City, Country" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Department</label>
+                                <select class="form-select">
+                                    <option value="">Select department...</option>
+                                    <option value="cybersecurity">Cybersecurity</option>
+                                    <option value="it">Information Technology</option>
+                                    <option value="risk">Risk Management</option>
+                                    <option value="compliance">Compliance</option>
+                                    <option value="operations">Operations</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Experience Level *</label>
+                                <select class="form-select" required>
+                                    <option value="">Select level...</option>
+                                    <option value="entry">Entry Level (0-2 years)</option>
+                                    <option value="mid">Mid Level (3-5 years)</option>
+                                    <option value="senior">Senior Level (6-10 years)</option>
+                                    <option value="executive">Executive (10+ years)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Salary Min (USD)</label>
+                                <input type="number" class="form-control" placeholder="25000">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Salary Max (USD)</label>
+                                <input type="number" class="form-control" placeholder="45000">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Job Description *</label>
+                                <textarea class="form-control" rows="5" required 
+                                        placeholder="Describe the role, responsibilities, and what you're looking for..."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Requirements *</label>
+                                <textarea class="form-control" rows="4" required 
+                                        placeholder="List the required skills, experience, and qualifications..."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Benefits & Perks</label>
+                                <textarea class="form-control" rows="3" 
+                                        placeholder="Health insurance, professional development, flexible hours..."></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Application Deadline</label>
+                                <input type="date" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Contact Email *</label>
+                                <input type="email" class="form-control" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Required Skills</label>
+                                <div class="skills-selection">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" value="siem">
+                                        <label class="form-check-label">SIEM</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" value="firewall">
+                                        <label class="form-check-label">Firewall Management</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" value="ids">
+                                        <label class="form-check-label">IDS/IPS</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" value="vulnerability">
+                                        <label class="form-check-label">Vulnerability Assessment</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" value="incident-response">
+                                        <label class="form-check-label">Incident Response</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" value="forensics">
+                                        <label class="form-check-label">Digital Forensics</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">
+                                        Make this a featured job posting (+$50)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">
+                                        Mark as urgent hiring (+$25)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="previewJob()">
+                        <i class="fas fa-eye me-1"></i>
+                        Preview
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="submitJobPosting()">
+                        <i class="fas fa-paper-plane me-1"></i>
+                        Post Job ($99)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="successToast" class="toast" role="alert">
+            <div class="toast-header">
+                <i class="fas fa-check-circle text-success me-2"></i>
+                <strong class="me-auto">Success</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                Operation completed successfully!
+            </div>
+        </div>
+        <div id="errorToast" class="toast" role="alert">
+            <div class="toast-header">
+                <i class="fas fa-exclamation-circle text-danger me-2"></i>
+                <strong class="me-auto">Error</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                Something went wrong. Please try again.
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/careers.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <script>
+        // Initialize page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCareerPage();
+            loadFeaturedJobs();
+            setupJobFilters();
+            setupFileUpload();
+            setupResumeBuilder();
+            setupInterviewPrep();
+            setupMentorshipProgram();
+            setupJobAlerts();
+            setupEmployerPortal();
+        });
+
+        // Career page initialization
+        function initializeCareerPage() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.style.display = 'block';
+                } else {
+                    backToTopBtn.style.display = 'none';
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Initialize tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            // Initialize popovers
+            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl);
+            });
+        }
+
+        // Load featured jobs
+        function loadFeaturedJobs() {
+            // This would typically fetch from an API
+            const featuredJobs = [
+                {
+                    id: 1,
+                    title: "Senior Cybersecurity Analyst",
+                    company: "Standard Bank",
+                    location: "Johannesburg, South Africa",
+                    salary: "$55,000 - $75,000",
+                    type: "Full-time",
+                    featured: true,
+                    urgent: true,
+                    posted: "2 days ago",
+                    description: "Lead cybersecurity initiatives for Africa's largest bank...",
+                    skills: ["SIEM", "Incident Response", "Risk Management", "CISSP"]
+                },
+                {
+                    id: 2,
+                    title: "Penetration Tester",
+                    company: "MTN Group",
+                    location: "Lagos, Nigeria",
+                    salary: "$40,000 - $60,000",
+                    type: "Full-time",
+                    featured: false,
+                    urgent: false,
+                    posted: "1 week ago",
+                    description: "Conduct penetration testing across MTN's infrastructure...",
+                    skills: ["Penetration Testing", "Kali Linux", "OSCP", "Web Security"]
+                }
+                // Add more jobs as needed
+            ];
+
+            displayJobs(featuredJobs);
+        }
+
+        // Display jobs in the UI
+        function displayJobs(jobs) {
+            const jobsContainer = document.querySelector('.jobs-grid');
+            if (!jobsContainer) return;
+
+            jobsContainer.innerHTML = '';
+
+            jobs.forEach(job => {
+                const jobCard = createJobCard(job);
+                jobsContainer.appendChild(jobCard);
+            });
+        }
+
+        // Create job card element
+        function createJobCard(job) {
+            const card = document.createElement('div');
+            card.className = 'job-card';
+            if (job.featured) card.classList.add('featured');
+
+            card.innerHTML = `
+                <div class="job-header">
+                    <div class="company-logo">
+                        <img src="../assets/images/companies/${job.company.toLowerCase().replace(/\s+/g, '-')}.png" 
+                             alt="${job.company}" class="img-fluid">
+                    </div>
+                    <div class="job-meta">
+                        <div class="job-badges">
+                            ${job.featured ? '<span class="badge bg-danger">FEATURED</span>' : ''}
+                            ${job.urgent ? '<span class="badge bg-warning">URGENT</span>' : ''}
+                        </div>
+                        <div class="job-posted">Posted ${job.posted}</div>
+                    </div>
+                </div>
+                <div class="job-content">
+                    <h4 class="job-title">${job.title}</h4>
+                    <div class="company-name">${job.company}</div>
+                    <div class="job-location">
+                        <i class="fas fa-map-marker-alt me-1"></i>
+                        ${job.location}
+                    </div>
+                    <div class="job-salary">
+                        <i class="fas fa-dollar-sign me-1"></i>
+                        ${job.salary}
+                    </div>
+                    <p class="job-description">${job.description}</p>
+                    <div class="job-skills">
+                        ${job.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                    </div>
+                </div>
+                <div class="job-footer">
+                    <div class="job-type">
+                        <i class="fas fa-clock me-1"></i>
+                        ${job.type}
+                    </div>
+                    <div class="job-actions">
+                        <button class="btn btn-outline-primary btn-sm me-2" onclick="saveJob(${job.id})">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="btn btn-primary" onclick="applyForJob(${job.id})">
+                            Apply Now
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Setup job filters
+        function setupJobFilters() {
+            const searchForm = document.getElementById('jobSearchForm');
+            if (searchForm) {
+                searchForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    performJobSearch();
+                });
+            }
+
+            const sortSelect = document.getElementById('jobSort');
+            if (sortSelect) {
+                sortSelect.addEventListener('change', function() {
+                    sortJobs(this.value);
+                });
+            }
+        }
+
+        // Perform job search
+        function performJobSearch() {
+            const keywords = document.getElementById('jobKeywords').value;
+            const location = document.getElementById('jobLocation').value;
+            const jobType = document.getElementById('jobType').value;
+            const experience = document.getElementById('experienceLevel').value;
+
+            // Show loading
+            showLoading();
+
+            // Simulate API call
+            setTimeout(() => {
+                // Filter and display results
+                hideLoading();
+                showToast('Search completed! Found 47 matching jobs.', 'success');
+            }, 1500);
+        }
+
+        // Sort jobs
+        function sortJobs(sortBy) {
+            // Implementation for sorting jobs
+            console.log('Sorting jobs by:', sortBy);
+        }
+
+        // Setup file upload
+        function setupFileUpload() {
+            const fileUploadArea = document.getElementById('fileUploadArea');
+            const fileInput = document.getElementById('resumeFile');
+            const fileInfo = document.getElementById('fileInfo');
+
+            if (fileUploadArea && fileInput) {
+                // Drag and drop functionality
+                fileUploadArea.addEventListener('click', () => fileInput.click());
+                
+                fileUploadArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    fileUploadArea.classList.add('dragover');
+                });
+
+                fileUploadArea.addEventListener('dragleave', () => {
+                    fileUploadArea.classList.remove('dragover');
+                });
+
+                fileUploadArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    fileUploadArea.classList.remove('dragover');
+                    
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) {
+                        handleFileUpload(files[0]);
+                    }
+                });
+
+                fileInput.addEventListener('change', (e) => {
+                    if (e.target.files.length > 0) {
+                        handleFileUpload(e.target.files[0]);
+                    }
+                });
+            }
+        }
+
+        // Handle file upload
+        function handleFileUpload(file) {
+            const fileInfo = document.getElementById('fileInfo');
+            const maxSize = 5 * 1024 * 1024; // 5MB
+
+            if (file.size > maxSize) {
+                showToast('File size must be less than 5MB', 'error');
+                return;
+            }
+
+            const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+            if (!allowedTypes.includes(file.type)) {
+                showToast('Please upload a PDF, DOC, or DOCX file', 'error');
+                return;
+            }
+
+            // Display file info
+            fileInfo.innerHTML = `
+                <div class="file-selected">
+                    <i class="fas fa-file-alt me-2"></i>
+                    <span>${file.name}</span>
+                    <small class="text-muted">(${(file.size / 1024 / 1024).toFixed(2)} MB)</small>
+                </div>
+            `;
+            fileInfo.style.display = 'block';
+        }
+
+        // Setup resume builder
+        function setupResumeBuilder() {
+            // Real-time preview updates
+            const formFields = ['rbFullName', 'rbEmail', 'rbPhone', 'rbLocation', 'rbSummary', 'rbSkills', 'rbExperience', 'rbEducation', 'rbCertifications'];
+            
+            formFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.addEventListener('input', updateResumePreview);
+                }
+            });
+        }
+
+        // Update resume preview
+        function updateResumePreview() {
+            const name = document.getElementById('rbFullName').value || 'Your Name';
+            const email = document.getElementById('rbEmail').value;
+            const phone = document.getElementById('rbPhone').value;
+            const location = document.getElementById('rbLocation').value;
+            
+            document.getElementById('previewName').textContent = name;
+            document.getElementById('previewContact').textContent = [email, phone, location].filter(Boolean).join(' | ');
+            document.getElementById('previewSummary').textContent = document.getElementById('rbSummary').value || 'Your professional summary will appear here...';
+            
+            // Update skills
+            const skills = document.getElementById('rbSkills').value;
+            if (skills) {
+                const skillsArray = skills.split(',').map(skill => skill.trim());
+                document.getElementById('previewSkills').innerHTML = skillsArray.map(skill => `<span class="skill-tag">${skill}</span>`).join('');
+            }
+            
+            // Update other sections
+            document.getElementById('previewExperience').textContent = document.getElementById('rbExperience').value || 'Your work experience will appear here...';
+            document.getElementById('previewEducation').textContent = document.getElementById('rbEducation').value || 'Your education will appear here...';
+            document.getElementById('previewCertifications').textContent = document.getElementById('rbCertifications').value || 'Your certifications will appear here...';
+        }
+
+        // Setup interview preparation
+        function setupInterviewPrep() {
+            // Initialize interview prep features
+        }
+
+        // Setup mentorship program
+        function setupMentorshipProgram() {
+            // Initialize mentorship features
+        }
+
+        // Setup job alerts
+        function setupJobAlerts() {
+            const alertForm = document.getElementById('jobAlertForm');
+            if (alertForm) {
+                alertForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    saveJobAlert();
+                });
+            }
+        }
+
+        // Setup employer portal
+        function setupEmployerPortal() {
+            // Initialize employer features
+        }
+
+        // Utility functions
+        function showLoading()
+        {
+            const overlay = document.getElementById('loadingOverlay');
+            if (overlay) {
+                overlay.style.display = 'flex';
+            }
+        }
+
+        function hideLoading() {
+            const overlay = document.getElementById('loadingOverlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+        }
+
+        function showToast(message, type = 'success') {
+            const toastId = type === 'success' ? 'successToast' : 'errorToast';
+            const toast = document.getElementById(toastId);
+            if (toast) {
+                const toastBody = toast.querySelector('.toast-body');
+                toastBody.textContent = message;
+                
+                const bsToast = new bootstrap.Toast(toast);
+                bsToast.show();
+            }
+        }
+
+        // Job-related functions
+        function saveJob(jobId) {
+            // Save job to user's favorites
+            showToast('Job saved to your favorites!', 'success');
+        }
+
+        function applyForJob(jobId) {
+            // Open application modal
+            const modal = new bootstrap.Modal(document.getElementById('jobApplicationModal'));
+            modal.show();
+        }
+
+        function submitJobApplication() {
+            const form = document.getElementById('jobApplicationForm');
+            if (form.checkValidity()) {
+                showLoading();
+                
+                // Simulate API call
+                setTimeout(() => {
+                    hideLoading();
+                    showToast('Application submitted successfully!', 'success');
+                    
+                    // Close modal
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('jobApplicationModal'));
+                    modal.hide();
+                    
+                    // Reset form
+                    form.reset();
+                }, 2000);
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        function loadMoreJobs() {
+            showLoading();
+            
+            // Simulate loading more jobs
+            setTimeout(() => {
+                hideLoading();
+                showToast('Loaded 12 more jobs', 'success');
+            }, 1500);
+        }
+
+        // Resume builder functions
+        function downloadResume() {
+            // Generate and download PDF resume
+            showLoading();
+            
+            setTimeout(() => {
+                hideLoading();
+                showToast('Resume downloaded successfully!', 'success');
+            }, 2000);
+        }
+
+        function saveResume() {
+            // Save resume to user account
+            showLoading();
+            
+            setTimeout(() => {
+                hideLoading();
+                showToast('Resume saved to your account!', 'success');
+            }, 1500);
+        }
+
+        // Interview prep functions
+        function startMockInterview() {
+            showToast('Mock interview feature coming soon!', 'success');
+        }
+
+        // Mentorship functions
+        function viewAllMentors() {
+            showToast('Redirecting to mentor directory...', 'success');
+        }
+
+        // Job alert functions
+        function saveJobAlert() {
+            const form = document.getElementById('jobAlertForm');
+            if (form.checkValidity()) {
+                showLoading();
+                
+                setTimeout(() => {
+                    hideLoading();
+                    showToast('Job alert saved successfully!', 'success');
+                    
+                    // Close modal
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('jobAlertModal'));
+                    modal.hide();
+                }, 1500);
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        // Employer functions
+        function submitEmployerRegistration() {
+            const form = document.getElementById('employerRegistrationForm');
+            if (form.checkValidity()) {
+                showLoading();
+                
+                setTimeout(() => {
+                    hideLoading();
+                    showToast('Registration submitted! We will contact you within 24 hours.', 'success');
+                    
+                    // Close modal
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('employerModal'));
+                    modal.hide();
+                    
+                    // Reset form
+                    form.reset();
+                }, 2000);
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        function previewJob() {
+            showToast('Job preview feature coming soon!', 'success');
+        }
+
+        function submitJobPosting() {
+            const form = document.getElementById('postJobForm');
+            if (form.checkValidity()) {
+                showLoading();
+                
+                setTimeout(() => {
+                    hideLoading();
+                    showToast('Job posted successfully! It will be live within 2 hours.', 'success');
+                    
+                    // Close modal
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('postJobModal'));
+                    modal.hide();
+                    
+                    // Reset form
+                    form.reset();
+                }, 2500);
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        // Newsletter subscription
+        function submitNewsletterForm() {
+            const form = document.getElementById('newsletterForm');
+            if (form.checkValidity()) {
+                showLoading();
+                
+                setTimeout(() => {
+                    hideLoading();
+                    showToast('Successfully subscribed to career alerts!', 'success');
+                    form.reset();
+                }, 1500);
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        // Resume upload form submission
+        function submitResumeUpload() {
+            const form = document.getElementById('resumeUploadForm');
+            if (form.checkValidity()) {
+                showLoading();
+                
+                setTimeout(() => {
+                    hideLoading();
+                    showToast('Resume uploaded successfully! We will match you with relevant opportunities.', 'success');
+                    form.reset();
+                    
+                    // Hide file info
+                    const fileInfo = document.getElementById('fileInfo');
+                    if (fileInfo) {
+                        fileInfo.style.display = 'none';
+                    }
+                }, 2500);
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        // Career alerts form submission
+        function submitCareerAlerts() {
+            const form = document.getElementById('careerAlertsForm');
+            if (form.checkValidity()) {
+                showLoading();
+                
+                setTimeout(() => {
+                    hideLoading();
+                    showToast('Career alerts subscription successful!', 'success');
+                    form.reset();
+                }, 1500);
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        // Event handlers for forms
+        document.addEventListener('DOMContentLoaded', function() {
+            // Resume upload form
+            const resumeForm = document.getElementById('resumeUploadForm');
+            if (resumeForm) {
+                resumeForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    submitResumeUpload();
+                });
+            }
+
+            // Newsletter form
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    submitNewsletterForm();
+                });
+            }
+
+            // Career alerts form
+            const careerAlertsForm = document.getElementById('careerAlertsForm');
+            if (careerAlertsForm) {
+                careerAlertsForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    submitCareerAlerts();
+                });
+            }
+
+            // Modal event handlers
+            const resumeBuilderModal = document.getElementById('resumeBuilderModal');
+            if (resumeBuilderModal) {
+                resumeBuilderModal.addEventListener('show.bs.modal', function() {
+                    updateResumePreview();
+                });
+            }
+
+            // Link handlers for resource cards
+            document.querySelectorAll('[href="#resume-builder"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const modal = new bootstrap.Modal(document.getElementById('resumeBuilderModal'));
+                    modal.show();
+                });
+            });
+
+            document.querySelectorAll('[href="#interview-prep"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const modal = new bootstrap.Modal(document.getElementById('interviewPrepModal'));
+                    modal.show();
+                });
+            });
+
+            document.querySelectorAll('[href="#mentorship"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const modal = new bootstrap.Modal(document.getElementById('mentorshipModal'));
+                    modal.show();
+                });
+            });
+
+            // Job alert button handlers
+            document.querySelectorAll('[data-job-alert]').forEach(button => {
+                button.addEventListener('click', function() {
+                    const modal = new bootstrap.Modal(document.getElementById('jobAlertModal'));
+                    modal.show();
+                });
+            });
+
+            // Employer registration handlers
+            document.querySelectorAll('[href="#post-job"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const modal = new bootstrap.Modal(document.getElementById('employerModal'));
+                    modal.show();
+                });
+            });
+
+            // Salary guide interactions
+            setupSalaryGuideInteractions();
+        });
+
+        // Setup salary guide interactions
+        function setupSalaryGuideInteractions() {
+            // Add hover effects and click handlers for salary bars
+            document.querySelectorAll('.salary-bar').forEach(bar => {
+                bar.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'transform 0.2s ease';
+                });
+
+                bar.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+
+                bar.addEventListener('click', function() {
+                    const role = this.querySelector('.salary-role').textContent;
+                    showToast(`Searching for ${role} positions...`, 'success');
+                });
+            });
+        }
+
+        // Analytics and tracking
+        function trackJobView(jobId) {
+            // Track job view for analytics
+            console.log('Job viewed:', jobId);
+        }
+
+        function trackJobApplication(jobId) {
+            // Track job application for analytics
+            console.log('Job application started:', jobId);
+        }
+
+        function trackResumeDownload() {
+            // Track resume download for analytics
+            console.log('Resume downloaded');
+        }
+
+        // Search suggestions
+        function setupSearchSuggestions() {
+            const keywordsInput = document.getElementById('jobKeywords');
+            if (keywordsInput) {
+                const suggestions = [
+                    'Cybersecurity Analyst',
+                    'Information Security Manager',
+                    'Penetration Tester',
+                    'Security Engineer',
+                    'SOC Analyst',
+                    'CISO',
+                    'Risk Manager',
+                    'Compliance Officer',
+                    'Security Architect',
+                    'Incident Response Specialist'
+                ];
+
+                // Add autocomplete functionality
+                keywordsInput.addEventListener('input', function() {
+                    const value = this.value.toLowerCase();
+                    if (value.length > 2) {
+                        const matches = suggestions.filter(suggestion => 
+                            suggestion.toLowerCase().includes(value)
+                        );
+                        // Display suggestions (implementation would depend on UI library)
+                        console.log('Suggestions:', matches);
+                    }
+                });
+            }
+        }
+
+        // Initialize search suggestions
+        document.addEventListener('DOMContentLoaded', function() {
+            setupSearchSuggestions();
+        });
+
+        // Error handling
+        window.addEventListener('error', function(e) {
+            console.error('JavaScript error:', e.error);
+            showToast('An unexpected error occurred. Please refresh the page.', 'error');
+        });
+
+        // Service worker registration for offline functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('../sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function(err) {
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+

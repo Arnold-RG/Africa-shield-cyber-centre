@@ -1,0 +1,571 @@
+:root {
+    /* Dark Theme Colors (Futuristic / East African Inspired) */
+    --dark-background: #0D1B2A; /* Dark Blue/Black */
+    --dark-surface: #1B2A41; /* Slightly lighter dark blue */
+    --dark-text-primary: #E0E1DD; /* Light Silver/Grey */
+    --dark-text-secondary: #A2A2A2; /* Muted Grey */
+    --dark-accent: #FF6B35; /* Vibrant Orange */
+    --dark-highlight: #46CDC6; /* Teal/Cyan */
+    --dark-card-bg: #1B2A41; /* Same as surface */
+    --dark-border-color: #283B51; /* Slightly lighter border */
+    
+    /* East African Accent Colors */
+    --ea-red: #D9534F; /* Example Red */
+    --ea-yellow: #F0AD4E; /* Example Yellow */
+    --ea-green: #5CB85C; /* Example Green */
+    --ea-blue: #428BCA; /* Example Blue */
+
+    /* Default to Dark Theme */
+    --body-bg: var(--dark-background);
+    --text-color: var(--dark-text-primary);
+    --heading-color: var(--dark-accent);
+    --link-color: var(--dark-highlight);
+    --link-hover-color: var(--dark-text-primary);
+    --card-bg: var(--dark-card-bg);
+    --border-color: var(--dark-border-color);
+    --form-control-bg: var(--dark-surface);
+    --form-control-color: var(--dark-text-primary);
+    --form-control-border: var(--dark-border-color);
+    --form-text-color: var(--dark-text-secondary);
+}
+
+body {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+}
+
+h2, h3, h4 {
+    color: var(--heading-color);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* Navigation Specific Styles */
+.navbar {
+    background-color: var(--dark-surface);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar .nav-link {
+    color: var(--dark-text-secondary);
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--dark-text-primary);
+}
+
+.navbar-brand .brand-text {
+    color: var(--dark-text-primary);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.user-account-btn {
+    color: var(--dark-accent);
+    border-color: var(--dark-accent);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.user-account-btn:hover {
+    background-color: var(--dark-accent);
+    color: var(--dark-background);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(45deg, var(--dark-background), var(--dark-surface));
+}
+
+.hero-section .display-4 {
+    color: var(--dark-accent);
+}
+
+.hero-image-container img {
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/* Report Stats Section */
+.report-stats-section .stat-card {
+    background-color: var(--dark-card-bg);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.report-stats-section .stat-icon i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.report-stats-section .stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--dark-highlight);
+}
+
+.report-stats-section .stat-label {
+    font-size: 1rem;
+    color: var(--dark-text-secondary);
+}
+
+/* Report Form Section */
+.report-form-section .card {
+     background-color: var(--dark-card-bg);
+     border: none;
+}
+
+.report-form-section .card-header {
+    background-color: var(--dark-accent) !important;
+    color: var(--dark-background) !important;
+    border-bottom: none;
+}
+
+.report-form-section .form-label {
+    color: var(--dark-text-primary);
+    font-weight: bold;
+}
+
+.report-form-section .form-control,
+.report-form-section .form-select {
+    background-color: var(--form-control-bg);
+    color: var(--form-control-color);
+    border: 1px solid var(--form-control-border);
+}
+
+.report-form-section .form-control::placeholder {
+    color: var(--dark-text-secondary);
+    opacity: 0.7;
+}
+
+.report-form-section .form-text {
+    color: var(--form-text-color);
+}
+
+.report-form-section .btn-primary {
+    background-color: var(--dark-highlight);
+    border-color: var(--dark-highlight);
+    color: var(--dark-background);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.report-form-section .btn-primary:hover {
+    background-color: darken(var(--dark-highlight), 10%); /* Requires Sass/Less or JS for calculation */
+    border-color: darken(var(--dark-highlight), 10%);
+}
+
+/* What Happens Next Section */
+.what-happens-next-section .section-title,
+.what-happens-next-section .section-subtitle {
+    color: var(--text-color);
+}
+
+.what-happens-next-section .info-card {
+    background-color: var(--dark-card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.what-happens-next-section .info-card .icon i {
+    color: var(--dark-accent);
+}
+
+.what-happens-next-section .info-card h5 {
+    color: var(--dark-highlight);
+}
+
+/* Emergency Reporting Section */
+.emergency-section {
+    background-color: var(--ea-red) !important; /* Use East African Red for emergency */
+    color: white;
+}
+
+.emergency-section .btn-light {
+    color: var(--ea-red);
+}
+
+.emergency-section .btn-light:hover {
+    background-color: var(--dark-background);
+    color: var(--ea-red);
+    border-color: var(--dark-background);
+}
+
+/* Report Table */
+.report-table {
+    background: var(--card-bg);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10);
+    padding: 2rem 2rem 1.5rem 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+    transition: box-shadow 0.2s;
+}
+
+.report-table:hover {
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+}
+
+.table-header {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* Incident Report Form */
+#incidentReportForm .form-label {
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+#incidentReportForm .form-control, #incidentReportForm .form-select {
+    background: var(--form-control-bg);
+    color: var(--form-control-color);
+    border: 1px solid var(--form-control-border);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    box-shadow: none;
+    transition: border-color 0.2s;
+}
+
+#incidentReportForm .form-control:focus, #incidentReportForm .form-select:focus {
+    border-color: var(--dark-accent);
+    outline: none;
+}
+
+#incidentReportForm .btn-primary {
+    background: linear-gradient(90deg, var(--dark-accent), var(--dark-highlight));
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.75rem 0;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px 0 rgba(255,107,53,0.10);
+    transition: background 0.2s;
+}
+
+#incidentReportForm .btn-primary:hover {
+    background: linear-gradient(90deg, var(--dark-highlight), var(--dark-accent));
+}
+
+#reportFormMsg {
+    min-height: 1.5em;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* My Reports Table */
+#myReportsList table {
+    background: transparent;
+    color: var(--text-color);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+#myReportsList th, #myReportsList td {
+    background: transparent;
+    color: var(--text-color);
+    vertical-align: middle;
+    padding: 0.75rem 0.5rem;
+}
+#myReportsList th {
+    background: var(--dark-surface);
+    color: var(--heading-color);
+    font-weight: 700;
+    border-bottom: 2px solid var(--border-color);
+}
+#myReportsList tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.15s;
+}
+#myReportsList tr:hover {
+    background: rgba(70,205,198,0.07);
+}
+#myReportsList .btn-info {
+    background: var(--dark-highlight);
+    color: var(--dark-background);
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    padding: 0.35rem 1.1rem;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+#myReportsList .btn-info:hover {
+    background: var(--dark-accent);
+    color: #fff;
+}
+
+/* Feedback Section Styling */
+#feedbackForm {
+    margin-top: 2rem;
+}
+#feedbackForm .form-label {
+    color: var(--heading-color);
+    font-weight: 600;
+}
+#feedbackForm .form-control, #feedbackForm .form-select {
+    background: var(--form-control-bg);
+    color: var(--form-control-color);
+    border: 1px solid var(--form-control-border);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    box-shadow: none;
+    transition: border-color 0.2s;
+}
+#feedbackForm .form-control:focus, #feedbackForm .form-select:focus {
+    border-color: var(--dark-accent);
+    outline: none;
+}
+#feedbackForm .btn-primary {
+    background: linear-gradient(90deg, var(--dark-accent), var(--dark-highlight));
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.6rem 2.5rem;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px 0 rgba(255,107,53,0.10);
+    transition: background 0.2s;
+}
+#feedbackForm .btn-primary:hover {
+    background: linear-gradient(90deg, var(--dark-highlight), var(--dark-accent));
+}
+#feedbackMsg {
+    min-height: 1.5em;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Modal improvements */
+.modal-content {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 6px 32px 0 rgba(0,0,0,0.18);
+}
+.modal-header {
+    border-bottom: 1px solid var(--border-color);
+    background: var(--dark-surface);
+    color: var(--heading-color);
+    border-radius: 14px 14px 0 0;
+}
+.modal-title {
+    font-weight: 700;
+    color: var(--heading-color);
+}
+.modal-footer {
+    border-top: 1px solid var(--border-color);
+    background: var(--dark-surface);
+    border-radius: 0 0 14px 14px;
+}
+
+/* New Footer Display Style */
+.footer-modern {
+    background: linear-gradient(90deg, var(--dark-surface) 60%, var(--dark-accent) 100%);
+    color: var(--text-color);
+    padding: 3rem 0 2rem 0;
+    border-top: 3px solid var(--dark-accent);
+    box-shadow: 0 -4px 24px 0 rgba(0,0,0,0.10);
+    font-size: 1rem;
+}
+.footer-modern .navbar-brand .brand-text {
+    color: var(--dark-highlight);
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.footer-modern h5 {
+    color: var(--dark-accent);
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+.footer-modern a {
+    color: var(--dark-highlight);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer-modern a:hover {
+    color: var(--dark-accent);
+    text-decoration: underline;
+}
+.footer-modern .list-unstyled li {
+    margin-bottom: 0.7rem;
+}
+.footer-modern .text-muted {
+    color: var(--dark-text-secondary) !important;
+}
+.footer-modern .social-icons a {
+    color: var(--dark-highlight);
+    margin-right: 1.2rem;
+    font-size: 1.3rem;
+    transition: color 0.2s;
+}
+.footer-modern .social-icons a:hover {
+    color: var(--dark-accent);
+}
+.footer-modern .app-badges img {
+    height: 38px;
+    margin-top: 0.5rem;
+}
+@media (max-width: 767px) {
+    .footer-modern {
+        text-align: center;
+        padding: 2rem 0 1rem 0;
+    }
+    .footer-modern .navbar-brand {
+        justify-content: center;
+    }
+    .footer-modern .social-icons {
+        justify-content: center;
+    }
+}
+
+/* Font size classes for accessibility */
+.font-size-small { font-size: 15px !important; }
+.font-size-medium { font-size: 17px !important; }
+.font-size-large { font-size: 20px !important; }
+
+/* Theme mode support */
+[data-theme="dark"] {
+    --body-bg: #0D1B2A;
+    --text-color: #E0E1DD;
+    --heading-color: #FF6B35;
+    --link-color: #46CDC6;
+    --link-hover-color: #E0E1DD;
+    --card-bg: #1B2A41;
+    --border-color: #283B51;
+    --form-control-bg: #1B2A41;
+    --form-control-color: #E0E1DD;
+    --form-control-border: #283B51;
+    --form-text-color: #A2A2A2;
+}
+[data-theme="light"] {
+    --body-bg: #f8f9fa;
+    --text-color: #222;
+    --heading-color: #FF6B35;
+    --link-color: #007bff;
+    --link-hover-color: #0056b3;
+    --card-bg: #fff;
+    --border-color: #e0e0e0;
+    --form-control-bg: #fff;
+    --form-control-color: #222;
+    --form-control-border: #ced4da;
+    --form-text-color: #6c757d;
+}
+
+body, html {
+    background: var(--body-bg);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Card and table improvements for all sections */
+.card, .report-table {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10);
+}
+.table {
+    background: transparent;
+    color: var(--text-color);
+}
+.table th, .table td {
+    border-color: var(--border-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .report-table {
+        padding: 1.2rem 0.7rem 1rem 0.7rem;
+    }
+}
+@media (max-width: 767px) {
+    .report-table {
+        margin-bottom: 1.2rem;
+    }
+    .table-header {
+        font-size: 1.1rem;
+    }
+}
+
+/* Success/Error Message Styles */
+.text-success {
+    color: #46CDC6 !important;
+    font-weight: 600;
+}
+.text-danger {
+    color: #FF6B35 !important;
+    font-weight: 600;
+}
+.text-muted {
+    color: var(--dark-text-secondary) !important;
+}
+
+/* Loader/Spinner (optional) */
+#myReportsList .spinner-border {
+    color: var(--dark-highlight);
+}
+
+/*
+ * Africa Shield Cyber Centre - Report Page Styles
+ * User interface is clean and intuitive. HTML elements are styled with modern CSS3, and interactive features are powered by JavaScript. Accessibility is enhanced through clear icons, structured layouts, contrast settings, and web text content. The system is optimized for mobile devices, allowing seamless access from smartphones or tablets.
+ * Consistent with home.css
+ */
+@import url('home.css');
+
+body {
+    background: var(--body-bg);
+    color: var(--text-primary);
+}
+
+.report-form, .my-reports, .quick-contact, .feedback-section {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    background: var(--card-bg);
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+}
+
+.card, .report-card {
+    border: none;
+    background: var(--card-bg);
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-md);
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-md);
+}
+
+@media (max-width: 767.98px) {
+    .report-form, .my-reports, .quick-contact, .feedback-section { padding: 1rem; }
+}

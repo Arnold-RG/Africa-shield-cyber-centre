@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Africa Shield Cyber Centre - Login</title>
+    <link rel="stylesheet" href="../assets/css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="background-animation">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="auth-container">
+        <!-- Left Side - Branding -->
+        <div class="brand-section">
+            <div class="brand-content">
+                <div class="logo-container">
+                    <img src="../assets/images/logo.png" alt="Africa Shield Logo" class="logo">
+                    <div class="logo-glow"></div>
+                </div>
+                <h1 class="brand-title">AFRICA SHIELD</h1>
+                <h2 class="brand-subtitle">Cyber Defence Centre</h2>
+                <p class="brand-description">Protecting Africa's Digital Future</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Advanced Security</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-globe-africa"></i>
+                        <span>Continental Coverage</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <span>Expert Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Authentication Forms -->
+        <div class="form-section">
+            <div class="form-container">
+                <!-- Form Toggle -->
+                <div class="form-toggle">
+                    <button class="toggle-btn active" id="loginTab">Login</button>
+                    <button class="toggle-btn" id="registerTab">Register</button>
+                </div>
+
+                <!-- Login Form -->
+                <div class="form-wrapper active" id="loginForm">
+                    <div class="form-header">
+                        <h3>Welcome Back</h3>
+                        <p>Sign in to access your account</p>
+                    </div>
+                    
+                    <form id="loginFormData" class="auth-form">
+                        <div class="input-group">
+                            <label for="loginEmail">Email Address</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+                            </div>
+                            <span class="error-message" id="loginEmailError"></span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="loginPassword">Password</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+                                <button type="button" class="password-toggle" id="toggleLoginPassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <span class="error-message" id="loginPasswordError"></span>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" id="rememberMe">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                            <a href="#" class="forgot-link" id="forgotPassword">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span>Sign In</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Register Form -->
+                <div class="form-wrapper" id="registerForm">
+                    <div class="form-header">
+                        <h3>Create Account</h3>
+                        <p>Join Africa Shield Cyber Defence</p>
+                    </div>
+                    
+                    <form id="registerFormData" class="auth-form">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="firstName">First Name</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+                                </div>
+                                <span class="error-message" id="firstNameError"></span>
+                            </div>
+                            <div class="input-group">
+                                <label for="lastName">Last Name</label>
+                                <div class="input-wrapper">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
+                                </div>
+                                <span class="error-message" id="lastNameError"></span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="registerEmail">Email Address</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="registerEmail" name="email" placeholder="Enter your email" required>
+                            </div>
+                            <span class="error-message" id="registerEmailError"></span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="phoneNumber" name="phone" placeholder="+254 700 000 000" required>
+                            </div>
+                            <span class="error-message" id="phoneError"></span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="country">Country</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-globe-africa"></i>
+                                <select id="country" name="country" required>
+                                    <option value="">Select your country</option>
+                                    <option value="kenya">Kenya</option>
+                                    <option value="tanzania">Tanzania</option>
+                                    <option value="uganda">Uganda</option>
+                                    <option value="rwanda">Rwanda</option>
+                                    <option value="ethiopia">Ethiopia</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <span class="error-message" id="countryError"></span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="registerPassword">Password</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="registerPassword" name="password" placeholder="Create password" required>
+                                <button type="button" class="password-toggle" id="toggleRegisterPassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength">
+                                <div class="strength-bar">
+                                    <div class="strength-fill"></div>
+                                </div>
+                                <span class="strength-text">Password strength</span>
+                            </div>
+                            <span class="error-message" id="registerPasswordError"></span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
+                                <button type="button" class="password-toggle" id="toggleConfirmPassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <span class="error-message" id="confirmPasswordError"></span>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" id="agreeTerms" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#" class="terms-link">Terms & Conditions</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <span>Create Account</span>
+                            <i class="fas fa-user-plus"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p id="loadingText">Processing...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="toast-icon"></i>
+            <span class="toast-message"></span>
+        </div>
+        <button class="toast-close" id="toastClose">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <script src="../assets/js/auth.js"></script>
+</body>
+</html>

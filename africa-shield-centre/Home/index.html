@@ -1,0 +1,2142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Africa Shield Cyber Centre - The leading cybersecurity platform protecting East Africa's digital ecosystem through AI-powered threat detection, interactive learning, and community-driven security solutions">
+    <meta name="keywords" content="cybersecurity, East Africa, Kenya, Tanzania, Uganda, Rwanda, cyber threats, digital protection, security training, threat intelligence, AI security">
+    <title>Africa Shield Cyber Centre | East Africa's Premier Cybersecurity Platform</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/toast.css">
+    
+    <!-- Progressive Web App -->
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#0d6efd">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="../assets/js/home.js" as="script">
+    <link rel="preload" href="../assets/images/logo.png" as="image">
+    
+    <!-- Security headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:;">
+</head>
+<body class="animated-background theme-transition">
+    
+    <!-- Security Alert Banner -->
+    <div id="securityAlertBanner" class="security-alert-banner" style="display: none;" role="alert" aria-live="assertive">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-exclamation-triangle text-warning me-2" aria-hidden="true"></i>
+                    <span id="securityAlertMessage">Security Alert: High threat activity detected in your region</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white" onclick="dismissSecurityAlert()" aria-label="Dismiss security alert"></button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Top Bar with Enhanced Utility Controls -->
+    <div class="container-fluid bg-light py-2 border-bottom theme-transition">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Emergency Contact Info -->
+            <div class="emergency-contact d-none d-md-flex align-items-center">
+                <span class="badge bg-danger me-2">
+                    <i class="fas fa-phone-alt me-1" aria-hidden="true"></i>Emergency: *789*911#
+                </span>
+                <small class="text-muted">24/7 Cyber Incident Response</small>
+            </div>
+            
+            <!-- Utility Controls -->
+            <div class="d-flex align-items-center">
+                <!-- Language Selector -->
+                <div class="language-selector-inline me-3">
+                    <div>
+                        <ul>
+                            <li><a  href="#" data-lang="en" role="menuitem">🇺🇸 English/</a></li>
+                            <li><a href="#" data-lang="fr" role="menuitem">🇫🇷 Français/</a></li>
+                            <li><a href="#" data-lang="sw" role="menuitem">🇹🇿 Kiswahili/</a></li>
+                            <li><a href="#" data-lang="rw" role="menuitem">🇷🇼 Kinyarwanda/</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Font Size Controls -->
+                <div class="btn-group btn-group-sm me-3" role="group" aria-label="Font size controls">
+                    <button id="decreaseFontSize" type="button" class="btn btn-outline-secondary" aria-label="Decrease font size" title="Decrease font size">
+                        <i class="fas fa-minus" aria-hidden="true"></i>
+                    </button>
+                    <button id="resetFontSize" type="button" class="btn btn-outline-secondary" aria-label="Reset font size" title="Reset font size">
+                        <i class="fas fa-font" aria-hidden="true"></i>
+                    </button>
+                    <button id="increaseFontSize" type="button" class="btn btn-outline-secondary" aria-label="Increase font size" title="Increase font size">
+                        <i class="fas fa-plus" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- Theme Switcher -->
+                <div class="theme-switcher-toggle me-3">
+                    <button id="themeToggle" type="button" class="btn btn-sm btn-outline-secondary" aria-label="Toggle theme" title="Toggle dark/light theme">
+                        <i class="fas fa-sun" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- High Contrast Toggle -->
+                <div class="accessibility-toggle me-3">
+                    <button id="contrastToggle" type="button" class="btn btn-sm btn-outline-secondary" aria-label="Toggle high contrast" title="Toggle high contrast">
+                        <i class="fas fa-adjust" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <!-- SOC Status Indicator -->
+                <div class="soc-status-indicator me-3">
+                    <button id="socStatusToggle" type="button" class="btn btn-sm btn-outline-success" title="SOC Status" aria-label="View SOC status">
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                        <span class="soc-status-text">SECURE</span>
+                    </button>
+                </div>
+
+                <div class="notification-center">
+                    <button id="notificationToggle" type="button" class="btn btn-sm btn-outline-secondary position-relative notification-btn" title="Notifications" aria-label="View notifications">
+                        <i class="fas fa-bell notification-icon" aria-hidden="true"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger notification-badge" id="notificationCount">
+                            5
+                        </span>
+                        <div class="notification-pulse"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Enhanced Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm theme-transition" role="navigation">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../Home/index.html" aria-label="Africa Shield Cyber Centre Home">
+                <img src="../assets/images/logo.png" width="50" height="50" alt="Africa Shield Cyber Centre Logo" class="me-2">
+                <div class="brand-text-container">
+                    <span class="brand-text fw-bold">Africa Shield</span>
+                    <small class="brand-subtitle d-block text-muted">Cyber Centre</small>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto" role="menubar">
+                    <li class="nav-item" role="none">
+                        <a class="nav-link active" href="../Home/index.html" role="menuitem" aria-current="page">
+                            <i class="fas fa-home me-1" aria-hidden="true"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Learn/index.html" role="menuitem">
+                            <i class="fas fa-graduation-cap me-1" aria-hidden="true"></i> Learn
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Report/index.html" role="menuitem">
+                            <i class="fas fa-exclamation-triangle me-1" aria-hidden="true"></i> Report Threat
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../SOC/index.html" role="menuitem">
+                            <i class="fas fa-desktop me-1" aria-hidden="true"></i> SOC Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Events/index.html" role="menuitem">
+                            <i class="fas fa-calendar-alt me-1" aria-hidden="true"></i> Events
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Career/index.html" role="menuitem">
+                            <i class="fas fa-briefcase me-1" aria-hidden="true"></i> Career
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../About/about.html" role="menuitem">
+                            <i class="fas fa-building me-1" aria-hidden="true"></i> About Us
+                        </a>
+                    </li>
+                    <li class="nav-item" role="none">
+                        <a class="nav-link" href="../Contact/index.html" role="menuitem">
+                            <i class="fas fa-envelope me-1" aria-hidden="true"></i> Contact
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown" role="none">
+                        <a class="nav-link dropdown-toggle" href="#" role="menuitem" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-ellipsis-h me-1" aria-hidden="true"></i> More
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none"><a class="dropdown-item" href="../ThreatMap/index.html" role="menuitem">
+                                <i class="fas fa-globe-africa me-2" aria-hidden="true"></i>Live Threat Map
+                            </a></li>
+                            <li role="none"><a class="dropdown-item" href="../News/index.html" role="menuitem">
+                                <i class="fas fa-newspaper me-2" aria-hidden="true"></i>News
+                            </a></li>
+                            <li role="none"><a class="dropdown-item" href="../App/index.html" role="menuitem">
+                                <i class="fas fa-mobile-alt me-2" aria-hidden="true"></i>Mobile App
+                            </a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- User Account -->
+                <div class="d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="User account menu">
+                            <i class="fas fa-user-circle me-1" aria-hidden="true"></i> Account
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" role="menu">
+
+                            <li><hr class="dropdown-divider"></li>
+                            <li role="none"><a class="dropdown-item" href="../Admin/auth.html" role="menuitem">
+                                <i class="fas fa-user me-2" aria-hidden="true"></i>My Profile
+                            </a></li>
+                            <li role="none"><a class="dropdown-item" href="../Settings/index.html" role="menuitem">
+                                <i class="fas fa-cog me-2" aria-hidden="true"></i>Settings
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SOC Status Dashboard Widget -->
+    <div id="socStatusWidget" class="soc-status-widget theme-transition" style="display: none;" role="dialog" aria-labelledby="socWidgetTitle" aria-modal="false">
+        <div class="soc-widget-header">
+            <h6 class="mb-0" id="socWidgetTitle">
+                <i class="fas fa-desktop me-2" aria-hidden="true"></i>SOC Status
+            </h6>
+            <button type="button" class="btn-close btn-close-white" onclick="closeSocWidget()" aria-label="Close SOC widget"></button>
+        </div>
+        <div class="soc-widget-content">
+            <div class="soc-status-grid">
+                <div class="soc-metric">
+                    <div class="soc-metric-value" id="socThreatsBlocked" aria-label="Threats blocked today">0</div>
+                    <div class="soc-metric-label">Threats Blocked</div>
+                </div>
+                <div class="soc-metric">
+                    <div class="soc-metric-value" id="socActiveMonitoring" aria-label="Countries being monitored">14</div>
+                    <div class="soc-metric-label">Countries Monitored</div>
+                </div>
+                <div class="soc-metric">
+                    <div class="soc-metric-value" id="socResponseTime" aria-label="Average response time">2.3m</div>
+                    <div class="soc-metric-label">Avg Response Time</div>
+                </div>
+                <div class="soc-metric">
+                    <div class="soc-metric-value" id="socSystemHealth" aria-label="System health percentage">99.8%</div>
+                    <div class="soc-metric-label">System Health</div>
+                </div>
+            </div>
+            <div class="soc-alerts-preview">
+                <h6 class="mb-2">Recent Alerts</h6>
+                <div id="socRecentAlerts" aria-live="polite">
+                    <!-- Alerts will be populated by JavaScript -->
+                </div>
+            </div>
+            <div class="soc-widget-actions">
+                <a href="../SOC/index.html" class="btn btn-primary btn-sm">
+                    <i class="fas fa-external-link-alt me-1" aria-hidden="true"></i>Full SOC Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Panel -->
+    <div id="notificationPanel" class="notification-panel theme-transition" style="display: none;" role="dialog" aria-labelledby="notificationPanelTitle" aria-modal="false">
+        <div class="notification-header">
+            <h6 class="mb-0" id="notificationPanelTitle">
+                <i class="fas fa-bell me-2" aria-hidden="true"></i>Notifications
+            </h6>
+            <button type="button" class="btn-close" onclick="closeNotificationPanel()" aria-label="Close notifications"></button>
+        </div>
+        <div class="notification-content">
+            <div id="notificationList" aria-live="polite">
+                <!-- Notifications will be populated by JavaScript -->
+            </div>
+        </div>
+        <div class="notification-footer">
+            <a href="../Notifications/index.html" class="btn btn-outline-primary btn-sm">View All</a>
+            <button type="button" class="btn btn-outline-secondary btn-sm" onclick="markAllAsRead()">Mark All Read</button>
+        </div>
+    </div>
+
+    <!-- Hero Section with Enhanced Features -->
+    <section class="hero-section position-relative overflow-hidden" role="banner">
+        <div class="hero-background-animation" aria-hidden="true"></div>
+        <div class="container">
+            <div class="row align-items-center min-vh-100 py-5">
+                <div class="col-lg-6">
+                    <div class="hero-content animate__animated animate__fadeInLeft">
+                        <div class="hero-badge mb-3">
+                            <span class="badge bg-primary-gradient px-3 py-2">
+                                <i class="fas fa-shield-alt me-2" aria-hidden="true"></i>
+                                Protecting 14 East African Countries
+                            </span>
+                        </div>
+                        <h1 class="hero-title display-3 fw-bold mb-4" data-translate="hero-title">
+                            Securing East Africa's
+                            <span class="text-gradient">Digital Future</span>
+                        </h1>
+                        <p class="hero-subtitle lead mb-4" data-translate="hero-subtitle">
+                            Advanced AI-powered cybersecurity platform providing real-time threat detection, 
+                            comprehensive training, and community-driven protection for million people 
+                            across East Africa.
+                        </p>
+                        
+                        <!-- Real-time Stats -->
+                        <div class="hero-stats row g-3 mb-4" role="region" aria-label="Real-time security statistics">
+                            <div class="col-4">
+                                <div class="stat-item text-center">
+                                    <div class="stat-number" id="heroThreatsBlocked" data-target="1547892" aria-label="Threats blocked count">0</div>
+                                    <div class="stat-label">Threats Blocked</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-item text-center">
+                                    <div class="stat-number" id="heroUsersProtected" data-target="400000000" aria-label="Users protected count">0</div>
+                                    <div class="stat-label">Users Protected</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-item text-center">
+                                    <div class="stat-number" id="heroIncidentsResolved" data-target="89456" aria-label="Incidents resolved count">0</div>
+                                    <div class="stat-label">Incidents Resolved</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="hero-cta d-flex flex-wrap gap-3" role="group" aria-label="Main action buttons">
+                            <a href="../Dashboard/index.html" class="btn btn-primary btn-lg px-4 py-3">
+                                <i class="fas fa-chart-line me-2" aria-hidden="true"></i>
+                                Access Dashboard
+                            </a>
+                            <a href="../Report/report.html" class="btn btn-outline-danger btn-lg px-4 py-3">
+                                <i class="fas fa-exclamation-triangle me-2" aria-hidden="true"></i>
+                                Report Threat
+                            </a>
+                            <button type="button" class="btn btn-outline-primary btn-lg px-4 py-3" data-bs-toggle="modal" data-bs-target="#demoModal">
+                                <i class="fas fa-play me-2" aria-hidden="true"></i>
+                                Watch Demo
+                            </button>
+                        </div>
+
+                        <!-- Trust Indicators -->
+                        <div class="trust-indicators mt-4">
+                            <small class="text-muted d-block mb-2">Trusted by leading organizations:</small>
+                            <div class="d-flex align-items-center gap-3 flex-wrap">
+                                <img src="../assets/images/eac-logo.png" alt="East African Community" height="30" class="trust-logo">
+                                <img src="../assets/images/au-logo.png" alt="African Union" height="30" class="trust-logo">
+                                <img src="../assets/images/un-logo.png" alt="United Nations" height="30" class="trust-logo">
+                                <span class="badge bg-success">ISO 27001 Certified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="hero-visual animate__animated animate__fadeInRight">
+                        <!-- Interactive Security Dashboard Preview -->
+                        <div class="dashboard-preview">
+                            <div class="dashboard-header">
+                                <div class="dashboard-controls" aria-hidden="true">
+                                    <span class="control-dot red"></span>
+                                    <span class="control-dot yellow"></span>
+                                    <span class="control-dot green"></span>
+                                </div>
+                                <div class="dashboard-title">Africa Shield SOC</div>
+                            </div>
+                            <div class="dashboard-content">
+                                <!-- Live Threat Map -->
+                                <div class="threat-map-preview">
+                                    <div class="map-header">
+                                        <h6>Live Threat Map</h6>
+                                        <span class="status-indicator active" aria-label="Live status">LIVE</span>
+                                    </div>
+                                    <div class="map-container">
+                                        <a href="../ThreatMap/index.html" aria-label="View full threat map">
+                                            <div class="threat-pulse" style="top: 30%; left: 60%;" aria-hidden="true"></div>
+                                            <div class="threat-pulse" style="top: 50%; left: 45%;" aria-hidden="true"></div>
+                                            <div class="threat-pulse" style="top: 70%; left: 55%;" aria-hidden="true"></div>
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Security Metrics -->
+                                <div class="security-metrics">
+                                    <div class="metric-card">
+                                        <div class="metric-icon bg-success" aria-hidden="true">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </div>
+                                        <div class="metric-info">
+                                            <div class="metric-value">99.9%</div>
+                                            <div class="metric-label">Protection Rate</div>
+                                        </div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-icon bg-warning" aria-hidden="true">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                        </div>
+                                        <div class="metric-info">
+                                            <div class="metric-value" id="previewActiveThreats" aria-label="Active threats count">0</div>
+                                            <div class="metric-label">Active Threats</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator" aria-hidden="true">
+            <div class="scroll-arrow animate__animated animate__bounce animate__infinite">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-time SOC Status Bar -->
+    <section class="soc-status-bar bg-dark text-white py-2 theme-transition" role="region" aria-label="SOC status information">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="d-flex align-items-center">
+                        <div class="soc-status-indicator me-3">
+                            <span class="status-dot bg-success" aria-hidden="true"></span>
+                            <span class="fw-bold">SOC STATUS: OPERATIONAL</span>
+                        </div>
+                        <div class="soc-live-stats d-flex gap-4">
+                            <span><i class="fas fa-eye me-1" aria-hidden="true"></i>Monitoring: <strong id="liveMonitoringCount">14</strong> Countries</span>
+                            <span><i class="fas fa-shield-alt me-1" aria-hidden="true"></i>Blocked: <strong id="liveThreatCount">0</strong> Threats Today</span>
+                            <span><i class="fas fa-clock me-1" aria-hidden="true"></i>Response: <strong id="liveResponseTime">2.3m</strong> Avg</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <small class="text-muted">Last Updated: <span id="socLastUpdate">--:--</span></small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Features Section -->
+    <section class="features-section py-5 theme-transition" role="region" aria-labelledby="features-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 id="features-title" class="section-title display-5 fw-bold mb-3">
+                        Comprehensive Cybersecurity
+                        <span class="text-gradient">Ecosystem</span>
+                    </h2>
+                    <p class="section-subtitle lead">
+                        From AI-powered threat detection to community-driven learning, 
+                        we provide end-to-end cybersecurity solutions tailored for East Africa.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- AI-Powered SOC -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100 theme-transition">
+                        <div class="feature-icon bg-primary" aria-hidden="true">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="feature-title">AI-Powered SOC</h4>
+                            <p class="feature-description">
+                                24/7 Security Operations Center with machine learning algorithms 
+                                detecting and responding to threats in real-time across East Africa.
+                            </p>
+                            <div class="feature-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Detection Rate:</span>
+                                    <span class="stat-value">99.7%</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Response Time:</span>
+                                    <span class="stat-value">< 3 minutes</span>
+                                </div>
+                            </div>
+                            <a href="../SOC/index.html" class="feature-link">
+                                Explore SOC <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Threat Intelligence -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100 theme-transition">
+                        <div class="feature-icon bg-danger" aria-hidden="true">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="feature-title">Threat Intelligence</h4>
+                            <p class="feature-description">
+                                Real-time threat intelligence feeds from global sources, 
+                                customized for East African threat landscape and attack patterns.
+                            </p>
+                            <div class="feature-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Intelligence Sources:</span>
+                                    <span class="stat-value">500+</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Daily Updates:</span>
+                                    <span class="stat-value">10,000+</span>
+                                </div>
+                            </div>
+                            <a href="../Intelligence/index.html" class="feature-link">
+                                View Intelligence <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Learning -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100 theme-transition">
+                        <div class="feature-icon bg-success" aria-hidden="true">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="feature-title">Interactive Learning</h4>
+                            <p class="feature-description">
+                                Gamified cybersecurity training with local language support, 
+                                real-world scenarios, and certification programs.
+                            </p>
+                            <div class="feature-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Active Learners:</span>
+                                    <span class="stat-value">50,000+</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Completion Rate:</span>
+                                    <span class="stat-value">87%</span>
+                                </div>
+                            </div>
+                            <a href="../Learn/learn.html" class="feature-link">
+                                Start Learning <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community Reporting -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100 theme-transition">
+                        <div class="feature-icon bg-warning" aria-hidden="true">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="feature-title">Community Reporting</h4>
+                            <p class="feature-description">
+                                Crowdsourced threat reporting system enabling citizens to report 
+                                cyber incidents and suspicious activities in their local languages.
+                            </p>
+                            <div class="feature-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Reports Submitted:</span>
+                                    <span class="stat-value">25,000+</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Response Rate:</span>
+                                    <span class="stat-value">95%</span>
+                                </div>
+                            </div>
+                            <a href="../Report/report.html" class="feature-link">
+                                Report Incident <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Security -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100 theme-transition">
+                        <div class="feature-icon bg-info" aria-hidden="true">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="feature-title">Mobile Security</h4>
+                            <p class="feature-description">
+                                Specialized protection for mobile money platforms, banking apps, 
+                                and mobile devices prevalent across East African markets.
+                            </p>
+                            <div class="feature-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Mobile Users:</span>
+                                    <span class="stat-value">2M+</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Fraud Prevention:</span>
+                                    <span class="stat-value">99.2%</span>
+                                </div>
+                            </div>
+                            <a href="../Mobile/index.html" class="feature-link">
+                                Secure Mobile <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regional Collaboration -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card h-100 theme-transition">
+                        <div class="feature-icon bg-purple" aria-hidden="true">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4 class="feature-title">Regional Collaboration</h4>
+                            <p class="feature-description">
+                                Cross-border cybersecurity coordination with government agencies, 
+                                financial institutions, and international partners.
+                            </p>
+                            <div class="feature-stats">
+                                <div class="stat-row">
+                                    <span class="stat-label">Partner Organizations:</span>
+                                    <span class="stat-value">150+</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Countries Connected:</span>
+                                    <span class="stat-value">14</span>
+                                </div>
+                            </div>
+                            <a href="../Partners/index.html" class="feature-link">
+                                View Partners <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Feature Section: Cybersecurity Innovation Lab -->
+    <section class="innovation-section py-5 bg-gradient-primary text-white theme-transition" role="region" aria-labelledby="innovation-title">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 id="innovation-title" class="display-5 fw-bold mb-3">
+                        Africa Shield <span class="text-gradient">Innovation Lab</span>
+                    </h2>
+                    <p class="lead mb-4">
+                        Explore our cutting-edge Cybersecurity Innovation Lab, where AI, machine learning, and regional expertise converge to create next-generation security solutions for East Africa. Participate in live demos, hackathons, and collaborative research projects.
+                    </p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="fas fa-flask me-2" aria-hidden="true"></i>AI-driven threat detection prototypes</li>
+                        <li class="mb-2"><i class="fas fa-users-cog me-2" aria-hidden="true"></i>Community hackathons & workshops</li>
+                        <li class="mb-2"><i class="fas fa-lightbulb me-2" aria-hidden="true"></i>Open innovation challenges</li>
+                        <li class="mb-2"><i class="fas fa-network-wired me-2" aria-hidden="true"></i>Collaborative research with universities</li>
+                    </ul>
+                    <a href="../Innovation/index.html" class="btn btn-light btn-lg">
+                        <i class="fas fa-rocket me-2" aria-hidden="true"></i>Join the Lab
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="../assets/images/ThreatIntelligence.png" alt="Innovation Lab - AI-powered threat detection visualization" class="img-fluid rounded shadow-lg" style="max-height: 340px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories & Impact -->
+    <section class="impact-section py-5 theme-transition" role="region" aria-labelledby="impact-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 id="impact-title" class="section-title display-5 fw-bold mb-3">
+                        Protecting East Africa's
+                        <span class="text-gradient">Digital Economy</span>
+                    </h2>
+                    <p class="section-subtitle lead">
+                        Real impact across 14 countries, protecting millions of users and 
+                        billions in digital transactions every day.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="impact-card text-center theme-transition">
+                        <div class="impact-icon" aria-hidden="true">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="impact-number" data-target="400000000" aria-label="400 million people protected">0</div>
+                        <div class="impact-label">People Protected</div>
+                        <div class="impact-description">Across 14 East African countries</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="impact-card text-center theme-transition">
+                        <div class="impact-icon" aria-hidden="true">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="impact-number" data-target="2500000000" aria-label="2.5 billion USD protected">0</div>
+                        <div class="impact-label">USD Protected</div>
+                        <div class="impact-description">In digital transactions secured</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="impact-card text-center theme-transition">
+                        <div class="impact-icon" aria-hidden="true">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="impact-number" data-target="1500000" aria-label="1.5 million threats blocked">0</div>
+                        <div class="impact-label">Threats Blocked</div>
+                        <div class="impact-description">Prevented cyber attacks</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="impact-card text-center theme-transition">
+                        <div class="impact-icon" aria-hidden="true">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="impact-number" data-target="75000" aria-label="75 thousand people trained">0</div>
+                        <div class="impact-label">People Trained</div>
+                        <div class="impact-description">In cybersecurity awareness</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success Stories Carousel -->
+            <div class="success-stories">
+                <h3 class="text-center mb-4">Success Stories</h3>
+                <div class="swiper successStoriesSwiper" role="region" aria-label="Success stories carousel">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="story-card theme-transition">
+                                <div class="story-header">
+                                    <img src="../assets/images/kenya.png" alt="Kenya flag" class="logo">
+                                    <div class="story-meta">
+                                        <h5>Kenya Commercial Bank</h5>
+                                        <small class="text-muted">Nairobi, Kenya</small>
+                                    </div>
+                                </div>
+
+                                <div class="story-content">
+                                    <p>"Africa Shield's AI-powered threat detection helped us prevent a sophisticated 
+                                    ransomware attack that could have compromised 2 million customer accounts."</p>
+                                    <div class="story-stats">
+                                        <span class="badge bg-success">$50M Protected</span>
+                                        <span class="badge bg-info">2M Accounts Secured</span>
+                                    </div>
+                                </div>
+                                <div class="story-footer">
+                                    <strong>Sarah Mwangi</strong>
+                                    <small>Chief Information Security Officer</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="story-card theme-transition">
+                                <div class="story-header">
+                                    <img src="../assets/images/tanzania.png" alt="Tanzania flag" class="logo">
+                                    <div class="story-meta">
+                                        <h5>Vodacom Tanzania</h5>
+                                        <small class="text-muted">Dar es Salaam, Tanzania</small>
+                                    </div>
+                                </div>
+                                <div class="story-content">
+                                    <p>"The mobile money security features have reduced fraud incidents by 95%, 
+                                    protecting our 15 million M-Pesa users across Tanzania."</p>
+                                    <div class="story-stats">
+                                        <span class="badge bg-success">95% Fraud Reduction</span>
+                                        <span class="badge bg-info">15M Users Protected</span>
+                                    </div>
+                                </div>
+                                <div class="story-footer">
+                                    <strong>James Kilimo</strong>
+                                    <small>Head of Digital Security</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="story-card theme-transition">
+                                <div class="story-header">
+                                    <img src="../assets/images/rwanda.png" alt="Rwanda flag" class="logo">
+                                    <div class="story-meta">
+                                        <h5>Rwanda Development Board</h5>
+                                        <small class="text-muted">Kigali, Rwanda</small>
+                                    </div>
+                                </div>
+                                <div class="story-content">
+                                    <p>"Africa Shield's training programs have equipped 5,000 government employees 
+                                    with essential cybersecurity skills, strengthening our digital governance."</p>
+                                    <div class="story-stats">
+                                        <span class="badge bg-success">5K Employees Trained</span>
+                                        <span class="badge bg-info">100% Completion Rate</span>
+                                    </div>
+                                </div>
+                                <div class="story-footer">
+                                    <strong>Marie Uwimana</strong>
+                                    <small>Director of ICT</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next" aria-label="Next slide"></div>
+                    <div class="swiper-button-prev" aria-label="Previous slide"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News & Updates -->
+    <section class="news-section py-5 bg-light theme-transition" role="region" aria-labelledby="news-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 id="news-title" class="section-title display-5 fw-bold mb-3">
+                        Latest Cybersecurity
+                        <span class="text-gradient">Intelligence</span>
+                    </h2>
+                    <p class="section-subtitle lead">
+                        Stay informed with the latest threat intelligence, security updates, 
+                        and cybersecurity news from across East Africa.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="news-grid">
+                        <article class="news-card featured theme-transition">
+                            <div class="news-image">
+                                <img src="../assets/images/news.jpg" alt="Mobile banking security threat visualization" class="img-fluid">
+                                <div class="news-category">THREAT ALERT</div>
+                            </div>
+                            <div class="news-content">
+                                <div class="news-meta">
+                                    <span class="news-date">
+                                        <i class="fas fa-calendar me-1" aria-hidden="true"></i>
+                                        <time datetime="2025-01-15">January 15, 2025</time>
+                                    </span>
+                                    <span class="news-author">
+                                        <i class="fas fa-user me-1" aria-hidden="true"></i>
+                                        Africa Shield SOC Team
+                                    </span>
+                                </div>
+                                <h3 class="news-title">
+                                    <a href="../Blog/post-1.html">New Mobile Banking Trojan Targeting East African Financial Institutions</a>
+                                </h3>
+                                <p class="news-excerpt">
+                                    Our SOC team has identified a sophisticated mobile banking trojan specifically 
+                                    targeting popular mobile money applications across Kenya, Tanzania, and Uganda. 
+                                    Immediate protective measures are recommended.
+                                </p>
+                                <div class="news-actions">
+                                    <a href="../Blog/post-1.html" class="btn btn-primary">Read Full Alert</a>
+                                    <div class="news-engagement">
+                                        <span class="engagement-item">
+                                            <i class="fas fa-eye me-1" aria-hidden="true"></i>2,456 views
+                                        </span>
+                                        <span class="engagement-item">
+                                            <i class="fas fa-share me-1" aria-hidden="true"></i>89 shares
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <div class="news-list">
+                            <article class="news-item theme-transition">
+                                <div class="news-item-content">
+                                    <div class="news-meta">
+                                        <span class="badge bg-info">UPDATE</span>
+                                        <span class="news-date"><time datetime="2025-01-14">Jan 14, 2025</time></span>
+                                    </div>
+                                    <h5 class="news-title">
+                                        <a href="../Blog/post-2.html">Africa Shield SOC Expands Coverage to Include Comoros</a>
+                                    </h5>
+                                    <p class="news-excerpt">
+                                        Our 24/7 monitoring now covers all 14 East African countries, 
+                                        providing comprehensive cybersecurity protection.
+                                    </p>
+                                </div>
+                                <div class="news-item-image">
+                                    <img src="../assets/images/expansion.jpg" alt="SOC expansion to Comoros" class="img-fluid">
+                                </div>
+                            </article>
+
+                            <article class="news-item theme-transition">
+                                <div class="news-item-content">
+                                    <div class="news-meta">
+                                        <span class="badge bg-success">TRAINING</span>
+                                        <span class="news-date"><time datetime="2025-01-13">Jan 13, 2025</time></span>
+                                    </div>
+                                    <h5 class="news-title">
+                                        <a href="../Blog/post-3.html">Free Cybersecurity Certification Program Launches</a>
+                                    </h5>
+                                    <p class="news-excerpt">
+                                        New certification program offers free cybersecurity training 
+                                        in English, French, Swahili, and Kinyarwanda.
+                                    </p>
+                                </div>
+                                <div class="news-item-image">
+                                    <img src="../assets/images/training.jpg" alt="Cybersecurity training program" class="img-fluid">
+                                </div>
+                            </article>
+
+                            <article class="news-item theme-transition">
+                                <div class="news-item-content">
+                                    <div class="news-meta">
+                                        <span class="badge bg-warning">ADVISORY</span>
+                                        <span class="news-date"><time datetime="2025-01-12">Jan 12, 2025</time></span>
+                                    </div>
+                                    <h5 class="news-title">
+                                        <a href="../Blog/post-4.html">Mobile Money Security: Best Practices for Users</a>
+                                    </h5>
+                                    <p class="news-excerpt">
+                                        Essential security tips to protect your mobile money transactions 
+                                        from fraud and unauthorized access.
+                                    </p>
+                                </div>
+                                <div class="news-item-image">
+                                    <img src="../assets/images/mobile.jpg" alt="Mobile money security tips" class="img-fluid">
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sidebar-widgets">
+                        <!-- Threat Level Widget -->
+                        <div class="widget threat-level-widget theme-transition">
+                            <h6 class="widget-title">
+                                <i class="fas fa-thermometer-half me-2" aria-hidden="true"></i>
+                                Current Threat Level
+                            </h6>
+                            <div class="threat-level-indicator">
+                                <div class="threat-level-meter" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Threat level meter">
+                                    <div class="threat-level-fill" data-level="medium"></div>
+                                </div>
+                                <div class="threat-level-info">
+                                    <div class="threat-level-status">MEDIUM</div>
+                                    <div class="threat-level-description">
+                                        Elevated threat activity detected. Maintain standard security protocols.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="threat-level-details">
+                                <small class="text-muted">
+                                    Last updated: <span id="threatLevelUpdate">2 minutes ago</span>
+                                </small>
+                            </div>
+                        </div>
+
+                        <!-- Quick Stats Widget -->
+                        <div class="widget stats-widget theme-transition">
+                            <h6 class="widget-title">
+                                <i class="fas fa-chart-bar me-2" aria-hidden="true"></i>
+                                Today's Statistics
+                            </h6>
+                            <div class="stats-list">
+                                <div class="stat-row">
+                                    <span class="stat-label">Threats Blocked</span>
+                                    <span class="stat-value" id="widgetThreatsBlocked" aria-label="Threats blocked today">0</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Reports Received</span>
+                                    <span class="stat-value" id="widgetReportsReceived" aria-label="Reports received today">0</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Incidents Resolved</span>
+                                    <span class="stat-value" id="widgetIncidentsResolved" aria-label="Incidents resolved today">0</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-label">Users Trained</span>
+                                    <span class="stat-value" id="widgetUsersTrained" aria-label="Users trained today">0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Emergency Contacts Widget -->
+                        <div class="widget emergency-widget theme-transition">
+                            <h6 class="widget-title">
+                                <i class="fas fa-phone-alt me-2" aria-hidden="true"></i>
+                                Emergency Contacts
+                            </h6>
+                            <div class="emergency-contacts">
+                                <div class="emergency-contact">
+                                    <div class="contact-info">
+                                        <strong>Cyber Incident Response</strong>
+                                        <div class="contact-number">*789*911#</div>
+                                    </div>
+                                    <button class="btn btn-danger btn-sm" onclick="window.open('tel:*789*911#')" aria-label="Call cyber incident response">
+                                        <i class="fas fa-phone" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <div class="emergency-contact">
+                                    <div class="contact-info">
+                                        <strong>SOC Hotline</strong>
+                                        <div class="contact-number">+254-700-SHIELD</div>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm" onclick="window.open('tel:+254700744353')" aria-label="Call SOC hotline">
+                                        <i class="fas fa-phone" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <div class="emergency-contact">
+                                    <div class="contact-info">
+                                        <strong>Email Support</strong>
+                                        <div class="contact-number">soc@africashield.org</div>
+                                    </div>
+                                    <button class="btn btn-info btn-sm" onclick="window.open('mailto:soc@africashield.org')" aria-label="Email SOC support">
+                                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Newsletter Signup -->
+                        <div class="widget newsletter-widget theme-transition">
+                            <h6 class="widget-title">
+                                <i class="fas fa-envelope me-2" aria-hidden="true"></i>
+                                Security Alerts
+                            </h6>
+                            <p class="widget-description">
+                                Get real-time security alerts and threat intelligence updates.
+                            </p>
+                            <form class="newsletter-form" id="newsletterForm">
+                                <div class="input-group">
+                                    <label for="newsletterEmail" class="visually-hidden">Email address for security alerts</label>
+                                    <input type="email" id="newsletterEmail" class="form-control" placeholder="Your email address" required aria-describedby="newsletter-help">
+                                    <button class="btn btn-primary" type="submit" aria-label="Subscribe to security alerts">
+                                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <small id="newsletter-help" class="form-text text-muted mt-2">
+                                    We'll never share your email. Unsubscribe anytime.
+                                </small>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section py-5 bg-primary text-white theme-transition" role="region" aria-labelledby="cta-title">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="cta-content">
+                        <h2 id="cta-title" class="cta-title display-6 fw-bold mb-3">
+                            Ready to Secure Your Digital Future?
+                        </h2>
+                        <p class="cta-description lead mb-0">
+                            Join over 400 million people across East Africa who trust Africa Shield 
+                            to protect their digital lives. Start your cybersecurity journey today.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <div class="cta-actions">
+                        <a href="../Admin/register.html" class="btn btn-light btn-lg me-3 mb-2">
+                            <i class="fas fa-user-plus me-2" aria-hidden="true"></i>
+                            Get Started Free
+                        </a>
+                        <a href="../Contact/contact.html" class="btn btn-outline-light btn-lg mb-2">
+                            <i class="fas fa-comments me-2" aria-hidden="true"></i>
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Section -->
+    <section class="partnership-section py-5 bg-light theme-transition" role="region" aria-labelledby="partners-title">
+        <div class="container">
+            <div class="row align-items-center mb-4">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 id="partners-title" class="section-title display-5 fw-bold mb-3">
+                        Our <span class="text-gradient">Partners</span>
+                    </h2>
+                    <p class="section-subtitle lead">
+                        Africa Shield Cyber Centre is proud to collaborate with leading organizations, governments, and technology innovators across Africa and the globe.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4 justify-content-center align-items-center">
+                <div class="col-6 col-md-3 text-center">
+                    <img src="../assets/images/eac-logo.png" alt="East African Community logo" class="img-fluid mb-2" style="max-height: 60px;">
+                    <div class="fw-bold">East Africa Community</div>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <img src="../assets/images/rwanda.png" alt="African Union logo" class="img-fluid mb-2" style="max-height: 60px;">
+                    <div class="fw-bold">RDB</div>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <img src="../assets/images/MTN.png" alt="United Nations logo" class="img-fluid mb-2" style="max-height: 60px;">
+                    <div class="fw-bold">MTN</div>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <img src="../assets/images/mpesa.png" alt="M-Pesa logo" class="img-fluid mb-2" style="max-height: 60px;">
+                    <div class="fw-bold">M-Pesa</div>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <img src="../assets/images/G.png" alt="Google logo" class="img-fluid mb-2" style="max-height: 60px;">
+                    <div class="fw-bold"> Google</div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <a href="../Partners/index.html" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-handshake me-2" aria-hidden="true"></i>See All Partners
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Report Modal -->
+    <div class="modal fade" id="quickReportModal" tabindex="-1" aria-labelledby="quickReportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content theme-transition">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quickReportModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2" aria-hidden="true"></i>
+                        Quick Threat Report
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="quickReportForm">
+                        <div class="mb-3">
+                            <label for="quickThreatType" class="form-label">Threat Type</label>
+                            <select class="form-select" id="quickThreatType" required aria-describedby="threat-type-help">
+                                <option value="">Select threat type...</option>
+                                <option value="phishing">Phishing Attack</option>
+                                <option value="malware">Malware/Virus</option>
+                                <option value="fraud">Financial Fraud</option>
+                                <option value="data_breach">Data Breach</option>
+                                <option value="mobile_fraud">Mobile Money Fraud</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div id="threat-type-help" class="form-text">Select the type of cybersecurity threat you want to report.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quickDescription" class="form-label">Brief Description</label>
+                            <textarea class="form-control" id="quickDescription" rows="3" 
+                                    placeholder="Describe the incident briefly..." required aria-describedby="description-help"></textarea>
+                            <div id="description-help" class="form-text">Provide a brief description of what happened.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quickUrgency" class="form-label">Urgency Level</label>
+                            <select class="form-select" id="quickUrgency" required aria-describedby="urgency-help">
+                                <option value="">Select urgency...</option>
+                                <option value="low">Low - Can wait</option>
+                                <option value="medium">Medium - Within 24 hours</option>
+                                <option value="high">High - Within 4 hours</option>
+                                <option value="critical">Critical - Immediate attention</option>
+                            </select>
+                            <div id="urgency-help" class="form-text">How quickly do you need assistance?</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quickContact" class="form-label">Contact Information</label>
+                            <input type="text" class="form-control" id="quickContact" 
+                                   placeholder="Phone number or email" required aria-describedby="contact-help">
+                            <div id="contact-help" class="form-text">How can we reach you for follow-up?</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" onclick="submitQuickReport()">
+                        <i class="fas fa-paper-plane me-1" aria-hidden="true"></i>
+                        Submit Report
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo Video Modal -->
+    <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content theme-transition">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="demoModalLabel">
+                        <i class="fas fa-play me-2" aria-hidden="true"></i>
+                        Africa Shield Platform Demo
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="demoVideo" src="" title="Africa Shield Platform Demo Video" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="../Admin/register.html" class="btn btn-primary">
+                        <i class="fas fa-user-plus me-1" aria-hidden="true"></i>
+                        Start Free Trial
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer bg-dark text-white theme-transition" role="contentinfo">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="row py-5">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/images/logo.png" width="50" height="50" alt="Africa Shield Logo" class="mb-3">
+                        <h5 class="fw-bold">Africa Shield Cyber Centre</h5>
+                        <p class="footer-description">
+                            Protecting East Africa's digital ecosystem through advanced AI-powered 
+                            cybersecurity solutions, community-driven threat intelligence, and 
+                            comprehensive security education.
+                        </p>
+                        <div class="social-links" role="group" aria-label="Social media links">
+                            <a href="#" class="social-link" title="Facebook" aria-label="Follow us on Facebook">
+                                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Twitter" aria-label="Follow us on Twitter">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="social-link" title="LinkedIn" aria-label="Follow us on LinkedIn">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="social-link" title="YouTube" aria-label="Subscribe to our YouTube channel">
+                                <i class="fab fa-youtube" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Telegram" aria-label="Join our Telegram channel">
+                                <i class="fab fa-telegram-plane" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="footer-title">Platform</h6>
+                    <ul class="footer-links" role="list">
+                        <li><a href="../Dashboard/index.html">Dashboard</a></li>
+                        <li><a href="../SOC/index.html">SOC Monitor</a></li>
+                        <li><a href="../Report/report.html">Report Threats</a></li>
+                        <li><a href="../Scan/index.html">Security Scan</a></li>
+                        <li><a href="../Tools/index.html">Security Tools</a></li>
+                        <li><a href="../Mobile/index.html">Mobile Security</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="footer-title">Learning</h6>
+                    <ul class="footer-links" role="list">
+                        <li><a href="../Learn/learn.html">Courses</a></li>
+                        <li><a href="../Learn/certifications.html">Certifications</a></li>
+                        <li><a href="../Games/index.html">Security Games</a></li>
+                        <li><a href="../Webinars/index.html">Webinars</a></li>
+                        <li><a href="../Resources/index.html">Resources</a></li>
+                        <li><a href="../Blog/index.html">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="footer-title">Community</h6>
+                    <ul class="footer-links" role="list">
+                        <li><a href="../Events/event.html">Events</a></li>
+                        <li><a href="../Jobs/work.html">Careers</a></li>
+                        <li><a href="../Partners/index.html">Partners</a></li>
+                        <li><a href="../Forum/index.html">Forum</a></li>
+                        <li><a href="../Volunteer/index.html">Volunteer</a></li>
+                        <li><a href="../Contribute/index.html">Contribute</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="footer-title">Support</h6>
+                    <ul class="footer-links" role="list">
+                        <li><a href="../Help/index.html">Help Center</a></li>
+                        <li><a href="../Contact/contact.html">Contact Us</a></li>
+                        <li><a href="../About/about.html">About Us</a></li>
+                        <li><a href="../Privacy/index.html">Privacy Policy</a></li>
+                        <li><a href="../Terms/index.html">Terms of Service</a></li>
+                        <li><a href="../Security/index.html">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Emergency Contact Bar -->
+            <div class="emergency-footer-bar">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-shield-alt text-danger me-3 fa-2x" aria-hidden="true"></i>
+                            <div>
+                                <h6 class="mb-1 text-danger">24/7 Cyber Emergency Response</h6>
+                                <p class="mb-0 small">Report critical cybersecurity incidents immediately</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        <div class="emergency-contacts">
+                            <a href="tel:*789*911#" class="btn btn-danger me-2" aria-label="Call emergency cyber response">
+                                <i class="fas fa-phone me-1" aria-hidden="true"></i>
+                                *789*911#
+                            </a>
+                            <a href="mailto:emergency@africashield.org" class="btn btn-outline-light" aria-label="Email emergency support">
+                                <i class="fas fa-envelope me-1" aria-hidden="true"></i>
+                                Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0 small">
+                            &copy; 2025 Africa Shield Cyber Centre. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="footer-certifications">
+                            <span class="certification-badge">ISO 27001</span>
+                            <span class="certification-badge">SOC 2 Type II</span>
+                            <span class="certification-badge">GDPR Compliant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" title="Back to top" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent theme-transition" style="display: none;" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-description">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <p id="cookie-description" class="mb-0">
+                        <i class="fas fa-cookie-bite me-2" aria-hidden="true"></i>
+                        We use cookies to enhance your experience and provide personalized security recommendations. 
+                        <a href="../Privacy/cookies.html" class="text-white">Learn more</a>
+                    </p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <button type="button" class="btn btn-outline-light btn-sm me-2" onclick="acceptCookies()">
+                        Accept All
+                    </button>
+                    <button type="button" class="btn btn-light btn-sm" onclick="manageCookies()">
+                        Manage
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PWA Install Prompt -->
+    <div id="pwaInstallPrompt" class="pwa-install-prompt theme-transition" style="display: none;" role="dialog" aria-labelledby="pwa-title">
+        <div class="pwa-prompt-content">
+            <div class="pwa-prompt-icon" aria-hidden="true">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="pwa-prompt-text">
+                <h6 id="pwa-title">Install Africa Shield App</h6>
+                <p>Get instant access to cybersecurity tools and alerts</p>
+            </div>
+            <div class="pwa-prompt-actions">
+                <button type="button" class="btn btn-primary btn-sm" onclick="installPWA()">Install</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" onclick="dismissPWA()">Later</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('../sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "CLARITY_PROJECT_ID");
+    </script>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Africa Shield Cyber Centre",
+        "url": "https://africashield.org",
+        "logo": "https://africashield.org/assets/images/logo.png",
+        "description": "Leading cybersecurity platform protecting East Africa's digital ecosystem through AI-powered threat detection and community-driven security solutions.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "Kenya",
+            "addressRegion": "Nairobi"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "*789*911#",
+            "contactType": "Emergency Support",
+            "availableLanguage": ["English", "French", "Swahili", "Kinyarwanda"]
+        },
+        "sameAs": [
+            "https://facebook.com/africashield",
+            "https://twitter.com/africashield",
+            "https://linkedin.com/company/africashield"
+        ]
+    }
+    </script>
+
+    <!-- Floating AI Assistant Button & Chat Panel -->
+    <button id="aiAssistantBtn" class="ai-assistant-btn theme-transition" aria-label="Open AI Assistant Chat" title="AI Assistant" tabindex="0">
+        <span class="visually-hidden">Open AI Assistant Chat</span>
+        <i class="fas fa-robot" aria-hidden="true"></i>
+    </button>
+    
+    <div id="aiAssistantChat" class="ai-assistant-chat theme-transition" role="dialog" aria-modal="true" aria-labelledby="aiAssistantTitle" tabindex="-1" style="display: none;">
+        <div class="ai-chat-header">
+            <span id="aiAssistantTitle" class="fw-bold">
+                <i class="fas fa-robot me-2" aria-hidden="true"></i>AI Assistant
+            </span>
+            <button type="button" class="btn-close" aria-label="Close chat" id="closeAiAssistant"></button>
+        </div>
+        <div class="ai-chat-body" id="aiChatBody" tabindex="0" aria-live="polite" aria-label="Chat conversation">
+            <div class="ai-message ai-message-assistant">
+                <span class="ai-avatar" aria-hidden="true">
+                    <i class="fas fa-robot"></i>
+                </span>
+                <div class="ai-bubble">Hello! I'm your AI cybersecurity assistant. How can I help you stay safe online today?</div>
+            </div>
+        </div>
+        <form class="ai-chat-input" id="aiChatForm" autocomplete="off">
+            <label for="aiUserInput" class="visually-hidden">Type your message to AI assistant</label>
+            <input type="text" id="aiUserInput" name="aiUserInput" class="form-control" placeholder="Ask me about cybersecurity..." aria-label="Type your message to AI assistant" required />
+            <button type="submit" class="btn btn-primary" aria-label="Send message to AI assistant">
+                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- AI Assistant Script -->
+     <script src="../assets/js/main.js"></script>
+<script src="../assets/js/sw.js"></script>
+    <script src="../assets/js/toast.js"></script>
+    <script src="../assets/js/home.js"></script>
+    
+    <!-- Enhanced JavaScript for Accessibility and Performance -->
+    <script>
+        // Enhanced counter animation with accessibility
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number, .impact-number');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.getAttribute('data-target')) || 0;
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+                        
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+                            
+                            // Format large numbers
+                            let displayValue = Math.floor(current);
+                            if (displayValue >= 1000000000) {
+                                displayValue = (displayValue / 1000000000).toFixed(1) + 'B';
+                            } else if (displayValue >= 1000000) {
+                                displayValue = (displayValue / 1000000).toFixed(1) + 'M';
+                            } else if (displayValue >= 1000) {
+                                displayValue = (displayValue / 1000).toFixed(1) + 'K';
+                            }
+                            
+                            counter.textContent = displayValue;
+                        }, 16);
+                        
+                        observer.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        // Initialize real-time data updates
+        function initializeRealTimeUpdates() {
+            // Simulate real-time threat data
+            setInterval(() => {
+                const elements = [
+                    'heroThreatsBlocked',
+                    'liveThreatCount',
+                    'previewActiveThreats',
+                    'widgetThreatsBlocked'
+                ];
+                
+                elements.forEach(id => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        const current = parseInt(element.textContent) || 0;
+                        const increment = Math.floor(Math.random() * 5) + 1;
+                        element.textContent = current + increment;
+                    }
+                });
+                
+                // Update last update time
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('en-US', { 
+                    hour12: false, 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                });
+                
+                const updateElement = document.getElementById('socLastUpdate');
+                if (updateElement) {
+                    updateElement.textContent = timeString;
+                }
+            }, 30000); // Update every 30 seconds
+        }
+
+        // Enhanced theme management
+        function initializeThemeSystem() {
+            const themeToggle = document.getElementById('themeToggle');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+            
+            function setTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+                
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'dark') {
+                    icon.className = 'fas fa-moon';
+                    themeToggle.setAttribute('title', 'Switch to light theme');
+                } else {
+                    icon.className = 'fas fa-sun';
+                    themeToggle.setAttribute('title', 'Switch to dark theme');
+                }
+            }
+            
+            // Initialize theme
+            const savedTheme = localStorage.getItem('theme') || 
+                              (prefersDark.matches ? 'dark' : 'light');
+            setTheme(savedTheme);
+            
+            // Theme toggle event
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+            });
+            
+            // Listen for system theme changes
+            prefersDark.addEventListener('change', (e) => {
+                if (!localStorage.getItem('theme')) {
+                    setTheme(e.matches ? 'dark' : 'light');
+                }
+            });
+        }
+
+        // Enhanced accessibility features
+        function initializeAccessibility() {
+            // Font size controls
+            const decreaseBtn = document.getElementById('decreaseFontSize');
+            const resetBtn = document.getElementById('resetFontSize');
+            const increaseBtn = document.getElementById('increaseFontSize');
+            const contrastToggle = document.getElementById('contrastToggle');
+            
+            let currentFontSize = 100;
+            
+            function updateFontSize(size) {
+                document.documentElement.style.fontSize = size + '%';
+                localStorage.setItem('fontSize', size);
+                currentFontSize = size;
+            }
+            
+            // Load saved font size
+            const savedFontSize = localStorage.getItem('fontSize');
+            if (savedFontSize) {
+                updateFontSize(parseInt(savedFontSize));
+            }
+            
+            decreaseBtn.addEventListener('click', () => {
+                if (currentFontSize > 80) {
+                    updateFontSize(currentFontSize - 10);
+                }
+            });
+            
+            resetBtn.addEventListener('click', () => {
+                updateFontSize(100);
+            });
+            
+            increaseBtn.addEventListener('click', () => {
+                if (currentFontSize < 150) {
+                    updateFontSize(currentFontSize + 10);
+                }
+            });
+            
+            // High contrast toggle
+            contrastToggle.addEventListener('click', () => {
+                document.body.classList.toggle('high-contrast');
+                const isHighContrast = document.body.classList.contains('high-contrast');
+                localStorage.setItem('highContrast', isHighContrast);
+                contrastToggle.setAttribute('title', 
+                    isHighContrast ? 'Disable high contrast' : 'Enable high contrast'
+                );
+            });
+            
+            // Load saved contrast setting
+            if (localStorage.getItem('highContrast') === 'true') {
+                document.body.classList.add('high-contrast');
+            }
+        }
+
+        // Initialize all features when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            animateCounters();
+            initializeRealTimeUpdates();
+            initializeThemeSystem();
+            initializeAccessibility();
+            
+            // Initialize Swiper for success stories
+            if (typeof Swiper !== 'undefined') {
+                new Swiper('.successStoriesSwiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    loop: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                        }
+                    },
+                    a11y: {
+                        prevSlideMessage: 'Previous success story',
+                        nextSlideMessage: 'Next success story',
+                        paginationBulletMessage: 'Go to success story {{index}}'
+                    }
+                });
+            }
+            
+            // Back to top functionality
+            const backToTopBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.style.display = 'block';
+                } else {
+                    backToTopBtn.style.display = 'none';
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Global functions for modal interactions
+        function submitQuickReport() {
+            const form = document.getElementById('quickReportForm');
+            const formData = new FormData(form);
+            
+            // Here you would typically send the data to your backend
+            console.log('Quick report submitted:', Object.fromEntries(formData));
+            
+            // Show success message
+            alert('Thank you for your report. Our SOC team will investigate immediately.');
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('quickReportModal'));
+            modal.hide();
+            
+            // Reset form
+            form.reset();
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieConsent').style.display = 'none';
+        }
+
+        function manageCookies() {
+            // Redirect to cookie management page
+            window.location.href = '../Privacy/cookies.html';
+        }
+
+        function installPWA() {
+            // PWA installation logic would go here
+            console.log('PWA installation triggered');
+            document.getElementById('pwaInstallPrompt').style.display = 'none';
+        }
+
+        function dismissPWA() {
+            document.getElementById('pwaInstallPrompt').style.display = 'none';
+            localStorage.setItem('pwaDismissed', 'true');
+        }
+
+        // Show cookie consent if not already accepted
+        if (!localStorage.getItem('cookiesAccepted')) {
+            setTimeout(() => {
+                document.getElementById('cookieConsent').style.display = 'block';
+            }, 2000);
+        }
+
+        // Show PWA install prompt if applicable
+        if (!localStorage.getItem('pwaDismissed') && 'serviceWorker' in navigator) {
+            setTimeout(() => {
+                document.getElementById('pwaInstallPrompt').style.display = 'block';
+            }, 10000);
+        }
+
+        // Enhanced error handling and performance monitoring
+        window.addEventListener('error', function(e) {
+            console.error('JavaScript error:', e.error);
+            // In production, you might want to send this to an error tracking service
+        });
+
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            if ('performance' in window) {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log('Page load time:', loadTime + 'ms');
+                
+                // Report performance metrics to analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'timing_complete', {
+                        name: 'load',
+                        value: loadTime
+                    });
+                }
+            }
+        });
+
+        // Enhanced keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            // ESC key closes modals and panels
+            if (e.key === 'Escape') {
+                // Close AI assistant if open
+                const aiChat = document.getElementById('aiAssistantChat');
+                if (aiChat.style.display !== 'none') {
+                    aiChat.style.display = 'none';
+                }
+                
+                // Close notification panel if open
+                const notificationPanel = document.getElementById('notificationPanel');
+                if (notificationPanel && notificationPanel.style.display !== 'none') {
+                    notificationPanel.style.display = 'none';
+                }
+                
+                // Close SOC widget if open
+                const socWidget = document.getElementById('socStatusWidget');
+                if (socWidget && socWidget.style.display !== 'none') {
+                    socWidget.style.display = 'none';
+                }
+            }
+            
+            // Ctrl/Cmd + K opens search (if implemented)
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                // Open search functionality
+                console.log('Search shortcut triggered');
+            }
+        });
+
+        // Enhanced form validation
+        function validateQuickReportForm() {
+            const form = document.getElementById('quickReportForm');
+            const threatType = document.getElementById('quickThreatType').value;
+            const description = document.getElementById('quickDescription').value;
+            const urgency = document.getElementById('quickUrgency').value;
+            const contact = document.getElementById('quickContact').value;
+            
+            let isValid = true;
+            let errors = [];
+            
+            if (!threatType) {
+                errors.push('Please select a threat type');
+                isValid = false;
+            }
+            
+            if (!description || description.length < 10) {
+                errors.push('Please provide a description of at least 10 characters');
+                isValid = false;
+            }
+            
+            if (!urgency) {
+                errors.push('Please select an urgency level');
+                isValid = false;
+            }
+            
+            if (!contact) {
+                errors.push('Please provide contact information');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                alert('Please fix the following errors:\n' + errors.join('\n'));
+            }
+            
+            return isValid;
+        }
+
+        // Update submitQuickReport to include validation
+        function submitQuickReport() {
+            if (!validateQuickReportForm()) {
+                return;
+            }
+            
+            const form = document.getElementById('quickReportForm');
+            const formData = {
+                threatType: document.getElementById('quickThreatType').value,
+                description: document.getElementById('quickDescription').value,
+                urgency: document.getElementById('quickUrgency').value,
+                contact: document.getElementById('quickContact').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Show loading state
+            const submitBtn = event.target;
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i>Submitting...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Here you would typically send the data to your backend
+                console.log('Quick report submitted:', formData);
+                
+                // Show success message
+                alert('Thank you for your report. Our SOC team will investigate immediately. Reference ID: QR-' + Date.now());
+                
+                // Close modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('quickReportModal'));
+                modal.hide();
+                
+                // Reset form and button
+                form.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Track event in analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'quick_report_submitted', {
+                        threat_type: formData.threatType,
+                        urgency: formData.urgency
+                    });
+                }
+            }, 2000);
+        }
+
+        // Newsletter form handling
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('newsletterEmail').value;
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalHTML = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                alert('Thank you for subscribing to our security alerts!');
+                this.reset();
+                submitBtn.innerHTML = originalHTML;
+                submitBtn.disabled = false;
+                
+                // Track subscription in analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'newsletter_signup', {
+                        method: 'footer_widget'
+                    });
+                }
+            }, 1500);
+        });
+
+        // Enhanced SOC widget functionality
+        function toggleSocWidget() {
+            const widget = document.getElementById('socStatusWidget');
+            const isVisible = widget.style.display !== 'none';
+            
+            if (isVisible) {
+                widget.style.display = 'none';
+            } else {
+                widget.style.display = 'block';
+                updateSocWidgetData();
+            }
+        }
+
+        function updateSocWidgetData() {
+            // Simulate real-time SOC data updates
+            const elements = {
+                'socThreatsBlocked': Math.floor(Math.random() * 1000) + 5000,
+                'socActiveMonitoring': 14,
+                'socResponseTime': (Math.random() * 2 + 1).toFixed(1) + 'm',
+                'socSystemHealth': (99 + Math.random()).toFixed(1) + '%'
+            };
+            
+            Object.entries(elements).forEach(([id, value]) => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.textContent = value;
+                }
+            });
+            
+            // Update recent alerts
+            const alertsContainer = document.getElementById('socRecentAlerts');
+            if (alertsContainer) {
+                const alerts = [
+                    { type: 'warning', message: 'Phishing attempt blocked - Kenya', time: '2 min ago' },
+                    { type: 'info', message: 'System update completed', time: '15 min ago' },
+                    { type: 'success', message: 'Malware signature updated', time: '1 hour ago' }
+                ];
+                
+                alertsContainer.innerHTML = alerts.map(alert => `
+                    <div class="soc-alert soc-alert-${alert.type}">
+                        <div class="soc-alert-message">${alert.message}</div>
+                        <div class="soc-alert-time">${alert.time}</div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function closeSocWidget() {
+            document.getElementById('socStatusWidget').style.display = 'none';
+        }
+
+        // Notification panel functionality
+        function toggleNotificationPanel() {
+            const panel = document.getElementById('notificationPanel');
+            const isVisible = panel.style.display !== 'none';
+            
+            if (isVisible) {
+                panel.style.display = 'none';
+            } else {
+                panel.style.display = 'block';
+                updateNotificationPanel();
+            }
+        }
+
+        function updateNotificationPanel() {
+            const notificationList = document.getElementById('notificationList');
+            if (notificationList) {
+                const notifications = [
+                    {
+                        type: 'alert',
+                        title: 'Security Alert',
+                        message: 'New phishing campaign detected targeting mobile banking apps',
+                        time: '5 minutes ago',
+                        unread: true
+                    },
+                    {
+                        type: 'update',
+                        title: 'System Update',
+                        message: 'Threat detection algorithms have been updated',
+                        time: '1 hour ago',
+                        unread: true
+                    },
+                    {
+                        type: 'info',
+                        title: 'Training Available',
+                        message: 'New cybersecurity course: "Mobile Security Essentials"',
+                        time: '3 hours ago',
+                        unread: false
+                    }
+                ];
+                
+                notificationList.innerHTML = notifications.map(notif => `
+                    <div class="notification-item ${notif.unread ? 'unread' : ''}">
+                        <div class="notification-icon notification-${notif.type}">
+                            <i class="fas fa-${notif.type === 'alert' ? 'exclamation-triangle' : notif.type === 'update' ? 'sync' : 'info-circle'}"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-title">${notif.title}</div>
+                            <div class="notification-message">${notif.message}</div>
+                            <div class="notification-time">${notif.time}</div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                // Update notification count
+                const unreadCount = notifications.filter(n => n.unread).length;
+                const countBadge = document.getElementById('notificationCount');
+                if (countBadge) {
+                    if (unreadCount > 0) {
+                        countBadge.textContent = unreadCount;
+                        countBadge.style.display = 'block';
+                    } else {
+                        countBadge.style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        function closeNotificationPanel() {
+            document.getElementById('notificationPanel').style.display = 'none';
+        }
+
+        function markAllAsRead() {
+            const unreadItems = document.querySelectorAll('.notification-item.unread');
+            unreadItems.forEach(item => item.classList.remove('unread'));
+            
+            const countBadge = document.getElementById('notificationCount');
+            if (countBadge) {
+                countBadge.style.display = 'none';
+            }
+        }
+
+        // Event listeners for SOC and notification toggles
+        document.addEventListener('DOMContentLoaded', function() {
+            const socToggle = document.getElementById('socStatusToggle');
+            const notificationToggle = document.getElementById('notificationToggle');
+            
+            if (socToggle) {
+                socToggle.addEventListener('click', toggleSocWidget);
+            }
+            
+            if (notificationToggle) {
+                notificationToggle.addEventListener('click', toggleNotificationPanel);
+            }
+            
+            // Initialize notification count
+            updateNotificationPanel();
+        });
+    </script>
+
+    <!-- Additional Performance Optimizations -->
+    <script>
+        // Lazy loading for images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Preload critical resources
+        function preloadCriticalResources() {
+            const criticalResources = [
+                '../assets/css/home.css',
+                '../assets/js/main.js',
+                '../assets/js/chatbot.js'
+            ];
+            
+            criticalResources.forEach(resource => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.href = resource;
+                link.as = resource.endsWith('.css') ? 'style' : 'script';
+                document.head.appendChild(link);
+            });
+        }
+        
+        // Initialize preloading
+        preloadCriticalResources();
+    </script>
+
+</body>
+</html>
+
+
+
+
