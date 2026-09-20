@@ -23,4 +23,4 @@ HTML · CSS · JavaScript · PHP
 
 ## Author
 
-[Arnold Rurangwa](https://github.com/Arnold-RG) — Computer Engineer
+Arnold Rurangwa · ARNOVA Group · Computer Engineer
