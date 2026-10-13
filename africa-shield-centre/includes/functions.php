@@ -437,7 +437,7 @@ function formatFileSize($bytes, $precision = 2) {
 function validateFileUpload($file, $allowedExtensions = null, $maxSize = null) {
     // Use default values if not specified
     if ($allowedExtensions === null) {
-        $allowedExtensions = explode(',', ALLOWED_EXTENSIONS);
+        $allowedExtensions = ALLOWED_EXTENSIONS;
     }
     
     if ($maxSize === null) {

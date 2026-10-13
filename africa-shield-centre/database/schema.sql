@@ -80,13 +80,7 @@ CREATE TABLE login_attempts (
     INDEX idx_attempted_at (attempted_at)
 );
 
--- Insert default admin user (password: admin123)
-INSERT INTO users (first_name, last_name, email, password_hash, user_type, email_verified, status) 
-VALUES ('System', 'Administrator', 'admin@africashield.org', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', TRUE, 'active');
-
--- Insert default user (password: user123)
-INSERT INTO users (first_name, last_name, email, password_hash, user_type, email_verified, status) 
-VALUES ('Demo', 'User', 'user@africashield.org', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'user', TRUE, 'active');
+-- Create the first administrator locally. Do not commit a password.
 
 -- Report Types Table
 CREATE TABLE report_types (

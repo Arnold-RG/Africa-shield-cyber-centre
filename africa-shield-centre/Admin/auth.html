@@ -1,237 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Africa Shield Cyber Centre - Login</title>
-    <link rel="stylesheet" href="../assets/css/auth.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Account · Africa Shield Cyber Centre</title>
+<meta name="description" content="The public site does not store accounts.">
+<link rel="canonical" href="https://arnold-rg.github.io/Africa-shield-cyber-centre/Admin/auth.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Africa Shield Cyber Centre">
+<meta property="og:title" content="Account · Africa Shield Cyber Centre">
+<meta property="og:description" content="The public site does not store accounts.">
+<meta property="og:url" content="https://arnold-rg.github.io/Africa-shield-cyber-centre/Admin/auth.html">
+<meta property="og:image" content="https://arnold-rg.github.io/Africa-shield-cyber-centre/assets/images/og.jpg">
+<meta property="og:locale" content="en_RW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Account · Africa Shield Cyber Centre">
+<meta name="twitter:description" content="The public site does not store accounts.">
+<meta name="twitter:image" content="https://arnold-rg.github.io/Africa-shield-cyber-centre/assets/images/og.jpg">
+<meta name="theme-color" content="#1c1712">
+<link rel="icon" href="../assets/images/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/images/icon-192.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/desk.css">
 </head>
-<body>
-    <!-- Background Animation -->
-    <div class="background-animation">
-        <div class="floating-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-        </div>
+<body class="" data-root="..">
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast">
+  <div class="frame mast-row">
+    <a class="brand" href="../Home/">
+      <svg class="crest" viewBox="0 0 48 48" aria-hidden="true"><rect x="1.5" y="1.5" width="45" height="45" fill="none" stroke="currentColor"/><path d="M24 11 L35 16.2 V26.2 C35 32.4 24 37.2 24 37.2 C24 37.2 13 32.4 13 26.2 V16.2 Z" fill="none" stroke="currentColor"/></svg>
+      <span>
+        <span class="brand-name">Africa Shield</span>
+        <span class="brand-sub">Cyber Centre · Kigali</span>
+      </span>
+    </a>
+    <button class="nav-btn" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav" data-i18n="nav.menu">Menu</button>
+    <nav id="nav" class="nav" aria-label="Primary"><a href="../Home/" data-i18n="nav.home">Home</a><a href="../SOC/" data-i18n="nav.desk">Desk</a><a href="../ThreatMap/" data-i18n="nav.map">Map</a><a href="../Report/" data-i18n="nav.report">Report</a><a href="../Learn/" data-i18n="nav.learn">Learn</a><a href="../Events/" data-i18n="nav.events">Events</a><a href="../Career/" data-i18n="nav.careers">Careers</a><a href="../About/about.html" data-i18n="nav.about">About</a><a href="../Contact/" data-i18n="nav.contact">Contact</a></nav>
+    <button class="theme-btn" type="button" data-theme-toggle aria-pressed="false">Evening</button>
+  </div>
+</header>
+
+<main id="main" class="auth-grid">
+  <div class="auth-copy">
+    <p class="kicker">Account</p>
+    <h1 style="font-size:clamp(2.8rem,5vw,4.6rem)">The public desk has no accounts.</h1>
+    <p class="lede" style="margin-top:1rem">Sign-in on a self-hosted copy talks to the centre’s own server. This published site does not. Anything you type below is checked in the page and then discarded.</p>
+  </div>
+  <div class="auth-form">
+    <div class="tabs" role="tablist">
+      <button type="button" data-auth-tab="in" aria-selected="true">Sign in</button>
+      <button type="button" data-auth-tab="up" aria-selected="false">Register</button>
     </div>
+    <form data-auth data-auth-panel="in">
+      <label class="field">Email<input type="email" name="email" autocomplete="username" required></label>
+      <label class="field">Password<input type="password" name="password" autocomplete="current-password" required></label>
+      <div class="actions"><button class="btn" type="submit">Continue</button></div>
+    </form>
+    <form class="hidden" data-auth data-auth-panel="up">
+      <div class="form-grid">
+        <label class="field">First name<input name="first" autocomplete="given-name" required></label>
+        <label class="field">Last name<input name="last" autocomplete="family-name" required></label>
+        <label class="field full">Email<input type="email" name="email" autocomplete="email" required></label>
+        <label class="field full">Password<input type="password" name="password" autocomplete="new-password" required minlength="8"></label>
+      </div>
+      <div class="actions"><button class="btn" type="submit">Continue</button></div>
+    </form>
+    <p data-auth-note role="status" style="margin-top:1rem"></p>
+  </div>
+</main>
 
-    <!-- Main Container -->
-    <div class="auth-container">
-        <!-- Left Side - Branding -->
-        <div class="brand-section">
-            <div class="brand-content">
-                <div class="logo-container">
-                    <img src="../assets/images/logo.png" alt="Africa Shield Logo" class="logo">
-                    <div class="logo-glow"></div>
-                </div>
-                <h1 class="brand-title">AFRICA SHIELD</h1>
-                <h2 class="brand-subtitle">Cyber Defence Centre</h2>
-                <p class="brand-description">Protecting Africa's Digital Future</p>
-                
-                <div class="features">
-                    <div class="feature">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Advanced Security</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-globe-africa"></i>
-                        <span>Continental Coverage</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-users"></i>
-                        <span>Expert Support</span>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Right Side - Authentication Forms -->
-        <div class="form-section">
-            <div class="form-container">
-                <!-- Form Toggle -->
-                <div class="form-toggle">
-                    <button class="toggle-btn active" id="loginTab">Login</button>
-                    <button class="toggle-btn" id="registerTab">Register</button>
-                </div>
-
-                <!-- Login Form -->
-                <div class="form-wrapper active" id="loginForm">
-                    <div class="form-header">
-                        <h3>Welcome Back</h3>
-                        <p>Sign in to access your account</p>
-                    </div>
-                    
-                    <form id="loginFormData" class="auth-form">
-                        <div class="input-group">
-                            <label for="loginEmail">Email Address</label>
-                            <div class="input-wrapper">
-                                <i class="fas fa-envelope"></i>
-                                <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
-                            </div>
-                            <span class="error-message" id="loginEmailError"></span>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="loginPassword">Password</label>
-                            <div class="input-wrapper">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
-                                <button type="button" class="password-toggle" id="toggleLoginPassword">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </div>
-                            <span class="error-message" id="loginPasswordError"></span>
-                        </div>
-
-                        <div class="form-options">
-                            <label class="checkbox-wrapper">
-                                <input type="checkbox" id="rememberMe">
-                                <span class="checkmark"></span>
-                                Remember me
-                            </label>
-                            <a href="#" class="forgot-link" id="forgotPassword">Forgot Password?</a>
-                        </div>
-
-                        <button type="submit" class="submit-btn">
-                            <span>Sign In</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </form>
-                </div>
-
-                <!-- Register Form -->
-                <div class="form-wrapper" id="registerForm">
-                    <div class="form-header">
-                        <h3>Create Account</h3>
-                        <p>Join Africa Shield Cyber Defence</p>
-                    </div>
-                    
-                    <form id="registerFormData" class="auth-form">
-                        <div class="input-row">
-                            <div class="input-group">
-                                <label for="firstName">First Name</label>
-                                <div class="input-wrapper">
-                                    <i class="fas fa-user"></i>
-                                    <input type="text" id="firstName" name="firstName" placeholder="First name" required>
-                                </div>
-                                <span class="error-message" id="firstNameError"></span>
-                            </div>
-                            <div class="input-group">
-                                <label for="lastName">Last Name</label>
-                                <div class="input-wrapper">
-                                    <i class="fas fa-user"></i>
-                                    <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
-                                </div>
-                                <span class="error-message" id="lastNameError"></span>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="registerEmail">Email Address</label>
-                            <div class="input-wrapper">
-                                <i class="fas fa-envelope"></i>
-                                <input type="email" id="registerEmail" name="email" placeholder="Enter your email" required>
-                            </div>
-                            <span class="error-message" id="registerEmailError"></span>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="phoneNumber">Phone Number</label>
-                            <div class="input-wrapper">
-                                <i class="fas fa-phone"></i>
-                                <input type="tel" id="phoneNumber" name="phone" placeholder="+254 700 000 000" required>
-                            </div>
-                            <span class="error-message" id="phoneError"></span>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="country">Country</label>
-                            <div class="input-wrapper">
-                                <i class="fas fa-globe-africa"></i>
-                                <select id="country" name="country" required>
-                                    <option value="">Select your country</option>
-                                    <option value="kenya">Kenya</option>
-                                    <option value="tanzania">Tanzania</option>
-                                    <option value="uganda">Uganda</option>
-                                    <option value="rwanda">Rwanda</option>
-                                    <option value="ethiopia">Ethiopia</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <span class="error-message" id="countryError"></span>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="registerPassword">Password</label>
-                            <div class="input-wrapper">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" id="registerPassword" name="password" placeholder="Create password" required>
-                                <button type="button" class="password-toggle" id="toggleRegisterPassword">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </div>
-                            <div class="password-strength">
-                                <div class="strength-bar">
-                                    <div class="strength-fill"></div>
-                                </div>
-                                <span class="strength-text">Password strength</span>
-                            </div>
-                            <span class="error-message" id="registerPasswordError"></span>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="confirmPassword">Confirm Password</label>
-                            <div class="input-wrapper">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
-                                <button type="button" class="password-toggle" id="toggleConfirmPassword">
-                                    <i class="fas fa-eye"></i>
-                                </button>
-                            </div>
-                            <span class="error-message" id="confirmPasswordError"></span>
-                        </div>
-
-                        <div class="form-options">
-                            <label class="checkbox-wrapper">
-                                <input type="checkbox" id="agreeTerms" required>
-                                <span class="checkmark"></span>
-                                I agree to the <a href="#" class="terms-link">Terms & Conditions</a>
-                            </label>
-                        </div>
-
-                        <button type="submit" class="submit-btn">
-                            <span>Create Account</span>
-                            <i class="fas fa-user-plus"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
+<footer class="site-footer">
+  <div class="frame footer-grid">
+    <div>
+      <p class="kicker">The desk</p>
+      <p>Africa Shield Cyber Centre, KG 9 Ave, Nyarutarama, Kigali. A public reading room for published threat feeds, and a private notebook that stays in your browser.</p>
     </div>
-
-    <!-- Loading Overlay -->
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="loading-content">
-            <div class="spinner"></div>
-            <p id="loadingText">Processing...</p>
-        </div>
+    <div>
+      <p class="kicker">Reach the centre</p>
+      <p><a href="tel:+250788911911">+250 788 911 911</a><br>USSD *789*911#<br><a href="mailto:arnoldrura@gmail.com">arnoldrura@gmail.com</a></p>
     </div>
-
-    <!-- Toast Notification -->
-    <div class="toast" id="toast">
-        <div class="toast-content">
-            <i class="toast-icon"></i>
-            <span class="toast-message"></span>
-        </div>
-        <button class="toast-close" id="toastClose">
-            <i class="fas fa-times"></i>
-        </button>
+    <div>
+      <p class="kicker">Language</p>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+        <button type="button" data-lang="sw" aria-pressed="false">SW</button>
+        <button type="button" data-lang="rw" aria-pressed="false">RW</button>
+      </div>
+      <p style="margin-top:0.8rem"><a href="../legal/privacy.html">Privacy</a></p>
     </div>
+  </div>
+  <div class="frame footer-base">
+    <p>© Africa Shield Cyber Centre. Arnold Rurangwa, ARNOVA Group.</p>
+    <p>Feeds: CISA KEV, abuse.ch ThreatFox, Feodo Tracker, RIR delegations.</p>
+  </div>
+</footer>
+<script src="../assets/js/desk.js" defer></script>
 
-    <script src="../assets/js/auth.js"></script>
 </body>
 </html>

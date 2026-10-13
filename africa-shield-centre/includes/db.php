@@ -20,10 +20,13 @@ class Database {
             
             $this->pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
         } catch (PDOException $e) {
-            // Log error and display generic message
             error_log("Database connection error: " . $e->getMessage());
-            die("Database connection failed. Please try again later.");
+            $this->pdo = null;
         }
+    }
+
+    public function isConnected() {
+        return $this->pdo instanceof PDO;
     }
     
     /**
@@ -34,6 +37,9 @@ class Database {
      * @return PDOStatement|false Query result
      */
     public function query($query, $params = []) {
+        if (!$this->isConnected()) {
+            return false;
+        }
         try {
             $stmt = $this->pdo->prepare($query);
             $stmt->execute($params);

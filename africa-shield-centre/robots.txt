@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arnold-rg.github.io/Africa-shield-cyber-centre/sitemap.xml
