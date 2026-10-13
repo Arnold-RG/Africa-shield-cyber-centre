@@ -13,7 +13,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$auth = new Auth(new Database());
+$database = new Database();
+if (!$database->isConnected()) {
+    http_response_code(503);
+    echo json_encode(['error' => 'Database is not available']);
+    exit;
+}
+
+$auth = new Auth($database);
 if (!$auth->isLoggedIn()) {
     http_response_code(401);
     echo json_encode(['error' => 'Not authenticated']);
@@ -23,7 +30,7 @@ if (!$auth->isLoggedIn()) {
 $user = $auth->getCurrentUser();
 
 // Collect and sanitize input
-data = json_decode(file_get_contents('php://input'), true);
+$data = json_decode(file_get_contents('php://input'), true);
 if (!$data) {
     http_response_code(400);
     echo json_encode(['error' => 'Invalid input']);
@@ -43,8 +50,7 @@ if (!$title || !$description || !$country || !$threat_type) {
     exit;
 }
 
-$db = new Database();
-$reportId = $db->insert('reports', [
+$reportId = $database->insert('reports', [
     'user_id' => $user['id'],
     'report_type_id' => 1, // You may want to map threat_type to report_type_id
     'title' => $title,
