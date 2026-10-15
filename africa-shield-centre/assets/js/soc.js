@@ -118,7 +118,7 @@
 
   function showError(error) {
     if (kevBody) {
-      kevBody.innerHTML = `<tr><td colspan="4">${error.message || "The feed did not load."}</td></tr>`;
+      kevBody.innerHTML = `<tr><td colspan="4">${esc(error && error.message ? error.message : "The feed did not load.")}</td></tr>`;
     }
   }
 
