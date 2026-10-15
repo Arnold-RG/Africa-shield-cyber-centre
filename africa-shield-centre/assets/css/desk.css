@@ -1,49 +1,57 @@
 /* Africa Shield Cyber Centre
-   A reading room for public threat intelligence. */
+   Olive ops desk · radar green · night · alert red */
 
 :root {
-  --ivory: #f4efe6;
-  --ivory-deep: #e8e1d4;
-  --paper: #fbf8f3;
-  --ink: #1c1712;
-  --muted: #5e564c;
-  --line: rgba(28, 23, 18, 0.14);
-  --line-strong: rgba(28, 23, 18, 0.28);
-  --burgundy: #6e2430;
-  --fill: #6e2430;
-  --fill-ink: #fbf8f3;
-  --gold: #8d7044;
-  --gold-line: #b89a68;
-  --pine: #1d3f38;
-  --pine-soft: #e7f0ec;
-  --warn: #8a4b12;
-  --serif: "Fraunces", "Iowan Old Style", Palatino, "Palatino Linotype", serif;
-  --sans: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
+  --night: #070B07;
+  --olive: #1A2E1A;
+  --olive-mid: #243824;
+  --radar: #3DFF9A;
+  --radar-dim: rgba(61, 255, 154, 0.16);
+  --alert: #E11D48;
+  --alert-soft: rgba(225, 29, 72, 0.18);
+  --ivory: #0c120c;
+  --ivory-deep: #070B07;
+  --paper: #122012;
+  --ink: #e8f5e8;
+  --muted: #8aa68a;
+  --line: rgba(61, 255, 154, 0.12);
+  --line-strong: rgba(61, 255, 154, 0.28);
+  --burgundy: #E11D48;
+  --fill: #3DFF9A;
+  --fill-ink: #070B07;
+  --gold: #3DFF9A;
+  --gold-line: #3DFF9A;
+  --pine: #3DFF9A;
+  --pine-soft: rgba(61, 255, 154, 0.08);
+  --warn: #E11D48;
+  --serif: "Syne", "Avenir Next", "Segoe UI", sans-serif;
+  --sans: "DM Sans", "Avenir Next", "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", "Source Code Pro", ui-monospace, monospace;
   --frame: min(74rem, calc(100% - clamp(1.4rem, 5vw, 5.5rem)));
   --wide: min(86rem, calc(100% - clamp(1.2rem, 4vw, 4rem)));
-  --shadow: 0 1px 0 rgba(255, 252, 247, 0.8) inset, 0 22px 50px rgba(28, 23, 18, 0.06);
+  --shadow: 0 0 0 1px rgba(61, 255, 154, 0.08), 0 22px 50px rgba(0, 0, 0, 0.45);
   --ease: cubic-bezier(0.22, 0.7, 0.2, 1);
-  color-scheme: light;
+  color-scheme: dark;
 }
 
-[data-theme="evening"] {
-  --ivory: #12100e;
-  --ivory-deep: #1c1915;
-  --paper: #1a1714;
-  --ink: #f4efe6;
-  --muted: #c9bfb0;
-  --line: rgba(244, 239, 230, 0.14);
-  --line-strong: rgba(244, 239, 230, 0.32);
-  --burgundy: #e4b7be;
-  --fill: #e7d7c4;
-  --fill-ink: #1c1712;
-  --gold: #d4bc94;
-  --gold-line: #c6a56a;
-  --pine: #b7d2cb;
-  --pine-soft: #24312e;
-  --warn: #e0b07a;
-  --shadow: 0 1px 0 rgba(255, 248, 236, 0.04) inset, 0 22px 50px rgba(0, 0, 0, 0.28);
+[data-theme="evening"],
+[data-theme="day"] {
+  --ivory: #0c120c;
+  --ivory-deep: #070B07;
+  --paper: #122012;
+  --ink: #e8f5e8;
+  --muted: #8aa68a;
+  --line: rgba(61, 255, 154, 0.12);
+  --line-strong: rgba(61, 255, 154, 0.28);
+  --burgundy: #E11D48;
+  --fill: #3DFF9A;
+  --fill-ink: #070B07;
+  --gold: #3DFF9A;
+  --gold-line: #3DFF9A;
+  --pine: #3DFF9A;
+  --pine-soft: rgba(61, 255, 154, 0.08);
+  --warn: #E11D48;
+  --shadow: 0 0 0 1px rgba(61, 255, 154, 0.08), 0 22px 50px rgba(0, 0, 0, 0.45);
   color-scheme: dark;
 }
 
@@ -61,14 +69,30 @@ body {
   min-height: 100vh;
   color: var(--ink);
   background:
-    radial-gradient(900px 420px at 8% -10%, rgba(184, 154, 104, 0.18), transparent 55%),
-    radial-gradient(700px 380px at 100% 0%, rgba(110, 36, 48, 0.07), transparent 50%),
-    var(--ivory);
+    radial-gradient(ellipse 70% 50% at 12% -8%, rgba(61, 255, 154, 0.12), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 96% 0%, rgba(225, 29, 72, 0.1), transparent 50%),
+    linear-gradient(180deg, var(--olive) 0%, var(--night) 42%, var(--night) 100%);
   font-family: var(--sans);
   font-weight: 400;
   line-height: 1.6;
   text-rendering: optimizeLegibility;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.035;
+  background-image:
+    linear-gradient(rgba(61, 255, 154, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61, 255, 154, 0.35) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 20%, #000 20%, transparent 75%);
+}
+
+main, .mast, .site-footer { position: relative; z-index: 1; }
 
 body.page-map {
   min-height: 100vh;
@@ -80,10 +104,10 @@ a { color: inherit; }
 
 button, input, select, textarea { font: inherit; color: inherit; }
 
-::selection { background: rgba(110, 36, 48, 0.16); }
+::selection { background: rgba(61, 255, 154, 0.28); color: var(--night); }
 
 :focus-visible {
-  outline: 2px solid var(--burgundy);
+  outline: 2px solid var(--radar);
   outline-offset: 3px;
 }
 
@@ -175,9 +199,9 @@ p { margin: 0; }
 .brand-name {
   display: block;
   font-family: var(--serif);
-  font-style: italic;
-  font-weight: 500;
-  font-size: 1.35rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
   letter-spacing: -0.03em;
   line-height: 1;
 }
@@ -527,9 +551,20 @@ input:focus, select:focus, textarea:focus { outline: none; border-bottom-color: 
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 1px solid var(--gold-line);
-  background: color-mix(in srgb, var(--burgundy) 72%, transparent);
-  box-shadow: 0 0 0 6px color-mix(in srgb, var(--burgundy) 12%, transparent);
+  border: 1px solid var(--radar);
+  background: radial-gradient(circle at 40% 35%, rgba(61, 255, 154, 0.95), rgba(26, 46, 26, 0.85) 70%);
+  box-shadow:
+    0 0 0 4px var(--radar-dim),
+    0 0 18px rgba(61, 255, 154, 0.45);
+}
+
+.pin::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 1px solid rgba(61, 255, 154, 0.35);
+  animation: pulse-ring 2.8s var(--ease) infinite;
 }
 
 .pin.live::after {
@@ -537,7 +572,8 @@ input:focus, select:focus, textarea:focus { outline: none; border-bottom-color: 
   position: absolute;
   inset: -8px;
   border-radius: 50%;
-  border: 1px solid var(--gold-line);
+  border: 1px solid var(--alert);
+  box-shadow: 0 0 12px rgba(225, 29, 72, 0.55);
 }
 
 .form-grid {
@@ -727,13 +763,15 @@ dialog::backdrop { background: rgba(28, 23, 18, 0.46); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn:hover { transform: none; }
+  .pin::before,
   .pin.live::after { animation: none; }
+  .radar-sweep { animation: none; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .rise { animation: rise 0.9s var(--ease) both; }
   .rise-late { animation-delay: 0.12s; }
-  .pin.live::after { animation: ring 3.6s var(--ease) infinite; }
+  .pin.live::after { animation: ring 2.4s var(--ease) infinite; }
   .bar-track span { transition: width 0.8s var(--ease); }
 }
 
@@ -744,7 +782,57 @@ dialog::backdrop { background: rgba(28, 23, 18, 0.46); }
 
 @keyframes ring {
   from { transform: scale(0.7); opacity: 0.7; }
-  to { transform: scale(1.7); opacity: 0; }
+  to { transform: scale(1.9); opacity: 0; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.85); opacity: 0.65; }
+  70% { transform: scale(1.35); opacity: 0; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+@keyframes sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.radar-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at center, rgba(61, 255, 154, 0.08), transparent 62%),
+    var(--paper);
+}
+
+.radar-sweep {
+  position: absolute;
+  inset: -20%;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(61, 255, 154, 0.18) 40deg, transparent 70deg);
+  animation: sweep 8s linear infinite;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.desk-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--radar);
+}
+
+.desk-status::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--radar);
+  box-shadow: 0 0 10px var(--radar);
+  animation: pulse-ring 1.8s var(--ease) infinite;
 }
 
 @media print {

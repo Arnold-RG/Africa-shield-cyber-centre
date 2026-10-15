@@ -83,11 +83,13 @@
     const max = Math.max(...rows.map((row) => row.count), 1);
     markers.clearLayers();
     const top = rows[0]?.code;
+    const hot = new Set(rows.slice(0, 5).map((row) => row.code));
     rows.forEach((row) => {
       const d = size(row.count, max);
+      const pulse = hot.has(row.code) || row.code === top || row.code === active;
       const icon = L.divIcon({
         className: "pin-wrap",
-        html: `<span class="pin${row.code === top ? " live" : ""}"></span>`,
+        html: `<span class="pin${pulse ? " live" : ""}"></span>`,
         iconSize: [d, d],
         iconAnchor: [d / 2, d / 2],
       });

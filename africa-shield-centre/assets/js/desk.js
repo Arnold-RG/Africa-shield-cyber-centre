@@ -3,6 +3,8 @@
   const stored = localStorage.getItem("shield-theme");
   if (stored === "evening" || stored === "day") {
     root.setAttribute("data-theme", stored === "evening" ? "evening" : "day");
+  } else {
+    root.setAttribute("data-theme", "evening");
   }
 
   if ("serviceWorker" in navigator) {
