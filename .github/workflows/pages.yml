@@ -1,11 +1,8 @@
-name: Publish desk
+name: Publish SOC dashboard
 
 on:
   push:
     branches: [main]
-  schedule:
-    - cron: "20 5 * * *"
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -17,52 +14,16 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - name: Refresh public feeds
-        run: python3 scripts/fetch_public_intel.py
-      - name: Assemble the site
-        run: |
-          mkdir -p site-dist
-          rsync -a \
-            --exclude '*.php' \
-            --exclude 'includes/***' \
-            --exclude 'api/***' \
-            --exclude 'database/***' \
-            --exclude 'assets/css/home.css' \
-            --exclude 'assets/css/about.css' \
-            --exclude 'assets/css/auth.css' \
-            --exclude 'assets/css/careers.css' \
-            --exclude 'assets/css/contact.css' \
-            --exclude 'assets/css/events.css' \
-            --exclude 'assets/css/learn.css' \
-            --exclude 'assets/css/report.css' \
-            --exclude 'assets/css/soc-dashboard.css' \
-            --exclude 'assets/css/soc-animations.css' \
-            --exclude 'assets/js/main.js' \
-            --exclude 'assets/js/home.js' \
-            --exclude 'assets/js/home-features.js' \
-            --exclude 'assets/js/soc-dashboard.js' \
-            --exclude 'assets/js/auth.js' \
-            --exclude 'assets/js/dashboard.js' \
-            --exclude 'ThreatMap/assets/***' \
-            africa-shield-centre/ site-dist/
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site-dist
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

@@ -1,24 +1,16 @@
 # Security Policy
 
-## Supported versions
-
-Security updates apply to the latest commit on the default branch of this repository.
+Security updates apply to the latest commit on the default branch.
 
 ## Reporting a vulnerability
 
-Email **rurangwaarnold32@gmail.com** with:
+Email **rurangwaarnold32@gmail.com** with the affected path, the impact, and steps to reproduce.
 
-- Repository name and affected URL/path
-- Description and impact
-- Steps to reproduce (proof of concept if available)
-
-Please do **not** open a public issue for unpatched vulnerabilities.
-
-We aim to acknowledge reports within 7 days and publish a fix or mitigation when confirmed.
+Please do not open a public issue for an unpatched vulnerability.
 
 ## Practice
 
-- No secrets in source; use `.env.example` only
-- Prefer `textContent` over `innerHTML` for untrusted data
-- External links use `rel="noopener noreferrer"`
-- Dependabot / Actions least privilege where applicable
+- The site is static. The browser only reads files shipped with the page.
+- Feed text is inserted with `textContent`. Links are rendered only when they start with `http`.
+- No API keys and no secrets belong in this repository.
+- The fetch job sends a contact address in its user agent because SANS ISC asks for one.

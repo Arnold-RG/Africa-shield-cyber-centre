@@ -1,0 +1,56 @@
+{
+  "1972120": [
+    {
+      "ioc_value": "https://ls.988boss.org/cn/",
+      "ioc_type": "url",
+      "threat_type": "botnet_cc",
+      "malware": "win.vidar",
+      "malware_alias": null,
+      "malware_printable": "Vidar",
+      "first_seen_utc": "2026-10-17 23:55:48",
+      "last_seen_utc": null,
+      "confidence_level": 100,
+      "is_compromised": true,
+      "reference": null,
+      "tags": "vidar",
+      "anonymous": 0,
+      "reporter": "crep1x"
+    }
+  ],
+  "1972119": [
+    {
+      "ioc_value": "c11c781c7051b68fb5b9a9daad209f9ac57711a3f4888bbdf6c64f3fc0239ef9",
+      "ioc_type": "sha256_hash",
+      "threat_type": "payload",
+      "malware": "win.gravity_rat",
+      "malware_alias": null,
+      "malware_printable": "Gravity RAT",
+      "first_seen_utc": "2026-10-17 23:53:53",
+      "last_seen_utc": null,
+      "confidence_level": 90,
+      "is_compromised": false,
+      "reference": null,
+      "tags": "exe,GravityRAT",
+      "anonymous": 0,
+      "reporter": "whack_sh"
+    }
+  ],
+  "1971856": [
+    {
+      "ioc_value": "94.154.32.27:56001",
+      "ioc_type": "ip:port",
+      "threat_type": "botnet_cc",
+      "malware": "win.pure_rat",
+      "malware_alias": "PureHVNC,ResolverRAT",
+      "malware_printable": "PureRAT",
+      "first_seen_utc": "2026-10-17 19:45:29",
+      "last_seen_utc": "2026-10-17 23:45:26",
+      "confidence_level": 75,
+      "is_compromised": false,
+      "reference": null,
+      "tags": "drb-ra,PureHVNC,PureRAT,RAT",
+      "anonymous": 0,
+      "reporter": "abuse_ch"
+    }
+  ]
+}
