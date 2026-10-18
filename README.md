@@ -1,6 +1,6 @@
 # Africa Shield Cyber Centre
 
-Threat-intelligence desk for East Africa, kept in Kigali by Arnold Rurangwa and ARNOVA Group.
+Threat-intelligence desk for East Africa, kept in Kigali by Arnold Rurangwa.
 
 The public site reads published feeds and lets a visitor keep incident notes in their own browser. It does not invent incidents, and it does not upload those notes.
 

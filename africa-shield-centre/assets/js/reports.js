@@ -11,8 +11,8 @@
   const note = document.querySelector("[data-report-note]");
   const empty = document.querySelector("[data-report-empty]");
 
-  const esc = (window.ArnovaSecure && window.ArnovaSecure.escapeHtml)
-    ? window.ArnovaSecure.escapeHtml
+  const esc = (window.SharedSecure && window.SharedSecure.escapeHtml)
+    ? window.SharedSecure.escapeHtml
     : function (value) {
         return String(value || "").replace(/[&<>"']/g, function (ch) {
           return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[ch];
@@ -28,20 +28,20 @@
   }
 
   async function openStore() {
-    if (!(window.ArnovaSecure && window.ArnovaSecure.openDb)) {
+    if (!(window.SharedSecure && window.SharedSecure.openDb)) {
       cache = legacyRead();
       return null;
     }
-    db = await window.ArnovaSecure.openDb(DB_NAME, 1, function (database) {
+    db = await window.SharedSecure.openDb(DB_NAME, 1, function (database) {
       if (!database.objectStoreNames.contains(STORE)) {
         database.createObjectStore(STORE, { keyPath: "ref" });
       }
     });
-    const existing = await window.ArnovaSecure.idbGetAll(db, STORE);
+    const existing = await window.SharedSecure.idbGetAll(db, STORE);
     const legacy = legacyRead();
     if ((!existing || !existing.length) && legacy.length) {
       for (let i = 0; i < legacy.length; i += 1) {
-        await window.ArnovaSecure.idbPut(db, STORE, legacy[i]);
+        await window.SharedSecure.idbPut(db, STORE, legacy[i]);
       }
       try { localStorage.removeItem(LEGACY_KEY); } catch (e) { /* ignore */ }
       cache = legacy.slice();
@@ -56,7 +56,7 @@
 
   async function persistAll(rows) {
     cache = rows.slice();
-    if (!db || !window.ArnovaSecure) {
+    if (!db || !window.SharedSecure) {
       try { localStorage.setItem(LEGACY_KEY, JSON.stringify(cache)); } catch (e) { /* ignore */ }
       return;
     }
