@@ -1,10 +1,4 @@
-﻿.env
-.env.*
-!.env.example
-*.pem
-*.p12
-credentials.json
-node_modules/
-__pycache__/
+﻿__pycache__/
+*.pyc
 .DS_Store
-
+data/raw/

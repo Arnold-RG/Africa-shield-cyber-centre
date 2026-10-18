@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Live reported threat activity from public feeds, shown as a cached SOC dashboard.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+<title>Africa Shield SOC</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/soc.css">
+</head>
+<body>
+<a class="skip" href="#reports">Skip to reports</a>
+<header class="top">
+  <div class="brand">
+    <svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><rect x="2" y="2" width="44" height="44" fill="none" stroke="currentColor"/><path d="M24 10 L35 16 V26.5 C35 33 24 38 24 38 C24 38 13 33 13 26.5 V16 Z" fill="none" stroke="currentColor"/></svg>
+    <div>
+      <p class="kicker">Africa Shield</p>
+      <h1 id="title">SOC dashboard</h1>
+    </div>
+  </div>
+  <div class="status">
+    <p id="label" class="label">Loading the cache…</p>
+    <p id="cache-note" class="note"></p>
+  </div>
+  <div class="tools">
+    <button type="button" id="view-toggle" aria-pressed="false">2D map</button>
+  </div>
+</header>
+<p id="banner" class="banner" hidden></p>
+<main class="layout">
+  <section class="rail" aria-label="Feeds and reports">
+    <div class="filters">
+      <label>Feed <select id="filter-feed"><option value="all">All feeds</option></select></label>
+      <label>Type <select id="filter-type"><option value="all">All types</option></select></label>
+      <label>Country <select id="filter-country"><option value="all">All countries</option></select></label>
+    </div>
+    <h2>Feeds</h2>
+    <ul id="feeds" class="feeds"></ul>
+    <h2 id="reports">Recent reports in this cache</h2>
+    <p id="sample-note" class="note"></p>
+    <ul id="events" class="events"></ul>
+  </section>
+  <section class="stage-wrap" aria-label="Globe">
+    <div id="stage" class="stage"></div>
+    <div class="legend" id="legend"></div>
+    <p id="view-note" class="view-note"></p>
+  </section>
+  <section class="rail" aria-label="Rankings">
+    <h2>In this cache</h2>
+    <p class="note">These totals are the cached parse. Filters do not change them.</p>
+    <div id="counters" class="counters"></div>
+    <h2>Top source countries</h2>
+    <p class="note">DShield source addresses located in the country. About the last 30 days of sensor reports, not a live attack count.</p>
+    <ol id="sources" class="rank"></ol>
+    <h2>Top target countries</h2>
+    <p id="targets-note" class="note"></p>
+    <ol id="targets" class="rank"></ol>
+    <h2>Threat types</h2>
+    <ul id="types" class="types"></ul>
+    <h2>Known exploited vulnerabilities</h2>
+    <p class="note">CISA catalog entries. They are not drawn on the globe.</p>
+    <ul id="kev" class="kev"></ul>
+  </section>
+</main>
+<section class="timeline-wrap" aria-label="24 hour timeline">
+  <div class="timeline-head">
+    <h2>24 hour timeline</h2>
+    <p id="timeline-note" class="note"></p>
+  </div>
+  <svg id="chart" role="img" aria-labelledby="chart-title"></svg>
+  <p id="chart-title" class="sr"></p>
+</section>
+<section id="detail" class="detail" aria-live="polite">
+  <h2>Detail</h2>
+  <p class="note">Select a country or a report.</p>
+</section>
+<footer class="foot">
+  <p id="credit"></p>
+  <ul id="licences"></ul>
+</footer>
+<noscript><p class="banner">This dashboard needs JavaScript to draw the globe and read the local cache.</p></noscript>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

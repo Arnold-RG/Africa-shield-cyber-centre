@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "generated_at": "2026-10-18T00:00:00Z",
+  "label": "Simulated demo filler",
+  "cache_note": "The feed cache is empty. Nothing on this view is a reported attack.",
+  "simulated": true,
+  "banner": "Simulated demo. The feed cache is empty. These markers, arcs, and satellites are not reported attacks.",
+  "sample_note": "Demo filler only. It is not loaded when a real cache is present.",
+  "feeds": [
+    {
+      "id": "demo",
+      "name": "Simulated demo",
+      "homepage": "https://example.invalid/demo",
+      "source_urls": ["https://example.invalid/demo"],
+      "licence": "Not a feed. Demo filler owned by this page.",
+      "licence_url": "https://example.invalid/demo",
+      "role_note": "Invented so the globe can be viewed before the first cache exists.",
+      "last_updated": null,
+      "fetched_at": "2026-10-18T00:00:00Z",
+      "ok": false,
+      "error": "No public feed cache is loaded.",
+      "parsed_count": 3,
+      "listed_count": 3
+    }
+  ],
+  "geoip": {
+    "name": "None",
+    "licence": "Not used",
+    "licence_url": "https://example.invalid/demo",
+    "attribution": "No geolocation database was used for this demo.",
+    "source_url": null,
+    "ok": false,
+    "error": "Demo filler",
+    "matched": 0,
+    "unmatched": 0
+  },
+  "totals": {
+    "urlhaus": 0,
+    "threatfox": 0,
+    "feodo": 0,
+    "spamhaus": 0,
+    "dshield_source_addresses": 0,
+    "dshield_source_reports": 0,
+    "countries": 3,
+    "kev": 0,
+    "listed_events": 3,
+    "feeds_ok": 0,
+    "feeds_failed": 1
+  },
+  "countries": [
+    {
+      "code": "US",
+      "name": "United States of America",
+      "lat": 39.5,
+      "lon": -97.5,
+      "source_addresses": 0,
+      "source_reports": 0,
+      "persistence_days": null,
+      "host_observations": 1,
+      "by_feed": {"demo": {"observations": 1}},
+      "types": ["simulated"]
+    },
+    {
+      "code": "DE",
+      "name": "Germany",
+      "lat": 51.2,
+      "lon": 10.4,
+      "source_addresses": 0,
+      "source_reports": 0,
+      "persistence_days": null,
+      "host_observations": 1,
+      "by_feed": {"demo": {"observations": 1}},
+      "types": ["simulated"]
+    },
+    {
+      "code": "KE",
+      "name": "Kenya",
+      "lat": 0.5,
+      "lon": 37.9,
+      "source_addresses": 0,
+      "source_reports": 0,
+      "persistence_days": null,
+      "host_observations": 1,
+      "by_feed": {"demo": {"observations": 1}},
+      "types": ["simulated"]
+    }
+  ],
+  "top_sources": [],
+  "top_targets": [],
+  "top_targets_note": "Demo filler has no target countries from a feed.",
+  "types": [{"type": "simulated", "count": 3}],
+  "timeline": {
+    "end": "2026-10-18T00:00:00Z",
+    "hours": 24,
+    "buckets": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "by_feed": {},
+    "by_type": {},
+    "note": "The demo has no feed timestamps."
+  },
+  "events": [
+    {
+      "feed": "demo",
+      "threat_type": "simulated",
+      "title": "Simulated example marker in the United States",
+      "observed_at": null,
+      "ip": null,
+      "country": "US",
+      "source_country": null,
+      "target_country": null,
+      "role": "report",
+      "reference": null,
+      "summary": "Simulated example. Not a reported attack.",
+      "simulated": true,
+      "target_address_count": null
+    },
+    {
+      "feed": "demo",
+      "threat_type": "simulated",
+      "title": "Simulated example marker in Germany",
+      "observed_at": null,
+      "ip": null,
+      "country": "DE",
+      "source_country": null,
+      "target_country": null,
+      "role": "report",
+      "reference": null,
+      "summary": "Simulated example. Not a reported attack.",
+      "simulated": true,
+      "target_address_count": null
+    },
+    {
+      "feed": "demo",
+      "threat_type": "simulated",
+      "title": "Simulated example marker in Kenya",
+      "observed_at": null,
+      "ip": null,
+      "country": "KE",
+      "source_country": null,
+      "target_country": null,
+      "role": "report",
+      "reference": null,
+      "summary": "Simulated example. Not a reported attack.",
+      "simulated": true,
+      "target_address_count": null
+    }
+  ],
+  "arcs": [
+    {
+      "source_country": "US",
+      "target_country": "DE",
+      "feed": "demo",
+      "reference": null,
+      "simulated": true,
+      "label": "Simulated example path"
+    },
+    {
+      "source_country": "DE",
+      "target_country": "KE",
+      "feed": "demo",
+      "reference": null,
+      "simulated": true,
+      "label": "Simulated example path"
+    }
+  ],
+  "arcs_note": "These arcs are simulated demo filler. They are not reported paths.",
+  "kev": []
+}
