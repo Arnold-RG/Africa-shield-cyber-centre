@@ -1,53 +1,55 @@
-# Africa Shield Cyber Centre
+# AEGIS / GLOBAL SOC
+### Worldwide security operations command center
 
-Threat-intelligence desk for East Africa, kept in Kigali by Arnold Rurangwa and ARNOVA Group.
+AEGIS replaces the legacy Africa Shield website with a security-operations-only application. It provides worldwide telemetry visualization, incident case management, authenticated JSON event ingestion, verified CISA KEV intelligence, rule-based auto-triage, operator audit trails, and optional AI-generated investigation briefs.
 
-The public site reads published feeds and lets a visitor keep incident notes in their own browser. It does not invent incidents, and it does not upload those notes.
+**Truthful data modes**
+- **DEMO (default):** clearly tagged synthetic events. No claim of actual global visibility.
+- **LIVE:** events are real only to the extent that they are submitted by authorized SIEM, EDR, IDS, firewalls or cloud monitoring integrations. Worldwide coverage depends on your sensors and commercial intelligence licenses.
+- **CISA KEV:** an official catalog of vulnerabilities exploited in the wild, updated periodically, **not** a real-time global attack stream.
 
-**Live site:** https://arnold-rg.github.io/Africa-shield-cyber-centre/
+## Quick start
 
-## What you can do there
+1. Copy .env.example to .env.
+2. To explore, leave SOC_MODE=demo. Run: docker compose up --build -d
+3. Open http://localhost:8080. The backend serves the UI and JSON APIs.
+4. For live mode, set SOC_MODE=live and use unique high-entropy SOC_API_KEY and SOC_INGEST_KEY values (at least 32 characters each), then restart. Paste the admin key in the dashboard Settings screen over HTTPS.
+5. Optionally set SOC_AI_KEY and SOC_AI_MODEL to enable the model-backed assistant. Without a key, the interface clearly reports AI unavailable.
 
-| Room | What it is |
-| --- | --- |
-| Home | The day’s catalog counts and the newest CISA entries |
-| Desk | Search the full Known Exploited Vulnerabilities catalog, family totals, and recent indicators |
-| Map | Country marks for ThreatFox IP indicators, sized by count |
-| Report | A private notebook: search, status, export. Stored on the device |
-| Learn, Events, Careers, About, Contact | The centre’s lessons, programme, listings, and offices |
+A reverse proxy with TLS is required for remote use. The sample Compose deployment binds to localhost intentionally.
 
-## Where the numbers come from
+## Authorized telemetry ingestion
 
-Each deploy refreshes `africa-shield-centre/data/public-intel.json`.
+POST /api/v1/ingest with header X-SOC-Ingest-Key: YOUR_INGEST_KEY and JSON:
 
-- [CISA Known Exploited Vulnerabilities](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
-- [abuse.ch ThreatFox](https://threatfox.abuse.ch/export/) recent export
-- [abuse.ch Feodo Tracker](https://feodotracker.abuse.ch/) blocklist
-- Delegation files from AFRINIC, APNIC, ARIN, LACNIC, and RIPE NCC, used only to name the country an IP block is allocated to
+{"events":[{"source":"suricata","severity":"high","type":"Brute force","src_ip":"203.0.113.8","country":"US","lat":38.9,"lon":-77.0,"target":"vpn-gateway","summary":"Repeated login failures","confidence":92}]}
 
-A mark on the map sits on the country centroid. That is the registry country of the address, not a victim and not a street.
+Up to 100 events per call. Latitude/longitude and country are attribution hints supplied by your sensor, not proof of attacker origin. Ingesting a high/critical event creates an open incident automatically. Source fingerprints are de-duplicated for one hour to avoid repeated cases. Collector payloads should not contain credentials, full packet captures, or private personal data.
 
-## Run it locally
+## API
 
-```bash
-cd africa-shield-centre
-python3 -m http.server 8765
-```
+- GET /health — process health
+- GET /api/status — data mode, capabilities and freshness
+- GET /api/overview?hours=24 — KPI, trend and mapped telemetry
+- GET /api/events?limit=100 — observations
+- GET /api/incidents?limit=100 — incident queue
+- GET /api/intelligence?limit=30 — CISA KEV entries, with authoritative source links
+- GET /api/automation — automation and audit summaries
+- POST /api/incidents/{id}/status — set status to investigating, contained or resolved
+- POST /api/incidents/{id}/analyze — model-backed assessment; requires SOC_AI_KEY
+- POST /api/ai/brief — optional cross-incident shift briefing
+- POST /api/v1/ingest — independent collector credential
 
-Open http://127.0.0.1:8765/Home/
+Operator endpoints require X-SOC-API-Key in LIVE mode. All mutations emit audit records. Health and status are public but omit secrets.
 
-Refresh the snapshot before you start, from the repository root:
+## What is automated?
 
-```bash
-python3 scripts/fetch_public_intel.py
-```
+New events are validated, stored, de-duplicated, scored, and elevated to cases when they meet high/critical severity; CISA KEV synchronizes on a bounded interval. AI generates human-readable analyses on operator request, not autonomous infrastructure changes. The frontend refreshes on a configurable short interval, but network latency and upstream feed delays prevent zero-delay guarantees.
 
-## Publishing
+## Production work remaining
 
-GitHub Actions workflow `.github/workflows/pages.yml` rebuilds the snapshot and deploys the static site. PHP, database files, and the server configuration are left out of that deploy.
+This is an operational **foundation**, not a finished enterprise SIEM/SOAR platform. Before public or high-scale deployment: PostgreSQL + migrations, queue/worker processing, OIDC/SAML SSO + granular RBAC, tenant isolation, immutable audit sink, event bus and WebSocket/SSE, retention and GDPR controls, integrations to actual sensors, detection-as-code, automated validation, observability, high availability, automated backups, threat-intel licensing, privacy review, rate limiting and load testing. Human approval must gate disruptive playbooks.
 
-The workflow runs when it is on `main`. GitHub Pages has to be set to **GitHub Actions** as the source (repository Settings → Pages). That switch is on the repository, not in this code.
+## Legacy source
 
-## Self-hosted accounts
-
-`includes/`, `api/`, and `Admin/*.php` are the older PHP services for a machine you run yourself. They expect MySQL and the schema in `database/schema.sql`. Create the first administrator there. Do not commit a password. The public website does not use those services, and the sign-in page on the public site does not send a password anywhere.
+The pre-rebuild site is preserved at the branch archive/pre-global-soc-rebuild-2026-11-12. The suggested GitHub repository name is aegis-global-soc. The app branding is updated; the repository slug must be changed under GitHub repository Settings > General > Repository name if no connected administrative rename action is available.

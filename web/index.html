@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#080f1c">
+  <meta name="description" content="AEGIS Global SOC — security operations, detection engineering, threat intelligence and AI-assisted incident response.">
+  <title>AEGIS / GLOBAL SOC · Security Operations</title>
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script defer src="/static/app.js"></script>
+</head>
+<body>
+  <svg width="0" height="0" aria-hidden="true" focusable="false" class="icon-defs">
+    <symbol id="ic-shield" viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5.2-3.4 8.8-8 10-4.6-1.2-8-4.8-8-10V6l8-4Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="ic-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></symbol>
+    <symbol id="ic-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a16 16 0 0 1 0 18M12 3a16 16 0 0 0 0 18"/></symbol>
+    <symbol id="ic-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 9v4m0 3h.01"/></symbol>
+    <symbol id="ic-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12 19 5M12 12v-2"/></symbol>
+    <symbol id="ic-cpu" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 1v4M15 1v4M9 19v4M15 19v4M19 9h4M19 15h4M1 9h4M1 15h4"/></symbol>
+    <symbol id="ic-activity" viewBox="0 0 24 24"><path d="M2 12h5l3-8 4 16 3-8h5"/></symbol>
+    <symbol id="ic-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.6-2-3.4-2.4 1A8 8 0 0 0 15 6l-.4-2.6h-4.2L10 6a8 8 0 0 0-1.5 1l-2.4-1-2 3.4 2 1.6a7 7 0 0 0 0 2L4 14.6l2 3.4 2.4-1a8 8 0 0 0 1.5 1l.4 2.6h4.2L15 18a8 8 0 0 0 1.5-1l2.4 1 2-3.4-2-1.6a7 7 0 0 0 .1-1Z"/></symbol>
+    <symbol id="ic-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5 9a8 8 0 0 1 14-2l1 5M4 12l1 5a8 8 0 0 0 14-2"/></symbol>
+    <symbol id="ic-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+    <symbol id="ic-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="ic-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 10-12h-7V2Z"/></symbol>
+  </svg>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="AEGIS Global SOC overview">
+        <span class="brand-emblem"><svg class="ico big"><use href="#ic-shield"></use></svg></span>
+        <span class="brand-text"><strong>AEGIS<span class="brand-point">.</span></strong><small>GLOBAL SOC PLATFORM</small></span>
+      </a>
+      <div class="side-label">OPERATIONS</div>
+      <nav aria-label="Main navigation" id="main-nav">
+        <a href="#overview" class="nav-item active"><svg class="ico"><use href="#ic-grid"></use></svg>Overview <span class="nav-selected"></span></a>
+        <a href="#threat-map" class="nav-item"><svg class="ico"><use href="#ic-globe"></use></svg>Threat Intelligence Map</a>
+        <a href="#incidents" class="nav-item"><svg class="ico"><use href="#ic-alert"></use></svg>Incident Management <span id="nav-count" class="nav-count">0</span></a>
+        <a href="#intelligence" class="nav-item"><svg class="ico"><use href="#ic-radar"></use></svg>Intelligence Feed</a>
+        <a href="#copilot" class="nav-item"><svg class="ico"><use href="#ic-cpu"></use></svg>AI Security Copilot</a>
+        <a href="#automation" class="nav-item"><svg class="ico"><use href="#ic-activity"></use></svg>Automation & Audit</a>
+      </nav>
+      <div class="side-bottom">
+        <div class="system-panel">
+          <div class="system-panel-head"><span class="status-led"></span> SYSTEM STATUS</div>
+          <div class="system-panel-title">SOC Core <span id="core-state">Initializing</span></div>
+          <div class="system-panel-foot"><span>API HEALTH</span><span id="health-label">CHECKING</span></div>
+          <div class="health-line"><div id="health-indicator"></div></div>
+        </div>
+        <div class="sidebar-profile"><span class="avatar">SO</span><span><strong>SOC Operator</strong><small>Security Operations</small></span><button id="settings-side" class="side-settings" aria-label="Open settings"><svg class="ico"><use href="#ic-settings"></use></svg></button></div>
+      </div>
+    </aside>
+    <main class="content" id="main">
+      <header class="topbar">
+        <div class="breadcrumb"><span>SECURITY OPERATIONS</span><span class="breadcrumb-slash">/</span><strong>COMMAND CENTER</strong></div>
+        <div class="toolbar"><span class="utc-clock" id="utc-clock" aria-label="UTC clock">--:--:-- UTC</span><span class="toolbar-sep"></span><button class="icon-button" id="refresh-all" aria-label="Refresh data" title="Refresh data"><svg class="ico"><use href="#ic-refresh"></use></svg></button><button class="icon-button" id="settings-top" aria-label="Settings" title="Settings"><svg class="ico"><use href="#ic-settings"></use></svg></button><span class="mini-avatar">SO</span></div>
+      </header>
+
+      <div class="page-inner">
+        <section class="page-intro" id="overview">
+          <div class="eyebrow"><span class="eyebrow-line"></span> GLOBAL CYBER DEFENSE <span class="eyebrow-dot">●</span> OPERATIONS CENTER</div>
+          <div class="intro-title-row">
+            <div><h1>Security Command <em>Center</em></h1><p class="intro-subtitle">Global threat visibility, intelligence correlation, and AI-assisted operations.</p></div>
+            <div class="intro-right"><span id="mode-badge" class="mode-badge"><span class="mode-led"></span> CHECKING MODE</span><label class="range-wrap">TIME RANGE <select id="range-select" aria-label="Time range"><option value="24">Last 24 hours</option><option value="48">Last 48 hours</option><option value="72">Last 72 hours</option></select></label></div>
+          </div>
+          <div class="notice-banner" id="data-notice"><svg class="ico"><use href="#ic-alert"></use></svg><span>Connecting to the AEGIS SOC data service…</span></div>
+        </section>
+
+        <section class="kpi-grid" aria-label="Key security metrics">
+          <article class="kpi-card"><div class="kpi-top"><span>OBSERVED EVENTS</span><span class="kpi-icon cyan"><svg class="ico"><use href="#ic-activity"></use></svg></span></div><strong class="kpi-value" id="m-events">—</strong><div class="kpi-bottom"><span class="tiny-dot cyan-dot"></span><span id="events-caption">Telemetry observations</span></div><span class="kpi-decoration">01</span></article>
+          <article class="kpi-card"><div class="kpi-top"><span>CRITICAL ALERTS</span><span class="kpi-icon red"><svg class="ico"><use href="#ic-alert"></use></svg></span></div><strong class="kpi-value" id="m-critical">—</strong><div class="kpi-bottom"><span class="tiny-dot red-dot"></span><span>Critical severity observations</span></div><span class="kpi-decoration">02</span></article>
+          <article class="kpi-card"><div class="kpi-top"><span>ACTIVE INCIDENTS</span><span class="kpi-icon orange"><svg class="ico"><use href="#ic-shield"></use></svg></span></div><strong class="kpi-value" id="m-incidents">—</strong><div class="kpi-bottom"><span class="tiny-dot orange-dot"></span><span>Open & investigating cases</span></div><span class="kpi-decoration">03</span></article>
+          <article class="kpi-card"><div class="kpi-top"><span>DATA SOURCES</span><span class="kpi-icon purple"><svg class="ico"><use href="#ic-radar"></use></svg></span></div><strong class="kpi-value" id="m-sources">—</strong><div class="kpi-bottom"><span class="tiny-dot green-dot"></span><span>Reporting in selected interval</span></div><span class="kpi-decoration">04</span></article>
+        </section>
+
+        <section class="primary-grid" id="threat-map">
+          <article class="panel map-panel">
+            <div class="panel-head"><div><div class="section-kicker">GEO-SPATIAL INTELLIGENCE</div><h2>Global Threat Landscape <span class="live-pill"><span class="pulse-led"></span>OBSERVATIONS</span></h2></div><span class="panel-corner-icon"><svg class="ico"><use href="#ic-globe"></use></svg></span></div>
+            <div class="map-canvas" id="map-canvas">
+              <svg viewBox="0 0 1000 500" id="world-map" role="img" aria-label="World map with observed event markers where coordinates are provided">
+                <defs><pattern id="map-grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="#20364a" stroke-width=".6"/></pattern><radialGradient id="map-gradient"><stop offset="0" stop-color="#102c44"/><stop offset="1" stop-color="#081625"/></radialGradient></defs>
+                <rect width="1000" height="500" fill="url(#map-gradient)"/><rect width="1000" height="500" fill="url(#map-grid)" opacity=".65"/>
+                <g class="map-land">
+                  <path d="M42 103 65 78 113 65 137 47 177 57 192 83 214 79 244 106 230 130 217 145 226 165 213 196 190 208 174 188 160 171 147 181 132 203 117 193 104 158 83 153 62 132ZM132 46 173 25 209 35 227 58 205 79 176 57Z"/>
+                  <path d="M195 222 230 208 260 227 282 260 269 287 276 309 259 345 253 376 235 414 222 435 209 403 210 365 201 338 196 309 178 273Z"/>
+                  <path d="M441 124 461 104 489 101 503 115 495 137 516 153 504 175 481 181 468 165 450 160Z"/>
+                  <path d="M465 188 492 171 532 190 549 219 553 265 532 305 508 345 484 370 473 340 468 292 452 258 451 226Z"/>
+                  <path d="M498 112 526 85 552 65 593 72 612 58 658 69 681 87 712 73 749 83 774 108 807 109 839 129 878 139 880 165 858 180 832 176 817 191 785 185 767 205 740 203 710 224 695 249 672 246 653 221 640 186 622 175 608 196 577 189 559 169 542 179 519 151Z"/>
+                  <path d="M696 240 712 246 721 268 742 279 749 311 728 316 712 295 697 281Z"/>
+                  <path d="M786 307 816 297 850 314 882 332 892 359 870 379 843 375 824 391 798 375 786 346Z"/>
+                  <path d="M904 378 926 374 942 395 920 403Z"/>
+                  <path d="M366 32 374 26 394 39 387 71 369 75Z"/>
+                </g>
+                <g id="map-markers"></g>
+                <g class="map-crosshair"><path d="M500 0v500M0 250h1000"/></g>
+              </svg>
+              <div class="map-coord">GEO / WORLDWIDE <span>WGS84</span></div>
+              <div id="map-tooltip" class="map-tooltip" hidden></div>
+              <div class="map-overlay"><span class="map-overlay-led"></span><strong id="map-overlay-count">0</strong> geolocated observations</div>
+            </div>
+            <div class="map-foot"><div class="legend"><span><i class="legend-dot crit"></i>Critical</span><span><i class="legend-dot hi"></i>High</span><span><i class="legend-dot med"></i>Medium</span><span><i class="legend-dot low"></i>Low</span></div><span id="geo-caption" class="map-attribution">Coordinates are hints; not verified origin</span></div>
+          </article>
+          <article class="panel feed-panel">
+            <div class="panel-head"><div><div class="section-kicker">EVENT STREAM</div><h2>Live Activity <span id="feed-count" class="subdued-count">00</span></h2></div><button class="link-button" id="feed-refresh">Refresh <svg class="ico"><use href="#ic-arrow"></use></svg></button></div>
+            <div id="event-feed" class="event-feed"><div class="loading-copy">Loading observations…</div></div>
+            <div class="panel-tail"><span class="tiny-dot green-dot"></span><span id="feed-caption">Awaiting telemetry</span><span class="panel-tail-right">UTC</span></div>
+          </article>
+        </section>
+
+        <section class="analytics-grid" id="analytics">
+          <article class="panel chart-panel">
+            <div class="panel-head"><div><div class="section-kicker">OBSERVATION FREQUENCY</div><h2>Detection Volume</h2></div><span class="panel-top-aside">HOURLY · UTC</span></div>
+            <div id="trend-chart" class="trend-chart" role="img" aria-label="Bar chart of hourly observations"></div>
+            <div class="chart-footer"><span id="trend-left">—</span><span class="chart-footer-center"><span class="tiny-dot cyan-dot"></span> EVENTS PER HOUR</span><span id="trend-right">—</span></div>
+          </article>
+          <article class="panel distribution-panel">
+            <div class="panel-head"><div><div class="section-kicker">TRIAGE OVERVIEW</div><h2>Severity Distribution</h2></div><span class="panel-top-aside">CURRENT WINDOW</span></div>
+            <div id="severity-bars" class="severity-bars"></div>
+            <div id="severity-note" class="distribution-note">Based on sensor severity classifications.</div>
+          </article>
+        </section>
+
+        <section class="panel cases-panel" id="incidents">
+          <div class="panel-head cases-head"><div><div class="section-kicker">INCIDENT RESPONSE</div><h2>Active Investigations <span id="case-count" class="subdued-count">00</span></h2></div><div class="header-actions"><label class="filter-select">STATUS <select id="incident-filter"><option value="active">Active incidents</option><option value="all">All incidents</option><option value="resolved">Resolved</option><option value="contained">Contained</option></select></label><button class="btn-outline" id="incident-refresh"><svg class="ico"><use href="#ic-refresh"></use></svg> Refresh</button></div></div>
+          <div class="table-scroll"><table><thead><tr><th>CASE ID</th><th>INCIDENT / TARGET</th><th>SEVERITY</th><th>RISK SCORE</th><th>STATUS</th><th>REPORTED</th><th>ACTIONS</th></tr></thead><tbody id="incident-table"><tr><td colspan="7" class="empty-cell">Loading incident cases…</td></tr></tbody></table></div>
+          <div class="table-bottom"><span>All actions update case records only. No endpoint isolation or blocking is executed.</span><span id="case-footer">—</span></div>
+        </section>
+
+        <section class="intel-ai-grid">
+          <article class="panel intel-panel" id="intelligence">
+            <div class="panel-head"><div><div class="section-kicker">AUTHORITATIVE INTELLIGENCE</div><h2>Known Exploited Vulnerabilities</h2></div><a class="external-link" href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer">CISA SOURCE ↗</a></div>
+            <div class="intel-hint">Verified exploitation catalog · not a real-time global attack count</div>
+            <div id="kev-list" class="kev-list"><div class="loading-copy">Syncing vulnerability intelligence…</div></div>
+            <div class="panel-tail"><span id="intel-updated">Last sync: pending</span><span class="panel-tail-right">CISA KEV</span></div>
+          </article>
+          <article class="panel ai-panel" id="copilot">
+            <div class="panel-head"><div><div class="section-kicker">HUMAN-IN-THE-LOOP INTELLIGENCE</div><h2>AEGIS AI Copilot <span class="ai-spark">✦</span></h2></div><span class="ai-annotation" id="ai-state">CHECKING</span></div>
+            <div class="ai-hero"><span class="ai-orb"><svg class="ico"><use href="#ic-cpu"></use></svg></span><div><strong>Your security analysis partner</strong><p>Summarize case evidence, assess risks and build analyst-ready reports. Recommendations remain advisory.</p></div></div>
+            <div class="ai-capabilities"><div><span class="cap-icon">01</span><span>Threat correlation & prioritization</span><svg class="ico"><use href="#ic-check"></use></svg></div><div><span class="cap-icon">02</span><span>Incident report generation</span><svg class="ico"><use href="#ic-check"></use></svg></div><div><span class="cap-icon">03</span><span>Shift handover intelligence brief</span><svg class="ico"><use href="#ic-check"></use></svg></div><div><span class="cap-icon">04</span><span>Human-approved response guidance</span><svg class="ico"><use href="#ic-check"></use></svg></div></div>
+            <button class="btn-primary" id="generate-brief"><svg class="ico"><use href="#ic-bolt"></use></svg> Generate Shift Brief <svg class="ico right-arrow"><use href="#ic-arrow"></use></svg></button>
+            <div class="ai-report-wrap" id="ai-report-wrap" hidden><div class="ai-report-heading">ANALYST BRIEF <button id="copy-brief" class="small-action">Copy</button></div><pre id="ai-report"></pre></div>
+            <div class="ai-disclaimer"><svg class="ico"><use href="#ic-lock"></use></svg> AI outputs may be inaccurate. No autonomous destructive actions.</div>
+          </article>
+        </section>
+
+        <section class="panel automation-panel" id="automation">
+          <div class="panel-head"><div><div class="section-kicker">AUTOMATED SECURITY OPERATIONS</div><h2>Orchestration & Audit Trail</h2></div><span class="policy-pill"><svg class="ico"><use href="#ic-lock"></use></svg> APPROVAL-GATED RESPONSE</span></div>
+          <div class="automation-grid"><div><h3>Operational Engines</h3><div id="job-list" class="job-list"><div class="loading-copy">Checking worker status…</div></div></div><div><div class="audit-head"><h3>Recent Audit Events</h3><span class="audit-count" id="audit-count">—</span></div><div id="audit-list" class="audit-list"><div class="loading-copy">Loading audit log…</div></div></div></div>
+        </section>
+
+        <footer class="footer"><span><span class="footer-brand">AEGIS<span>.</span></span> GLOBAL SECURITY OPERATIONS CENTER</span><span>ENGINEERED FOR VISIBILITY. BUILT FOR DEFENSE.</span><span>v1.0 · <span id="footer-mode">DEMO</span></span></footer>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="settings-dialog" class="settings-dialog" aria-labelledby="settings-title">
+    <form method="dialog" class="settings-form">
+      <div class="dialog-head"><div><div class="section-kicker">OPERATOR ACCESS</div><h2 id="settings-title">Connection Settings</h2></div><button class="dialog-close" value="cancel" aria-label="Close settings">×</button></div>
+      <p>For LIVE mode, enter the operator API key configured on the server. It is held only for this browser tab's session and is never added to the URL.</p>
+      <label for="api-key">OPERATOR API KEY</label>
+      <input id="api-key" type="password" placeholder="Paste your SOC_API_KEY" autocomplete="off" spellcheck="false">
+      <div class="dialog-actions"><button type="button" id="clear-key" class="btn-outline">Clear key</button><button type="button" id="save-key" class="btn-primary">Save for session</button></div>
+      <div class="dialog-foot">Secure the service behind TLS and OIDC/MFA before exposing it outside a trusted network.</div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

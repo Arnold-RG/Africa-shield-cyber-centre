@@ -1,0 +1,20 @@
+services:
+  aegis-soc:
+    build: .
+    container_name: aegis-global-soc
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080"
+    env_file: .env
+    volumes:
+      - soc_data:/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 160
+volumes:
+  soc_data:

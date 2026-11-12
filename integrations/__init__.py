@@ -1,0 +1,1 @@
+"""Reference telemetry adapters for authorized sensors."""

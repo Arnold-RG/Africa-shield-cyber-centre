@@ -1,24 +1,14 @@
-# Security Policy
+# Security policy
 
-## Supported versions
+Do not place API keys, logs containing personal data, or unredacted incident evidence in a Git commit or issue.
 
-Security updates apply to the latest commit on the default branch of this repository.
+- LIVE mode refuses to start unless separate strong admin and collector keys are configured.
+- Run behind TLS with SSO, WAF, rate limiting, network segmentation and secret management before public deployment.
+- The bundled admin token is a prototype operator gate, not a substitute for enterprise OIDC/RBAC/MFA.
+- Collector credentials are independent of the operator credential; ingestion is bounded and schema validated.
+- The AI capability is advisory. It cannot execute containment, delete data, or change infrastructure.
+- Observed attacks are limited to telemetry actually ingested. CISA KEV is vulnerability intelligence, not a global live attack counter.
+- Rotate keys, set retention policies, and do not send secrets/regulated data to AI.
+- Keep dependencies patched; establish audit log export to immutable storage for production.
 
-## Reporting a vulnerability
-
-Email **rurangwaarnold32@gmail.com** with:
-
-- Repository name and affected URL/path
-- Description and impact
-- Steps to reproduce (proof of concept if available)
-
-Please do **not** open a public issue for unpatched vulnerabilities.
-
-We aim to acknowledge reports within 7 days and publish a fix or mitigation when confirmed.
-
-## Practice
-
-- No secrets in source; use `.env.example` only
-- Prefer `textContent` over `innerHTML` for untrusted data
-- External links use `rel="noopener noreferrer"`
-- Dependabot / Actions least privilege where applicable
+For vulnerabilities, contact the repository owner privately rather than publishing exploits.
