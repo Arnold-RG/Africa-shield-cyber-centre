@@ -21,9 +21,9 @@ jobs:
         env:
           SOC_MODE: demo
           SOC_DB_PATH: /tmp/aegis-ci.db
-        run: pytest -q
+        run: python -m pytest -q
       - name: Compile Python
-        run: python -m compileall -q app
+        run: python -m compileall -q app integrations
   container:
     runs-on: ubuntu-latest
     timeout-minutes: 15
