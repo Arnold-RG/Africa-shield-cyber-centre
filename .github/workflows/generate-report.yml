@@ -1,0 +1,42 @@
+name: Generate SOC report
+
+on:
+  workflow_dispatch:
+    inputs:
+      use_llm:
+        description: "Try the optional LLM hook if OPENAI_API_KEY is configured"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate report from the current snapshot
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ "${{ inputs.use_llm }}" = "true" ]; then
+            python3 scripts/analyze.py --llm
+          else
+            python3 scripts/analyze.py --no-llm
+          fi
+      - name: Commit the report on main
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/reports
+          if git diff --staged --quiet; then
+            echo "Report unchanged"
+          else
+            git commit -m "Update the SOC analyst report"
+            git push
+          fi

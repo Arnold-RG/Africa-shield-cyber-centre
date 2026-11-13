@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="WorldShield SOC: near-real-time cached threat activity from public feeds. Not a live attack stream.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+<title>WorldShield SOC</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/soc.css">
+</head>
+<body>
+<a class="skip" href="#kpis">Skip to overview</a>
+<a class="skip skip-2" href="#ioc-table">Skip to indicator table</a>
+<header class="top">
+  <div class="brand">
+    <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
+      <rect x="2" y="2" width="44" height="44" fill="none" stroke="currentColor"/>
+      <path d="M24 9 L36 15.5 V27 C36 34 24 39 24 39 C24 39 12 34 12 27 V15.5 Z" fill="none" stroke="currentColor"/>
+      <ellipse cx="24" cy="24" rx="9" ry="4.5" fill="none" stroke="currentColor"/>
+      <path d="M24 19.5 V28.5 M19 24 H29" fill="none" stroke="currentColor"/>
+    </svg>
+    <div>
+      <p class="kicker">WorldShield</p>
+      <h1 id="title">SOC dashboard</h1>
+    </div>
+  </div>
+  <div class="status">
+    <p id="label" class="label">Loading the cache…</p>
+    <p id="cache-note" class="note"></p>
+    <p id="fetched" class="stamp"></p>
+  </div>
+  <div class="tools">
+    <p id="health" class="health" aria-label="Feed health"></p>
+    <button type="button" id="view-toggle" aria-pressed="false">2D map</button>
+  </div>
+</header>
+<p id="banner" class="banner" hidden></p>
+<section id="kpis" class="kpis" aria-label="Key figures from this cache"></section>
+<main class="layout">
+  <section class="rail" aria-label="Filters and feeds">
+    <div class="filters">
+      <label>Feed <select id="filter-feed"><option value="all">All feeds</option></select></label>
+      <label>Type <select id="filter-type"><option value="all">All types</option></select></label>
+      <label>Country <select id="filter-country"><option value="all">All countries</option></select></label>
+      <label>Severity <select id="filter-severity"><option value="all">All severities</option></select></label>
+      <label>Family <select id="filter-family"><option value="all">All families</option></select></label>
+      <label>Search indicators <input id="filter-search" type="search" spellcheck="false" placeholder="IP, URL, hash, CVE, ASN" autocomplete="off"></label>
+    </div>
+    <h2>Feeds</h2>
+    <ul id="feeds" class="feeds"></ul>
+  </section>
+  <section class="stage-wrap" aria-label="Global map of reported origins and infrastructure">
+    <div id="stage" class="stage" role="img" aria-labelledby="view-note"></div>
+    <div class="legend" id="legend"></div>
+    <p id="view-note" class="view-note"></p>
+  </section>
+  <section class="rail" aria-label="Rankings">
+    <h2>In this cache</h2>
+    <p class="note">These totals are the cached parse. Filters do not change them.</p>
+    <div id="counters" class="counters"></div>
+    <h2>Top source countries</h2>
+    <p class="note">DShield source addresses located in the country. About the last 30 days of sensor reports, not a live attack count, and not a victim ranking.</p>
+    <ol id="sources" class="rank"></ol>
+    <h2>Top target countries</h2>
+    <p id="targets-note" class="note"></p>
+    <ol id="targets" class="rank"></ol>
+  </section>
+</main>
+<section class="panels" aria-label="ASNs, families, and vulnerabilities">
+  <div>
+    <h2>Autonomous systems</h2>
+    <p class="note">ASNs published by the feeds or listed by Spamhaus ASN-DROP. Not inferred by this dashboard.</p>
+    <ol id="asns" class="rank"></ol>
+  </div>
+  <div>
+    <h2>Malware families</h2>
+    <p class="note">Family names as published by the feeds, mainly ThreatFox and Feodo Tracker.</p>
+    <ul id="families" class="types"></ul>
+    <h2>Threat types</h2>
+    <ul id="types" class="types"></ul>
+  </div>
+  <div>
+    <h2>Known exploited vulnerabilities</h2>
+    <p class="note">CISA catalog entries. They are not drawn on the globe. “Ransomware” is CISA’s published campaign-use flag.</p>
+    <ul id="kev" class="kev"></ul>
+  </div>
+</section>
+<section class="report-wrap" aria-labelledby="analyst-heading">
+  <h2 id="analyst-heading">SOC analyst report</h2>
+  <div id="report" class="report">
+    <p class="note">The rule-based report is generated from this snapshot. It is not a live briefing.</p>
+  </div>
+</section>
+<section class="timeline-wrap" aria-label="24 hour timeline">
+  <div class="timeline-head">
+    <h2>24 hour timeline</h2>
+    <p id="timeline-note" class="note"></p>
+  </div>
+  <svg id="chart" role="img" aria-labelledby="chart-title"></svg>
+  <p id="chart-title" class="sr"></p>
+</section>
+<section class="table-wrap" aria-label="Indicator search and table">
+  <div class="table-head">
+    <h2 id="ioc-table">Indicator table</h2>
+    <p id="sample-note" class="note"></p>
+    <p id="severity-note" class="note"></p>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <caption class="sr">Cached indicators matching the current filters</caption>
+      <thead>
+        <tr>
+          <th scope="col">Observed</th>
+          <th scope="col">Severity</th>
+          <th scope="col">Feed</th>
+          <th scope="col">Type</th>
+          <th scope="col">Indicator</th>
+          <th scope="col">Family</th>
+          <th scope="col">Country</th>
+          <th scope="col">ASN</th>
+        </tr>
+      </thead>
+      <tbody id="events"></tbody>
+    </table>
+  </div>
+  <p id="table-page" class="pager"></p>
+</section>
+<section id="detail" class="detail" aria-live="polite">
+  <h2>Detail</h2>
+  <p class="note">Select a country, a row, or a report.</p>
+</section>
+<footer class="foot">
+  <p id="credit"></p>
+  <p class="byline">WorldShield SOC, by Vira. A near-real-time cached snapshot of public threat feeds, not a live attack stream.</p>
+  <ul id="licences"></ul>
+</footer>
+<noscript><p class="banner">This dashboard needs JavaScript to draw the globe and read the local cache.</p></noscript>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

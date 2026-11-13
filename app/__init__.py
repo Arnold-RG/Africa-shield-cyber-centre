@@ -1,1 +1,0 @@
-"""AEGIS Global SOC backend."""

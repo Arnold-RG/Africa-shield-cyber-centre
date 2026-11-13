@@ -1,0 +1,44 @@
+name: Refresh public feeds and SOC report
+
+on:
+  schedule:
+    - cron: "17,47 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch public feeds into the cache
+        env:
+          ABUSECH_AUTH_KEY: ${{ secrets.ABUSECH_AUTH_KEY }}
+        run: python3 scripts/fetch_feeds.py
+      - name: Generate the rule-based SOC report
+        env:
+          # Optional. Empty when the repository secret is not set.
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python3 scripts/analyze.py
+      - name: Re-check parsers, the report, and the privacy scan
+        run: |
+          python3 -m pip install pytest
+          python3 -m pytest -v
+          python3 scripts/privacy_scan.py
+      - name: Commit the cache and report on main
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/snapshot.json public/data/reports
+          if git diff --staged --quiet; then
+            echo "Cache unchanged"
+          else
+            git commit -m "Update the public feed cache and SOC report"
+            git push
+          fi

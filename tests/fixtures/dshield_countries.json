@@ -1,0 +1,23 @@
+[
+  {
+    "country": "",
+    "targets": 34,
+    "reports": 300,
+    "sources": 2,
+    "persistance": 499
+  },
+  {
+    "country": "US",
+    "targets": 4437892,
+    "reports": 167653477,
+    "sources": 67035,
+    "persistance": 226.4536
+  },
+  {
+    "country": "DE",
+    "targets": 452556,
+    "reports": 25319601,
+    "sources": 6274,
+    "persistance": 202.1777
+  }
+]

@@ -1,14 +1,8 @@
-# Security policy
+# Security
 
-Do not place API keys, logs containing personal data, or unredacted incident evidence in a Git commit or issue.
+WorldShield SOC is a static dashboard over a public-feed cache. It does not collect accounts, and it does not require an API key at browser runtime.
 
-- LIVE mode refuses to start unless separate strong admin and collector keys are configured.
-- Run behind TLS with SSO, WAF, rate limiting, network segmentation and secret management before public deployment.
-- The bundled admin token is a prototype operator gate, not a substitute for enterprise OIDC/RBAC/MFA.
-- Collector credentials are independent of the operator credential; ingestion is bounded and schema validated.
-- The AI capability is advisory. It cannot execute containment, delete data, or change infrastructure.
-- Observed attacks are limited to telemetry actually ingested. CISA KEV is vulnerability intelligence, not a global live attack counter.
-- Rotate keys, set retention policies, and do not send secrets/regulated data to AI.
-- Keep dependencies patched; establish audit log export to immutable storage for production.
-
-For vulnerabilities, contact the repository owner privately rather than publishing exploits.
+- Do not commit secrets. The optional `OPENAI_API_KEY` belongs in a GitHub Actions secret or a local environment variable, never in the repository.
+- The scheduled job talks only to documented public feed URLs.
+- Domain names in indicators are not resolved.
+- Please report vulnerabilities through a private GitHub security advisory. Do not open a public issue for an unpatched vulnerability.

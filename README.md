@@ -1,55 +1,93 @@
-# AEGIS / GLOBAL SOC
-### Worldwide security operations command center
+# WorldShield SOC
 
-AEGIS replaces the legacy Africa Shield website with a security-operations-only application. It provides worldwide telemetry visualization, incident case management, authenticated JSON event ingestion, verified CISA KEV intelligence, rule-based auto-triage, operator audit trails, and optional AI-generated investigation briefs.
+A global, static SOC dashboard for **near-real-time cached threat activity from public feeds**. The globe and panels read a cache built by a scheduled job. The browser does not call the feeds, so there is no CORS problem and no API key.
 
-**Truthful data modes**
-- **DEMO (default):** clearly tagged synthetic events. No claim of actual global visibility.
-- **LIVE:** events are real only to the extent that they are submitted by authorized SIEM, EDR, IDS, firewalls or cloud monitoring integrations. Worldwide coverage depends on your sensors and commercial intelligence licenses.
-- **CISA KEV:** an official catalog of vulnerabilities exploited in the wild, updated periodically, **not** a real-time global attack stream.
+This is a cached report. It is not a live attack stream, and it does not invent source-to-target paths. Every snapshot is stamped with the fetch time and, when the publisher provides one, the upstream last-updated time.
 
-## Quick start
+A rule-based SOC analyst writes a Markdown, HTML, and JSON report from the same snapshot into `public/data/reports/`. An optional LLM hook can append a clearly labeled commentary when `OPENAI_API_KEY` is present. The hook is never required, and keys are never committed.
 
-1. Copy .env.example to .env.
-2. To explore, leave SOC_MODE=demo. Run: docker compose up --build -d
-3. Open http://localhost:8080. The backend serves the UI and JSON APIs.
-4. For live mode, set SOC_MODE=live and use unique high-entropy SOC_API_KEY and SOC_INGEST_KEY values (at least 32 characters each), then restart. Paste the admin key in the dashboard Settings screen over HTTPS.
-5. Optionally set SOC_AI_KEY and SOC_AI_MODEL to enable the model-backed assistant. Without a key, the interface clearly reports AI unavailable.
+WorldShield SOC, by Vira.
 
-A reverse proxy with TLS is required for remote use. The sample Compose deployment binds to localhost intentionally.
+## What the globe shows
 
-## Authorized telemetry ingestion
+Amber marks are DShield source addresses located in that country (about the last 30 days of sensor reports). These are **origins of traffic reported to sensors**, not victim countries.
 
-POST /api/v1/ingest with header X-SOC-Ingest-Key: YOUR_INGEST_KEY and JSON:
+Cyan marks are listed infrastructure addresses from URLhaus, ThreatFox, Feodo Tracker, SSLBL, and Spamhaus. The mark sits on a Natural Earth label point, which is a country locator, not a street and not a victim.
 
-{"events":[{"source":"suricata","severity":"high","type":"Brute force","src_ip":"203.0.113.8","country":"US","lat":38.9,"lon":-77.0,"target":"vpn-gateway","summary":"Repeated login failures","confidence":92}]}
+No arc is drawn unless one report names both a source country and a target country. The feeds below do not. DShield's "targets" field is a count of destination addresses worldwide, so it is not ranked as a target country.
 
-Up to 100 events per call. Latitude/longitude and country are attribution hints supplied by your sensor, not proof of attacker origin. Ingesting a high/critical event creates an open incident automatically. Source fingerprints are de-duplicated for one hour to avoid repeated cases. Collector payloads should not contain credentials, full packet captures, or private personal data.
+If `public/data/snapshot.json` is missing or empty, the page loads `public/data/demo.json` and labels every marker, arc, and satellite as simulated demo filler.
 
-## API
+The camera rotates slowly and can be dragged. A phone uses a lighter WebGL render. `prefers-reduced-motion` stops the rotation, particles, and count-up. If WebGL is unavailable, or you open `?view=2d`, the same cache is drawn on a 2D map. `?demo=1` forces the labeled demo.
 
-- GET /health — process health
-- GET /api/status — data mode, capabilities and freshness
-- GET /api/overview?hours=24 — KPI, trend and mapped telemetry
-- GET /api/events?limit=100 — observations
-- GET /api/incidents?limit=100 — incident queue
-- GET /api/intelligence?limit=30 — CISA KEV entries, with authoritative source links
-- GET /api/automation — automation and audit summaries
-- POST /api/incidents/{id}/status — set status to investigating, contained or resolved
-- POST /api/incidents/{id}/analyze — model-backed assessment; requires SOC_AI_KEY
-- POST /api/ai/brief — optional cross-incident shift briefing
-- POST /api/v1/ingest — independent collector credential
+## Feeds
 
-Operator endpoints require X-SOC-API-Key in LIVE mode. All mutations emit audit records. Health and status are public but omit secrets.
+| Feed | What is cached | Licence |
+| --- | --- | --- |
+| [abuse.ch URLhaus](https://urlhaus.abuse.ch/downloads/csv_recent/) | Recent malware URLs. Country comes from an IP literal in the URL. | Free with attribution. [Terms](https://urlhaus.abuse.ch/api/) |
+| [abuse.ch ThreatFox](https://threatfox.abuse.ch/export/json/recent/) | Recent indicators, malware family, and confidence when published. Country only when the indicator contains an IP literal. | Free with attribution. [Terms](https://threatfox.abuse.ch/api/) |
+| [abuse.ch Feodo Tracker](https://feodotracker.abuse.ch/downloads/ipblocklist.json) | Botnet C2 addresses, the country and ASN Feodo publishes for each address. | Free with attribution. [Terms](https://feodotracker.abuse.ch/blocklist/) |
+| [abuse.ch SSLBL](https://sslbl.abuse.ch/blacklist/sslipblacklist.json) | Addresses associated with malicious SSL certificates. | Free with attribution. [Terms](https://sslbl.abuse.ch/blacklist/) |
+| [Spamhaus DROP and EDROP](https://www.spamhaus.org/drop/) | Listed networks. Country is the DB-IP country of the network address. | Use under the Spamhaus terms. This project attributes Spamhaus and does not resell the lists. |
+| [Spamhaus ASN-DROP](https://www.spamhaus.org/drop/asndrop.json) | Listed autonomous systems, used for the ASN panel. | Use under the Spamhaus terms. This project attributes Spamhaus and does not resell the lists. |
+| [SANS ISC DShield](https://isc.sans.edu/api/country/all?json) | Source addresses and reports by source country, plus a short list of top source IPs. | [CC BY-NC-SA 4.0](https://isc.sans.edu/api/). Attribute SANS Technology Institute, Internet Storm Center. Do not resell. |
+| [OpenPhish community feed](https://openphish.com/feed.txt) | Phishing URLs. Country only from an IP literal in the URL. No per-row timestamp. | Free community feed. Attribute OpenPhish. |
+| [CISA Known Exploited Vulnerabilities](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json) | Catalog entries in a side panel. Not placed on the globe. | US government work, public domain. |
 
-## What is automated?
+IP countries that a feed does not already publish come from [DB-IP Country Lite](https://db-ip.com/db/lite.php), **CC BY 4.0**. IP geolocation by [DB-IP](https://db-ip.com).
 
-New events are validated, stored, de-duplicated, scored, and elevated to cases when they meet high/critical severity; CISA KEV synchronizes on a bounded interval. AI generates human-readable analyses on operator request, not autonomous infrastructure changes. The frontend refreshes on a configurable short interval, but network latency and upstream feed delays prevent zero-delay guarantees.
+Country outlines are Natural Earth 110m, public domain. The 3D view is [Three.js](https://github.com/mrdoob/three.js/) r170, MIT, vendored under `public/vendor/` so the page does not call a CDN.
 
-## Production work remaining
+URLhaus and ThreatFox retired their keyless downloads in 2025–2026 (HTTP 410). They can be re-enabled by setting the environment variable `ABUSECH_AUTH_KEY` (a free key from [auth.abuse.ch](https://auth.abuse.ch/)) or a GitHub Actions secret of the same name. The key is never committed. Without it, those two feeds are marked failed and the rest of the cache still builds.
 
-This is an operational **foundation**, not a finished enterprise SIEM/SOAR platform. Before public or high-scale deployment: PostgreSQL + migrations, queue/worker processing, OIDC/SAML SSO + granular RBAC, tenant isolation, immutable audit sink, event bus and WebSocket/SSE, retention and GDPR controls, integrations to actual sensors, detection-as-code, automated validation, observability, high availability, automated backups, threat-intel licensing, privacy review, rate limiting and load testing. Human approval must gate disruptive playbooks.
+These feeds also need an API key and are not fetched: AbuseIPDB, AlienVault OTX, Cloudflare Radar, GreyNoise, Shodan, VirusTotal.
 
-## Legacy source
+## SOC report
 
-The pre-rebuild site is preserved at the branch archive/pre-global-soc-rebuild-2026-11-12. The suggested GitHub repository name is aegis-global-soc. The app branding is updated; the repository slug must be changed under GitHub repository Settings > General > Repository name if no connected administrative rename action is available.
+`scripts/analyze.py` reads the snapshot and writes:
+
+- `public/data/reports/latest.md`
+- `public/data/reports/latest.html`
+- `public/data/reports/latest.json`
+
+The default analyst is deterministic and rule-based: executive summary, trends, top threats, recommended actions, and method/caveats. It uses only facts already in the snapshot.
+
+If the environment variable `OPENAI_API_KEY` is set, an optional hook may append an "LLM enrichment" section. The rule-based report remains authoritative. The key is never written to a file. Use `--no-llm` to skip the hook, or `--llm` to request it (it still no-ops without a key).
+
+Severity labels on the dashboard are a local triage heuristic (ThreatFox confidence, Feodo C2 role, CISA ransomware use, and similar published fields). They are not vendor scores.
+
+## Freshness
+
+`.github/workflows/refresh-feeds.yml` runs at minute 17 and 47 of every hour, and on demand. It downloads the feeds and DB-IP Country Lite, writes `public/data/snapshot.json`, generates the SOC report, and on `main` commits those files.
+
+`.github/workflows/generate-report.yml` rebuilds the report from the current snapshot, optionally attempting the LLM hook.
+
+`.github/workflows/test.yml` runs pytest and the privacy scan.
+
+`.github/workflows/pages.yml` deploys `public/` to GitHub Pages **only on a push to `main`**. These workflows are stored in the repository. Publishing the site to GitHub Pages is a separate, explicit step.
+
+GitHub does not start a new workflow from a push made with the default token. A scheduled cache commit can land on `main` without the Pages workflow running again. The next push to `main` publishes it. A personal access token, or a deploy step inside the refresh job, would close that gap.
+
+Each feed row shows the upstream timestamp when the file has one, and the header shows when this cache was built.
+
+## Run locally
+
+```bash
+python3 scripts/fetch_feeds.py
+python3 scripts/analyze.py --no-llm
+python3 -m pytest -v
+python3 scripts/privacy_scan.py
+cd public && python3 -m http.server 8765
+```
+
+Open http://127.0.0.1:8765/
+
+Do not put API keys in the repository. See `.env.example`.
+
+## Tests
+
+`tests/test_feeds.py` and `tests/test_analyze.py` check the parsers, the 24 hour window, DB-IP range lookup, severity rules, the rule-based analyst, and that a live snapshot does not invent target countries or arcs. They also check that the demo file is flagged as filler, and that forbidden public names and personal contact details are absent from the site. The privacy scan skips `public/data/snapshot.json` and `public/data/reports/` because those files can contain untrusted feed text.
+
+## Reporting a vulnerability
+
+Please use a private GitHub security advisory on the repository. Do not open a public issue for an unpatched vulnerability.

@@ -1,0 +1,10 @@
+{
+  "metadata": {
+    "last_updated": "2026-10-17 08:00:00",
+    "copyright": "Spamhaus"
+  },
+  "asndrop": [
+    {"asn": 64496, "asname": "EXAMPLE-BOGON", "cc": "US", "rir": "ripe"},
+    {"asn": "AS64497", "asname": "SECOND-AS", "cc": "DE", "rir": "ripe"}
+  ]
+}
